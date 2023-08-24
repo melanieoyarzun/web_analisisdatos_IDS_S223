@@ -1,0 +1,25 @@
+project:
+  type: website
+
+website:
+  title: "Web materiales Análisis de Datos"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+      - href: sesion0_AD_MOW_Slides.qmd
+        text: "Introduccion al curso (slides)"
+      - href: sesion0_AD_MOW.qmd
+        text: "Introduccion al curso (notas)"  
+      - href: sesion1_slides.qmd
+        text: "Sesion 1 (slides)"
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+editor: visual
+

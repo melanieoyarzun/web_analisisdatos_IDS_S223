@@ -1,0 +1,849 @@
+[
+  {
+    "objectID": "sesion0_AD_MOW.html",
+    "href": "sesion0_AD_MOW.html",
+    "title": "Presentación del curso",
+    "section": "",
+    "text": "Hola! Soy Melanie y seré la docente de este curso, en el que aprenderás los fundamentos del análisis de datos, tanto desde una perspectiva teórica como práctica (en Python).\nMe pueden contactar al mail melanie.oyarzun@udd.cl\n\n\n\n\n\n\n\nRevisaremos los objetivos del curso, metodología, calendario y evaluaciones.\nRevisaremos algunos principios de como plantear y responder preguntas con datos\nEn ese contexto, realizaremos un breve repaso a pruebas de hipótesis."
+  },
+  {
+    "objectID": "sesion0_AD_MOW.html#en-la-sesión-de-hoy",
+    "href": "sesion0_AD_MOW.html#en-la-sesión-de-hoy",
+    "title": "Presentación del curso",
+    "section": "",
+    "text": "Revisaremos los objetivos del curso, metodología, calendario y evaluaciones.\nRevisaremos algunos principios de como plantear y responder preguntas con datos\nEn ese contexto, realizaremos un breve repaso a pruebas de hipótesis."
+  },
+  {
+    "objectID": "sesion0_AD_MOW.html#contexto-en-el-programa-de-magister",
+    "href": "sesion0_AD_MOW.html#contexto-en-el-programa-de-magister",
+    "title": "Presentación del curso",
+    "section": "Contexto en el programa de magister",
+    "text": "Contexto en el programa de magister\n\nEsta asignatura se enmarca en la línea de desarrollo de data science.\nEsta asignatura tributa, a través de sus resultados de aprendizaje, a las siguientes competencias del perfil de egreso del Magíster en Data Science:\n\nAplicar teorías, algoritmos, métodos, técnicas y herramientas básicas y avanzadas de Data Science para analizar, resolver y hacer una evaluación crítica de desafíos complejos e interdisciplinarios, utilizando datos internos y externos de las organizaciones.\nComunica efectivamente y argumenta sobre los resultados de su trabajo a públicos especializados y no especializados, de forma oral, escrita y visual, utilizando distintos medios y soportes.\nDemuestra responsabilidad y comportamiento ético, cumpliendo los protocolos y normas que guían su desempeño, en las iniciativas de Data science.\nDemuestra capacidad de aprendizaje continuo, mediante la aplicación de estrategias para utilizar nuevo conocimiento en data science en su ámbito de desempeño."
+  },
+  {
+    "objectID": "sesion0_AD_MOW.html#objetivos-de-la-asignatura-resultados-de-aprendizaje",
+    "href": "sesion0_AD_MOW.html#objetivos-de-la-asignatura-resultados-de-aprendizaje",
+    "title": "Presentación del curso",
+    "section": "Objetivos de la asignatura (resultados de aprendizaje)",
+    "text": "Objetivos de la asignatura (resultados de aprendizaje)\n\nIdentificar las ventajas y desventajas de las herramientas computacionales utilizadas para el análisis de datos, utilizando lenguaje técnico afín.\nRecopilar y limpiar datos, en base a una propuesta de replicabilidad del proceso.\nTransformar y analizar datos, realizando preguntas clave para resolver problemas a partir del contexto en que se desarrollan.\nModelar datos para extraer información y generar conclusiones basadas en evidencia.\nIdentificar las buenas prácticas en el modelamiento de datos."
+  },
+  {
+    "objectID": "sesion0_AD_MOW.html#contenidos",
+    "href": "sesion0_AD_MOW.html#contenidos",
+    "title": "Presentación del curso",
+    "section": "Contenidos",
+    "text": "Contenidos\n\nLimpieza y estructura de datos.\n\nFormateo de datos\nTransformación de datos\nETL\n\nRegresión y predicción.\n\nRegresión lineal múltiple.\nPredicción usando regresión y los peligros de la extrapolación.\nFactores y variables categóricas en una regresión.\nMulticolinealidad, variables de confusión e interacciones.\nDiagnóstico de una regresión y supuestos (outliers, heterocedasticidad, no-normalidad, errores correlacionados y no-linealidad)\nSesgos en los análisis: Paradoja de Simpson, Paradoja de Berkson y Collider Bias.\n\nSeries de tiempo\n\nBúsqueda y reorganización de datos de series de tiempo\nAnálisis de datos exploratorios para series temporales\n\nHistogramas, gráfico de dispersión y métodos exploratorios para series de tiempo\nEstacionariedad y raíz unitaria\nAutocorrelación y correlaciones espurias en series de tiempo\n\nModelos estadísticos para series de tiempo\n\n¿Por qué no utilizar una regresión lineal?\nModelos autorregresivos (AR), ARIMA y Autorregresión vectorial (VAR)\nVentajas y desventajas de los métodos estadísticos para series de tiempo"
+  },
+  {
+    "objectID": "sesion0_AD_MOW.html#evaluación",
+    "href": "sesion0_AD_MOW.html#evaluación",
+    "title": "Presentación del curso",
+    "section": "Evaluación",
+    "text": "Evaluación\nEl curso tendrá dos evaluaciones basadas en el trabajo en clase y refuerzo de los contenidos fuera del horario lectivo.\n\nTalleres de aplicación (30%) Durante las clases se desarrollará un taller que aplique los contenidos desarrollados en cada una de las tres principales unidades. Se pueden trabajar de manera individual, o en grupo de hasta 3 personas.\n\nTaller 1: Limpieza, análisis descriptivo de datosy pruebas de hipótesis (repasa elementos del curso anterior) (sesión 1 - 2)\nTaller 2: Análisis de regresión. (Sesiones  3-4)\nTaller 3: Análisis de serie de tiempo (sesiones 5-6)\n\nLa mayoría del taller se espera lo puedan responder durante la clase, sin embargo tendrán una semana de margen para su entrega. Estos se deben entregar en la plataforma canvas, en PDF (para su evaluación) y en .ipynb/.qmd, que será corroborado que se pueda ejecutar y sea consistente con el pdf. \nEstos se evaluarán de acuerdo a la siguiente rúbrica: [[Rubrica taller de aplicacion]] Una vez sean entregados los talleres, se hará publica una pauta de desarrollo de cada taller.\nProyecto de análisis de datos (70%) Vamos a desarrollar durante el curso un proyecto, en este deben elegir un conjunto de datos, vamos a proponer una pregunta e hipótesis a testear, desarrollar análisis (de regresión o serie de tiempo) y concluir en base a sus resultados obtenidos, mencionando las limitaciones de su análisis. El proyecto se debe realizar en grupos entre 3 a 5 personas.\nEste proyecto se evaluará entonces en base a tres elementos, avance durante la clase (20%), reporte de análisis y resultados (20%)\n\nAvance en clase ( 20% ) Algunos elementos del proyecto serán desarrollados durante tiempo de clase, pero se espera que la profundización sea llevada en el tiempo lectivo dedicado al curso.\n\nRubrica de trabajo en clase (se evalúa al final de la clase)\n\nAsistencia y participación\nPlanteamiento de problemas \nDesarrollo\nResultados, interpretación y conclusiones\n\n\nReporte de análisis y resultados (20%) Deben documentar su análisis de datos mediante un notebook. Este se revisará en si mismo, para fomentar las buenas prácticas y reproducibilidad de su análisis. Rubrica de notebook reporte de análisis\n\n\nEntrega a tiempo\nUso correcto del lenguaje y redacción a nivel profesional\nOrden\nCalidad de código\nConsistencia con presentación\n\n\nPresentación oral final (30%) (rubrica cristian) En la última sesión del curso, cada grupo debe presentar su análisis y resultados . Esta presentación será de 10 minutos por grupo y 5 minutos para preguntas, las cuales serán dirigidas a cada estudiante del grupo."
+  },
+  {
+    "objectID": "sesion0_AD_MOW.html#calendario-por-sesión",
+    "href": "sesion0_AD_MOW.html#calendario-por-sesión",
+    "title": "Presentación del curso",
+    "section": "Calendario por sesión",
+    "text": "Calendario por sesión\n\nResumen:\n\n\n\nTabla\n\nCalendario resumido\n\n\n\n\n\n\n\n\n\n\nSesión\nFecha\nObj. de\naprendizaje\nObjetivos específicos\nContenidos\nActividades Prácticas\n\n\n\n\n1\n19 ago\n1-2\n\nAprender a formular preguntas y plantear hipótesis que puedan ser abordadas mediante el análisis de datos.\nDesarrollar la habilidad de realizar pruebas de hipótesis y comprender la interpretación de sus resultados.\nComprender el papel del proceso de adquisición y a lmacenamiento en un proyecto de análisis de datos.\n\n\nPresentación del curso\nEl proceso de análisis de datos\nFormulación de Preguntas y Hipótesis\nConceptos Básicos de Pruebas de Hipótesis\nDesafíos y Co nsideraciones\n\n\nTaller 1: Plantear\n\nproblemas, importar datos y pruebas de hipótesis\n\nAvance en clase proyecto\n\n\n\n2\n26 ago\n\n\n\n\n\n\n3\n2 sep\n\n\n\n\n\n\n4\n9 sep\n\n\n\n\n\n\n5\n30 sep\n\n\n\n\n\n\n6\n7 oct\n\n\n\n\n\n\n7\n14 oct (28 o ct?)\n\n\n\n\n\n\n\n\n\nDetallado\n\n\n\n\n\n\nSesión 1: Respondiendo Preguntas con datos\n\n\n\n\n\nFecha: 19 agosto\nObjetivos:\n\nAprender a formular preguntas y plantear hipótesis que puedan ser abordadas mediante el análisis de datos.\nDesarrollar la habilidad de realizar pruebas de hipótesis y comprender la interpretación de sus resultados.\nComprender el papel del proceso de adquisición y almacenamiento en un proyecto de análisis de datos.\n\nContenidos:\n\nEl proceso de análisis de datos\n\nPlanteamiento de preguntas\nAdquision y almacenmiento de los datos\nPreparación de los datos\nUna visión general a las metodologías de análisis que veremos en el curso\n\nFormulación de Preguntas y Hipótesis:\n\nImportancia de definir preguntas claras y específicas.\nDiferenciación entre preguntas exploratorias y confirmatorias.\nCreación de hipótesis nulas y alternativas.\n\nHipótesis y Variables:\n\nIdentificación de variables independientes y dependientes.\nRelación entre hipótesis y variables a analizar.\n\nConceptos Básicos de Pruebas de Hipótesis:\n\nDefinición de hipótesis nula y alternativa.\nNiveles de significancia y p-values.\nErrores tipo I y tipo II.\n\nTipos de Pruebas de Hipótesis:\n\nPruebas t para comparación de medias.\nPruebas chi-cuadrado para variables categóricas.\nPruebas ANOVA para comparación de múltiples grupos.\n\nInterpretación de Resultados:\n\nEvaluación de p-values y toma de decisiones.\nSignificación estadística vs. significación práctica.\nComunicación de los resultados de las pruebas de hipótesis.\n\nImportancia de la Adquisición y Almacenamiento de Datos:\n\nGarantía de calidad y fiabilidad en la obtención de datos.\nExploración de diferentes fuentes de datos y su impacto en los resultados.\n[[Metodologias de levantamiento y adquision]]\n\nDesafíos y Consideraciones:\n\nPrivacidad y seguridad de los datos.\nLimpieza y transformación durante la preparación de datos.\n\nReproducibilidad y Control de Versiones (GIT):\n\nImportancia de mantener un registro de los cambios en los datos.\nUso de sistemas de control de versiones como GIT para rastrear cambios.\nAplicación de control de versiones en proyectos de preparación de datos.\n\n\nBibliografia recomendada:\nActividades:\n\nTaller 1 (incluidas en slides 1)\nProyecto clase 1: Conformación de grupos, definición de temas, primeras hipótesis y datos.\n\n\n\n\n\n\n\n\n\n\nSesión 2:Preparando los datos\n\n\n\n\n\nFecha: 19 agosto\nObjetivos:\n\nComprender la importancia del proceso de preparación de datos para el análisis, reconociendo principios y enfoques clave junto con sus ventajas y desventajas.\nDesarrollar habilidades prácticas en la preparación de datos, identificando y abordando problemas comunes como valores faltantes, valores atípicos y formatos inconsistentes, así como enfoques de trabajo eficientes.\n\nContenidos:\n\nEl proceso de preparación de los datos\n\nSignificado y relevancia de la preparación de datos.\nEjemplos reales de cómo la falta de preparación puede afectar los resultados.\n\nPrincipios y enfoques\n\nExtract, Transform, Load (ETL): Proceso fundamental en la preparación de datos.\nData Wrangling: Técnicas para dar forma y estructura a los datos.\nDatos Tidy: Organización y reestructuración para un análisis eficaz.\n\nBuenas Prácticas en la Preparación de Datos\n\nDocumentación y Consistencia\n\nImportancia de la documentación detallada.\nMantener nomenclatura y convenciones consistentes.\n\nValidación y Verificación\n\nValidación cruzada y verificación de integridad.\nCumplir con reglas y restricciones esperadas.\n\nReproducibilidad y Versionado\n\nEntorno de trabajo reproducible (Jupyter Notebooks, R Markdown).\nUtilización de sistemas de control de versiones (GIT).\n\nComunicación y Validación Colaborativa\n\nComunicación clara de pasos y resultados.\nValidación intermedia con colaboradores para feedback.\n\nSeguridad y privacidad de los datos\n\nProblemas comunes presentes en datos\n\nValores faltantes: \n\nEstrategias para manejar valores faltantes.\nDecidir entre imputación, eliminación o conservación.\n\nValores atípicos\nNormalización y estandarización\nErrores de registro Bibliografia recomendada:\n\n\n\n“Practical Statistics for Data Scientists” (Capítulo 2).\n“Doing Data Science” (Capítulo 1).\n\nActividades:\n\nTaller 1: Limpieza y análisis descriptivo de datos en la practica con datos de educación (repasa elementos del curso anterior) (sesión 1)\nProyecto:\n\nInicie el proyecto, cree un documento notebook en el cual van a alojarsu proyecto\nExplorar los datos\nDiagnosticar problemas.\nLa hipótesis que pensamos, ¿tienen variables que pueda concretizarlas? ¿Qué variables usar?"
+  },
+  {
+    "objectID": "sesion0_AD_MOW_Slides.html#un-poco-sobre-mi",
+    "href": "sesion0_AD_MOW_Slides.html#un-poco-sobre-mi",
+    "title": "Presentación del curso",
+    "section": "Un poco sobre mi:",
+    "text": "Un poco sobre mi:"
+  },
+  {
+    "objectID": "sesion0_AD_MOW_Slides.html#en-la-sesión-de-hoy",
+    "href": "sesion0_AD_MOW_Slides.html#en-la-sesión-de-hoy",
+    "title": "Presentación del curso",
+    "section": "En la sesión de hoy:",
+    "text": "En la sesión de hoy:\n\nRevisaremos los objetivos del curso, metodología, calendario y evaluaciones.\nRevisaremos algunos principios de como plantear y responder preguntas con datos\nEn ese contexto, realizaremos un breve repaso a pruebas de hipótesis."
+  },
+  {
+    "objectID": "sesion0_AD_MOW_Slides.html#descripción-del-curso",
+    "href": "sesion0_AD_MOW_Slides.html#descripción-del-curso",
+    "title": "Presentación del curso",
+    "section": "Descripción del curso",
+    "text": "Descripción del curso\n\nEsta asignatura presentará los conceptos básicos de pre-procesamiento y análisis descriptivo de datos.\nEl objetivo principal es poder determinar cuáles datos son susceptibles de ser convertidos en información para apoyar la toma de decisiones, y separar el ruido de la señal."
+  },
+  {
+    "objectID": "sesion0_AD_MOW_Slides.html#descripción-del-curso-1",
+    "href": "sesion0_AD_MOW_Slides.html#descripción-del-curso-1",
+    "title": "Presentación del curso",
+    "section": "Descripción del curso",
+    "text": "Descripción del curso\n\nEs el primer paso en un proyecto de ciencia de datos.\nLos estudiantes aprenderán a identificar\n\nlas problemáticas que presentan los datos desde el momento de su registro (por ej., error muestral, outliers),\nasí como usar las herramientas necesarias para describirlos (por ej., distribuciones e histogramas),"
+  },
+  {
+    "objectID": "sesion0_AD_MOW_Slides.html#descripción-del-curso-2",
+    "href": "sesion0_AD_MOW_Slides.html#descripción-del-curso-2",
+    "title": "Presentación del curso",
+    "section": "Descripción del curso",
+    "text": "Descripción del curso\n\nexplorarlos (por ej., agrupar o filtrar bajo un criterio específico),\ny cruzarlos (por ej., utilizando otras fuentes).\nAsimismo, los estudiantes comprenderán que las etapas de este proceso no son lineales, sino que se benefician del diseño iterativo."
+  },
+  {
+    "objectID": "sesion0_AD_MOW_Slides.html#contexto-en-el-programa-de-magister",
+    "href": "sesion0_AD_MOW_Slides.html#contexto-en-el-programa-de-magister",
+    "title": "Presentación del curso",
+    "section": "Contexto en el programa de magister",
+    "text": "Contexto en el programa de magister\n\nEsta asignatura se enmarca en la línea de desarrollo de data science.\nEsta asignatura tributa, a través de sus resultados de aprendizaje, a las siguientes competencias del perfil de egreso del Magíster en Data Science:\n\nAplicar teorías, algoritmos, métodos, técnicas y herramientas básicas y avanzadas de Data Science para analizar, resolver y hacer una evaluación crítica de desafíos complejos e interdisciplinarios, utilizando datos internos y externos de las organizaciones."
+  },
+  {
+    "objectID": "sesion0_AD_MOW_Slides.html#contexto-en-el-programa-de-magister-1",
+    "href": "sesion0_AD_MOW_Slides.html#contexto-en-el-programa-de-magister-1",
+    "title": "Presentación del curso",
+    "section": "Contexto en el programa de magister",
+    "text": "Contexto en el programa de magister\n\nComunica efectivamente y argumenta sobre los resultados de su trabajo a públicos especializados y no especializados, de forma oral, escrita y visual, utilizando distintos medios y soportes.\nDemuestra responsabilidad y comportamiento ético, cumpliendo los protocolos y normas que guían su desempeño, en las iniciativas de Data science.\nDemuestra capacidad de aprendizaje continuo, mediante la aplicación de estrategias para utilizar nuevo conocimiento en data science en su ámbito de desempeño."
+  },
+  {
+    "objectID": "sesion0_AD_MOW_Slides.html#objetivos-de-la-asignatura",
+    "href": "sesion0_AD_MOW_Slides.html#objetivos-de-la-asignatura",
+    "title": "Presentación del curso",
+    "section": "Objetivos de la asignatura",
+    "text": "Objetivos de la asignatura\nResultados de aprendizaje\n\nIdentificar las ventajas y desventajas de las herramientas computacionales utilizadas para el análisis de datos, utilizando lenguaje técnico afín.\nRecopilar y limpiar datos, en base a una propuesta de replicabilidad del proceso."
+  },
+  {
+    "objectID": "sesion0_AD_MOW_Slides.html#objetivos-de-la-asignatura-1",
+    "href": "sesion0_AD_MOW_Slides.html#objetivos-de-la-asignatura-1",
+    "title": "Presentación del curso",
+    "section": "Objetivos de la asignatura",
+    "text": "Objetivos de la asignatura\nResultados de aprendizaje\n\nTransformar y analizar datos, realizando preguntas clave para resolver problemas a partir del contexto en que se desarrollan.\nModelar datos para extraer información y generar conclusiones basadas en evidencia.\nIdentificar las buenas prácticas en el modelamiento de datos."
+  },
+  {
+    "objectID": "sesion0_AD_MOW_Slides.html#contenidos",
+    "href": "sesion0_AD_MOW_Slides.html#contenidos",
+    "title": "Presentación del curso",
+    "section": "Contenidos",
+    "text": "Contenidos\n\nLimpieza y estructura de datos.\nRegresión y predicción.\nSeries de tiempo"
+  },
+  {
+    "objectID": "sesion0_AD_MOW_Slides.html#contenidos-1",
+    "href": "sesion0_AD_MOW_Slides.html#contenidos-1",
+    "title": "Presentación del curso",
+    "section": "Contenidos",
+    "text": "Contenidos\n1. Limpieza y estructura de datos.\na. Formateo de datos\nb. Transformación de datos\nc. ETL"
+  },
+  {
+    "objectID": "sesion0_AD_MOW_Slides.html#contenidos-2",
+    "href": "sesion0_AD_MOW_Slides.html#contenidos-2",
+    "title": "Presentación del curso",
+    "section": "Contenidos",
+    "text": "Contenidos\n2. Regresión y predicción.\na. Regresión lineal múltiple.\nb. Predicción usando regresión y los peligros de la extrapolación.\nc. Factores y variables categóricas en una regresión.\nd. Multicolinealidad, variables de confusión e interacciones.\ne. Diagnóstico de una regresión y supuestos (outliers, heterocedasticidad, no-normalidad, errores correlacionados y no-linealidad)\nf. Sesgos en los análisis: Paradoja de Simpson, Paradoja de Berkson y Collider Bias."
+  },
+  {
+    "objectID": "sesion0_AD_MOW_Slides.html#contenidos-3",
+    "href": "sesion0_AD_MOW_Slides.html#contenidos-3",
+    "title": "Presentación del curso",
+    "section": "Contenidos",
+    "text": "Contenidos\n3. Series de tiempo\na. Búsqueda y reorganización de datos de series de tiempo\nb. Análisis de datos exploratorios para series temporales\n    i. Histogramas, gráfico de dispersión y métodos exploratorios para series de tiempo\n    ii. Estacionariedad y raíz unitaria\n    iii. Autocorrelación y correlaciones espurias en series de tiempo\nc. Modelos estadísticos para series de tiempo\n    i. ¿Por qué no utilizar una regresión lineal?\n    ii. Modelos autorregresivos (AR), ARIMA y Autorregresión vectorial (VAR)\n    iii. Ventajas y desventajas de los métodos estadísticos para series de tiempo"
+  },
+  {
+    "objectID": "sesion0_AD_MOW_Slides.html#evaluación",
+    "href": "sesion0_AD_MOW_Slides.html#evaluación",
+    "title": "Presentación del curso",
+    "section": "Evaluación",
+    "text": "Evaluación\n\nEl curso tendrá dos evaluaciones basadas en el trabajo en clase y refuerzo de los contenidos fuera del horario lectivo.\n\nTalleres de aplicación (30%)\nProyecto final (70%)\n\nTodas las evaluaciones se realizarán mediante un set de rubricas, publicadas en Canva."
+  },
+  {
+    "objectID": "sesion0_AD_MOW_Slides.html#evaluación-1",
+    "href": "sesion0_AD_MOW_Slides.html#evaluación-1",
+    "title": "Presentación del curso",
+    "section": "Evaluación",
+    "text": "Evaluación\nTalleres de aplicacion (30%)\n\nDurante las clases se desarrollará un taller que aplique los contenidos desarrollados en cada una de las tres principales unidades. Se pueden trabajar de manera individual, o en grupo de hasta 3 personas.\n\nTaller 1: Limpieza, análisis descriptivo de datosy pruebas de hipótesis (repasa elementos del curso anterior) (sesión 1 - 2)\nTaller 2: Análisis de regresión. (Sesiones  3-4)\nTaller 3: Análisis de serie de tiempo (sesiones 5-6)"
+  },
+  {
+    "objectID": "sesion0_AD_MOW_Slides.html#evaluación-2",
+    "href": "sesion0_AD_MOW_Slides.html#evaluación-2",
+    "title": "Presentación del curso",
+    "section": "Evaluación",
+    "text": "Evaluación\nTalleres de aplicacion (30%) (cont.)\n\nLa mayoría del taller se espera lo puedan responder durante la clase, sin embargo tendrán una semana de margen para su entrega. Estos se deben entregar en la plataforma canvas, en PDF (para su evaluación) y en .ipynb/.qmd, que será corroborado que se pueda ejecutar y sea consistente con el pdf. \nstos se evaluarán de acuerdo a la rubrica talleres de aplicacion\nUna vez sean entregados los talleres, se hará publica una pauta de desarrollo de cada taller."
+  },
+  {
+    "objectID": "sesion0_AD_MOW_Slides.html#evaluación-3",
+    "href": "sesion0_AD_MOW_Slides.html#evaluación-3",
+    "title": "Presentación del curso",
+    "section": "Evaluación",
+    "text": "Evaluación\nProyecto de análisis de datos (70%)\n\nVamos a desarrollar durante el curso un proyecto.\nEn este deben elegir un conjunto de datos, a proponer una pregunta e hipótesis a testear, desarrollar análisis (de regresión o serie de tiempo) y concluir en base a sus resultados obtenidos, mencionando las limitaciones de su análisis.\nEl proyecto se debe realizar en grupos entre 3 a 5 personas."
+  },
+  {
+    "objectID": "sesion0_AD_MOW_Slides.html#evaluación-4",
+    "href": "sesion0_AD_MOW_Slides.html#evaluación-4",
+    "title": "Presentación del curso",
+    "section": "Evaluación",
+    "text": "Evaluación\nProyecto de análisis de datos (70%)\nEste proyecto se evaluará entonces en base a tres elementos:\n\nAvance durante la clase (20%)\nReporte de análisis y resultados (20%)\nPresentación oral final (30%)"
+  },
+  {
+    "objectID": "sesion0_AD_MOW_Slides.html#proyecto-de-análisis-de-datos",
+    "href": "sesion0_AD_MOW_Slides.html#proyecto-de-análisis-de-datos",
+    "title": "Presentación del curso",
+    "section": "Proyecto de análisis de datos",
+    "text": "Proyecto de análisis de datos\nAvance en clase ( 20% )\n\nAlgunos elementos del proyecto serán desarrollados durante tiempo de clase, pero se espera que la profundización sea llevada en el tiempo lectivo dedicado al curso.\nNO ES SUFICIENTE PARA TERMINAR EL TRABAJO COMPLETO.\nRubrica de trabajo en clase (se evalúa al final de la clase)\n\nAsistencia y participación\nPlanteamiento de problemas \nDesarrollo\nResultados, interpretación y conclusiones"
+  },
+  {
+    "objectID": "sesion0_AD_MOW_Slides.html#proyecto-de-análisis-de-datos-1",
+    "href": "sesion0_AD_MOW_Slides.html#proyecto-de-análisis-de-datos-1",
+    "title": "Presentación del curso",
+    "section": "Proyecto de análisis de datos",
+    "text": "Proyecto de análisis de datos\nReporte de análisis y resultados (20%)\n\nDeben documentar su análisis de datos mediante un notebook. Este se revisará en si mismo, para fomentar las buenas prácticas y reproducibilidad de su análisis.\nRubrica de notebook reporte de análisis\n\nEntrega a tiempo\nUso correcto del lenguaje y redacción a nivel profesional\nOrden\nCalidad de código\nConsistencia con presentación"
+  },
+  {
+    "objectID": "sesion0_AD_MOW_Slides.html#proyecto-de-análisis-de-datos-2",
+    "href": "sesion0_AD_MOW_Slides.html#proyecto-de-análisis-de-datos-2",
+    "title": "Presentación del curso",
+    "section": "Proyecto de análisis de datos",
+    "text": "Proyecto de análisis de datos\nPresentación oral final (30%)\n\nEn la última sesión del curso, cada grupo debe presentar su análisis y resultados.\nEsta presentación será de 10 minutos por grupo y 5 minutos para preguntas, las cuales serán dirigidas a cada estudiante del grupo."
+  },
+  {
+    "objectID": "sesion0_AD_MOW_Slides.html#calendario-por-sesión",
+    "href": "sesion0_AD_MOW_Slides.html#calendario-por-sesión",
+    "title": "Presentación del curso",
+    "section": "Calendario por sesión:",
+    "text": "Calendario por sesión:"
+  },
+  {
+    "objectID": "sesion0_AD_MOW_Slides.html#calendario-por-sesión-1",
+    "href": "sesion0_AD_MOW_Slides.html#calendario-por-sesión-1",
+    "title": "Presentación del curso",
+    "section": "Calendario por sesión",
+    "text": "Calendario por sesión\n\n\n\n\n\n\n\n\n\n\n\nSesión\nFecha\nObj. de aprendizaje curso\nTema\nContenidos\nActividades Prácticas\n\n\n\n\n1\n19 ago\n1-2\nPlanteando y respondiendo preguntas con datos.\n“0. Presentación del curso 1. El proceso de análisis de datos 2. Formulación de Preguntas y Hipótesis 3. Conceptos Básicos de Pruebas de Hipótesis 4. Desafíos y Consideraciones”\n“Taller 1: Plantear problemas, importar datos y pruebas de hipótesis Avance en clase proyecto”\n\n\n2\n26 ago\n2-5\nPreparando los datos para su análisis\n“1. El proceso de preparación de los datos 2. Principios y enfoque: 3. Buenas Prácticas en la Preparación de Datos 4. Problemas comunes presentes en datos”\n“Taller 1: Limpiar datos y problemas comunes Avance en clase proyecto”\n\n\n3\n2 sep\n3\nIntroducción al análisis de regresión, planteando e interpretando.\n“Regresión lineal múltiple y aplicación. Interpretación de coeficientes y evaluación de modelos. Incorporación de variables categóricas en regresión.”\n“Taller 2: Implementando un análisis de regresión Avance en clase proyecto”\n\n\n4\n9 sep\n4-5\nProfundizando en Análisis de Regresión, Supuestos y Limitaciones\n“Identificación de problemas en la regresión: outliers, heterocedasticidad, no-normalidad. Estrategias para manejar estos problemas. Problema de identificación causal e introducción a estrategias modernas”\n“Taller 2: Diagnóstico de problemas en la regresión con datos reales. Avance en clase proyecto”\n\n\n5\n30 sep\n3\nIntroducción al análisis de series de tiempo\n“Conceptos básicos de series de tiempo. Búsqueda y reorganización de datos temporales. Visualización y exploración inicial de series de tiempo.”\n“Taller 3: Análisis exploratorio de series de tiempo. Avance en clase proyecto”\n\n\n6\n7 oct\n4-5\nProfundizando en Análisis de Regresión, Supuestos y Limitaciones\n“Modelos ARIMA y VAR: conceptos y aplicación. Ventajas y desventajas de los métodos estadísticos para series de tiempo. Causalidad de Granger”\n“Taller 3: Implementación de modelos ARIMA y VAR en Python. Avance en clase proyecto”\n\n\n7\n14ct? ( 28)\n1-2-3-45\nDesarrolla un proyecto de análisis de datos de principio a fin.\n“Repaso de conceptos clave aprendidos en el curso. Aplicación de habilidades en proyecto y presentaciones finales y feedback.”\nPresentaciones finales proyectos\n\n\n\n\n\n\nCurso Análisis de Datos - Sesión 1"
+  },
+  {
+    "objectID": "sesion1_slides.html#el-proceso-de-análisis-de-datos",
+    "href": "sesion1_slides.html#el-proceso-de-análisis-de-datos",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "El proceso de análisis de datos",
+    "text": "El proceso de análisis de datos\n\nVisión general\n\nLas metodologías de análisis que veremos en el curso\nAdquision y almacenmiento de los datos\nPreparación de los datos\n\nPreguntando a los datos\n\nAbstrayendo la realidad.\nPlanteamiento de preguntas.\nEl rol de las hipótesis."
+  },
+  {
+    "objectID": "sesion1_slides.html#respondiendo-desde-los-datos",
+    "href": "sesion1_slides.html#respondiendo-desde-los-datos",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Respondiendo desde los datos",
+    "text": "Respondiendo desde los datos\nPruebas de hipótesis\n\nConceptos Básicos de Pruebas de Hipótesis:\n\nDefinición de hipótesis nula y alternativa.\nNiveles de significancia y p-values.\nErrores tipo I y tipo II.\n\nTipos de Pruebas de Hipótesis:\nInterpretación de Resultados:"
+  },
+  {
+    "objectID": "sesion1_slides.html#buenas-prácticas-en-análisis-de-datos",
+    "href": "sesion1_slides.html#buenas-prácticas-en-análisis-de-datos",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Buenas prácticas en análisis de datos",
+    "text": "Buenas prácticas en análisis de datos\n\nDesafíos y Consideraciones:\n\nPrivacidad y seguridad de los datos.\nLimpieza y transformación durante la preparación de datos.\n\nReproducibilidad y Control de Versiones (GIT):\n\nImportancia de mantener un registro de los cambios en los datos.\nUso de sistemas de control de versiones como GIT para rastrear cambios."
+  },
+  {
+    "objectID": "sesion1_slides.html#el-proceso-de-la-ciencia-de-datos",
+    "href": "sesion1_slides.html#el-proceso-de-la-ciencia-de-datos",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "El proceso de la ciencia de datos",
+    "text": "El proceso de la ciencia de datos\n\nEn el mundo actual, la generación y recopilación de datos se ha vuelto más accesible y significativa que nunca antes.\nEl proceso de transformar estos datos crudos en información útil y significativa es fundamental."
+  },
+  {
+    "objectID": "sesion1_slides.html#el-proceso-de-la-ciencia-de-datos-1",
+    "href": "sesion1_slides.html#el-proceso-de-la-ciencia-de-datos-1",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "El proceso de la ciencia de datos",
+    "text": "El proceso de la ciencia de datos"
+  },
+  {
+    "objectID": "sesion1_slides.html#el-proceso-de-la-ciencia-de-datos-2",
+    "href": "sesion1_slides.html#el-proceso-de-la-ciencia-de-datos-2",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "El proceso de la ciencia de datos",
+    "text": "El proceso de la ciencia de datos\n\n\nEn este curso nos enfocaremos en:\n\nla preparación de los datos\nen análisis mediante modelos de regresión."
+  },
+  {
+    "objectID": "sesion1_slides.html#el-objetivo-dar-valor",
+    "href": "sesion1_slides.html#el-objetivo-dar-valor",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "El objetivo: dar valor",
+    "text": "El objetivo: dar valor\n\nEsto con el objetivo de responder preguntas desde los datos, que provean información valiosa."
+  },
+  {
+    "objectID": "sesion1_slides.html#adquisición-de-datos",
+    "href": "sesion1_slides.html#adquisición-de-datos",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Adquisición de datos:",
+    "text": "Adquisición de datos:\n\nEl primer paso en el proceso de análisis de datos implica la adquisición y el almacenamiento de los datos.\nEsto se refiere a la recolección de los datos necesarios para abordar una pregunta o problema en particular.\nPuede implicar la recopilación de datos de fuentes diversas, como bases de datos, archivos CSV, páginas web o incluso sensores en tiempo real."
+  },
+  {
+    "objectID": "sesion1_slides.html#fuentes-de-datos-comunes-i",
+    "href": "sesion1_slides.html#fuentes-de-datos-comunes-i",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Fuentes de datos comunes I",
+    "text": "Fuentes de datos comunes I\nExisten tantas fuentes de datos, como podríamos imaginar…\n\nEncuestas y Cuestionarios:\n\nDiseño y administración de encuestas para recopilar datos directamente de los participantes.\nPermite obtener información específica y detallada según las preguntas planteadas.\n\nExperimentos Controlados:\n\nDiseño de experimentos para recopilar datos bajo condiciones controladas.\nÚtil para establecer relaciones causales y evaluar efectos de cambios controlados."
+  },
+  {
+    "objectID": "sesion1_slides.html#fuentes-de-datos-comunes-ii",
+    "href": "sesion1_slides.html#fuentes-de-datos-comunes-ii",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Fuentes de datos comunes II",
+    "text": "Fuentes de datos comunes II\n\nObservación y Sensores:\n\nUso de sensores y dispositivos para capturar datos en tiempo real.\nAmpliamente utilizado en aplicaciones IoT (Internet of Things) para monitorizar y recopilar información.\nUtilización de sensores en dispositivos móviles y wearables para recopilar datos de ubicación, salud y actividad.\n\nRecopilación de Datos Existentes:\n\nUtilización de datos ya recopilados y disponibles en bases de datos o fuentes públicas.\nReduce el tiempo y costo de recopilación, pero puede tener limitaciones en términos de calidad y relevancia."
+  },
+  {
+    "objectID": "sesion1_slides.html#fuentes-de-datos-comunes-iii",
+    "href": "sesion1_slides.html#fuentes-de-datos-comunes-iii",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Fuentes de datos comunes III",
+    "text": "Fuentes de datos comunes III\n\nWeb Scraping (Web Scrapping):\n\nExtracción de datos de sitios web utilizando herramientas y técnicas automatizadas.\nPermite recopilar información no estructurada de manera eficiente, pero requiere atención a la ética y términos de uso.\n\nAcceso a APIs (Application Programming Interfaces):\n\nInteracción programática con sistemas y servicios para obtener datos en tiempo real.\nComún en la obtención de datos de redes sociales, información climática, finanzas, entre otros."
+  },
+  {
+    "objectID": "sesion1_slides.html#fuentes-de-datos-comunes-iv",
+    "href": "sesion1_slides.html#fuentes-de-datos-comunes-iv",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Fuentes de datos comunes IV",
+    "text": "Fuentes de datos comunes IV\n\nColaboración y Participación Comunitaria:\n\nColaboración con comunidades y grupos para recopilar datos de manera colectiva.\nPuede ser útil para proyectos de mapeo colaborativo, ciencia ciudadana y recopilación de información local.\n\nData Lakes y Almacenamiento en la Nube:\n\nAlmacenamiento de grandes volúmenes de datos sin estructura definida en sistemas de almacenamiento en la nube.\nFacilita la recopilación y posterior análisis de datos heterogéneos.\nUsualmente se accede a través de querys SQL"
+  },
+  {
+    "objectID": "sesion1_slides.html#proyecto",
+    "href": "sesion1_slides.html#proyecto",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Proyecto",
+    "text": "Proyecto\n\n\n\n\n\n\nDatos disponibles\n\n\n\nEn nuestro proyecto vamos a usar datos de tres posibles fuentes:\n\nDatos públicos sobre educación chilena\nDatos públicos sobre adjudicaciones municipales\nDatos publicos sobre individuos en comunas chilenas (encuesta Casen)\nDatos sobre crecimiento de paises y complejidad económica\n\nVeamos como acceder algunos de estos datos."
+  },
+  {
+    "objectID": "sesion1_slides.html#ejemplo-con-la-encuesta-casen",
+    "href": "sesion1_slides.html#ejemplo-con-la-encuesta-casen",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Ejemplo con la encuesta Casen",
+    "text": "Ejemplo con la encuesta Casen\nDatos públicos\nLa Encuesta de Caracterización Socioeconómica Nacional (CASEN), se realuza en chile:\n\nObjetivo: recopilar información detallada sobre la situación socioeconómica de los hogares y las personas en el país.\n\nEsta encuesta se lleva a cabo de manera periódica y abarca una amplia variedad de temas, como ingresos, educación, empleo, salud, vivienda y otros aspectos.\nSe utiliza para informar políticas públicas, tomar decisiones informadas y analizar la evolución de indicadores sociales a lo largo del tiempo.\n\nSitio Web oficial"
+  },
+  {
+    "objectID": "sesion1_slides.html#encuesta-casen",
+    "href": "sesion1_slides.html#encuesta-casen",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Encuesta Casen",
+    "text": "Encuesta Casen\nEjemplo\n\nSi tenemos los datos alojados en una dependencia, simplemente los cargamos. . . . ::: {.panel-tabset}\n\ncode\n\nimport pandas as pd\n\ndf_casen2020= pd.read_stata(\"https://github.com/melanieoyarzun/taller_seriestiempo_IDS/blob/b0be4e78a8c7a738e41b284a65d350179abbda96/Data/casen_2020_ingresos.dta?raw=true\")\n\ndf_casen2020.head(5)\n\n\n\n\nOutput\n\n\n\n\n\n\n\n\n\nfolio\no\nid_persona\nregion\ncomuna\nzona\nexpr\nedad\nsexo\ntot_per\n...\nesc2\neduc\no1\nyaut\nyauth\nyautcor\nyautcorh\nytrabajocor\nytrabajocorh\nyae\n\n\n\n\n0\n1.101100e+11\n1\n5\nRegión de Tarapacá\nIquique\nUrbano\n67\n34\nMujer\n2\n...\n12.0\nMedia humanista completa\nNo\n220000.0\n300000\n220000.0\n300000\n150000.0\n150000.0\n240586.0\n\n\n1\n1.101100e+11\n2\n6\nRegión de Tarapacá\nIquique\nUrbano\n67\n4\nMujer\n2\n...\nNaN\nSin educación formal\nNaN\n80000.0\n300000\n80000.0\n300000\nNaN\n150000.0\n240586.0\n\n\n2\n1.101100e+11\n2\n31\nRegión de Tarapacá\nIquique\nUrbano\n67\n5\nMujer\n3\n...\nNaN\nBásica incompleta\nNaN\n25000.0\n941583\n25000.0\n941583\nNaN\n891583.0\n439170.0\n\n\n3\n1.101100e+11\n1\n32\nRegión de Tarapacá\nIquique\nUrbano\n67\n45\nHombre\n3\n...\n15.0\nTécnico nivel superior incompleta\nSí\n889500.0\n941583\n889500.0\n941583\n889500.0\n891583.0\n439170.0\n\n\n4\n1.101100e+11\n3\n30\nRegión de Tarapacá\nIquique\nUrbano\n67\n19\nMujer\n3\n...\nNaN\nNo sabe\nNo\n27083.0\n941583\n27083.0\n941583\n2083.0\n891583.0\n439170.0\n\n\n\n\n5 rows × 22 columns\n\n\n\n:::"
+  },
+  {
+    "objectID": "sesion1_slides.html#encuesta-casen-1",
+    "href": "sesion1_slides.html#encuesta-casen-1",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Encuesta Casen",
+    "text": "Encuesta Casen\nEjemplo\n\nUna vez cargados los datos, debemos proceder a su limpieza y exploración, para ser preparados para analizarlos.\nDe esto se tratará la siguiente sesión del curso."
+  },
+  {
+    "objectID": "sesion1_slides.html#datos-desde-la-api-del-banco-mundial",
+    "href": "sesion1_slides.html#datos-desde-la-api-del-banco-mundial",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Datos desde la API del banco mundial",
+    "text": "Datos desde la API del banco mundial\nEjemplo\nOtra opción es que los datos estén en una API:"
+  },
+  {
+    "objectID": "sesion1_slides.html#datos-desde-la-api-del-banco-mundial-1",
+    "href": "sesion1_slides.html#datos-desde-la-api-del-banco-mundial-1",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Datos desde la API del banco mundial",
+    "text": "Datos desde la API del banco mundial\nEjemplo\n\nCodeOutput\n\n\n\n#pandas remote data access support for calls to the World Bank Indicators API\n\nfrom pandas_datareader import data, wb \n# para instalar: conda install pandas-datareader  \n# o  pip install pandas-datareader\n\n#Revisemos que indicadores hay disponibles. \n# En este caso revisare de PIB (GDP en ingés), \n# pero se pueden explorar muchas más opciones.\n\nwb.search('gdp')\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nid\nname\nunit\nsource\nsourceNote\nsourceOrganization\ntopics\n\n\n\n\n688\n6.0.GDP_current\nGDP (current $)\n\nLAC Equity Lab\nGDP is the sum of gross value added by all res...\nb'World Development Indicators (World Bank)'\nEconomy & Growth\n\n\n689\n6.0.GDP_growth\nGDP growth (annual %)\n\nLAC Equity Lab\nAnnual percentage growth rate of GDP at market...\nb'World Development Indicators (World Bank)'\nEconomy & Growth\n\n\n690\n6.0.GDP_usd\nGDP (constant 2005 $)\n\nLAC Equity Lab\nGDP is the sum of gross value added by all res...\nb'World Development Indicators (World Bank)'\nEconomy & Growth\n\n\n691\n6.0.GDPpc_constant\nGDP per capita, PPP (constant 2011 internation...\n\nLAC Equity Lab\nGDP per capita based on purchasing power parit...\nb'World Development Indicators (World Bank)'\nEconomy & Growth\n\n\n1503\nBG.GSR.NFSV.GD.ZS\nTrade in services (% of GDP)\n\nWorld Development Indicators\nTrade in services is the sum of service export...\nb'International Monetary Fund, Balance of Paym...\nEconomy & Growth ; Private Sector ; Trade\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n16626\nUIS.XUNIT.GDPCAP.23.FSGOV\nInitial government funding per secondary stude...\n\nEducation Statistics\nTotal general (local, regional and central, cu...\nb'UNESCO Institute for Statistics'\n\n\n\n16627\nUIS.XUNIT.GDPCAP.23.FSHH\nInitial household funding per secondary studen...\n\nEducation Statistics\nTotal payments of households (pupils, students...\nb'UNESCO Institute for Statistics'\n\n\n\n16628\nUIS.XUNIT.GDPCAP.3.FSGOV\nInitial government funding per upper secondary...\n\nEducation Statistics\nTotal general (local, regional and central, cu...\nb'UNESCO Institute for Statistics'\n\n\n\n16629\nUIS.XUNIT.GDPCAP.5T8.FSGOV\nInitial government funding per tertiary studen...\n\nEducation Statistics\nTotal general (local, regional and central, cu...\nb'UNESCO Institute for Statistics'\n\n\n\n16630\nUIS.XUNIT.GDPCAP.5T8.FSHH\nInitial household funding per tertiary student...\n\nEducation Statistics\nTotal payments of households (pupils, students...\nb'UNESCO Institute for Statistics'\n\n\n\n\n\n540 rows × 7 columns"
+  },
+  {
+    "objectID": "sesion1_slides.html#datos-desde-la-api-del-banco-mundial-2",
+    "href": "sesion1_slides.html#datos-desde-la-api-del-banco-mundial-2",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Datos desde la API del banco mundial",
+    "text": "Datos desde la API del banco mundial\nEjemplo\n\ncoderesults\n\n\n\n# Obtengamos la lista de paises disponibles\ncountries=wb.get_countries()\n\n#Preview primeras filas lista de paises\ncountries[:5]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\niso3c\niso2c\nname\nregion\nadminregion\nincomeLevel\nlendingType\ncapitalCity\nlongitude\nlatitude\n\n\n\n\n0\nABW\nAW\nAruba\nLatin America & Caribbean\n\nHigh income\nNot classified\nOranjestad\n-70.0167\n12.5167\n\n\n1\nAFE\nZH\nAfrica Eastern and Southern\nAggregates\n\nAggregates\nAggregates\n\nNaN\nNaN\n\n\n2\nAFG\nAF\nAfghanistan\nSouth Asia\nSouth Asia\nLow income\nIDA\nKabul\n69.1761\n34.5228\n\n\n3\nAFR\nA9\nAfrica\nAggregates\n\nAggregates\nAggregates\n\nNaN\nNaN\n\n\n4\nAFW\nZI\nAfrica Western and Central\nAggregates\n\nAggregates\nAggregates\n\nNaN\nNaN"
+  },
+  {
+    "objectID": "sesion1_slides.html#datos-desde-la-api-del-banco-mundial-3",
+    "href": "sesion1_slides.html#datos-desde-la-api-del-banco-mundial-3",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Datos desde la API del banco mundial",
+    "text": "Datos desde la API del banco mundial\nEjemplo\n\nObservar que este es un data frame con dos índices: pais y año.\nObtengamos un data frame con los datos de Chile, entre 1980 y 2020.\n\n\ncoderesults\n\n\n\n#sabemos que queremos Chile, asi que busquemos su info\n\ncountries[ countries['name'] == 'Chile' ]\n\n# Descarguemos la data desde la API del banco mundial a un dataframe\n\ndf_GPDpc_Chile = wb.download(\n                    #Use the indicator attribute to identify which indicator or indicators to download\n                    indicator='NY.GDP.PCAP.KD',\n                    #Use the country attribute to identify the countries you want data for\n                    country=['CL'],\n                    #Identify the first year for which you want the data, as an integer or a string\n                    start='1980',\n                    #Identify the last year for which you want the data, as an integer or a string\n                    end=2020\n                )\n\ndf_GPDpc_Chile.info()\n\n\n\n\n\n\n\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nMultiIndex: 41 entries, ('Chile', '2020') to ('Chile', '1980')\nData columns (total 1 columns):\n #   Column          Non-Null Count  Dtype  \n---  ------          --------------  -----  \n 0   NY.GDP.PCAP.KD  41 non-null     float64\ndtypes: float64(1)\nmemory usage: 2.0+ KB"
+  },
+  {
+    "objectID": "sesion1_slides.html#datos-desde-la-api-del-banco-mundial-4",
+    "href": "sesion1_slides.html#datos-desde-la-api-del-banco-mundial-4",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Datos desde la API del banco mundial",
+    "text": "Datos desde la API del banco mundial\nEjemplo\n\ncoderesults\n\n\n\n#Veamos el data frame\ndf_GPDpc_Chile.head()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNY.GDP.PCAP.KD\n\n\ncountry\nyear\n\n\n\n\n\nChile\n2020\n12741.157507\n\n\n2019\n13761.374474\n\n\n2018\n13906.770558\n\n\n2017\n13615.523858\n\n\n2016\n13644.623261"
+  },
+  {
+    "objectID": "sesion1_slides.html#datos-desde-la-api-del-banco-mundial-5",
+    "href": "sesion1_slides.html#datos-desde-la-api-del-banco-mundial-5",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Datos desde la API del banco mundial",
+    "text": "Datos desde la API del banco mundial\nEjemplo\nSi quisieramos, por simplicidad quedarnos solo con el indice del año y reordenar el dataframe:\n\ncoderesults\n\n\n\ndf_GPDpc_Chile.droplevel('country')\n\n\nreversed_df = df_GPDpc_Chile.iloc[::-1] #invertimos el dataframe \nreversed_df= reversed_df.droplevel('country') # removemos el level pais, ya que todo el análisis es para un solo país\nreversed_df.head(5)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNY.GDP.PCAP.KD\n\n\nyear\n\n\n\n\n\n1980\n4694.337113\n\n\n1981\n4928.563103\n\n\n1982\n4322.647868\n\n\n1983\n4047.790234\n\n\n1984\n4154.496068"
+  },
+  {
+    "objectID": "sesion1_slides.html#datos-desde-la-api-del-banco-mundial-6",
+    "href": "sesion1_slides.html#datos-desde-la-api-del-banco-mundial-6",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Datos desde la API del banco mundial",
+    "text": "Datos desde la API del banco mundial\nEjemplo\nAhora, realicemos un grafico rápido con nuestros datos:\n\ncodeplot\n\n\n\n# Graficamos\nax = df_GPDpc_Chile['1980':].plot(legend=False) \nax.set_ylabel(r'GDP')\nax.set_xlabel(r'Año')\n\n\n\n\n\n\n\n\nText(0.5, 0, 'Año')"
+  },
+  {
+    "objectID": "sesion1_slides.html#taller-de-aplicación-1",
+    "href": "sesion1_slides.html#taller-de-aplicación-1",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Taller de aplicación 1",
+    "text": "Taller de aplicación 1\n\n\n\n\n\n\nPregunta 1 - Bajando y formateando datos del Banco Mundial\n\n\nReplique el ejemplo práctico de importar datos desde la API del Banco Mundial y empezar la base para su análisis de series de tiempo.\nImporte la serie de GDP total Y Percapita para otro país serie desde la API del Banco mundial, muestre sus principales características y realice un grafico.\n¿pareciera haber tendencias?"
+  },
+  {
+    "objectID": "sesion1_slides.html#preguntando-a-los-datos",
+    "href": "sesion1_slides.html#preguntando-a-los-datos",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Preguntando a los datos",
+    "text": "Preguntando a los datos\n¿Cómo plantear preguntas y formular hipótesis en el contexto del análisis de datos?\n\nLa formulación de preguntas relevantes que se puedan responder mediante la exploración y el examen de los datos disponibles.\nPueden surgir de la necesidad de resolver un problema, entender un fenómeno o explorar patrones en los datos.\nUn buen planteamiento de preguntas es crucial, ya que guiará todo el proceso de análisis."
+  },
+  {
+    "objectID": "sesion1_slides.html#abstrayendo-la-realidad",
+    "href": "sesion1_slides.html#abstrayendo-la-realidad",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Abstrayendo la realidad",
+    "text": "Abstrayendo la realidad\n\nEl proceso de abstraer la realidad"
+  },
+  {
+    "objectID": "sesion1_slides.html#preguntas-e-hipótesis",
+    "href": "sesion1_slides.html#preguntas-e-hipótesis",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Preguntas e hipótesis:",
+    "text": "Preguntas e hipótesis:\n\nUna hipótesis es una afirmación, verificable con evidencia.\nEn este sentido, para toda pregunta podemos responderla mediante hipótesis.\nPara responder a las preguntas en el contexto de datos, es común formular hipótesis nulas y alternativas."
+  },
+  {
+    "objectID": "sesion1_slides.html#preguntas-e-hipótesis-1",
+    "href": "sesion1_slides.html#preguntas-e-hipótesis-1",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Preguntas e hipótesis:",
+    "text": "Preguntas e hipótesis:\n\nLa hipótesis nula es aquella que propone que algun parámetro toma cierto valor.\nEste generlamente es un punto de verdad.\nSi bien, con datos no podemos corroborar que algo es cierto, si podemos dar evidencia de que no es cierto.\nEn general, planteamos el problema de tal manera que podamos rechazar la hipótesis nula, en favor de otra que llamamos alternatiba."
+  },
+  {
+    "objectID": "sesion1_slides.html#preguntas-e-hipótesis-2",
+    "href": "sesion1_slides.html#preguntas-e-hipótesis-2",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Preguntas e hipótesis:",
+    "text": "Preguntas e hipótesis:\nPrueba de significancia\n\nQuizas, la hipotesis nula más famosa es la prueba de “significancia”.\nEn esta se propone que un parámetro (muchas veces un efecto, o correlación) es 0,\n\nes decir, plantea que no hay efecto o relación entre las variables\nmientras que la hipótesis alternativa sugiere que sí existe una relación o efecto significativo."
+  },
+  {
+    "objectID": "sesion1_slides.html#preguntas-e-hipótesis-3",
+    "href": "sesion1_slides.html#preguntas-e-hipótesis-3",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Preguntas e hipótesis:",
+    "text": "Preguntas e hipótesis:\nUna guía clave para el análisis\n\nSon fundamentales para establecer una base objetiva para el análisis y para evaluar las evidencias encontradas en los datos.\nEl proceso de plantear preguntas y formular hipótesis es el primer paso en el análisis de datos, ya que establece una guía clara para el enfoque y la dirección del trabajo.\nAl identificar preguntas y establecer hipótesis, se crea un marco sólido que orientará la exploración y el análisis de los datos disponibles."
+  },
+  {
+    "objectID": "sesion1_slides.html#taller-de-aplicación-1-1",
+    "href": "sesion1_slides.html#taller-de-aplicación-1-1",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Taller de aplicación 1",
+    "text": "Taller de aplicación 1\n\n\n\n\n\n\nPregunta 2 - Investigando sobre países:\n\n\n\nConsidere que tenemos los datos del banco mundial, del país que selecciono anteriormente, y desea aprender sobre alguna característica de dicho país en el periodo.\nEscriba una pregunta de investigación que se pueda responder con los datos disponibles.\n\n¿Cómo definiria la variable aleatoria relevante?\n¿Qué hipótesis podria responder su pregunta?"
+  },
+  {
+    "objectID": "sesion1_slides.html#respondiendo-desde-los-datos-1",
+    "href": "sesion1_slides.html#respondiendo-desde-los-datos-1",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Respondiendo desde los datos",
+    "text": "Respondiendo desde los datos\nInferencia estadística\nInferencia se refiere al proceso de hacer generalizaciones de una población a partir de una muestra de esa población.\n\nPoblación y Muestra"
+  },
+  {
+    "objectID": "sesion1_slides.html#respondiendo-desde-los-datos-2",
+    "href": "sesion1_slides.html#respondiendo-desde-los-datos-2",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Respondiendo desde los datos",
+    "text": "Respondiendo desde los datos\nInferencia estadística\n\nSi tenemos un sub-conjunto de datos representativos de una población\n\npodemos utilizar métodos estadísticos\npara sacar conclusiones sobre las características\nY propiedades de esa población en su totalidad."
+  },
+  {
+    "objectID": "sesion1_slides.html#respondiendo-desde-los-datos-3",
+    "href": "sesion1_slides.html#respondiendo-desde-los-datos-3",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Respondiendo desde los datos",
+    "text": "Respondiendo desde los datos\nInferencia estadística\n\nEl proceso de inferencia estadística se basa en el principio de que una muestra bien s eleccionada puede proporcionar información valiosa sobre la población en general.\nEl uso de la inferencia estadística es fundamental, especialmente si es impracticable o costoso analizar cada elemento de una población en particular."
+  },
+  {
+    "objectID": "sesion1_slides.html#estadígrafos",
+    "href": "sesion1_slides.html#estadígrafos",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Estadígrafos",
+    "text": "Estadígrafos\nFunciones que aproximan parámetros\n\nEstadigrafos"
+  },
+  {
+    "objectID": "sesion1_slides.html#estadígrafos-1",
+    "href": "sesion1_slides.html#estadígrafos-1",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Estadígrafos",
+    "text": "Estadígrafos\nson variables aleatorias\n\n\n\nDado que por cada muestra que tenemos, vamos a calcular un estadígrafo este es en si mismo una variable aleatoria.\nTiene su propia distribución, media y varianza!"
+  },
+  {
+    "objectID": "sesion1_slides.html#estadígrafos-2",
+    "href": "sesion1_slides.html#estadígrafos-2",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Estadígrafos",
+    "text": "Estadígrafos\nlos más comunes\n\nEstadigrafos más comunes"
+  },
+  {
+    "objectID": "sesion1_slides.html#estadígrafos-y-parámetros",
+    "href": "sesion1_slides.html#estadígrafos-y-parámetros",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Estadígrafos y parámetros",
+    "text": "Estadígrafos y parámetros\nConectados por el Teorema del Límite central\n\nLa distribución de las medias muestrales de una población se aproxima a una distribución normal\nIndependientemente de la forma de la distribución original de la población.\nEste teorema es esencial en inferencia estadística y tiene amplias aplicaciones en análisis de datos y toma de decisiones."
+  },
+  {
+    "objectID": "sesion1_slides.html#estadígrafos-y-parámetros-1",
+    "href": "sesion1_slides.html#estadígrafos-y-parámetros-1",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Estadígrafos y parámetros",
+    "text": "Estadígrafos y parámetros\nConectados por el Teorema del Límite central\n\nLa media muestral se distribuye normal, sin importar la distribución de la variable subyacente"
+  },
+  {
+    "objectID": "sesion1_slides.html#estadígrafos-y-parámetros-2",
+    "href": "sesion1_slides.html#estadígrafos-y-parámetros-2",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Estadígrafos y parámetros",
+    "text": "Estadígrafos y parámetros\nConectados por el Teorema del Límite central\n\n\nFormalmente: \\[ \\bar{x} \\sim_a N\\left(\\mu, \\frac{\\sigma}{\\sqrt{n}}\\right)\\]\n\nSea x con media μ y desviación estándar σ finitas.\n\n\n\nSi tomamos muestras aleatorias de tamaño n de esta población y calculamos la media muestral de cada muestra\nLas medias muestrales se aproximará a una distribución normal con media μ y desviación estándar σ/√n."
+  },
+  {
+    "objectID": "sesion1_slides.html#estadígrafos-y-parámetros-3",
+    "href": "sesion1_slides.html#estadígrafos-y-parámetros-3",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Estadígrafos y parámetros",
+    "text": "Estadígrafos y parámetros\nConectados por el Teorema del Límite central\n\n\nFormalmente: \\[ \\bar{x} \\sim_a N\\left(\\mu, \\frac{\\sigma}{\\sqrt{n}}\\right)\\]\n\n\nCon este teorema, podemos construir inferencia de a partir de {x} indirectamente.\n\nIntervalos de confianza\nPruebas de hipótesis\np-valor"
+  },
+  {
+    "objectID": "sesion1_slides.html#estadígrafos-y-parámetros-4",
+    "href": "sesion1_slides.html#estadígrafos-y-parámetros-4",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Estadígrafos y parámetros",
+    "text": "Estadígrafos y parámetros\nIntervalos de confianza"
+  },
+  {
+    "objectID": "sesion1_slides.html#estadígrafos-y-parámetros-5",
+    "href": "sesion1_slides.html#estadígrafos-y-parámetros-5",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Estadígrafos y parámetros",
+    "text": "Estadígrafos y parámetros\nIntervalos de confianza"
+  },
+  {
+    "objectID": "sesion1_slides.html#estadígrafos-y-parámetros-6",
+    "href": "sesion1_slides.html#estadígrafos-y-parámetros-6",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Estadígrafos y parámetros",
+    "text": "Estadígrafos y parámetros\nIntervalos de confianza\n\nUn intervalo de confianza contiene los posibles valores del estimador, entre un límite inferior y un límite superior, con cierta probabilidad.\nEste intervalo es aleatorio, porque \\(\\bar{y}\\) es diferente en cada muestra."
+  },
+  {
+    "objectID": "sesion1_slides.html#estadígrafos-y-parámetros-7",
+    "href": "sesion1_slides.html#estadígrafos-y-parámetros-7",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Estadígrafos y parámetros",
+    "text": "Estadígrafos y parámetros\nIntervalos de confianza\nMatemáticamente\n\nCon varianza conocida)Con varianza desconocida\n\n\n\\[ P( \\bar{y}-\\frac{1.96\\sigma }{\\sqrt{n}} &lt; \\mu &lt; \\bar{y} + \\frac{1.96\\sigma }{\\sqrt{n}}  ) = 0.95 \\]\n\n\n\\[ (\\bar{y} - \\frac{c\\times S}{\\sqrt{n}}, \\bar{y} + \\frac{c\\times S}{\\sqrt{n}} ) \\]\n\n\n\n\nPara cada muestra podemos construir un intervalo."
+  },
+  {
+    "objectID": "sesion1_slides.html#estadígrafos-y-parámetros-8",
+    "href": "sesion1_slides.html#estadígrafos-y-parámetros-8",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Estadígrafos y parámetros",
+    "text": "Estadígrafos y parámetros\nIntervalos de confianza\n\nCon 20 muestras, tenemos 20 intervalos."
+  },
+  {
+    "objectID": "sesion1_slides.html#estadígrafos-y-parámetros-9",
+    "href": "sesion1_slides.html#estadígrafos-y-parámetros-9",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Estadígrafos y parámetros",
+    "text": "Estadígrafos y parámetros\nIntervalos de confianza - Interpretación\nPensemos en un 95% de confianza (un valor usual):\n\nEsto quiere decir, que si se repitiera este ejercicio muchas veces y construyéramos un intervalo de esta forma…\nel 95% de ellos contendría el verdadero parámetro poblacional.\nNo significa que con 95% de certeza el parámetro está exactamente en estos valores."
+  },
+  {
+    "objectID": "sesion1_slides.html#estadígrafos-y-parámetros-10",
+    "href": "sesion1_slides.html#estadígrafos-y-parámetros-10",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Estadígrafos y parámetros",
+    "text": "Estadígrafos y parámetros\nIntervalos de confianza - Interpretación\n\nAl 95% de confianza con 20 intervalos 19 contendrán el parámetro."
+  },
+  {
+    "objectID": "sesion1_slides.html#estadígrafos-y-parámetros-11",
+    "href": "sesion1_slides.html#estadígrafos-y-parámetros-11",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Estadígrafos y parámetros",
+    "text": "Estadígrafos y parámetros\nPruebas de hipótesis\nUna forma de verificar hipotesis sobre los parámetros es mediante el contraste de hipótesis."
+  },
+  {
+    "objectID": "sesion1_slides.html#estadígrafos-y-parámetros-12",
+    "href": "sesion1_slides.html#estadígrafos-y-parámetros-12",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Estadígrafos y parámetros",
+    "text": "Estadígrafos y parámetros\nPruebas de hipótesis\nEmpezamos suponiendo que hay una distribución conocida para el estadígrafo, centrada en un valor específico."
+  },
+  {
+    "objectID": "sesion1_slides.html#estadígrafos-y-parámetros-13",
+    "href": "sesion1_slides.html#estadígrafos-y-parámetros-13",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Estadígrafos y parámetros",
+    "text": "Estadígrafos y parámetros\nPruebas de hipótesis\nY nos preguntamos, si esto fuea verdad ¿qué tan probable es la muestra que tengo?"
+  },
+  {
+    "objectID": "sesion1_slides.html#estadígrafos-y-parámetros-14",
+    "href": "sesion1_slides.html#estadígrafos-y-parámetros-14",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Estadígrafos y parámetros",
+    "text": "Estadígrafos y parámetros\nPruebas de hipótesis\nLlamamos la hipótesis a probar Ho, y su alternativa H1."
+  },
+  {
+    "objectID": "sesion1_slides.html#estadígrafos-y-parámetros-15",
+    "href": "sesion1_slides.html#estadígrafos-y-parámetros-15",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Estadígrafos y parámetros",
+    "text": "Estadígrafos y parámetros\nErrores y P-valor\nAsociada esta prueba, entonces, hay asociados dos tipos de errores:"
+  },
+  {
+    "objectID": "sesion1_slides.html#estadígrafos-y-parámetros-16",
+    "href": "sesion1_slides.html#estadígrafos-y-parámetros-16",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Estadígrafos y parámetros",
+    "text": "Estadígrafos y parámetros\nErrores y P-valor\n\nSe elige nivel de significancia de contraste (α) = probabilidad de cometer error Tipo I. Típicamente α = 0,01, 0,05, 0,10.\nDefinimos la prueba de hipótesis de significancia como aquella que indica si un estimador \\(\\hat{T}\\) es 0.\n\n\\[ H_0: T =0\\text{ vs }H_1: T \\neq 0 \\]"
+  },
+  {
+    "objectID": "sesion1_slides.html#estadígrafos-y-parámetros-17",
+    "href": "sesion1_slides.html#estadígrafos-y-parámetros-17",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Estadígrafos y parámetros",
+    "text": "Estadígrafos y parámetros\nErrores y P-valor\nEl Valor de probabilidad (ó p-valor) es el nivel probabilidad más alto para el cual no podemos rechazar la hipótesis nula de la prueba de significancia."
+  },
+  {
+    "objectID": "sesion1_slides.html#ejemplo_-peso-de-los-pingüinos-palmer",
+    "href": "sesion1_slides.html#ejemplo_-peso-de-los-pingüinos-palmer",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Ejemplo_ Peso de los Pingüinos Palmer",
+    "text": "Ejemplo_ Peso de los Pingüinos Palmer\n\nLos datos “Palmer Penguins” son un conjunto que detalla medidas morfológicas y características de tres especies de pingüinos: Adelie, Gentoo y Chinstrap.\nRecopilados por el Dr. Bill Link y su equipo. (Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. doi:10.5281/zenodo.3960218, R package version 0.1.0, https://allisonhorst.github.io/palmerpenguins/index.html)"
+  },
+  {
+    "objectID": "sesion1_slides.html#ejemplo-peso-de-los-pingüinos-palmer",
+    "href": "sesion1_slides.html#ejemplo-peso-de-los-pingüinos-palmer",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Ejemplo: Peso de los Pingüinos Palmer",
+    "text": "Ejemplo: Peso de los Pingüinos Palmer\n\n\nimport seaborn as sns\nimport pandas as pd\n\n# Cargar el conjunto de datos \"Penguins\"\npenguins = sns.load_dataset(\"penguins\")\n\npenguins.head()\n\n\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nMale\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nFemale\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nFemale\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nFemale"
+  },
+  {
+    "objectID": "sesion1_slides.html#ejemplo-peso-de-los-pingüinos-palmer-1",
+    "href": "sesion1_slides.html#ejemplo-peso-de-los-pingüinos-palmer-1",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Ejemplo: Peso de los Pingüinos Palmer",
+    "text": "Ejemplo: Peso de los Pingüinos Palmer\nEn el contexto de los pingüinos y el peso de su población, podríamos tomar una muestra de pingüinos y calcular un intervalo de confianza para el peso promedio.\nEsto nos daría una estimación del peso promedio de la población total, junto con la confianza en que este valor estimado es preciso.\nEs importante tener en cuenta que el proceso de inferencia estadística se basa en suposiciones y en el uso adecuado de técnicas estadísticas."
+  },
+  {
+    "objectID": "sesion1_slides.html#ejemplo-peso-de-los-pingüinos-palmer-2",
+    "href": "sesion1_slides.html#ejemplo-peso-de-los-pingüinos-palmer-2",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Ejemplo: Peso de los Pingüinos Palmer",
+    "text": "Ejemplo: Peso de los Pingüinos Palmer\n\nLa elección de la muestra, la interpretación de los resultados y el nivel de confianza seleccionado son aspectos cruciales para realizar inferencias precisas y significativas.\nRelicemos algunos ejemplos de pruebas de hipótesis, sobre el peso de los pingüinos.\nPensemos que nuestra información es la población."
+  },
+  {
+    "objectID": "sesion1_slides.html#ejemplo-peso-de-los-pingüinos-palmer-3",
+    "href": "sesion1_slides.html#ejemplo-peso-de-los-pingüinos-palmer-3",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Ejemplo: Peso de los Pingüinos Palmer",
+    "text": "Ejemplo: Peso de los Pingüinos Palmer\n\nPrimero calcularemos el promedio muestral y lo veremos en el contexto de los datos observados:\n\n\ncodeoutput\n\n\n\nimport matplotlib.pyplot as plt\n#| output: false\n# Calcular el promedio del peso de los pingüinos\npromedio_peso = penguins['body_mass_g'].mean()\n\n# Crear un histograma de la distribución del peso con el promedio\nplt.figure(figsize=(10, 6))\nsns.histplot(data=penguins, x='body_mass_g', bins=20, kde=True)\nplt.axvline(x=promedio_peso, color='red', linestyle='dashed', label='Promedio')\nplt.title('Distribución de Peso de Pingüinos')\nplt.xlabel('Masa Corporal (g)')\nplt.ylabel('Frecuencia')\nplt.legend()\nplt.show()"
+  },
+  {
+    "objectID": "sesion1_slides.html#ejemplo-peso-de-los-pingüinos-palmer-4",
+    "href": "sesion1_slides.html#ejemplo-peso-de-los-pingüinos-palmer-4",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Ejemplo: Peso de los Pingüinos Palmer",
+    "text": "Ejemplo: Peso de los Pingüinos Palmer\n\nNuestra idea de la inferencia, es aprovechar las propiedades del promedio muestral. De que es el promedio muestral el que se distribuye normal, su media es la media poblacional y conocemos sus características.\nPor ejemplo, consideremos que de esta población de pingüinos obtenemos 1000 muestras de 40 individuos cada una.\nSi graficamos sus medias, podremos ver que estas se distribuyen aproximadamente normal.\n\nSi reducimos el tamaño de muestra, más nos alejamos de la distribución normal.\nSi reducimos el número de repeticiones tambieé."
+  },
+  {
+    "objectID": "sesion1_slides.html#ejemplo-peso-de-los-pingüinos-palmer-5",
+    "href": "sesion1_slides.html#ejemplo-peso-de-los-pingüinos-palmer-5",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Ejemplo: Peso de los Pingüinos Palmer",
+    "text": "Ejemplo: Peso de los Pingüinos Palmer\n\ncodePlot\n\n\n\nimport numpy as np\n\n# Definir el tamaño de cada muestra y la cantidad de muestras\ntamano_muestra = 50\ncantidad_muestras = 10000\n\n# Crear una lista para almacenar las medias de cada muestra\nmedias_muestras = []\n\n# Realizar el muestreo y cálculo de medias para cada muestra\nfor _ in range(cantidad_muestras):\n    muestra = np.random.choice(penguins['body_mass_g'], size=tamano_muestra, replace=False)\n    media_muestra = np.mean(muestra)\n    medias_muestras.append(media_muestra)\n\n# Calcular el promedio de los promedios de las muestras\npromedio_promedios = np.mean(medias_muestras)\n\n# Crear el gráfico de las medias de las muestras\nplt.figure(figsize=(10, 6))\nplt.hist(medias_muestras, bins=20, edgecolor='black', alpha=0.7)\nplt.axvline(x=promedio_promedios, color='red', linestyle='dashed', label='Promedio de Promedios')\nplt.title('Distribución de Medias de Muestras')\nplt.xlabel('Media de Muestra de Peso (g)')\nplt.ylabel('Frecuencia')\nplt.legend()\nplt.show()"
+  },
+  {
+    "objectID": "sesion1_slides.html#intervalo-de-confianza",
+    "href": "sesion1_slides.html#intervalo-de-confianza",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Intervalo de confianza",
+    "text": "Intervalo de confianza\nObtengamos una muestra y calculemos un intervalo de confianza:\n\n\nimport seaborn as sns\nimport numpy as np\nimport scipy.stats as stats\n\n#  Obtener una muestra simple de 40 pingüinos\nsample_size = 40\nsample = np.random.choice(penguins[\"body_mass_g\"], size=sample_size)\n\n# Calcular el error estándar de la media muestral\nsample_std = np.std(sample, ddof=1)  # Usar ddof=1 para calcular la desviación estándar muestral\nstandard_error = sample_std / np.sqrt(sample_size)\n\n# Nivel de confianza (por ejemplo, 95%)\nconfidence_level = 0.95\n\n# Calcular el margen de error\nmargin_of_error = stats.t.ppf((1 + confidence_level) / 2, df=sample_size - 1) * standard_error\n\n# Calcular el intervalo de confianza\nsample_mean = np.mean(sample)\nconfidence_interval = (sample_mean - margin_of_error, sample_mean + margin_of_error)\n\nprint(\"Intervalo de Confianza para el Peso:\")\nprint(confidence_interval)\n\n\n\n\n\nEl resultado será un rango de valores dentro del cual es probable que se encuentre el verdadero peso promedio de los pingüinos en la población, con un nivel de confianza del 95%.\n¿Como nos fue? ¿Contiene al verdadero valor?"
+  },
+  {
+    "objectID": "sesion1_slides.html#comparaciones-de-grupos",
+    "href": "sesion1_slides.html#comparaciones-de-grupos",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Comparaciones de grupos",
+    "text": "Comparaciones de grupos\n\nAhora consideremos que tenemos grupos que queremos comparar.\nSi hacemos una grafica de distribución de tamaño por especie y sexo, podriamos empezar a analizar diferencias entre los grupos.\n\n\ncodeTabla\n\n\n\n# Crear la tabla de doble entrada por tipo y sexo de los pinguinos\ntabla_doble_entrada = penguins.groupby(['species', 'sex'])['body_mass_g'].agg(['mean', 'var']).reset_index()\n\n# Renombrar las columnas para mayor claridad\ntabla_doble_entrada.rename(columns={'mean': 'Promedio', 'var': 'Varianza'}, inplace=True)\n\n# Mostrar la tabla de doble entrada\nprint(tabla_doble_entrada)\n\n\n\n\n\n\n\n\n     species     sex     Promedio       Varianza\n0     Adelie  Female  3368.835616   72565.639269\n1     Adelie    Male  4043.493151  120278.253425\n2  Chinstrap  Female  3527.205882   81415.441176\n3  Chinstrap    Male  3938.970588  131143.605169\n4     Gentoo  Female  4679.741379   79286.335451\n5     Gentoo    Male  5484.836066   98068.306011"
+  },
+  {
+    "objectID": "sesion1_slides.html#comparaciones-de-grupos-1",
+    "href": "sesion1_slides.html#comparaciones-de-grupos-1",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Comparaciones de grupos",
+    "text": "Comparaciones de grupos\n\nPodriamos querer saber si el peso es diferente para los pinguinos de la especie Adelie, para diferentes sexos:\nPregunta de Prueba de Hipótesis: ¿Existe una diferencia significativa en el peso promedio entre los pingüinos machos y las pingüinas hembras en la especie “Adelie”?"
+  },
+  {
+    "objectID": "sesion1_slides.html#comparaciones-de-grupos-2",
+    "href": "sesion1_slides.html#comparaciones-de-grupos-2",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Comparaciones de grupos",
+    "text": "Comparaciones de grupos\n\nHipótesis Nula (H0):\nNo hay diferencia significativa en el peso promedio entre los pingüinos machos y las pingüinas hembras en la especie “Adelie”.\nHipótesis Alternativa (H1):\nExiste una diferencia significativa en el peso promedio entre los pingüinos machos y las pingüinas hembras en la especie “Adelie”."
+  },
+  {
+    "objectID": "sesion1_slides.html#comparaciones-de-grupos-3",
+    "href": "sesion1_slides.html#comparaciones-de-grupos-3",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Comparaciones de grupos",
+    "text": "Comparaciones de grupos\n\nPara probar esta hipótesis, podrías utilizar una prueba de hipótesis para comparar las medias de las muestras de peso de los pingüinos machos y hembras en la especie “Adelie”.\n\n\ncodePlot\n\n\n\nimport matplotlib.pyplot as plt\n\n# Cargar el conjunto de datos \"Penguins\"\npenguins = sns.load_dataset(\"penguins\")\n\n# Filtrar los pingüinos de la especie \"Adelie\"\nadelie_penguins = penguins[penguins['species'] == 'Adelie']\n\n# Crear un histograma para la distribución de peso por sexo\nplt.figure(figsize=(10, 6))\nsns.histplot(data=adelie_penguins, x='body_mass_g', hue='sex', bins=20, kde=True)\nplt.title('Distribución de Peso por Sexo para Pingüinos Adelie')\nplt.xlabel('Masa Corporal (g)')\nplt.ylabel('Frecuencia')\nplt.legend(title='Sexo')\nplt.show()"
+  },
+  {
+    "objectID": "sesion1_slides.html#comparaciones-de-grupos-4",
+    "href": "sesion1_slides.html#comparaciones-de-grupos-4",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Comparaciones de grupos",
+    "text": "Comparaciones de grupos\n\nA simple vista podriamos pensar ambos grupos son diferentes.\nEs más claro si dibujamos el promedio muestral observado.\n\n\ncodeplot\n\n\n\n# Crear un gráfico de densidad con líneas de promedio\nplt.figure(figsize=(10, 6))\nsns.kdeplot(data=adelie_penguins, x='body_mass_g', hue='sex', fill=True, common_norm=False)\nplt.axvline(x=adelie_penguins.groupby('sex')['body_mass_g'].mean()['Female'], color='blue', linestyle='dashed', label='Promedio Femenino')\nplt.axvline(x=adelie_penguins.groupby('sex')['body_mass_g'].mean()['Male'], color='orange', linestyle='dashed', label='Promedio Masculino')\nplt.title('Densidad de Peso por Sexo para Pingüinos Adelie')\nplt.xlabel('Masa Corporal (g)')\nplt.ylabel('Densidad')\nplt.legend()\nplt.show()"
+  },
+  {
+    "objectID": "sesion1_slides.html#comparaciones-de-grupos-5",
+    "href": "sesion1_slides.html#comparaciones-de-grupos-5",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Comparaciones de grupos",
+    "text": "Comparaciones de grupos\n\ncodeTest t diferenciaplot\n\n\n\n# Filtrar los pingüinos de la especie \"Adelie\"\nadelie_penguins = penguins[penguins['species'] == 'Adelie']\n\n# Filtrar machos y hembras\nmachos = adelie_penguins[adelie_penguins['sex'] == 'Male']\nhembras = adelie_penguins[adelie_penguins['sex'] == 'Female']\n\n# Realizar la prueba t independiente\nt_statistic, p_value = stats.ttest_ind(machos['body_mass_g'], hembras['body_mass_g'], equal_var=False)\n\n# Imprimir resultados\nprint(\"Estadística t:\", t_statistic)\nprint(\"Valor p:\", p_value)\n\n# Crear un gráfico de comparación de peso\nplt.figure(figsize=(10, 6))\nsns.boxplot(data=[machos['body_mass_g'], hembras['body_mass_g']], palette=['blue', 'pink'])\nplt.title('Comparación de Peso entre Machos y Hembras de Pingüinos Adelie')\nplt.xticks([0, 1], ['Machos', 'Hembras'])\nplt.ylabel('Peso (g)')\nplt.show()\n\n\n\n\n\n\n\n\nEstadística t: 13.126285923485874\nValor p: 6.402319748031793e-26"
+  },
+  {
+    "objectID": "sesion1_slides.html#comparaciones-de-grupos-6",
+    "href": "sesion1_slides.html#comparaciones-de-grupos-6",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Comparaciones de grupos",
+    "text": "Comparaciones de grupos\n\nFinalmente, podriamos querer comparar hembras y machos de diferentes Islas.\nPara esto podriamos usar una prueba ANOVA.\n\n\ncodeANOVA ResultsPlot\n\n\n\nimport seaborn as sns\nimport scipy.stats as stats\n\n# Cargar el conjunto de datos \"Penguins\"\npenguins = sns.load_dataset(\"penguins\")\n\n# Filtrar machos y hembras\nmachos = penguins[penguins['sex'] == 'Male']\nhembras = penguins[penguins['sex'] == 'Female']\n\n# Realizar una prueba ANOVA\nresult = stats.f_oneway(machos['body_mass_g'], hembras['body_mass_g'])\n\n# Imprimir resultados\nprint(\"Estadística F:\", result.statistic)\nprint(\"Valor p:\", result.pvalue)\n\n\n\n\n\n\n\n\nEstadística F: 72.96098633250911\nValor p: 4.897246751596325e-16"
+  },
+  {
+    "objectID": "sesion1_slides.html#experimentos-aleatorios-y-pruebas-ab",
+    "href": "sesion1_slides.html#experimentos-aleatorios-y-pruebas-ab",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Experimentos Aleatorios y pruebas A/B",
+    "text": "Experimentos Aleatorios y pruebas A/B\n\nUn experimento estadístico busca establecer relaciones causales entre variables y obtener conclusiones sobre su impacto.\nSe diseñan para manipular variables independientes y observar sus efectos en una variable dependiente.\nLos experimentos controlan y manipulan variables para hacer afirmaciones sólidas sobre relaciones causales.\nLas pruebas A/B son comunes en áreas como marketing y diseño de productos.\nEn una prueba A/B, se comparan dos grupos de muestra (A y B) para evaluar si la variante B produce cambios significativos en una métrica de interés."
+  },
+  {
+    "objectID": "sesion1_slides.html#experimentos-aleatorios-y-pruebas-ab-1",
+    "href": "sesion1_slides.html#experimentos-aleatorios-y-pruebas-ab-1",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Experimentos Aleatorios y pruebas A/B",
+    "text": "Experimentos Aleatorios y pruebas A/B\nCuidados:\n\nPruebas A/B ofrecen evidencia de asociación causal, pero no aseguran causalidad total debido a factores no controlados.\nExperimentos controlados y métodos de diseño sólidos son esenciales para una comprensión completa de la causalidad.\nPruebas A/B son herramientas poderosas para analizar efectos y comparar opciones en condiciones controladas."
+  },
+  {
+    "objectID": "sesion1_slides.html#enunciado",
+    "href": "sesion1_slides.html#enunciado",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Enunciado",
+    "text": "Enunciado\n\nImaginemos que trabajamos en una empresa de e-commerce que vende productos electrónicos y queremos aumentar las ventas en una línea de productos específica, como teléfonos móviles.\nPara ello, decidimos utilizar una promoción de ventas basada en una ruleta lúdica que ofrecerá descuentos a los clientes que la utilicen.\nPara implementar la promoción, primero seleccionamos aleatoriamente un grupo de clientes y les enviamos un correo electrónico"
+  },
+  {
+    "objectID": "sesion1_slides.html#enunciado-1",
+    "href": "sesion1_slides.html#enunciado-1",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Enunciado",
+    "text": "Enunciado\n\nLos clientes son asignados a uno de los siguientes grupos:\n\nControl: no les da una promoción (mala suerte, intentalo otra vez)\nTratamiento 1: 20% de descuento en el producto\n-Tratamiento 2: Un complemento gratuito (carcasa) que tiene un costo para la empresa similar al descuento."
+  },
+  {
+    "objectID": "sesion1_slides.html#creación-de-los-datos",
+    "href": "sesion1_slides.html#creación-de-los-datos",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Creación de los datos",
+    "text": "Creación de los datos\n\ncodeDataframe\n\n\n\nimport numpy as np\nimport pandas as pd\nimport random\n\n#| output: false\n\n# Define una semilla para la generación de números aleatorios\nnp.random.seed(123)\nrandom.seed(123)\n\n# Crear un vector de 200 valores aleatorios para el grupo de control\ncontrol = np.random.choice([\"Control\"], size=200, replace=True)\n\n# Crear un vector de 200 valores aleatorios para el grupo de tratamiento\ntratamiento = np.random.choice([\"Treatment 1\", \"Treatment 2\"], size=100, replace=True, p=[0.7, 0.3])\n\n# Crear un vector de número de compras para cada grupo\ncontrol_compras = np.random.binomial(5, 0.2, size=200)\ntratamiento1_compras = np.random.binomial(5, 0.4, size=100)\ntratamiento2_compras = np.random.binomial(5, 0.6, size=100)\n\n# Combinar los vectores en un DataFrame\ndata = {\n    'grupo': np.concatenate((control, np.repeat(\"Treatment\", 200))),\n    'tipo_tratamiento': np.concatenate((np.repeat(\"Control\", 200), np.repeat([\"Treatment 1\", \"Treatment 2\"], [100, 100]))),\n    'ventas': np.concatenate((control_compras, tratamiento1_compras, tratamiento2_compras))\n}\n\nventas_df = pd.DataFrame(data)\n\n# Verificar el DataFrame\nventas_df\n\n\n\n\n\n\n\n\n\n\ngrupo\ntipo_tratamiento\nventas\n\n\n\n\n0\nControl\nControl\n1\n\n\n1\nControl\nControl\n1\n\n\n2\nControl\nControl\n0\n\n\n3\nControl\nControl\n0\n\n\n4\nControl\nControl\n0\n\n\n...\n...\n...\n...\n\n\n395\nTreatment\nTreatment 2\n1\n\n\n396\nTreatment\nTreatment 2\n2\n\n\n397\nTreatment\nTreatment 2\n1\n\n\n398\nTreatment\nTreatment 2\n3\n\n\n399\nTreatment\nTreatment 2\n2\n\n\n\n\n400 rows × 3 columns\n\n\n\n\n\n\nimport numpy as np\nimport pandas as pd\nimport random\n\n#| echo: false\n\n# Define una semilla para la generación de números aleatorios\nnp.random.seed(123)\nrandom.seed(123)\n\n# Crear un vector de 200 valores aleatorios para el grupo de control\ncontrol = np.random.choice([\"Control\"], size=200, replace=True)\n\n# Crear un vector de 200 valores aleatorios para el grupo de tratamiento\ntratamiento = np.random.choice([\"Treatment 1\", \"Treatment 2\"], size=100, replace=True, p=[0.7, 0.3])\n\n# Crear un vector de número de compras para cada grupo\ncontrol_compras = np.random.binomial(5, 0.2, size=200)\ntratamiento1_compras = np.random.binomial(5, 0.4, size=100)\ntratamiento2_compras = np.random.binomial(5, 0.6, size=100)\n\n# Combinar los vectores en un DataFrame\ndata = {\n    'grupo': np.concatenate((control, np.repeat(\"Treatment\", 200))),\n    'tipo_tratamiento': np.concatenate((np.repeat(\"Control\", 200), np.repeat([\"Treatment 1\", \"Treatment 2\"], [100, 100]))),\n    'ventas': np.concatenate((control_compras, tratamiento1_compras, tratamiento2_compras))\n}\n\nventas_df = pd.DataFrame(data)\n\n# Verificar el DataFrame\nventas_df\n\n\n\n\n\n\n\n\n\n\ngrupo\ntipo_tratamiento\nventas\n\n\n\n\n0\nControl\nControl\n1\n\n\n1\nControl\nControl\n1\n\n\n2\nControl\nControl\n0\n\n\n3\nControl\nControl\n0\n\n\n4\nControl\nControl\n0\n\n\n...\n...\n...\n...\n\n\n395\nTreatment\nTreatment 2\n1\n\n\n396\nTreatment\nTreatment 2\n2\n\n\n397\nTreatment\nTreatment 2\n1\n\n\n398\nTreatment\nTreatment 2\n3\n\n\n399\nTreatment\nTreatment 2\n2\n\n\n\n\n400 rows × 3 columns"
+  },
+  {
+    "objectID": "sesion1_slides.html#taller-de-aplicación-1-2",
+    "href": "sesion1_slides.html#taller-de-aplicación-1-2",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Taller de aplicación 1:",
+    "text": "Taller de aplicación 1:\n\n\n\n\n\n\nPregunta 3 -Ejemplo AB test en Marketing:\n\n\nEstudiemos si la promoción fue efectiva en estos datos. Para esto:\n\nDescriba los resultados de la promocion para los diferentes grupos, en terminos de estadisticas descriptivas.\nCompare visualmente los resultados de los diferentes grupos.\n¿Fue la promocion efectiva? Use una prueba de hipotesis para analizar el grupo tratado y de control.\n¿Cual de las promociones fue más efectiva? Use una prueba ANOVA."
+  },
+  {
+    "objectID": "sesion1_slides.html#desafíos-y-consideraciones",
+    "href": "sesion1_slides.html#desafíos-y-consideraciones",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Desafíos y Consideraciones:",
+    "text": "Desafíos y Consideraciones:\nImportancia de la Adquisición y Almacenamiento de Datos\n\nLa adquisición y el almacenamiento de datos son los cimientos sobre los cuales se construye todo el proceso de análisis.\nLa calidad y la confiabilidad de los datos que obtengamos son fundamentales para asegurarnos de que los resultados y conclusiones que extraigamos sean precisos y relevantes.\nGarantía de Calidad y Fiabilidad en la Obtención de Datos: Obtener datos confiables es el primer paso para garantizar que nuestras conclusiones sean sólidas."
+  },
+  {
+    "objectID": "sesion1_slides.html#desafíos-y-consideraciones-1",
+    "href": "sesion1_slides.html#desafíos-y-consideraciones-1",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Desafíos y Consideraciones:",
+    "text": "Desafíos y Consideraciones:\nImportancia de la Adquisición y Almacenamiento de Datos\n\nExploración de Diferentes Fuentes de Datos y su Impacto en los Resultados: En el mundo actual, los datos provienen de diversas fuentes: bases de datos, encuestas, sensores, redes sociales, entre otros.\nCada fuente tiene sus propias características y potenciales sesgos.\nComprender las diferencias entre estas fuentes y cómo pueden influir en los resultados es crucial para tomar decisiones informadas."
+  },
+  {
+    "objectID": "sesion1_slides.html#desafíos-y-consideraciones-2",
+    "href": "sesion1_slides.html#desafíos-y-consideraciones-2",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Desafíos y Consideraciones:",
+    "text": "Desafíos y Consideraciones:\nPrivacidad y Seguridad de los Datos:\n\nUno de los aspectos más críticos en el análisis de datos es la privacidad y seguridad de la información.\nLos datos pueden contener información sensible y personal, y es esencial proteger la confidencialidad de las personas y organizaciones involucradas."
+  },
+  {
+    "objectID": "sesion1_slides.html#desafíos-y-consideraciones-3",
+    "href": "sesion1_slides.html#desafíos-y-consideraciones-3",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Desafíos y Consideraciones:",
+    "text": "Desafíos y Consideraciones:\nPrivacidad y Seguridad de los Datos:\n\nExploraremos prácticas y regulaciones para garantizar que los datos se manejen de manera ética y legal.\nDiscutiremos cómo anonimizar los datos, utilizar técnicas de enmascaramiento y seguir las mejores prácticas para resguardar la privacidad de los individuos."
+  },
+  {
+    "objectID": "sesion1_slides.html#desafíos-y-consideraciones-4",
+    "href": "sesion1_slides.html#desafíos-y-consideraciones-4",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Desafíos y Consideraciones:",
+    "text": "Desafíos y Consideraciones:\nLimpieza y Transformación durante la Preparación de Datos:\n\nLa etapa de preparación de datos es crucial para asegurarse de que los datos sean aptos para el análisis.\nSin embargo, este proceso no está exento de desafíos.\nLos datos pueden contener valores faltantes, duplicados y errores que deben abordarse de manera adecuada."
+  },
+  {
+    "objectID": "sesion1_slides.html#desafíos-y-consideraciones-5",
+    "href": "sesion1_slides.html#desafíos-y-consideraciones-5",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Desafíos y Consideraciones:",
+    "text": "Desafíos y Consideraciones:\nLimpieza y Transformación durante la Preparación de Datos:\n\nExploraremos técnicas para identificar y manejar valores atípicos y faltantes, errores de digitación, etc.\nLos invetsigadores toman muchas decisiones en este proceso, que deben ser transparentes.\nAbordar estos desafíos de manera adecuada es esencial para garantizar que nuestras conclusiones sean sólidas, confiables y éticas."
+  },
+  {
+    "objectID": "sesion1_slides.html#reproducibilidad-y-control-de-versiones-git",
+    "href": "sesion1_slides.html#reproducibilidad-y-control-de-versiones-git",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Reproducibilidad y Control de Versiones (GIT):",
+    "text": "Reproducibilidad y Control de Versiones (GIT):\nKey ideas:\n\nUna documentacion detallada del analisis, de las desiciones tomadas.\n\nNotebooks pueden ser una buena herramienta inicial.\n\nImportancia de mantener un registro de los cambios en los datos.\nUso de sistemas de control de versiones como GIT para rastrear cambios.\nAplicación de control de versiones en proyectos de preparación de datos."
+  },
+  {
+    "objectID": "sesion1_slides.html#uso-de-sistemas-de-control-de-versiones-como-git-para-rastrear-cambios",
+    "href": "sesion1_slides.html#uso-de-sistemas-de-control-de-versiones-como-git-para-rastrear-cambios",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Uso de Sistemas de Control de Versiones como GIT para Rastrear Cambios:",
+    "text": "Uso de Sistemas de Control de Versiones como GIT para Rastrear Cambios:\n\nGIT, un sistema de control de versiones ampliamente utilizado, no solo se aplica al desarrollo de software, sino que también es una herramienta poderosa en el análisis de datos.\nPermite rastrear cada modificación realizada en el código y en los documentos, incluidos los notebooks.\nCada cambio es registrado como un “commit”, lo que proporciona un historial completo y auditable de las transformaciones realizadas en los datos.\nLa aplicación de GIT en proyectos de preparación de datos agrega un nivel adicional de transparencia y colaboració"
+  },
+  {
+    "objectID": "sesion1_slides.html#uso-de-sistemas-de-control-de-versiones-como-git-para-rastrear-cambios-1",
+    "href": "sesion1_slides.html#uso-de-sistemas-de-control-de-versiones-como-git-para-rastrear-cambios-1",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Uso de Sistemas de Control de Versiones como GIT para Rastrear Cambios:",
+    "text": "Uso de Sistemas de Control de Versiones como GIT para Rastrear Cambios:\n\nUn esquema de git por Allison Horst @allison_horst"
+  },
+  {
+    "objectID": "sesion1_slides.html#actividad-de-proyecto",
+    "href": "sesion1_slides.html#actividad-de-proyecto",
+    "title": "Sesión 1: Planteando y respondiendo preguntas con datos.",
+    "section": "Actividad de proyecto",
+    "text": "Actividad de proyecto\n\n\n\n\n\n\nInicio reproducible\n\n\n\nVamos a empezar el proyecto, dando los primeros pasos considerando que sea reproducible y transparente.\nUno de los productos del proyecto es un notebook de reporte del análisis. Para esto, iremos avanzando desde hoy.\n\nDefina a su grupo e inscribase.\nCree un repositorio de Github en el cual van a trabajar, agregue a todos los integrantes como colaboradores y a la profesora (usuario: melanieoyarzun)\nCree el readme listando a los integrantes del grupo.\nDefinan con que base de datos les gustaría trabajar.\nPropongan una o dos preguntas de investigación y las hipotesis que las responderían.\n\nLa siguiente sesión, vamos a explorar los datos y empezar los primeros pasos en su análisis.\n\n\n\n\n\n\n\nCurso Análisis de Datos - Sesión 1"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "web_analisis",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n2"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n2"
+  },
+  {
+    "objectID": "sesion0_AD_MOW.html#calendario-del-curso",
+    "href": "sesion0_AD_MOW.html#calendario-del-curso",
+    "title": "Presentación del curso",
+    "section": "Calendario del curso",
+    "text": "Calendario del curso\n\nResumen:\n\n\n\nDetallado\n\n\n\n\n\n\nSesión 1: Respondiendo Preguntas con datos\n\n\n\n\n\nFecha: 19 agosto\nObjetivos:\n\nAprender a formular preguntas y plantear hipótesis que puedan ser abordadas mediante el análisis de datos.\nDesarrollar la habilidad de realizar pruebas de hipótesis y comprender la interpretación de sus resultados.\nComprender el papel del proceso de adquisición y almacenamiento en un proyecto de análisis de datos.\n\nContenidos:\n\nEl proceso de análisis de datos\n\nPlanteamiento de preguntas\nAdquision y almacenmiento de los datos\nPreparación de los datos\nUna visión general a las metodologías de análisis que veremos en el curso\n\nFormulación de Preguntas y Hipótesis:\n\nImportancia de definir preguntas claras y específicas.\nDiferenciación entre preguntas exploratorias y confirmatorias.\nCreación de hipótesis nulas y alternativas.\n\nHipótesis y Variables:\n\nIdentificación de variables independientes y dependientes.\nRelación entre hipótesis y variables a analizar.\n\nConceptos Básicos de Pruebas de Hipótesis:\n\nDefinición de hipótesis nula y alternativa.\nNiveles de significancia y p-values.\nErrores tipo I y tipo II.\n\nTipos de Pruebas de Hipótesis:\n\nPruebas t para comparación de medias.\nPruebas chi-cuadrado para variables categóricas.\nPruebas ANOVA para comparación de múltiples grupos.\n\nInterpretación de Resultados:\n\nEvaluación de p-values y toma de decisiones.\nSignificación estadística vs. significación práctica.\nComunicación de los resultados de las pruebas de hipótesis.\n\nImportancia de la Adquisición y Almacenamiento de Datos:\n\nGarantía de calidad y fiabilidad en la obtención de datos.\nExploración de diferentes fuentes de datos y su impacto en los resultados.\n[[Metodologias de levantamiento y adquision]]\n\nDesafíos y Consideraciones:\n\nPrivacidad y seguridad de los datos.\nLimpieza y transformación durante la preparación de datos.\n\nReproducibilidad y Control de Versiones (GIT):\n\nImportancia de mantener un registro de los cambios en los datos.\nUso de sistemas de control de versiones como GIT para rastrear cambios.\nAplicación de control de versiones en proyectos de preparación de datos.\n\n\nBibliografia recomendada:\nActividades:\n\nTaller 1 (incluidas en slides 1)\nProyecto clase 1: Conformación de grupos, definición de temas, primeras hipótesis y datos.\n\n\n\n\n\n\n\n\n\n\nSesión 2:Preparando los datos\n\n\n\n\n\nFecha: 26 agosto\nObjetivos:\n\nComprender la importancia del proceso de preparación de datos para el análisis, reconociendo principios y enfoques clave junto con sus ventajas y desventajas.\nDesarrollar habilidades prácticas en la preparación de datos, identificando y abordando problemas comunes como valores faltantes, valores atípicos y formatos inconsistentes, así como enfoques de trabajo eficientes.\n\nContenidos:\n\nEl proceso de preparación de los datos\n\nSignificado y relevancia de la preparación de datos.\nEjemplos reales de cómo la falta de preparación puede afectar los resultados.\n\nPrincipios y enfoques\n\nExtract, Transform, Load (ETL): Proceso fundamental en la preparación de datos.\nData Wrangling: Técnicas para dar forma y estructura a los datos.\nDatos Tidy: Organización y reestructuración para un análisis eficaz.\n\nBuenas Prácticas en la Preparación de Datos\n\nDocumentación y Consistencia\n\nImportancia de la documentación detallada.\nMantener nomenclatura y convenciones consistentes.\n\nValidación y Verificación\n\nValidación cruzada y verificación de integridad.\nCumplir con reglas y restricciones esperadas.\n\nReproducibilidad y Versionado\n\nEntorno de trabajo reproducible (Jupyter Notebooks, R Markdown).\nUtilización de sistemas de control de versiones (GIT).\n\nComunicación y Validación Colaborativa\n\nComunicación clara de pasos y resultados.\nValidación intermedia con colaboradores para feedback.\n\nSeguridad y privacidad de los datos\n\nProblemas comunes presentes en datos\n\nValores faltantes: \n\nEstrategias para manejar valores faltantes.\nDecidir entre imputación, eliminación o conservación.\n\nValores atípicos\nNormalización y estandarización\nErrores de registro Bibliografia recomendada:\n\n\n\n“Practical Statistics for Data Scientists” (Capítulo 2).\n“Doing Data Science” (Capítulo 1).\n\nActividades de aplicación práctica:\n\nTaller 1: Limpieza y análisis descriptivo de datos en la practica con datos de educación (repasa elementos del curso anterior) (sesión 1)\nProyecto:\n\nInicie el proyecto, cree un documento notebook en el cual van a alojarsu proyecto\nExplorar los datos\nDiagnosticar problemas.\nLa hipótesis que pensamos, ¿tienen variables que pueda concretizarlas? ¿Qué variables usar?\n\n\n\n\n\n\n\n\n\n\n\nSesión 3: Introduccion al análisis de regresión\n\n\n\n\n\nFecha: 2 septiembre\nObjetivos:\n\nComprender los conceptos fundamentales del análisis de regresión lineal y su aplicación en la resolución de problemas.\nDesarrollar la habilidad de plantear modelos e interpretar los resultados obtenidos del análisis de regresión, para aplicarlos en la toma de decisiones.\n\nContenidos\n\nIntroducción al Análisis de Regresión:\n\nDefinición y concepto de regresión.\nUso y aplicabilidad en la toma de decisiones.\n\nRegresión Lineal Múltiple:\n\nExtensión del modelo de regresión a múltiples variables predictoras.\nEcuación de regresión lineal múltiple.\n\nInterpretación de Coeficientes:\n\nSignificado e interpretación de los coeficientes de regresión.\nInfluencia de las variables predictoras en la variable de respuesta.\n\nEvaluación de Modelos de Regresión:\n\nUso de medidas como el coeficiente de determinación (R²) y el error estándar de estimación.\nInterpretación de los resultados de evaluación.\n\nIncorporación de Variables Categóricas:\n\nTransformación de variables categóricas en variables numéricas.\nInterpretación de coeficientes para variables categóricas.\n\n\nBibliografía recomendada\nActividades de aplicación práctica\n\nTaller 2:\nProyecto:\nPlantear modelos de regresión que implementen las hipótesis del proyecto\nEstimar e interpretar modelos\n\n\n\n\n\n\n\n\n\n\nSesión 4: Profundizando en Análisis de Regresión, Supuestos y Limitaciones\n\n\n\n\n\nFecha: 2 septiembre\nObjetivos:\nContenidos\nBibliografía recomendada\nActividades de aplicación práctica\n\nTaller 2:\nProyecto:\nRevisar supuestos de modelo de regresión\nDiscutir problemas de identificación y limitaciones\n\n\n\n\n\n\n\n\n\n\nSesión 5: Introduccion al análisis de series de tiempo\n\n\n\n\n\nFecha: 2 septiembre\nObjetivos:\n\nIdentificar las características y particularidades de los datos de series de tiempo, comprendiendo sus aplicaciones profesionales.\nRealizar un análisis exploratorio de una serie de tiempo, identificando características clave para su modelamiento.\n\nContenidos\n\nConceptos Básicos de Series de Tiempo:\n\nDefinición y características de una serie de tiempo.\nEjemplos de aplicaciones en distintos campos profesionales.\n\nParticularidades de los Datos Temporales:\n\nDependencia temporal y autocorrelación.\nTendencias, estacionalidad y ciclos.\n\nAplicaciones Profesionales:\n\nCasos de estudio en finanzas, economía, medicina y otros campos.\nCómo el análisis de series de tiempo puede brindar insights valiosos.\n\nBúsqueda y Reorganización de Datos Temporales:\n\nFuentes de datos para series de tiempo (bases de datos, APIs, archivos).\nImportancia de la temporalidad y el orden en los datos.\n\nVisualización y Exploración Inicial:\n\nGráficos de línea y dispersión para identificar tendencias y patrones.\nEstudio de estacionalidad y ciclos mediante gráficos.\n\n\nBibliografía recomendada\nActividades de aplicación práctica\n\nTaller 3:\nProyecto:\n\n\n\n\n\n\n\n\n\n\nSesión 6: Modelando series temporales\n\n\n\n\n\nFecha: 2 septiembre\nObjetivos: 1. Comprender los conceptos y aplicaciones de los modelos ARIMA y VAR en el análisis de series temporales.\n\nEvaluar las ventajas y desventajas de los métodos estadísticos para el análisis de series de tiempo y seleccionar la técnica más adecuada.\n\nContenidos\n\nModelos ARIMA:\n\nDefinición y componentes de los modelos ARIMA.\nIdentificación, Estimación y Validación de un modelo ARIMA.\nUso de correlogramas y gráficos ACF/PACF para la identificación.\n\nModelos VAR (Vector Autoregressive):\n\nIntroducción a los modelos VAR y su aplicación.\nUso de matrices de coeficientes para representar relaciones entre variables.\n\nVentajas y Desventajas de los Métodos Estadísticos:\n\nUso de modelos estadísticos en comparación con otros enfoques.\nLimitaciones y supuestos asociados a los modelos ARIMA y VAR.\n\nSelección del Método Adecuado:\n\nCriterios para elegir entre modelos ARIMA y VAR.\nConsideraciones al evaluar las alternativas disponibles.\n\nOtros modelos\n\n\nGARCH\nSARIMA y SARIMAX\nAlisado exponencial\nCambio estructural\n\nBibliografía recomendada\nActividades de aplicación práctica\n\nTaller 3:\nProyecto:\n\n\n\n\n\n\n\n\n\n\nSesión 7: Principales lecciones para el análisis de datos y presentaciones de proyectos\n\n\n\n\n\nFecha: TBA\nObjetivos:\n\nCerrar el curso, poniendo en contexto las principales herramientas de análisis de datos.\nPresentar un proyecto de análisis de datos\nRecibir feedback y propuestas de mejoras, tanto del trabajo propio como el de sus compañeros.\n\nContenidos\nBibliografía recomendada\nActividades de aplicación práctica\n\nProyecto: Presentaciones finales"
+  },
+  {
+    "objectID": "sesion0_AD_MOW.html#resumen",
+    "href": "sesion0_AD_MOW.html#resumen",
+    "title": "Presentación del curso",
+    "section": "Resumen:",
+    "text": "Resumen:"
+  },
+  {
+    "objectID": "sesion0_AD_MOW.html#detallado",
+    "href": "sesion0_AD_MOW.html#detallado",
+    "title": "Presentación del curso",
+    "section": "Detallado",
+    "text": "Detallado\n\n\n\n\n\n\nSesión 1: Respondiendo Preguntas con datos\n\n\n\n\n\nFecha: 19 agosto\nObjetivos:\n\nAprender a formular preguntas y plantear hipótesis que puedan ser abordadas mediante el análisis de datos.\nDesarrollar la habilidad de realizar pruebas de hipótesis y comprender la interpretación de sus resultados.\nComprender el papel del proceso de adquisición y almacenamiento en un proyecto de análisis de datos.\n\nContenidos:\n\nEl proceso de análisis de datos\n\nPlanteamiento de preguntas\nAdquision y almacenmiento de los datos\nPreparación de los datos\nUna visión general a las metodologías de análisis que veremos en el curso\n\nFormulación de Preguntas y Hipótesis:\n\nImportancia de definir preguntas claras y específicas.\nDiferenciación entre preguntas exploratorias y confirmatorias.\nCreación de hipótesis nulas y alternativas.\n\nHipótesis y Variables:\n\nIdentificación de variables independientes y dependientes.\nRelación entre hipótesis y variables a analizar.\n\nConceptos Básicos de Pruebas de Hipótesis:\n\nDefinición de hipótesis nula y alternativa.\nNiveles de significancia y p-values.\nErrores tipo I y tipo II.\n\nTipos de Pruebas de Hipótesis:\n\nPruebas t para comparación de medias.\nPruebas chi-cuadrado para variables categóricas.\nPruebas ANOVA para comparación de múltiples grupos.\n\nInterpretación de Resultados:\n\nEvaluación de p-values y toma de decisiones.\nSignificación estadística vs. significación práctica.\nComunicación de los resultados de las pruebas de hipótesis.\n\nImportancia de la Adquisición y Almacenamiento de Datos:\n\nGarantía de calidad y fiabilidad en la obtención de datos.\nExploración de diferentes fuentes de datos y su impacto en los resultados.\nMetodologias de levantamiento y adquision\n\nDesafíos y Consideraciones:\n\nPrivacidad y seguridad de los datos.\nLimpieza y transformación durante la preparación de datos.\n\nReproducibilidad y Control de Versiones (GIT):\n\nImportancia de mantener un registro de los cambios en los datos.\nUso de sistemas de control de versiones como GIT para rastrear cambios.\nAplicación de control de versiones en proyectos de preparación de datos.\n\n\nBibliografia recomendada:\nActividades:\n\nTaller 1 (incluidas en slides 1)\nProyecto clase 1: Conformación de grupos, definición de temas, primeras hipótesis y datos.\n\n\n\n\n\n\n\n\n\n\nSesión 2:Preparando los datos\n\n\n\n\n\nFecha: 26 agosto\nObjetivos:\n\nComprender la importancia del proceso de preparación de datos para el análisis, reconociendo principios y enfoques clave junto con sus ventajas y desventajas.\nDesarrollar habilidades prácticas en la preparación de datos, identificando y abordando problemas comunes como valores faltantes, valores atípicos y formatos inconsistentes, así como enfoques de trabajo eficientes.\n\nContenidos:\n\nEl proceso de preparación de los datos\n\nSignificado y relevancia de la preparación de datos.\nEjemplos reales de cómo la falta de preparación puede afectar los resultados.\n\nPrincipios y enfoques\n\nExtract, Transform, Load (ETL): Proceso fundamental en la preparación de datos.\nData Wrangling: Técnicas para dar forma y estructura a los datos.\nDatos Tidy: Organización y reestructuración para un análisis eficaz.\n\nBuenas Prácticas en la Preparación de Datos\n\nDocumentación y Consistencia\n\nImportancia de la documentación detallada.\nMantener nomenclatura y convenciones consistentes.\n\nValidación y Verificación\n\nValidación cruzada y verificación de integridad.\nCumplir con reglas y restricciones esperadas.\n\nReproducibilidad y Versionado\n\nEntorno de trabajo reproducible (Jupyter Notebooks, R Markdown).\nUtilización de sistemas de control de versiones (GIT).\n\nComunicación y Validación Colaborativa\n\nComunicación clara de pasos y resultados.\nValidación intermedia con colaboradores para feedback.\n\nSeguridad y privacidad de los datos\n\nProblemas comunes presentes en datos\n\nValores faltantes: \n\nEstrategias para manejar valores faltantes.\nDecidir entre imputación, eliminación o conservación.\n\nValores atípicos\nNormalización y estandarización\nErrores de registro Bibliografia recomendada:\n\n\n\n“Practical Statistics for Data Scientists” (Capítulo 2).\n“Doing Data Science” (Capítulo 1).\n\nActividades de aplicación práctica:\n\nTaller 1: Limpieza y análisis descriptivo de datos en la practica con datos de educación (repasa elementos del curso anterior) (sesión 1)\nProyecto:\n\nInicie el proyecto, cree un documento notebook en el cual van a alojarsu proyecto\nExplorar los datos\nDiagnosticar problemas.\nLa hipótesis que pensamos, ¿tienen variables que pueda concretizarlas? ¿Qué variables usar?\n\n\n\n\n\n\n\n\n\n\n\nSesión 3: Introduccion al análisis de regresión\n\n\n\n\n\nFecha: 2 septiembre\nObjetivos:\n\nComprender los conceptos fundamentales del análisis de regresión lineal y su aplicación en la resolución de problemas.\nDesarrollar la habilidad de plantear modelos e interpretar los resultados obtenidos del análisis de regresión, para aplicarlos en la toma de decisiones.\n\nContenidos\n\nIntroducción al Análisis de Regresión:\n\nDefinición y concepto de regresión.\nUso y aplicabilidad en la toma de decisiones.\n\nRegresión Lineal Múltiple:\n\nExtensión del modelo de regresión a múltiples variables predictoras.\nEcuación de regresión lineal múltiple.\n\nInterpretación de Coeficientes:\n\nSignificado e interpretación de los coeficientes de regresión.\nInfluencia de las variables predictoras en la variable de respuesta.\n\nEvaluación de Modelos de Regresión:\n\nUso de medidas como el coeficiente de determinación (R²) y el error estándar de estimación.\nInterpretación de los resultados de evaluación.\n\nIncorporación de Variables Categóricas:\n\nTransformación de variables categóricas en variables numéricas.\nInterpretación de coeficientes para variables categóricas.\n\n\nBibliografía recomendada\nActividades de aplicación práctica\n\nTaller 2:\nProyecto:\nPlantear modelos de regresión que implementen las hipótesis del proyecto\nEstimar e interpretar modelos\n\n\n\n\n\n\n\n\n\n\nSesión 4: Profundizando en Análisis de Regresión, Supuestos y Limitaciones\n\n\n\n\n\nFecha: 9 septiembre\nObjetivos:\n\nExplorar los supuestos y limitaciones asociados al análisis de regresión y desarrollar estrategias para manejar problemas comunes.\nAplicar estrategias prácticas para identificar y abordar problemas en el análisis de regresión.\n\nContenidos\n\nSupuestos en el Análisis de Regresión:\n\nIdentificación de supuestos clave: linealidad, independencia, homoscedasticidad y normalidad.\nSignificado de cada supuesto y su importancia en la interpretación de resultados.\n\nIdentificación de Problemas en la Regresión:\n\nIdentificación y manejo de outliers en los datos.\nReconocimiento de la heterocedasticidad y sus implicaciones.\nDetección de la no-normalidad de los residuos.\n\nEstrategias para Manejar Problemas:\n\nTransformación de variables para abordar problemas de linealidad.\nMétodos para reducir la influencia de outliers.\nUso de transformaciones para tratar la heterocedasticidad.\nPruebas y técnicas para verificar y mejorar la normalidad.\n\n\nBibliografía recomendada\nActividades de aplicación práctica\n\nTaller 2:\nProyecto:\nRevisar supuestos de modelo de regresión\nDiscutir problemas de identificación y limitaciones\n\n\n\n\n\n\n\n\n\n\nSesión 5: Introduccion al análisis de series de tiempo\n\n\n\n\n\nFecha: 30 septiembre\nObjetivos:\n\nIdentificar las características y particularidades de los datos de series de tiempo, comprendiendo sus aplicaciones profesionales.\nRealizar un análisis exploratorio de una serie de tiempo, identificando características clave para su modelamiento.\n\nContenidos\n\nConceptos Básicos de Series de Tiempo:\n\nDefinición y características de una serie de tiempo.\nEjemplos de aplicaciones en distintos campos profesionales.\n\nParticularidades de los Datos Temporales:\n\nDependencia temporal y autocorrelación.\nTendencias, estacionalidad y ciclos.\n\nAplicaciones Profesionales:\n\nCasos de estudio en finanzas, economía, medicina y otros campos.\nCómo el análisis de series de tiempo puede brindar insights valiosos.\n\nBúsqueda y Reorganización de Datos Temporales:\n\nFuentes de datos para series de tiempo (bases de datos, APIs, archivos).\nImportancia de la temporalidad y el orden en los datos.\n\nVisualización y Exploración Inicial:\n\nGráficos de línea y dispersión para identificar tendencias y patrones.\nEstudio de estacionalidad y ciclos mediante gráficos.\n\n\nBibliografía recomendada\nActividades de aplicación práctica\n\nTaller 3:\nProyecto:\n\n\n\n\n\n\n\n\n\n\nSesión 6: Modelando series temporales\n\n\n\n\n\nFecha: 7 occtubre\nObjetivos:\n\nComprender los conceptos y aplicaciones de los modelos ARIMA y VAR en el análisis de series temporales.\nEvaluar las ventajas y desventajas de los métodos estadísticos para el análisis de series de tiempo y seleccionar la técnica más adecuada.\n\nContenidos\n\nModelos ARIMA:\n\nDefinición y componentes de los modelos ARIMA.\nIdentificación, Estimación y Validación de un modelo ARIMA.\nUso de correlogramas y gráficos ACF/PACF para la identificación.\n\nModelos VAR (Vector Autoregressive):\n\nIntroducción a los modelos VAR y su aplicación.\nUso de matrices de coeficientes para representar relaciones entre variables.\n\nVentajas y Desventajas de los Métodos Estadísticos:\n\nUso de modelos estadísticos en comparación con otros enfoques.\nLimitaciones y supuestos asociados a los modelos ARIMA y VAR.\n\nSelección del Método Adecuado:\n\nCriterios para elegir entre modelos ARIMA y VAR.\nConsideraciones al evaluar las alternativas disponibles.\n\nOtros modelos\n\n\nGARCH\nSARIMA y SARIMAX\nAlisado exponencial\nCambio estructural\n\nBibliografía recomendada\nActividades de aplicación práctica\n\nTaller 3:\nProyecto:\n\n\n\n\n\n\n\n\n\n\nSesión 7: Principales lecciones para el análisis de datos y presentaciones de proyectos\n\n\n\n\n\nFecha: TBA\nObjetivos:\n\nCerrar el curso, poniendo en contexto las principales herramientas de análisis de datos.\nPresentar un proyecto de análisis de datos\nRecibir feedback y propuestas de mejoras, tanto del trabajo propio como el de sus compañeros.\n\nContenidos\nBibliografía recomendada\nActividades de aplicación práctica\n\nProyecto: Presentaciones finales"
+  }
+]
