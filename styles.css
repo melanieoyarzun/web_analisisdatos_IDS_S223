@@ -1,1 +1,18 @@
 /* css styles */
+body {
+    background: #fff;
+    font-size: 10pt;
+    width: auto;
+    height: auto;
+    border: 0;
+    margin: 0 5%;
+    padding: 0;
+    overflow: visible;
+    float: none !important;
+}
+
+/* Reducir el tamaño del texto en las celdas de tabla */
+table {
+    font-size: 14px; /* Ajusta el tamaño del texto según tus preferencias */
+  }
+  

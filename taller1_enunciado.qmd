@@ -1,0 +1,114 @@
+---
+institute: "Magíster en Data Science - Universidad del Desarrollo"
+subtitle: "Curso: Análisis de datos"
+title: "Taller 1: Introducción al Análisis de Regresión"
+author: "Phd (c) Melanie Oyarzún - [melanie.oyarzun@udd.cl](mailto:melanie.oyarzun@udd.cl)"
+format:
+  html:
+    toc: true
+    html-math-method: mathml
+  ipynb: default
+echo: true
+code-fold: true
+---
+
+## Instrucciones:
+
+
+### Pregunta 1 - Bajando y formateando datos del Banco Mundial
+
+Replique el ejemplo práctico de importar datos desde la API del Banco
+Mundial y empezar la base para su análisis de series de tiempo.
+
+Importe usted la serie de GDP total Y Percapita para otro país serie
+desde la API del Banco mundial, muestre sus principales características
+y realice un grafico.
+
+¿pareciera haber tendencias?
+
+
+### Pregunta 2 - Investigando sobre países:
+
+Considere que tenemos los datos del banco mundial, del país que
+selecciono anteriormente, y desea aprender sobre alguna caracterpistica
+de dicho pais en el periodo.
+
+Escriba una pregunta de investigación que se pueda responder con los
+datos disponibles. ¿Cómo definiria la variable aleatoria relevante? ¿Qué
+hipótesis podria responder su pregunta?
+
+
+### Pregunta 3 - Ejemplo AB test en Marketing:
+
+
+#### Enunciado
+
+Imaginemos que trabajamos en una empresa de e-commerce que vende
+productos electrónicos y queremos aumentar las ventas en una línea de
+productos específica, como teléfonos móviles.
+
+Para ello, decidimos utilizar una promoción de ventas basada en una
+ruleta lúdica que ofrecerá descuentos a los clientes que la utilicen.
+
+Para implementar la promoción, primero seleccionamos aleatoriamente un
+grupo de clientes y les enviamos un correo electrónico con un enlace a
+la ruleta lúdica. Al hacer clic en el enlace, los clientes son
+redirigidos a una página en la que pueden girar la ruleta y ganar un
+descuento en su próxima compra.
+
+Vamos a pensar que los clientes son asignados a uno de los siguientes
+grupos: - Control: no les da una promoción (mala suerte, intentalo otra
+vez) - Tratamiento 1: 20% de descuento en el producto - Tratamiento 2:
+Un complemento gratuito (carcasa) que tiene un costo para la empresa
+similar al descuento.
+
+#### Creación de los datos
+
+Como nuestro caso es un ejemplo ficticio, vamos a crear los datos.
+
+Este código creará un conjunto de datos con 400 observaciones (200 en el
+grupo de control y 200 en el grupo de tratamiento), donde se simulan
+lascompras de cada usuario.
+
+```{python}
+import numpy as np
+import pandas as pd
+import random
+
+# Define una semilla para la generación de números aleatorios
+np.random.seed(123)
+random.seed(123)
+
+# Crear un vector de 200 valores aleatorios para el grupo de control
+control = np.random.choice(["Control"], size=200, replace=True)
+
+# Crear un vector de 200 valores aleatorios para el grupo de tratamiento
+tratamiento = np.random.choice(["Treatment 1", "Treatment 2"], size=100, replace=True, p=[0.7, 0.3])
+
+# Crear un vector de número de compras para cada grupo
+control_compras = np.random.binomial(5, 0.2, size=200)
+tratamiento1_compras = np.random.binomial(5, 0.4, size=100)
+tratamiento2_compras = np.random.binomial(5, 0.6, size=100)
+
+# Combinar los vectores en un DataFrame
+data = {
+    'grupo': np.concatenate((control, np.repeat("Treatment", 200))),
+    'tipo_tratamiento': np.concatenate((np.repeat("Control", 200), np.repeat(["Treatment 1", "Treatment 2"], [100, 100]))),
+    'ventas': np.concatenate((control_compras, tratamiento1_compras, tratamiento2_compras))
+}
+
+ventas_df = pd.DataFrame(data)
+
+# Verificar el DataFrame
+ventas_df.head(5)
+```
+
+
+Estudiemos si la promoción fue efectiva en estos datos. Para esto:
+
+1.  Describa los resultados de la promocion para los diferentes grupos,
+    en terminos de estadisticas descriptivas.
+2.  Compare visualmente los resultados de los diferentes grupos.
+3.  ¿Fue la promocion efectiva? Use una prueba de hipotesis para
+    analizar el grupo tratado y de control.
+4.  ¿Cual de las promociones fue más efectiva? Use una prueba ANOVA.

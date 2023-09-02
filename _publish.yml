@@ -1,0 +1,10 @@
+- source: project
+  quarto-pub:
+    - id: 84a7706d-6ad0-4572-87c6-a7528acf1a2b
+      url: 'https://moyarzun.quarto.pub/web-materiales-análisis-de-datos'
+    - id: 9276ac42-5460-4f03-a135-f6678a9f12ee
+      url: 'https://moyarzun.quarto.pub/web_curso_prueba2'
+    - id: 4c158970-18d9-488d-b408-271a0b2a2169
+      url: 'https://moyarzun.quarto.pub/sitio_pruebas'
+    - id: 36f02c40-ba08-4781-8577-3b9b5d5a95aa
+      url: 'https://moyarzun.quarto.pub/web_analisisdatosudd'

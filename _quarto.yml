@@ -1,19 +1,24 @@
 project:
   type: website
+  resources: 
+    - "*.pdf"
 
 website:
-  title: "Web materiales Análisis de Datos"
+  title: "Web materiales Analisis de Datos"
   navbar:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
-      - href: sesion0_AD_MOW_Slides.qmd
-        text: "Introduccion al curso (slides)"
-      - href: sesion0_AD_MOW.qmd
-        text: "Introduccion al curso (notas)"  
-      - href: sesion1_slides.qmd
-        text: "Sesion 1 (slides)"
+      - href: sesion0.qmd
+        text: "Overview curso"
+      - href: talleres.qmd
+        text: "talleres"
+      - text: "Sesiones"
+        menu:
+          - sesion1.qmd
+          - sesion2.qmd
+          - sesion3.qmd
+
 
 format:
   html:

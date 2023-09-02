@@ -1,0 +1,15 @@
+---
+title: "Sesión 3: Introducción al Análisis de regresión"
+format: html
+---
+
+### Slides
+
+[Slides Sesión 3](sesion3_slides.qmd) 
+
+```{=html}
+<iframe width="800px" height="533px" style="border:2px solid #dee2e6;" src="sesion2_slides.html"></iframe>
+```
+
+{{< include sesion2_notas.qmd >}}
+

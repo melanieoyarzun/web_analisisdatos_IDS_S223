@@ -9,13 +9,19 @@ format:
     footer: "Curso Análisis de Datos - Sesión 1"
     transition: fade
     background-transition: fade
-    theme: simple
+    fontsize: 1.9em
+    theme: [simple, custom.scss]
     chalkboard: 
         theme: whiteboard
         boardmarker-width: 5
         buttons: true
     progress: true
     incremental: true 
+    df-print: paged
+    code-overflow: wrap
+    code-copy: hover
+    multiplex: false
+    
 code-link: true    
 editor: 
   markdown: 
@@ -23,69 +29,114 @@ editor:
 jupyter: python3
 echo: true
 output-location: fragment
+toc-depth: 2
+tab-stop: 2
+
 ---
 
-# Contenidos:
+<style>
+  table {
+    font-size: 0.7em; /* Reducir el tamaño de fuente en las tablas al 70% del tamaño base */
+  }
+</style>
 
-## El proceso de análisis de datos {.unnumbered .unlisted}
+## Contenidos:
 
-1.  **Visión general**
-    -   Las metodologías de análisis que veremos en el curso
-    -   Adquision y almacenmiento de los datos
-    -   Preparación de los datos
-2.  **Preguntando a los datos**
-    -   Abstrayendo la realidad.
+```{=html}
+<details>
+<summary> <b>1. El proceso de análisis de datos</b> </summary>
+ <ol>
+    <li> Visión general
+      <ul>
+        <li>Las metodologías de análisis que veremos en el curso</li>
+        <li>Adquisición y almacenamiento de los datos</li>
+        <li>Preparación de los datos</li>
+      </ul>
+    </li>
+    <li> Preguntando a los datos
+      <ul>
+        <li>Abstrayendo la realidad.</li>
+        <li>Planteamiento de preguntas.</li>
+        <li>El rol de las hipótesis.</li>
+      </ul>
+    </li>
+  </ol>
+</details>
 
-    -   Planteamiento de preguntas.
+<details>
+  <summary> <b>2. Respondiendo desde los datos: Pruebas de hipótesis </b> </summary>
+  <ol>
+    <li>Conceptos Básicos de Pruebas de Hipótesis:
+      <ul>
+        <li>Definición de hipótesis nula y alternativa.</li>
+        <li>Intervalos de confianza.</li>
+        <li>Niveles de significancia y p-values.</li>
+        <li>Errores tipo I y tipo II.</li>
+      </ul>
+    </li>
+    <li>Tipos de Pruebas de Hipótesis:
+      <ul>
+        <li>Pruebas t para comparación de medias.</li>
+        <li>Pruebas chi-cuadrado para variables categóricas.</li>
+        <li>Pruebas ANOVA para comparación de múltiples grupos.</li>
+      </ul>
+    </li>
+    <li>Interpretación de Resultados:</li>
+  </ol>
+</details>
 
-    -   
 
-        ## El rol de las hipótesis.
+<details>
+  <summary> <b>3. Buenas prácticas en análisis de datos</b> </summary>
+  <ol>
+    <li> Desafíos y Consideraciones:
+      <ul>
+        <li>Privacidad y seguridad de los datos.</li>
+        <li>Limpieza y transformación durante la preparación de datos.</li>
+      </ul>
+    </li>
+    <li> Reproducibilidad y Control de Versiones (GIT):
+      <ul>
+        <li>Importancia de mantener un registro de los cambios en los datos.</li>
+        <li>Uso de sistemas de control de versiones como GIT para rastrear cambios.</li>
+        <li>Aplicación de control de versiones en proyectos de preparación de datos.</li>
+      </ul>
+    </li>
+  </ol>
+</details>
+```
 
-## Respondiendo desde los datos {.unnumbered .unlisted}
+# El proceso de la ciencia de datos
 
-### Pruebas de hipótesis
+- En el mundo actual, la generación y recopilación de datos se ha vuelto más accesible y significativa que nunca antes.
+  
+- El proceso de transformar estos datos crudos en información útil y significativa es fundamental.
 
-1.  **Conceptos Básicos de Pruebas de Hipótesis:**
-    -   Definición de hipótesis nula y alternativa.
-    -   Niveles de significancia y p-values.
-    -   Errores tipo I y tipo II.
-2.  **Tipos de Pruebas de Hipótesis:**
-3.  **Interpretación de Resultados:**
-
-----------------------------------------------------------------------------------------------------
-
-## Buenas prácticas en análisis de datos {.unnumbered .unlisted}
-
-1.  **Desafíos y Consideraciones:**
-    -   Privacidad y seguridad de los datos.
-    -   Limpieza y transformación durante la preparación de datos.
-2.  **Reproducibilidad y Control de Versiones (GIT):**
-    -   Importancia de mantener un registro de los cambios en los datos.
-    -   Uso de sistemas de control de versiones como GIT para rastrear cambios.
-
-## El proceso de la ciencia de datos
-
--   En el mundo actual, la generación y recopilación de datos se ha vuelto más accesible y
-    significativa que nunca antes.
--   El proceso de transformar estos datos crudos en información útil y significativa es fundamental.
-
-## El proceso de la ciencia de datos
+## El proceso de la ciencia de datos {.unnumbered .unlisted}
 
 ![](img/proceso_datascience.png)
 
-## El proceso de la ciencia de datos
+## El proceso de la ciencia de datos {.unnumbered .unlisted}
 
+En este curso nos enfocaremos en:
+
+::: columns
+
+::: {.column width="40%"}
+- La preparación de los datos
+- Análisis mediante modelos de regresión
+:::
+
+::: {.column width="60%"}
 ![](img/proceso_datascience.png)
+:::
 
--   En este curso nos enfocaremos en:
-    -   la preparación de los datos
-    -   en análisis mediante modelos de regresión.
+:::
 
 ## El objetivo: dar valor
-
 -   Esto con el objetivo de responder preguntas desde los datos, que provean información valiosa.
-    ![](img/objetivo_ds.png)
+
+![](img/objetivo_ds.png)
 
 ## Adquisición de datos:
 
@@ -160,13 +211,12 @@ Existen tantas fuentes de datos, como podríamos imaginar...
 -   Veamos como acceder algunos de estos datos.
 :::
 
-## Ejemplo con la encuesta Casen
-
+## Ejemplo: Encuesta Casen
 ### Datos públicos
 
 La Encuesta de Caracterización Socioeconómica Nacional (CASEN), se realuza en chile:
 
--   Objetivo: recopilar información detallada sobre la situación socioeconómica de los hogares y las
+-   **Objetivo:** recopilar información detallada sobre la situación socioeconómica de los hogares y las
     personas en el país.
     -   Esta encuesta se lleva a cabo de manera periódica y abarca una amplia variedad de temas,
         como ingresos, educación, empleo, salud, vivienda y otros aspectos.
@@ -174,13 +224,20 @@ La Encuesta de Caracterización Socioeconómica Nacional (CASEN), se realuza en 
         evolución de indicadores sociales a lo largo del tiempo.
 -   [Sitio Web oficial](https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen)
 
-## Encuesta Casen
+## Encuesta Casen {.unnumbered .unlisted}
 
-### Ejemplo
+### Ejemplo {.unnumbered .unlisted}
 
--   Si tenemos los datos alojados en una dependencia, simplemente los cargamos. . . . :::
-    {.panel-tabset}
+:::: {.columns}
 
+::: {.column width="30%"}
+Si tenemos los datos alojados en una dependencia, simplemente los cargamos. . . .
+:::
+
+::: {.column width="70%"}
+
+
+::: panel-tabset
 ### code
 
 ```{python}
@@ -190,7 +247,7 @@ import pandas as pd
 
 df_casen2020= pd.read_stata("https://github.com/melanieoyarzun/taller_seriestiempo_IDS/blob/b0be4e78a8c7a738e41b284a65d350179abbda96/Data/casen_2020_ingresos.dta?raw=true")
 
-df_casen2020.head(5)
+df_casen2020.head(4) # veamos las 4 primeros registros
 ```
 
 ### Output
@@ -198,30 +255,35 @@ df_casen2020.head(5)
 ```{python}
 #| echo: false
 #| df-print: tibble
-df_casen2020.head(5)
+df_casen2020.head(4)
 ```
+:::
+
 
 :::
 
-## Encuesta Casen
+::::
 
-### Ejemplo
+
+## Encuesta Casen {.unnumbered .unlisted}
+
+### Ejemplo {.unnumbered .unlisted}
 
 -   Una vez cargados los datos, debemos proceder a su limpieza y exploración, para ser preparados
     para analizarlos.
 -   De esto se tratará la siguiente sesión del curso.
 
-## Datos desde la API del banco mundial
+## Datos desde la API del Banco Mundial
 
 ### Ejemplo
 
 Otra opción es que los datos estén en una API:
 
-## Datos desde la API del banco mundial
-
-### Ejemplo
-
 ::: panel-tabset
+```{python}
+pip install pandas-datareader
+```
+
 ### Code
 
 ```{python}
@@ -243,15 +305,20 @@ wb.search('gdp')
 
 ### Output
 
+<style>
+  table {
+    font-size: 0.6em; /* Reducir el tamaño de fuente en las tablas al 70% del tamaño base */
+  }
+</style>
 ```{python}
 #| echo: false
 #| df-print: tibble
-wb.search('gdp')
+wb.search('gdp').head(4)
 
 ```
 :::
 
-## Datos desde la API del banco mundial
+## Datos desde la API del Banco Mundial
 
 ### Ejemplo
 
@@ -271,6 +338,7 @@ countries[:5]
 ### results
 
 ```{python}
+
 #| echo: false
 # Obtengamos la lista de paises disponibles
 countries=wb.get_countries()
@@ -278,41 +346,43 @@ countries=wb.get_countries()
 #Preview primeras filas lista de paises
 countries[:5]
 
+
+
 ```
 :::
 
-## Datos desde la API del banco mundial
+## Datos desde la API del Banco Mundial {.unnumbered .unlisted}
 
-### Ejemplo
+### Ejemplo {.unnumbered .unlisted}
+
+::: panel-tabset
+### code
+
+```{python}
+#| output: false
+#sabemos que queremos Chile, asi que busquemos su info
+
+
+countries[ countries['name'] == 'Chile' ]
+
+# Descarguemos la data desde la API del banco mundial a un dataframe
+
+df_GPDpc_Chile = wb.download(
+                    #Use the indicator attribute to identify which indicator or indicators to download
+                    indicator='NY.GDP.PCAP.KD',
+                    #Use the country attribute to identify the countries you want data for
+                    country=['CL'],
+                    #Identify the first year for which you want the data, as an integer or a string
+                    start='1980',
+                    #Identify the last year for which you want the data, as an integer or a string
+                    end=2020
+                )
+
+df_GPDpc_Chile.info()
+```
 
 -   Observar que este es un data frame con dos índices: pais y año.
--   Obtengamos un data frame con los datos de Chile, entre 1980 y 2020.
-
-::: panel-tabset
-### code
-
-```{python}
-#| output: false
-#sabemos que queremos Chile, asi que busquemos su info
-
-countries[ countries['name'] == 'Chile' ]
-
-# Descarguemos la data desde la API del banco mundial a un dataframe
-
-df_GPDpc_Chile = wb.download(
-                    #Use the indicator attribute to identify which indicator or indicators to download
-                    indicator='NY.GDP.PCAP.KD',
-                    #Use the country attribute to identify the countries you want data for
-                    country=['CL'],
-                    #Identify the first year for which you want the data, as an integer or a string
-                    start='1980',
-                    #Identify the last year for which you want the data, as an integer or a string
-                    end=2020
-                )
-
-df_GPDpc_Chile.info()
-```
-
+  
 ### results
 
 ```{python}
@@ -338,9 +408,11 @@ df_GPDpc_Chile.info()
 ```
 :::
 
-## Datos desde la API del banco mundial
+## Datos desde la API del banco mundial {.unnumbered .unlisted}
 
-### Ejemplo
+### Ejemplo {.unnumbered .unlisted}
+
+Data frame con los datos de Chile, entre 1980 y 2020.
 
 ::: panel-tabset
 ### code
@@ -357,14 +429,16 @@ df_GPDpc_Chile.head()
 ```{python}
 #| echo: false
 #Veamos el data frame
-df_GPDpc_Chile.head()
+
+df_GPDpc_Chile.head(8)
 
 ```
 :::
 
-## Datos desde la API del banco mundial
 
-### Ejemplo
+## Datos desde la API del Banco Mundial {.unnumbered .unlisted}
+
+### Ejemplo {.unnumbered .unlisted}
 
 Si quisieramos, por simplicidad quedarnos solo con el indice del año y reordenar el dataframe:
 
@@ -398,9 +472,9 @@ reversed_df.head(5)
 ```
 :::
 
-## Datos desde la API del banco mundial
+## Datos desde la API del banco mundial {.unnumbered .unlisted}
 
-### Ejemplo
+### Ejemplo {.unnumbered .unlisted}
 
 Ahora, realicemos un grafico rápido con nuestros datos:
 
@@ -432,7 +506,7 @@ ax.set_xlabel(r'Año')
 ## Taller de aplicación 1
 
 ::: callout-warning
-#### Pregunta 1 - Bajando y formateando datos del Banco Mundial
+## Pregunta 1 - Bajando y formateando datos del Banco Mundial
 
 Replique el ejemplo práctico de importar datos desde la API del Banco Mundial y empezar la base para
 su análisis de series de tiempo.
@@ -464,7 +538,7 @@ muestre sus principales características y realice un grafico.
 -   Para responder a las preguntas en el contexto de datos, es común formular hipótesis nulas y
     alternativas.
 
-## Preguntas e hipótesis:
+## Preguntas e hipótesis: {.unnumbered .unlisted}
 
 -   La **hipótesis nula** es aquella que propone que algun **parámetro toma cierto valor**.
 -   Este generlamente es un **punto de verdad**.
@@ -473,7 +547,7 @@ muestre sus principales características y realice un grafico.
 -   En general, planteamos el problema de tal manera que podamos rechazar la hipótesis nula, en
     favor de otra que llamamos alternatiba.
 
-## Preguntas e hipótesis:
+## Preguntas e hipótesis: {.unnumbered .unlisted}
 
 ### Prueba de significancia
 
@@ -483,7 +557,7 @@ muestre sus principales características y realice un grafico.
     -   mientras que la hipótesis alternativa sugiere que sí existe una relación o efecto
         significativo.
 
-## Preguntas e hipótesis:
+## Preguntas e hipótesis: {.unnumbered .unlisted}
 
 ### Una guía clave para el análisis
 
@@ -517,18 +591,18 @@ de esa población.
 
 ![Población y Muestra](img/poblacion_muestra.png)
 
-## Respondiendo desde los datos
+## Respondiendo desde los datos {.unnumbered .unlisted}
 
-### Inferencia estadística
+### Inferencia estadística {.unnumbered .unlisted}
 
 -   Si tenemos un sub-conjunto de datos representativos de una población
     -   podemos utilizar métodos estadísticos
     -   para sacar conclusiones sobre las características
     -   Y propiedades de esa población en su totalidad.
 
-## Respondiendo desde los datos
+## Respondiendo desde los datos {.unnumbered .unlisted}
 
-### Inferencia estadística
+### Inferencia estadística {.unnumbered .unlisted}
 
 -   El proceso de inferencia estadística se basa en el principio de que una muestra bien s
     eleccionada puede proporcionar información valiosa sobre la población en general.
@@ -538,13 +612,13 @@ de esa población.
 
 ## Estadígrafos
 
-### Funciones que aproximan parámetros
+### Funciones que aproximan parámetros {.unnumbered .unlisted}
 
 ![Estadigrafos](img/estadigrafos.png)
 
-## Estadígrafos
+## Estadígrafos {.unnumbered .unlisted}
 
-### son variables aleatorias
+### son variables aleatorias {.unnumbered .unlisted}
 
 ::: columns
 ::: {.column width="50%"}
@@ -558,13 +632,13 @@ de esa población.
 :::
 :::
 
-## Estadígrafos
+## Estadígrafos {.unnumbered .unlisted}
 
-### los más comunes
+### los más comunes 
 
 ![Estadigrafos más comunes](img/tabla_estadigrafoscomunes.png)
 
-## Estadígrafos y parámetros
+## Estadígrafos y parámetros {.unnumbered .unlisted}
 
 ### Conectados por el Teorema del Límite central
 
@@ -575,16 +649,16 @@ de esa población.
 -   Este teorema es esencial en inferencia estadística y tiene amplias aplicaciones en análisis de
     datos y toma de decisiones.
 
-## Estadígrafos y parámetros
+## Estadígrafos y parámetros {.unnumbered .unlisted}
 
-### Conectados por el Teorema del Límite central
+### Conectados por el Teorema del Límite central {.unnumbered .unlisted}
 
 ![La media muestral se distribuye normal, sin importar la distribución de la variable
 subyacente](img/promedio_TLC.png)
 
-## Estadígrafos y parámetros
+## Estadígrafos y parámetros {.unnumbered .unlisted}
 
-### Conectados por el Teorema del Límite central
+### Conectados por el Teorema del Límite central {.unnumbered .unlisted}
 
 ::: columns
 ::: {.column width="40%"}
@@ -602,9 +676,9 @@ Formalmente: $$ \bar{x} \sim_a N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)$$
 :::
 :::
 
-## Estadígrafos y parámetros
+## Estadígrafos y parámetros {.unnumbered .unlisted}
 
-### Conectados por el Teorema del Límite central
+### Conectados por el Teorema del Límite central {.unnumbered .unlisted}
 
 ::: columns
 ::: {.column width="40%"}
@@ -619,52 +693,51 @@ Formalmente: $$ \bar{x} \sim_a N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)$$
 :::
 :::
 
-## Estadígrafos y parámetros
+## Estadígrafos y parámetros {.unnumbered .unlisted}
 
-### Intervalos de confianza
+### Intervalos de confianza 
 
 ![](img/intervalo_dist.png)
 
-## Estadígrafos y parámetros
+## Estadígrafos y parámetros {.unnumbered .unlisted}
 
-### Intervalos de confianza
+### Intervalos de confianza {.unnumbered .unlisted}
 
 ![](img/intervalo_dist2.png)
 
-## Estadígrafos y parámetros
+## Estadígrafos y parámetros {.unnumbered .unlisted}
 
-### Intervalos de confianza
+### Intervalos de confianza {.unnumbered .unlisted}
 
 -   Un intervalo de confianza contiene los posibles valores del estimador, entre un límite inferior
     y un límite superior, con cierta probabilidad.
 
 -   Este intervalo es aleatorio, porque $\bar{y}$ es diferente en cada muestra.
 
-## Estadígrafos y parámetros
+## Estadígrafos y parámetros {.unnumbered .unlisted}
 
-### Intervalos de confianza
+### Intervalos de confianza {.unnumbered .unlisted}
 
-Matemáticamente
+Matemáticamente, para cada muestra podemos construir un intervalo.
 
 ::: panel-tabset
-### Con varianza conocida)
+### Con varianza conocida
 
-$$ P( \bar{y}-\frac{1.96\sigma }{\sqrt{n}} < \mu < \bar{y} + \frac{1.96\sigma }{\sqrt{n}}  ) = 0.95 $$
+$$ P\left( \bar{y}-\frac{1.96\sigma }{\sqrt{n}} < \mu < \bar{y} + \frac{1.96\sigma }{\sqrt{n}}  \right) = 0.95 $$
 
 ### Con varianza desconocida
 
-$$ (\bar{y} - \frac{c\times S}{\sqrt{n}}, \bar{y} + \frac{c\times S}{\sqrt{n}} ) $$
+$$ \left(\bar{y} - \frac{c\times S}{\sqrt{n}}, \bar{y} + \frac{c\times S}{\sqrt{n}} \right) $$
 :::
 
--   Para cada muestra podemos construir un intervalo.
 
 ## Estadígrafos y parámetros
 
-### Intervalos de confianza
+### Intervalos de confianza {.unnumbered .unlisted}
 
 -   Con 20 muestras, tenemos 20 intervalos. ![](img/intervalo_confianza1.png)
 
-## Estadígrafos y parámetros
+## Estadígrafos y parámetros {.unnumbered .unlisted}
 
 ### Intervalos de confianza - Interpretación
 
@@ -675,15 +748,15 @@ Pensemos en un 95% de confianza (un valor usual):
 -   el 95% de ellos contendría el verdadero parámetro poblacional.
 -   No significa que con 95% de certeza el parámetro está exactamente en estos valores.
 
-## Estadígrafos y parámetros
+## Estadígrafos y parámetros {.unnumbered .unlisted}
 
-### Intervalos de confianza - Interpretación
+### Intervalos de confianza - Interpretación {.unnumbered .unlisted}
 
 -   Al 95% de confianza con 20 intervalos 19 contendrán el parámetro.
 
 ![](img/intervalo_confianza2.png)
 
-## Estadígrafos y parámetros
+## Estadígrafos y parámetros {.unnumbered .unlisted}
 
 ### Pruebas de hipótesis
 
@@ -691,42 +764,42 @@ Una forma de verificar hipotesis sobre los parámetros es mediante el contraste 
 
 ![](img/prueba_hip2.png)
 
-## Estadígrafos y parámetros
+## Estadígrafos y parámetros {.unnumbered .unlisted}
 
-### Pruebas de hipótesis
+### Pruebas de hipótesis {.unnumbered .unlisted}
 
 Empezamos suponiendo que hay una distribución conocida para el estadígrafo, centrada en un valor
 específico.
 
 ![](img/prueba_hip3.png)
 
-## Estadígrafos y parámetros
+## Estadígrafos y parámetros {.unnumbered .unlisted}
 
-### Pruebas de hipótesis
+### Pruebas de hipótesis {.unnumbered .unlisted}
 
 Y nos preguntamos, si esto fuea verdad ¿qué tan probable es la muestra que tengo?
 
 ![](img/prueba_hip3.png)
 
-## Estadígrafos y parámetros
+## Estadígrafos y parámetros {.unnumbered .unlisted}
 
-### Pruebas de hipótesis
+### Pruebas de hipótesis {.unnumbered .unlisted}
 
 Llamamos la hipótesis a probar Ho, y su alternativa H1.
 
 ![](img/prueba_hip.png)
 
-## Estadígrafos y parámetros
+## Estadígrafos y parámetros {.unnumbered .unlisted}
 
-### Errores y P-valor
+### Errores y P-valor 
 
 Asociada esta prueba, entonces, hay asociados dos tipos de errores:
 
 ![](img/prueba_errores.png)
 
-## Estadígrafos y parámetros
+## Estadígrafos y parámetros {.unnumbered .unlisted}
 
-### Errores y P-valor
+### Errores y P-valor {.unnumbered .unlisted}
 
 -   Se elige nivel de significancia de contraste (α) = probabilidad de cometer error Tipo I.
     Típicamente α = 0,01, 0,05, 0,10.
@@ -736,9 +809,9 @@ Asociada esta prueba, entonces, hay asociados dos tipos de errores:
 
 $$ H_0: T =0\text{ vs }H_1: T \neq 0 $$
 
-## Estadígrafos y parámetros
+## Estadígrafos y parámetros {.unnumbered .unlisted}
 
-### Errores y P-valor
+### Errores y P-valor {.unnumbered .unlisted}
 
 El **Valor de probabilidad (ó p-valor)** es el nivel probabilidad más alto para el cual no podemos
 rechazar la hipótesis nula de la prueba de significancia.
@@ -747,7 +820,7 @@ rechazar la hipótesis nula de la prueba de significancia.
 
 # Ejemplo de aplicación
 
-## Ejemplo\_ Peso de los Pingüinos Palmer
+## Ejemplo: Peso de los Pingüinos Palmer
 
 -   Los datos "Palmer Penguins" son un conjunto que detalla medidas morfológicas y características
     de tres especies de pingüinos: Adelie, Gentoo y Chinstrap.
@@ -756,50 +829,75 @@ rechazar la hipótesis nula de la prueba de significancia.
     palmerpenguins: Palmer Archipelago (Antarctica) penguin data. doi:10.5281/zenodo.3960218, R
     package version 0.1.0, https://allisonhorst.github.io/palmerpenguins/index.html)
 
-## Ejemplo: Peso de los Pingüinos Palmer
+## Ejemplo: Peso de los Pingüinos Palmer {.unnumbered .unlisted}
 
+::: {.columns}
+
+::: {.column width="30%"}
 ![](https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png)
+:::
+
+::: {.column width="70%"}
+::: panel-tabset
+## code
 
 ```{python}
+#| output: false
 import seaborn as sns
 import pandas as pd
 
 # Cargar el conjunto de datos "Penguins"
 penguins = sns.load_dataset("penguins")
 
-penguins.head()
+penguins.head(6)
 ```
 
-## Ejemplo: Peso de los Pingüinos Palmer
+## tabla
 
-En el contexto de los pingüinos y el peso de su población, podríamos tomar una muestra de pingüinos
-y calcular un intervalo de confianza para el peso promedio.
+```{python}
+#| echo: false
+import seaborn as sns
+import pandas as pd
 
-Esto nos daría una estimación del peso promedio de la población total, junto con la confianza en que
-este valor estimado es preciso.
+# Cargar el conjunto de datos "Penguins"
+penguins = sns.load_dataset("penguins")
 
-Es importante tener en cuenta que el proceso de inferencia estadística se basa en suposiciones y en
-el uso adecuado de técnicas estadísticas.
+penguins.head(6)
+```
+:::
 
-## Ejemplo: Peso de los Pingüinos Palmer
+:::
+:::
 
--   La elección de la muestra, la interpretación de los resultados y el nivel de confianza
-    seleccionado son aspectos cruciales para realizar inferencias precisas y significativas.
+## Ejemplo: Peso de los Pingüinos Palmer {.unnumbered .unlisted}
+
+- En el contexto de los pingüinos y el peso de su población:
+  -  podríamos tomar una muestra de pingüinos
+  - y calcular un intervalo de confianza para el peso promedio.
+
+- Esto nos daría una estimación del peso promedio de la población total, junto con la confianza en que este valor estimado es preciso.
+
+## Ejemplo: Peso de los Pingüinos Palmer {.unnumbered .unlisted}
+
+-   La elección de la muestra, la interpretación de los resultados y el nivel de confianza seleccionado son aspectos cruciales para realizar inferencias precisas y significativas.
 
 -   Relicemos algunos ejemplos de pruebas de hipótesis, sobre el peso de los pingüinos.
 
--   Pensemos que nuestra información es la población.
+-   Por ahora, pensemos que nuestra información es la población completa
 
-## Ejemplo: Peso de los Pingüinos Palmer
+## Ejemplo: Peso de los Pingüinos Palmer {.unnumbered .unlisted}
 
--   Primero calcularemos el promedio muestral y lo veremos en el contexto de los datos observados:
+Calcularemos el promedio muestral y lo veremos en el contexto de los datos observados:
+. . . 
 
 ::: panel-tabset
 ### code
 
 ```{python}
-import matplotlib.pyplot as plt
 #| output: false
+
+import matplotlib.pyplot as plt
+
 # Calcular el promedio del peso de los pingüinos
 promedio_peso = penguins['body_mass_g'].mean()
 
@@ -835,21 +933,19 @@ plt.show()
 ```
 :::
 
-## Ejemplo: Peso de los Pingüinos Palmer
+## Ejemplo: Peso de los Pingüinos Palmer {.unnumbered .unlisted}
 
--   Nuestra idea de la inferencia, es aprovechar las propiedades del promedio muestral. De que es el
-    promedio muestral el que se distribuye normal, su media es la media poblacional y conocemos sus
-    características.
+-   Nuestra idea de la inferencia, es aprovechar las propiedades del promedio muestral. 
+-   De que es el promedio muestral el que se distribuye normal, su media es la media poblacional y conocemos sus características.
 
--   Por ejemplo, consideremos que de esta población de pingüinos obtenemos 1000 muestras de 40
-    individuos cada una.
+-   Por ejemplo, consideremos que de esta población de pingüinos obtenemos 1000 muestras de 40 individuos cada una.
 
 -   Si graficamos sus medias, podremos ver que estas se distribuyen aproximadamente normal.
 
     -   Si reducimos el tamaño de muestra, más nos alejamos de la distribución normal.
     -   Si reducimos el número de repeticiones tambieé.
 
-## Ejemplo: Peso de los Pingüinos Palmer
+## Ejemplo: Peso de los Pingüinos Palmer {.unnumbered .unlisted}
 
 ::: panel-tabset
 ### code
@@ -921,7 +1017,7 @@ plt.show()
 ```
 :::
 
-## Intervalo de confianza
+## Intervalo de confianza 
 
 Obtengamos una muestra y calculemos un intervalo de confianza:
 
@@ -956,10 +1052,23 @@ print(confidence_interval)
 
 ```
 
+## Intervalo de confianza {.unnumbered .unlisted}
+
+Obtengamos una muestra y calculemos un intervalo de confianza:
+
 -   El resultado será un rango de valores dentro del cual es probable que se encuentre el verdadero
     peso promedio de los pingüinos en la población, con un nivel de confianza del 95%.
 
 -   ¿Como nos fue? ¿Contiene al verdadero valor?
+
+. . .
+
+```{python}
+print("Media poblacional:", penguins['body_mass_g'].mean())
+
+print("Intervalo de Confianza para el Peso:", confidence_interval)
+
+```
 
 ## Comparaciones de grupos
 
@@ -967,6 +1076,8 @@ print(confidence_interval)
 
 -   Si hacemos una grafica de distribución de tamaño por especie y sexo, podriamos empezar a
     analizar diferencias entre los grupos.
+
+. . . 
 
 ::: panel-tabset
 ### code
@@ -999,7 +1110,7 @@ print(tabla_doble_entrada)
 ```
 :::
 
-## Comparaciones de grupos
+## Comparaciones de grupos {.unnumbered .unlisted}
 
 -   Podriamos querer saber si el peso es diferente para los pinguinos de la especie Adelie, para
     diferentes sexos:
@@ -1007,7 +1118,7 @@ print(tabla_doble_entrada)
 -   **Pregunta de Prueba de Hipótesis:** ¿Existe una diferencia significativa en el peso promedio
     entre los pingüinos machos y las pingüinas hembras en la especie "Adelie"?
 
-## Comparaciones de grupos
+## Comparaciones de grupos {.unnumbered .unlisted}
 
 -   **Hipótesis Nula (H0):**
 
@@ -1019,10 +1130,12 @@ print(tabla_doble_entrada)
     Existe una diferencia significativa en el peso promedio entre los pingüinos machos y las
     pingüinas hembras en la especie "Adelie".
 
-## Comparaciones de grupos
+## Comparaciones de grupos {.unnumbered .unlisted}
 
 -   Para probar esta hipótesis, podrías utilizar una prueba de hipótesis para comparar las medias de
     las muestras de peso de los pingüinos machos y hembras en la especie "Adelie".
+
+. . . 
 
 ::: panel-tabset
 ### code
@@ -1070,10 +1183,12 @@ plt.show()
 ```
 :::
 
-## Comparaciones de grupos
+## Comparaciones de grupos {.unnumbered .unlisted}
 
 -   A simple vista podriamos pensar ambos grupos son diferentes.
 -   Es más claro si dibujamos el promedio muestral observado.
+
+. . . 
 
 ::: panel-tabset
 ### code
@@ -1109,7 +1224,7 @@ plt.show()
 ```
 :::
 
-## Comparaciones de grupos
+## Comparaciones de grupos {.unnumbered .unlisted}
 
 ::: panel-tabset
 ### code
@@ -1182,10 +1297,12 @@ plt.show()
 ```
 :::
 
-## Comparaciones de grupos
+## Comparaciones de grupos {.unnumbered .unlisted}
 
 -   Finalmente, podriamos querer comparar hembras y machos de diferentes Islas.
 -   Para esto podriamos usar una prueba ANOVA.
+
+. . . 
 
 ::: panel-tabset
 ### code
@@ -1416,9 +1533,9 @@ Estudiemos si la promoción fue efectiva en estos datos. Para esto:
 -   Garantía de Calidad y Fiabilidad en la Obtención de Datos: Obtener datos confiables es el primer
     paso para garantizar que nuestras conclusiones sean sólidas.
 
-## Desafíos y Consideraciones:
+## Desafíos y Consideraciones: {.unnumbered .unlisted}
 
-### Importancia de la Adquisición y Almacenamiento de Datos
+### Importancia de la Adquisición y Almacenamiento de Datos {.unnumbered .unlisted}
 
 -   Exploración de Diferentes Fuentes de Datos y su Impacto en los Resultados: En el mundo actual,
     los datos provienen de diversas fuentes: bases de datos, encuestas, sensores, redes sociales,
@@ -1427,7 +1544,7 @@ Estudiemos si la promoción fue efectiva en estos datos. Para esto:
 -   Comprender las diferencias entre estas fuentes y cómo pueden influir en los resultados es
     crucial para tomar decisiones informadas.
 
-## Desafíos y Consideraciones:
+## Desafíos y Consideraciones: {.unnumbered .unlisted}
 
 ### Privacidad y Seguridad de los Datos:
 
@@ -1436,16 +1553,16 @@ Estudiemos si la promoción fue efectiva en estos datos. Para esto:
 -   Los datos pueden contener información sensible y personal, y es esencial proteger la
     confidencialidad de las personas y organizaciones involucradas.
 
-## Desafíos y Consideraciones:
+## Desafíos y Consideraciones: {.unnumbered .unlisted}
 
-### Privacidad y Seguridad de los Datos:
+### Privacidad y Seguridad de los Datos: {.unnumbered .unlisted}
 
 -   Exploraremos prácticas y regulaciones para garantizar que los datos se manejen de manera ética y
     legal.
 -   Discutiremos cómo anonimizar los datos, utilizar técnicas de enmascaramiento y seguir las
     mejores prácticas para resguardar la privacidad de los individuos.
 
-## Desafíos y Consideraciones:
+## Desafíos y Consideraciones: {.unnumbered .unlisted}
 
 ### Limpieza y Transformación durante la Preparación de Datos:
 
@@ -1455,9 +1572,9 @@ Estudiemos si la promoción fue efectiva en estos datos. Para esto:
 -   Los datos pueden contener valores faltantes, duplicados y errores que deben abordarse de manera
     adecuada.
 
-## Desafíos y Consideraciones:
+## Desafíos y Consideraciones: {.unnumbered .unlisted}
 
-### Limpieza y Transformación durante la Preparación de Datos:
+### Limpieza y Transformación durante la Preparación de Datos: {.unnumbered .unlisted}
 
 -   Exploraremos técnicas para identificar y manejar valores atípicos y faltantes, errores de
     digitación, etc.

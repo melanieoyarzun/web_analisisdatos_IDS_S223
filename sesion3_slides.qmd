@@ -1,0 +1,79 @@
+---
+institute: "Magíster en Data Science - Universidad del Desarrollo"
+subtitle: "Curso: Análisis de datos"
+title: "Sesión 3: Introducción al análisis de regresión"
+author: "Phd (c) Melanie Oyarzún - [melanie.oyarzun@udd.cl](mailto:melanie.oyarzun@udd.cl)"
+format:
+  revealjs:
+    logo: logo_udd.png
+    footer: "Curso Análisis de Datos - Sesión 3"
+    transition: fade
+    background-transition: fade
+    fontsize: 1.8em
+    theme: [simple, custom.scss]
+    chalkboard: 
+        theme: whiteboard
+        boardmarker-width: 5
+        buttons: true
+    progress: true
+    incremental: true 
+    scrollable: true
+code-link: true    
+editor: 
+  markdown: 
+    wrap: 100
+jupyter: python3
+echo: true
+output-location: fragment
+execute: 
+  freeze: auto
+toc-depth: 2
+df-print: paged
+---
+
+<style>
+  table {
+    font-size: 0.7em; /* Reducir el tamaño de fuente en las tablas al 70% del tamaño base */
+  }
+</style>
+
+
+## El análisis de regresión
+
+- El análisis de regersión es una técnica en la cual buscamos encontrar una función que pueda describir la relación observada en los datos entre dos o mas variables.
+
+## El análisis de regresión
+
+- Caso más simple: una regresión lineal simple o univariada. T
+  - Una variable que deseamos explicar o predecir (Y) como función de otra (X).
+  - Buscamos la pendiente e intercepto de una funciónla recta de la forma:
+
+. . .
+
+  $$Y = \alpha + \beta X$$
+
+## El análisis de regresión
+
+![](img/img_sesion3/gif_regresion2.gif)
+
+
+## El análisis de regresión
+
+Para esto, entendemos que la variable que deseamos entender (Y, variable dependiente) se puede descomponer en dos partes: una que es sistemática o que se puede explicar directamente con una o más variables independientes (Xs o regresores) y otra que es no sistemática o error ($\mu$ o $epsilon$) , que es aquella parte que no se puede explicar  y representa a la aleatoriedad del fenómeno.
+
+![](img/img_sesion3/gif_regresion1.gif)
+
+La parte sistemática entonces la describimos con una forma funcional, que depende de otras variables o regresores. 
+
+## El análisis de regresión
+
+Esta forma funcional puede ser lineal univariada, lineal múltiple o no lineal. El tipo de forma funcional, definirá el tipo de regresión de la que estemos hablando.
+
+Ventajas del análisis de regersión: es facil decsribir cuantitaivamente una rlación.
+
+Esquemáticamente, los elementos son:
+
+![](img/img_sesion3/regresion_esquema.png)
+
+## Una perspectiva histórica:
+

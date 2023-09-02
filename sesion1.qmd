@@ -1,0 +1,16 @@
+---
+title: "Sesión 1"
+jupyter: python3
+editor: source
+
+---
+
+### Slides
+
+[Slides Sesión 1](sesion1_slides.qmd) 
+
+```{=html}
+<iframe width="800px" height="533px" style="border:2px solid #dee2e6;" src="sesion1_slides.html"></iframe>
+```
+
+{{< include sesion1_notas.qmd >}}

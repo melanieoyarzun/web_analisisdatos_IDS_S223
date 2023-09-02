@@ -1,0 +1,11 @@
+{
+  "hash": "656eb631d56dcf18b05fd98d760abc46",
+  "result": {
+    "markdown": "---\ntitle: Análisis de datos\ndescription: Sitio web complementario con material curso Análisis de Datos\nformat: html\nfreeze: auto\n---\n\n## Calendario Clases\n\nSitio web complementario con material curso Análisis de Datos\n\n| Sesión | Fecha   | Tema | Slides                                  | Notas                                  |\n|----------|---------|------|-----------------------------------------|----------------------------------------|\n| 0        | 17 ago  |   Introducción al Curso   |   [slides sesión introductoria](sesion0_slides.qmd) |  [Notas sesión introductoria](sesion0_notas.qmd)  |\n| 1        | 17 ago  |   Respondiendo Preguntas con datos   |     [slides sesión 1](sesion1_slides.qmd)  |  [Notas sesión 1](sesion1_notas.qmd)   |\n| 2        | 25 ago  |   Preparando los datos   |    [slides sesión 2](sesion2_slides.qmd)                                     |   [Notas sesión 2](sesion2_notas.qmd)                                     |\n| 3        | 2 sep  |  Introducción al análisis de regresión    |                                         |                                        |\n| 4        | 9 sep  |   Profundizando en análisis de regresión, supuestos y limitaciones   |                                         |                                        |\n| 5        | 30 sep |   Introduccion al análisis de series de tiempo   |                                         |                                        |\n| 6        | 7 oct   |   Modelando series temporales   |                                         |                                        |\n\n",
+    "supporting": [
+      "index_files/figure-html"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

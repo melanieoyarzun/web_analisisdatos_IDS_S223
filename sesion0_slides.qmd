@@ -1,0 +1,248 @@
+---
+institute: "Magíster en Data Science - Universidad del Desarrollo"
+subtitle: "Curso: Análisis de datos"
+title: " Presentación del curso"
+author: "Phd (c) Melanie Oyarzún - [melanie.oyarzun@udd.cl](mailto:melanie.oyarzun@udd.cl)"
+format:
+  revealjs:
+    logo: logo_udd.png
+    footer: "Curso Análisis de Datos - Sesión 1"
+    transition: fade
+    background-transition: fade
+    theme: [simple, custom.scss]
+    chalkboard: 
+        theme: whiteboard
+        boardmarker-width: 5
+        buttons: true
+    progress: true
+    incremental: true 
+code-link: true    
+editor: 
+  markdown: 
+    wrap: 100
+jupyter: python3
+echo: true
+toc-depth: 2
+---
+
+# Bienvenida al curso
+
+Hola! Soy Melanie y seré la docente de este curso, en el que aprenderás los fundamentos del análisis
+de datos, tanto desde una perspectiva teórica como práctica (en python).
+
+Me pueden contactar al mail [melanie.oyarzun\@udd.cl](mailto:melanie.oyarzun@udd.cl)
+
+## Un poco sobre mi:
+
+![](img/melanie.png)
+
+## En la sesión de hoy:
+
+1.  Revisaremos los objetivos del curso, metodología, calendario y evaluaciones.
+2.  Revisaremos algunos principios de como plantear y responder preguntas con datos
+3.  En ese contexto, realizaremos un breve repaso a pruebas de hipótesis.
+
+## Descripción del curso
+
+-   Esta asignatura presentará los conceptos básicos de pre-procesamiento y análisis descriptivo de
+    datos.
+
+-   El objetivo principal es poder determinar cuáles datos son susceptibles de ser convertidos en
+    información para apoyar la toma de decisiones, y **separar el ruido de la señal**.
+
+## Descripción del curso
+
+-   Es el primer paso en un proyecto de ciencia de datos.
+-   Los estudiantes aprenderán a identificar
+    -   las problemáticas que presentan los datos desde el momento de su registro (por ej., error
+        muestral, outliers),
+    -   así como usar las herramientas necesarias para describirlos (por ej., distribuciones e
+        histogramas),
+
+## Descripción del curso
+
+-   explorarlos (por ej., agrupar o filtrar bajo un criterio específico),
+
+-   y cruzarlos (por ej., utilizando otras fuentes).
+
+-   Asimismo, los estudiantes comprenderán que las etapas de este proceso no son lineales, sino que
+    se benefician del diseño iterativo.
+
+## Contexto en el programa de magister
+
+-   Esta asignatura se enmarca en la línea de desarrollo de data science.
+-   Esta asignatura tributa, a través de sus resultados de aprendizaje, a las siguientes
+    competencias del perfil de egreso del Magíster en Data Science:
+    -   Aplicar teorías, algoritmos, métodos, técnicas y herramientas básicas y avanzadas de Data
+        Science para analizar, resolver y hacer una evaluación crítica de desafíos complejos e
+        interdisciplinarios, utilizando datos internos y externos de las organizaciones.
+
+## Contexto en el programa de magister
+
+-   Comunica efectivamente y argumenta sobre los resultados de su trabajo a públicos especializados
+    y no especializados, de forma oral, escrita y visual, utilizando distintos medios y soportes.
+-   Demuestra responsabilidad y comportamiento ético, cumpliendo los protocolos y normas que guían
+    su desempeño, en las iniciativas de Data science.
+-   Demuestra capacidad de aprendizaje continuo, mediante la aplicación de estrategias para utilizar
+    nuevo conocimiento en data science en su ámbito de desempeño.
+
+## Objetivos de la asignatura
+
+### Resultados de aprendizaje
+
+1.  Identificar las ventajas y desventajas de las herramientas computacionales utilizadas para el
+    análisis de datos, utilizando lenguaje técnico afín.
+2.  Recopilar y limpiar datos, en base a una propuesta de replicabilidad del proceso.
+
+## Objetivos de la asignatura
+
+### Resultados de aprendizaje
+
+1.  Transformar y analizar datos, realizando preguntas clave para resolver problemas a partir del
+    contexto en que se desarrollan.
+2.  Modelar datos para extraer información y generar conclusiones basadas en evidencia.
+3.  Identificar las buenas prácticas en el modelamiento de datos.
+
+## Contenidos
+
+1.  Limpieza y estructura de datos.
+2.  Regresión y predicción.
+3.  Series de tiempo
+
+## Contenidos
+
+### 1. Limpieza y estructura de datos.
+
+```         
+a. Formateo de datos
+b. Transformación de datos
+c. ETL
+```
+
+## Contenidos
+
+### 2. Regresión y predicción.
+
+```         
+a. Regresión lineal múltiple.
+b. Predicción usando regresión y los peligros de la extrapolación.
+c. Factores y variables categóricas en una regresión.
+d. Multicolinealidad, variables de confusión e interacciones.
+e. Diagnóstico de una regresión y supuestos (outliers, heterocedasticidad, no-normalidad, errores correlacionados y no-linealidad)
+f. Sesgos en los análisis: Paradoja de Simpson, Paradoja de Berkson y Collider Bias.
+```
+
+## Contenidos
+
+### 3. Series de tiempo
+
+```         
+a. Búsqueda y reorganización de datos de series de tiempo
+b. Análisis de datos exploratorios para series temporales
+    i. Histogramas, gráfico de dispersión y métodos exploratorios para series de tiempo
+    ii. Estacionariedad y raíz unitaria
+    iii. Autocorrelación y correlaciones espurias en series de tiempo
+c. Modelos estadísticos para series de tiempo
+    i. ¿Por qué no utilizar una regresión lineal?
+    ii. Modelos autorregresivos (AR), ARIMA y Autorregresión vectorial (VAR)
+    iii. Ventajas y desventajas de los métodos estadísticos para series de tiempo
+```
+
+## Evaluación
+
+-   El curso tendrá dos evaluaciones basadas en el trabajo en clase y refuerzo de los contenidos
+    fuera del horario lectivo.
+
+    1.  Talleres de aplicación (30%)
+    2.  Proyecto final (70%)
+
+-   Todas las evaluaciones se realizarán mediante un set de rubricas, publicadas en Canva.
+
+## Evaluación
+
+### Talleres de aplicacion (30%)
+
+-   Durante las clases se desarrollará un taller que aplique los contenidos desarrollados en cada
+    una de las tres principales unidades. Se pueden trabajar de manera individual, o en grupo de
+    hasta 3 personas.
+
+    -   Taller 1: Limpieza, análisis descriptivo de datosy pruebas de hipótesis (repasa elementos
+        del curso anterior) (sesión 1 - 2)
+    -   Taller 2: Análisis de regresión. (Sesiones  3-4)
+    -   Taller 3: Análisis de serie de tiempo (sesiones 5-6)
+
+## Evaluación
+
+### Talleres de aplicacion (30%) (cont.)
+
+-   La mayoría del taller se espera lo puedan responder durante la clase, sin embargo tendrán una
+    semana de margen para su entrega. Estos se deben entregar en la plataforma canvas, en PDF (para
+    su evaluación) y en .ipynb/.qmd, que será corroborado que se pueda ejecutar y sea consistente
+    con el pdf. 
+
+-   stos se evaluarán de acuerdo a la rubrica *talleres de aplicacion*
+
+-   Una vez sean entregados los talleres, se hará publica una pauta de desarrollo de cada taller.
+
+## Evaluación
+
+### Proyecto de análisis de datos (70%)
+
+-   Vamos a desarrollar durante el curso un proyecto.
+-   En este deben elegir un conjunto de datos, a proponer una pregunta e hipótesis a testear,
+    desarrollar análisis (de regresión o serie de tiempo) y concluir en base a sus resultados
+    obtenidos, mencionando las limitaciones de su análisis.
+-   El proyecto se debe realizar en grupos entre 3 a 5 personas.
+
+## Evaluación
+
+### Proyecto de análisis de datos (70%)
+
+Este proyecto se evaluará entonces en base a tres elementos:
+
+1.  Avance durante la clase (20%)
+2.  Reporte de análisis y resultados (20%)
+3.  Presentación oral final (30%)
+
+## Proyecto de análisis de datos
+
+### Avance en clase ( 20% )
+
+-   Algunos elementos del proyecto serán desarrollados durante tiempo de clase, pero se espera que
+    la profundización sea llevada en el tiempo lectivo dedicado al curso.
+
+-   NO ES SUFICIENTE PARA TERMINAR EL TRABAJO COMPLETO.
+
+-   Rubrica de trabajo en clase (se evalúa al final de la clase)
+
+    -   Asistencia y participación
+    -   Planteamiento de problemas 
+    -   Desarrollo
+    -   Resultados, interpretación y conclusiones
+
+## Proyecto de análisis de datos
+
+### Reporte de análisis y resultados (20%)
+
+-   Deben documentar su análisis de datos mediante un notebook. Este se revisará en si mismo, para
+    fomentar las buenas prácticas y reproducibilidad de su análisis.
+
+    Rubrica de notebook reporte de análisis
+
+    -   Entrega a tiempo
+    -   Uso correcto del lenguaje y redacción a nivel profesional
+    -   Orden
+    -   Calidad de código
+    -   Consistencia con presentación
+
+## Proyecto de análisis de datos
+
+### Presentación oral final (30%)
+
+-   En la última sesión del curso, cada grupo debe presentar su análisis y resultados.
+-   Esta presentación será de 10 minutos por grupo y 5 minutos para preguntas, las cuales serán
+    dirigidas a cada estudiante del grupo.
+
+## Calendario por sesión:
+
+![](img/cronograma.png)

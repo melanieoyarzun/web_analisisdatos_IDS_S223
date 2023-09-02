@@ -8,10 +8,10 @@
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.340">
+  <meta name="generator" content="quarto-1.4.339">
 
   <meta name="author" content="Phd (c) Melanie Oyarzún - melanie.oyarzun@udd.cl">
-  <title>Web materiales Análisis de Datos - Sesión 1: Planteando y respondiendo preguntas con datos.</title>
+  <title>Web materiales Analisis de Datos - Sesión 1: Planteando y respondiendo preguntas con datos.</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -95,7 +95,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -223,7 +223,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -410,85 +411,111 @@ Phd (c) Melanie Oyarzún - <a href="mailto:melanie.oyarzun@udd.cl">melanie.oyarz
 </div>
 
 </section>
-<section>
-<section id="contenidos" class="title-slide slide level1 center">
-<h1>Contenidos:</h1>
+<section class="slide level2">
 
+<style>
+  table {
+    font-size: 0.7em; /* Reducir el tamaño de fuente en las tablas al 70% del tamaño base */
+  }
+</style>
 </section>
-<section id="el-proceso-de-análisis-de-datos" class="slide level2 unnumbered unlisted">
-<h2>El proceso de análisis de datos</h2>
-<ol type="1">
-<li class="fragment"><strong>Visión general</strong>
-<ul>
-<li class="fragment">Las metodologías de análisis que veremos en el curso</li>
-<li class="fragment">Adquision y almacenmiento de los datos</li>
-<li class="fragment">Preparación de los datos</li>
-</ul></li>
-<li class="fragment"><strong>Preguntando a los datos</strong>
-<ul>
-<li class="fragment"><p>Abstrayendo la realidad.</p></li>
-<li class="fragment"><p>Planteamiento de preguntas.</p></li>
-<li class="fragment"><h2 id="el-rol-de-las-hipótesis.">El rol de las hipótesis.</h2></li>
-</ul></li>
-</ol>
+<section id="contenidos" class="slide level2">
+<h2>Contenidos:</h2>
+<details>
+<summary> <b>1. El proceso de análisis de datos</b> </summary>
+ <ol>
+    <li> Visión general
+      <ul>
+        <li>Las metodologías de análisis que veremos en el curso</li>
+        <li>Adquisición y almacenamiento de los datos</li>
+        <li>Preparación de los datos</li>
+      </ul>
+    </li>
+    <li> Preguntando a los datos
+      <ul>
+        <li>Abstrayendo la realidad.</li>
+        <li>Planteamiento de preguntas.</li>
+        <li>El rol de las hipótesis.</li>
+      </ul>
+    </li>
+  </ol>
+</details>
+
+<details>
+  <summary> <b>2. Respondiendo desde los datos: Pruebas de hipótesis </b> </summary>
+  <ol>
+    <li>Conceptos Básicos de Pruebas de Hipótesis:
+      <ul>
+        <li>Definición de hipótesis nula y alternativa.</li>
+        <li>Intervalos de confianza.</li>
+        <li>Niveles de significancia y p-values.</li>
+        <li>Errores tipo I y tipo II.</li>
+      </ul>
+    </li>
+    <li>Tipos de Pruebas de Hipótesis:
+      <ul>
+        <li>Pruebas t para comparación de medias.</li>
+        <li>Pruebas chi-cuadrado para variables categóricas.</li>
+        <li>Pruebas ANOVA para comparación de múltiples grupos.</li>
+      </ul>
+    </li>
+    <li>Interpretación de Resultados:</li>
+  </ol>
+</details>
+
+
+<details>
+  <summary> <b>3. Buenas prácticas en análisis de datos</b> </summary>
+  <ol>
+    <li> Desafíos y Consideraciones:
+      <ul>
+        <li>Privacidad y seguridad de los datos.</li>
+        <li>Limpieza y transformación durante la preparación de datos.</li>
+      </ul>
+    </li>
+    <li> Reproducibilidad y Control de Versiones (GIT):
+      <ul>
+        <li>Importancia de mantener un registro de los cambios en los datos.</li>
+        <li>Uso de sistemas de control de versiones como GIT para rastrear cambios.</li>
+        <li>Aplicación de control de versiones en proyectos de preparación de datos.</li>
+      </ul>
+    </li>
+  </ol>
+</details>
 </section>
-<section id="respondiendo-desde-los-datos" class="slide level2 unnumbered unlisted">
-<h2>Respondiendo desde los datos</h2>
-<h3 id="pruebas-de-hipótesis">Pruebas de hipótesis</h3>
-<ol type="1">
-<li class="fragment"><strong>Conceptos Básicos de Pruebas de Hipótesis:</strong>
+<section>
+<section id="el-proceso-de-la-ciencia-de-datos" class="title-slide slide level1 center">
+<h1>El proceso de la ciencia de datos</h1>
 <ul>
-<li class="fragment">Definición de hipótesis nula y alternativa.</li>
-<li class="fragment">Niveles de significancia y p-values.</li>
-<li class="fragment">Errores tipo I y tipo II.</li>
-</ul></li>
-<li class="fragment"><strong>Tipos de Pruebas de Hipótesis:</strong></li>
-<li class="fragment"><strong>Interpretación de Resultados:</strong></li>
-</ol>
-</section>
-<section id="buenas-prácticas-en-análisis-de-datos" class="slide level2 unnumbered unlisted">
-<h2>Buenas prácticas en análisis de datos</h2>
-<ol type="1">
-<li class="fragment"><strong>Desafíos y Consideraciones:</strong>
-<ul>
-<li class="fragment">Privacidad y seguridad de los datos.</li>
-<li class="fragment">Limpieza y transformación durante la preparación de datos.</li>
-</ul></li>
-<li class="fragment"><strong>Reproducibilidad y Control de Versiones (GIT):</strong>
-<ul>
-<li class="fragment">Importancia de mantener un registro de los cambios en los datos.</li>
-<li class="fragment">Uso de sistemas de control de versiones como GIT para rastrear cambios.</li>
-</ul></li>
-</ol>
-</section>
-<section id="el-proceso-de-la-ciencia-de-datos" class="slide level2">
-<h2>El proceso de la ciencia de datos</h2>
-<ul>
-<li class="fragment">En el mundo actual, la generación y recopilación de datos se ha vuelto más accesible y significativa que nunca antes.</li>
-<li class="fragment">El proceso de transformar estos datos crudos en información útil y significativa es fundamental.</li>
+<li class="fragment"><p>En el mundo actual, la generación y recopilación de datos se ha vuelto más accesible y significativa que nunca antes.</p></li>
+<li class="fragment"><p>El proceso de transformar estos datos crudos en información útil y significativa es fundamental.</p></li>
 </ul>
 </section>
-<section id="el-proceso-de-la-ciencia-de-datos-1" class="slide level2">
+<section id="el-proceso-de-la-ciencia-de-datos-1" class="slide level2 unnumbered unlisted">
 <h2>El proceso de la ciencia de datos</h2>
 
 <img data-src="img/proceso_datascience.png" class="r-stretch"></section>
-<section id="el-proceso-de-la-ciencia-de-datos-2" class="slide level2">
+<section id="el-proceso-de-la-ciencia-de-datos-2" class="slide level2 unnumbered unlisted">
 <h2>El proceso de la ciencia de datos</h2>
-
-<img data-src="img/proceso_datascience.png" class="r-stretch"><ul>
-<li class="fragment">En este curso nos enfocaremos en:
+<p>En este curso nos enfocaremos en:</p>
+<div class="columns">
+<div class="column" style="width:40%;">
 <ul>
-<li class="fragment">la preparación de los datos</li>
-<li class="fragment">en análisis mediante modelos de regresión.</li>
-</ul></li>
+<li class="fragment">La preparación de los datos</li>
+<li class="fragment">Análisis mediante modelos de regresión</li>
 </ul>
+</div><div class="column" style="width:60%;">
+<p><img data-src="img/proceso_datascience.png"></p>
+</div>
+</div>
 </section>
 <section id="el-objetivo-dar-valor" class="slide level2">
 <h2>El objetivo: dar valor</h2>
 <ul>
-<li class="fragment">Esto con el objetivo de responder preguntas desde los datos, que provean información valiosa. <img data-src="img/objetivo_ds.png"></li>
+<li class="fragment">Esto con el objetivo de responder preguntas desde los datos, que provean información valiosa.</li>
 </ul>
-</section>
+
+<img data-src="img/objetivo_ds.png" class="r-stretch"></section>
 <section id="adquisición-de-datos" class="slide level2">
 <h2>Adquisición de datos:</h2>
 <ul>
@@ -585,12 +612,12 @@ Phd (c) Melanie Oyarzún - <a href="mailto:melanie.oyarzun@udd.cl">melanie.oyarz
 </div>
 </div>
 </section>
-<section id="ejemplo-con-la-encuesta-casen" class="slide level2">
-<h2>Ejemplo con la encuesta Casen</h2>
+<section id="ejemplo-encuesta-casen" class="slide level2">
+<h2>Ejemplo: Encuesta Casen</h2>
 <h3 id="datos-públicos">Datos públicos</h3>
 <p>La Encuesta de Caracterización Socioeconómica Nacional (CASEN), se realuza en chile:</p>
 <ul>
-<li class="fragment">Objetivo: recopilar información detallada sobre la situación socioeconómica de los hogares y las personas en el país.
+<li class="fragment"><strong>Objetivo:</strong> recopilar información detallada sobre la situación socioeconómica de los hogares y las personas en el país.
 <ul>
 <li class="fragment">Esta encuesta se lleva a cabo de manera periódica y abarca una amplia variedad de temas, como ingresos, educación, empleo, salud, vivienda y otros aspectos.</li>
 <li class="fragment">Se utiliza para informar políticas públicas, tomar decisiones informadas y analizar la evolución de indicadores sociales a lo largo del tiempo.</li>
@@ -598,25 +625,30 @@ Phd (c) Melanie Oyarzún - <a href="mailto:melanie.oyarzun@udd.cl">melanie.oyarz
 <li class="fragment"><a href="https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen">Sitio Web oficial</a></li>
 </ul>
 </section>
-<section id="encuesta-casen" class="slide level2">
+<section id="encuesta-casen" class="slide level2 unnumbered unlisted">
 <h2>Encuesta Casen</h2>
-<h3 id="ejemplo">Ejemplo</h3>
-<ul>
-<li class="fragment">Si tenemos los datos alojados en una dependencia, simplemente los cargamos. . . . ::: {.panel-tabset}</li>
-</ul>
-<h3 id="code">code</h3>
-<div class="cell" data-execution_count="1">
+<h3 class="unnumbered unlisted" id="ejemplo">Ejemplo</h3>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>Si tenemos los datos alojados en una dependencia, simplemente los cargamos. . . .</p>
+</div><div class="column" style="width:70%;">
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">code</a></li><li><a href="#tabset-1-2">Output</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div id="94cf15c7" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
 <span id="cb1-3"><a href="#cb1-3"></a>df_casen2020<span class="op">=</span> pd.read_stata(<span class="st">"https://github.com/melanieoyarzun/taller_seriestiempo_IDS/blob/b0be4e78a8c7a738e41b284a65d350179abbda96/Data/casen_2020_ingresos.dta?raw=true"</span>)</span>
 <span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a>df_casen2020.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5"></a>df_casen2020.head(<span class="dv">4</span>) <span class="co"># veamos las 4 primeros registros</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell fragment" data-execution_count="1">
 
 </div>
-<h3 id="output">Output</h3>
-<div class="cell" data-df-print="tibble" data-execution_count="2">
+</div>
+<div id="tabset-1-2">
+<div id="e862171a" class="cell" data-df-print="tibble" data-execution_count="2">
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 <style scoped="">
@@ -757,60 +789,36 @@ Phd (c) Melanie Oyarzún - <a href="mailto:melanie.oyarzun@udd.cl">melanie.oyarz
 <td>891583.0</td>
 <td>439170.0</td>
 </tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>1.101100e+11</td>
-<td>3</td>
-<td>30</td>
-<td>Región de Tarapacá</td>
-<td>Iquique</td>
-<td>Urbano</td>
-<td>67</td>
-<td>19</td>
-<td>Mujer</td>
-<td>3</td>
-<td>...</td>
-<td>NaN</td>
-<td>No sabe</td>
-<td>No</td>
-<td>27083.0</td>
-<td>941583</td>
-<td>27083.0</td>
-<td>941583</td>
-<td>2083.0</td>
-<td>891583.0</td>
-<td>439170.0</td>
-</tr>
 </tbody>
 </table>
 
-<p>5 rows × 22 columns</p>
+<p>4 rows × 22 columns</p>
 </div>
 </div>
 </div>
-<p>:::</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="encuesta-casen-1" class="slide level2">
+<section id="encuesta-casen-1" class="slide level2 unnumbered unlisted">
 <h2>Encuesta Casen</h2>
-<h3 id="ejemplo-1">Ejemplo</h3>
+<h3 class="unnumbered unlisted" id="ejemplo-1">Ejemplo</h3>
 <ul>
 <li class="fragment">Una vez cargados los datos, debemos proceder a su limpieza y exploración, para ser preparados para analizarlos.</li>
 <li class="fragment">De esto se tratará la siguiente sesión del curso.</li>
 </ul>
 </section>
 <section id="datos-desde-la-api-del-banco-mundial" class="slide level2">
-<h2>Datos desde la API del banco mundial</h2>
+<h2>Datos desde la API del Banco Mundial</h2>
 <h3 id="ejemplo-2">Ejemplo</h3>
 <p>Otra opción es que los datos estén en una API:</p>
-</section>
-<section id="datos-desde-la-api-del-banco-mundial-1" class="slide level2">
-<h2>Datos desde la API del banco mundial</h2>
-<h3 id="ejemplo-3">Ejemplo</h3>
 <div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Code</a></li><li><a href="#tabset-1-2">Output</a></li></ul>
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Code</a></li><li><a href="#tabset-2-2">Output</a></li></ul>
 <div class="tab-content">
-<div id="tabset-1-1">
-<div class="cell" data-execution_count="3">
+<div id="tabset-2-1">
+<div id="35fd3607" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#pandas remote data access support for calls to the World Bank Indicators API</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="im">from</span> pandas_datareader <span class="im">import</span> data, wb </span>
@@ -823,13 +831,18 @@ Phd (c) Melanie Oyarzún - <a href="mailto:melanie.oyarzun@udd.cl">melanie.oyarz
 <span id="cb2-10"><a href="#cb2-10"></a></span>
 <span id="cb2-11"><a href="#cb2-11"></a>wb.search(<span class="st">'gdp'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-execution_count="3">
+<div class="cell fragment" data-execution_count="4">
 
 </div>
 </div>
-<div id="tabset-1-2">
-<div class="cell" data-df-print="tibble" data-execution_count="4">
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div id="tabset-2-2">
+<style>
+  table {
+    font-size: 0.6em; /* Reducir el tamaño de fuente en las tablas al 70% del tamaño base */
+  }
+</style>
+<div id="d640c956" class="cell" data-df-print="tibble" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -899,80 +912,9 @@ Phd (c) Melanie Oyarzún - <a href="mailto:melanie.oyarzun@udd.cl">melanie.oyarz
 <td>b'World Development Indicators (World Bank)'</td>
 <td>Economy &amp; Growth</td>
 </tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">1503</td>
-<td>BG.GSR.NFSV.GD.ZS</td>
-<td>Trade in services (% of GDP)</td>
-<td></td>
-<td>World Development Indicators</td>
-<td>Trade in services is the sum of service export...</td>
-<td>b'International Monetary Fund, Balance of Paym...</td>
-<td>Economy &amp; Growth ; Private Sector ; Trade</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">16626</td>
-<td>UIS.XUNIT.GDPCAP.23.FSGOV</td>
-<td>Initial government funding per secondary stude...</td>
-<td></td>
-<td>Education Statistics</td>
-<td>Total general (local, regional and central, cu...</td>
-<td>b'UNESCO Institute for Statistics'</td>
-<td></td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">16627</td>
-<td>UIS.XUNIT.GDPCAP.23.FSHH</td>
-<td>Initial household funding per secondary studen...</td>
-<td></td>
-<td>Education Statistics</td>
-<td>Total payments of households (pupils, students...</td>
-<td>b'UNESCO Institute for Statistics'</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">16628</td>
-<td>UIS.XUNIT.GDPCAP.3.FSGOV</td>
-<td>Initial government funding per upper secondary...</td>
-<td></td>
-<td>Education Statistics</td>
-<td>Total general (local, regional and central, cu...</td>
-<td>b'UNESCO Institute for Statistics'</td>
-<td></td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">16629</td>
-<td>UIS.XUNIT.GDPCAP.5T8.FSGOV</td>
-<td>Initial government funding per tertiary studen...</td>
-<td></td>
-<td>Education Statistics</td>
-<td>Total general (local, regional and central, cu...</td>
-<td>b'UNESCO Institute for Statistics'</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">16630</td>
-<td>UIS.XUNIT.GDPCAP.5T8.FSHH</td>
-<td>Initial household funding per tertiary student...</td>
-<td></td>
-<td>Education Statistics</td>
-<td>Total payments of households (pupils, students...</td>
-<td>b'UNESCO Institute for Statistics'</td>
-<td></td>
-</tr>
 </tbody>
 </table>
 
-<p>540 rows × 7 columns</p>
 </div>
 </div>
 </div>
@@ -980,27 +922,27 @@ Phd (c) Melanie Oyarzún - <a href="mailto:melanie.oyarzun@udd.cl">melanie.oyarz
 </div>
 </div>
 </section>
-<section id="datos-desde-la-api-del-banco-mundial-2" class="slide level2">
-<h2>Datos desde la API del banco mundial</h2>
-<h3 id="ejemplo-4">Ejemplo</h3>
+<section id="datos-desde-la-api-del-banco-mundial-1" class="slide level2">
+<h2>Datos desde la API del Banco Mundial</h2>
+<h3 id="ejemplo-3">Ejemplo</h3>
 <div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">code</a></li><li><a href="#tabset-2-2">results</a></li></ul>
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">code</a></li><li><a href="#tabset-3-2">results</a></li></ul>
 <div class="tab-content">
-<div id="tabset-2-1">
-<div class="cell" data-execution_count="5">
+<div id="tabset-3-1">
+<div id="ad2c6d11" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Obtengamos la lista de paises disponibles</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>countries<span class="op">=</span>wb.get_countries()</span>
 <span id="cb3-3"><a href="#cb3-3"></a></span>
 <span id="cb3-4"><a href="#cb3-4"></a><span class="co">#Preview primeras filas lista de paises</span></span>
 <span id="cb3-5"><a href="#cb3-5"></a>countries[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-execution_count="5">
+<div class="cell fragment" data-execution_count="6">
 
 </div>
 </div>
-<div id="tabset-2-2">
-<div class="cell" data-execution_count="6">
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div id="tabset-3-2">
+<div id="a957c1c8" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1108,43 +1050,43 @@ Phd (c) Melanie Oyarzún - <a href="mailto:melanie.oyarzun@udd.cl">melanie.oyarz
 </div>
 </div>
 </section>
-<section id="datos-desde-la-api-del-banco-mundial-3" class="slide level2">
-<h2>Datos desde la API del banco mundial</h2>
-<h3 id="ejemplo-5">Ejemplo</h3>
-<ul>
-<li class="fragment">Observar que este es un data frame con dos índices: pais y año.</li>
-<li class="fragment">Obtengamos un data frame con los datos de Chile, entre 1980 y 2020.</li>
-</ul>
+<section id="datos-desde-la-api-del-banco-mundial-2" class="slide level2 unnumbered unlisted">
+<h2>Datos desde la API del Banco Mundial</h2>
+<h3 class="unnumbered unlisted" id="ejemplo-4">Ejemplo</h3>
 <div class="panel-tabset">
-<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">code</a></li><li><a href="#tabset-3-2">results</a></li></ul>
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">code</a></li><li><a href="#tabset-4-2">results</a></li></ul>
 <div class="tab-content">
-<div id="tabset-3-1">
-<div class="cell" data-execution_count="7">
+<div id="tabset-4-1">
+<div id="00bd2fe4" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">#sabemos que queremos Chile, asi que busquemos su info</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a></span>
-<span id="cb4-3"><a href="#cb4-3"></a>countries[ countries[<span class="st">'name'</span>] <span class="op">==</span> <span class="st">'Chile'</span> ]</span>
-<span id="cb4-4"><a href="#cb4-4"></a></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="co"># Descarguemos la data desde la API del banco mundial a un dataframe</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a></span>
-<span id="cb4-7"><a href="#cb4-7"></a>df_GPDpc_Chile <span class="op">=</span> wb.download(</span>
-<span id="cb4-8"><a href="#cb4-8"></a>                    <span class="co">#Use the indicator attribute to identify which indicator or indicators to download</span></span>
-<span id="cb4-9"><a href="#cb4-9"></a>                    indicator<span class="op">=</span><span class="st">'NY.GDP.PCAP.KD'</span>,</span>
-<span id="cb4-10"><a href="#cb4-10"></a>                    <span class="co">#Use the country attribute to identify the countries you want data for</span></span>
-<span id="cb4-11"><a href="#cb4-11"></a>                    country<span class="op">=</span>[<span class="st">'CL'</span>],</span>
-<span id="cb4-12"><a href="#cb4-12"></a>                    <span class="co">#Identify the first year for which you want the data, as an integer or a string</span></span>
-<span id="cb4-13"><a href="#cb4-13"></a>                    start<span class="op">=</span><span class="st">'1980'</span>,</span>
-<span id="cb4-14"><a href="#cb4-14"></a>                    <span class="co">#Identify the last year for which you want the data, as an integer or a string</span></span>
-<span id="cb4-15"><a href="#cb4-15"></a>                    end<span class="op">=</span><span class="dv">2020</span></span>
-<span id="cb4-16"><a href="#cb4-16"></a>                )</span>
-<span id="cb4-17"><a href="#cb4-17"></a></span>
-<span id="cb4-18"><a href="#cb4-18"></a>df_GPDpc_Chile.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a>countries[ countries[<span class="st">'name'</span>] <span class="op">==</span> <span class="st">'Chile'</span> ]</span>
+<span id="cb4-5"><a href="#cb4-5"></a></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co"># Descarguemos la data desde la API del banco mundial a un dataframe</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a></span>
+<span id="cb4-8"><a href="#cb4-8"></a>df_GPDpc_Chile <span class="op">=</span> wb.download(</span>
+<span id="cb4-9"><a href="#cb4-9"></a>                    <span class="co">#Use the indicator attribute to identify which indicator or indicators to download</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>                    indicator<span class="op">=</span><span class="st">'NY.GDP.PCAP.KD'</span>,</span>
+<span id="cb4-11"><a href="#cb4-11"></a>                    <span class="co">#Use the country attribute to identify the countries you want data for</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a>                    country<span class="op">=</span>[<span class="st">'CL'</span>],</span>
+<span id="cb4-13"><a href="#cb4-13"></a>                    <span class="co">#Identify the first year for which you want the data, as an integer or a string</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a>                    start<span class="op">=</span><span class="st">'1980'</span>,</span>
+<span id="cb4-15"><a href="#cb4-15"></a>                    <span class="co">#Identify the last year for which you want the data, as an integer or a string</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a>                    end<span class="op">=</span><span class="dv">2020</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a>                )</span>
+<span id="cb4-18"><a href="#cb4-18"></a></span>
+<span id="cb4-19"><a href="#cb4-19"></a>df_GPDpc_Chile.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-execution_count="7">
+<div class="cell fragment" data-execution_count="8">
 
 </div>
+<ul>
+<li class="fragment">Observar que este es un data frame con dos índices: pais y año.</li>
+</ul>
 </div>
-<div id="tabset-3-2">
-<div class="cell" data-execution_count="8">
+<div id="tabset-4-2">
+<div id="c445d8ea" class="cell" data-execution_count="9">
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 MultiIndex: 41 entries, ('Chile', '2020') to ('Chile', '1980')
@@ -1160,24 +1102,25 @@ memory usage: 2.0+ KB</code></pre>
 </div>
 </div>
 </section>
-<section id="datos-desde-la-api-del-banco-mundial-4" class="slide level2">
+<section id="datos-desde-la-api-del-banco-mundial-3" class="slide level2 unnumbered unlisted">
 <h2>Datos desde la API del banco mundial</h2>
-<h3 id="ejemplo-6">Ejemplo</h3>
+<h3 class="unnumbered unlisted" id="ejemplo-5">Ejemplo</h3>
+<p>Data frame con los datos de Chile, entre 1980 y 2020.</p>
 <div class="panel-tabset">
-<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">code</a></li><li><a href="#tabset-4-2">results</a></li></ul>
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">code</a></li><li><a href="#tabset-5-2">results</a></li></ul>
 <div class="tab-content">
-<div id="tabset-4-1">
-<div class="cell" data-execution_count="9">
+<div id="tabset-5-1">
+<div id="02738be6" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#Veamos el data frame</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a>df_GPDpc_Chile.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-execution_count="9">
+<div class="cell fragment" data-execution_count="10">
 
 </div>
 </div>
-<div id="tabset-4-2">
-<div class="cell" data-execution_count="10">
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div id="tabset-5-2">
+<div id="6eef47db" class="cell" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1208,7 +1151,7 @@ memory usage: 2.0+ KB</code></pre>
 </thead>
 <tbody>
 <tr class="odd">
-<td rowspan="5" data-quarto-table-cell-role="th" data-valign="top">Chile</td>
+<td rowspan="8" data-quarto-table-cell-role="th" data-valign="top">Chile</td>
 <td data-quarto-table-cell-role="th">2020</td>
 <td>12741.157507</td>
 </tr>
@@ -1228,6 +1171,18 @@ memory usage: 2.0+ KB</code></pre>
 <td data-quarto-table-cell-role="th">2016</td>
 <td>13644.623261</td>
 </tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2015</td>
+<td>13569.948127</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2014</td>
+<td>13421.538342</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2013</td>
+<td>13318.595215</td>
+</tr>
 </tbody>
 </table>
 
@@ -1238,15 +1193,15 @@ memory usage: 2.0+ KB</code></pre>
 </div>
 </div>
 </section>
-<section id="datos-desde-la-api-del-banco-mundial-5" class="slide level2">
-<h2>Datos desde la API del banco mundial</h2>
-<h3 id="ejemplo-7">Ejemplo</h3>
+<section id="datos-desde-la-api-del-banco-mundial-4" class="slide level2 unnumbered unlisted">
+<h2>Datos desde la API del Banco Mundial</h2>
+<h3 class="unnumbered unlisted" id="ejemplo-6">Ejemplo</h3>
 <p>Si quisieramos, por simplicidad quedarnos solo con el indice del año y reordenar el dataframe:</p>
 <div class="panel-tabset">
-<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">code</a></li><li><a href="#tabset-5-2">results</a></li></ul>
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">code</a></li><li><a href="#tabset-6-2">results</a></li></ul>
 <div class="tab-content">
-<div id="tabset-5-1">
-<div class="cell" data-execution_count="11">
+<div id="tabset-6-1">
+<div id="e0ef65d8" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>df_GPDpc_Chile.droplevel(<span class="st">'country'</span>)</span>
 <span id="cb7-2"><a href="#cb7-2"></a></span>
 <span id="cb7-3"><a href="#cb7-3"></a></span>
@@ -1254,13 +1209,13 @@ memory usage: 2.0+ KB</code></pre>
 <span id="cb7-5"><a href="#cb7-5"></a>reversed_df<span class="op">=</span> reversed_df.droplevel(<span class="st">'country'</span>) <span class="co"># removemos el level pais, ya que todo el análisis es para un solo país</span></span>
 <span id="cb7-6"><a href="#cb7-6"></a>reversed_df.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-execution_count="11">
+<div class="cell fragment" data-execution_count="12">
 
 </div>
 </div>
-<div id="tabset-5-2">
-<div class="cell" data-execution_count="12">
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div id="tabset-6-2">
+<div id="47b70a55" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="13">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1318,31 +1273,31 @@ memory usage: 2.0+ KB</code></pre>
 </div>
 </div>
 </section>
-<section id="datos-desde-la-api-del-banco-mundial-6" class="slide level2">
+<section id="datos-desde-la-api-del-banco-mundial-5" class="slide level2 unnumbered unlisted">
 <h2>Datos desde la API del banco mundial</h2>
-<h3 id="ejemplo-8">Ejemplo</h3>
+<h3 class="unnumbered unlisted" id="ejemplo-7">Ejemplo</h3>
 <p>Ahora, realicemos un grafico rápido con nuestros datos:</p>
 <div class="panel-tabset">
-<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">code</a></li><li><a href="#tabset-6-2">plot</a></li></ul>
+<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">code</a></li><li><a href="#tabset-7-2">plot</a></li></ul>
 <div class="tab-content">
-<div id="tabset-6-1">
-<div class="cell" data-execution_count="13">
+<div id="tabset-7-1">
+<div id="50abdf92" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Graficamos</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>ax <span class="op">=</span> df_GPDpc_Chile[<span class="st">'1980'</span>:].plot(legend<span class="op">=</span><span class="va">False</span>) </span>
 <span id="cb8-3"><a href="#cb8-3"></a>ax.set_ylabel(<span class="vs">r'GDP'</span>)</span>
 <span id="cb8-4"><a href="#cb8-4"></a>ax.set_xlabel(<span class="vs">r'Año'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-execution_count="13">
+<div class="cell fragment" data-execution_count="14">
 
 </div>
 </div>
-<div id="tabset-6-2">
-<div class="cell" data-execution_count="14">
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div id="tabset-7-2">
+<div id="f8bb7d84" class="cell" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>Text(0.5, 0, 'Año')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img data-src="sesion1_slides_files/figure-revealjs/cell-15-output-2.png"></p>
+<p><img data-src="sesion1_slides_files/figure-revealjs/cell-16-output-2.png" width="843" height="429"></p>
 </div>
 </div>
 </div>
@@ -1388,7 +1343,7 @@ memory usage: 2.0+ KB</code></pre>
 <li class="fragment">Para responder a las preguntas en el contexto de datos, es común formular hipótesis nulas y alternativas.</li>
 </ul>
 </section>
-<section id="preguntas-e-hipótesis-1" class="slide level2">
+<section id="preguntas-e-hipótesis-1" class="slide level2 unnumbered unlisted">
 <h2>Preguntas e hipótesis:</h2>
 <ul>
 <li class="fragment">La <strong>hipótesis nula</strong> es aquella que propone que algun <strong>parámetro toma cierto valor</strong>.</li>
@@ -1397,7 +1352,7 @@ memory usage: 2.0+ KB</code></pre>
 <li class="fragment">En general, planteamos el problema de tal manera que podamos rechazar la hipótesis nula, en favor de otra que llamamos alternatiba.</li>
 </ul>
 </section>
-<section id="preguntas-e-hipótesis-2" class="slide level2">
+<section id="preguntas-e-hipótesis-2" class="slide level2 unnumbered unlisted">
 <h2>Preguntas e hipótesis:</h2>
 <h3 id="prueba-de-significancia">Prueba de significancia</h3>
 <ul>
@@ -1409,7 +1364,7 @@ memory usage: 2.0+ KB</code></pre>
 </ul></li>
 </ul>
 </section>
-<section id="preguntas-e-hipótesis-3" class="slide level2">
+<section id="preguntas-e-hipótesis-3" class="slide level2 unnumbered unlisted">
 <h2>Preguntas e hipótesis:</h2>
 <h3 id="una-guía-clave-para-el-análisis">Una guía clave para el análisis</h3>
 <ul>
@@ -1441,15 +1396,15 @@ memory usage: 2.0+ KB</code></pre>
 </div>
 </div>
 </section>
-<section id="respondiendo-desde-los-datos-1" class="slide level2">
+<section id="respondiendo-desde-los-datos" class="slide level2">
 <h2>Respondiendo desde los datos</h2>
 <h3 id="inferencia-estadística">Inferencia estadística</h3>
 <p>Inferencia se refiere al proceso de hacer generalizaciones de una población a partir de una muestra de esa población.</p>
 
 <img data-src="img/poblacion_muestra.png" class="r-stretch quarto-figure-center"><p class="caption">Población y Muestra</p></section>
-<section id="respondiendo-desde-los-datos-2" class="slide level2">
+<section id="respondiendo-desde-los-datos-1" class="slide level2 unnumbered unlisted">
 <h2>Respondiendo desde los datos</h2>
-<h3 id="inferencia-estadística-1">Inferencia estadística</h3>
+<h3 class="unnumbered unlisted" id="inferencia-estadística-1">Inferencia estadística</h3>
 <ul>
 <li class="fragment">Si tenemos un sub-conjunto de datos representativos de una población
 <ul>
@@ -1459,9 +1414,9 @@ memory usage: 2.0+ KB</code></pre>
 </ul></li>
 </ul>
 </section>
-<section id="respondiendo-desde-los-datos-3" class="slide level2">
+<section id="respondiendo-desde-los-datos-2" class="slide level2 unnumbered unlisted">
 <h2>Respondiendo desde los datos</h2>
-<h3 id="inferencia-estadística-2">Inferencia estadística</h3>
+<h3 class="unnumbered unlisted" id="inferencia-estadística-2">Inferencia estadística</h3>
 <ul>
 <li class="fragment"><p>El proceso de inferencia estadística se basa en el principio de que una muestra bien s eleccionada puede proporcionar información valiosa sobre la población en general.</p></li>
 <li class="fragment"><p>El uso de la inferencia estadística es fundamental, especialmente si es impracticable o costoso analizar cada elemento de una población en particular.</p></li>
@@ -1469,12 +1424,12 @@ memory usage: 2.0+ KB</code></pre>
 </section>
 <section id="estadígrafos" class="slide level2">
 <h2>Estadígrafos</h2>
-<h3 id="funciones-que-aproximan-parámetros">Funciones que aproximan parámetros</h3>
+<h3 class="unnumbered unlisted" id="funciones-que-aproximan-parámetros">Funciones que aproximan parámetros</h3>
 
 <img data-src="img/estadigrafos.png" class="r-stretch quarto-figure-center"><p class="caption">Estadigrafos</p></section>
-<section id="estadígrafos-1" class="slide level2">
+<section id="estadígrafos-1" class="slide level2 unnumbered unlisted">
 <h2>Estadígrafos</h2>
-<h3 id="son-variables-aleatorias">son variables aleatorias</h3>
+<h3 class="unnumbered unlisted" id="son-variables-aleatorias">son variables aleatorias</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
@@ -1486,12 +1441,12 @@ memory usage: 2.0+ KB</code></pre>
 </div>
 </div>
 </section>
-<section id="estadígrafos-2" class="slide level2">
+<section id="estadígrafos-2" class="slide level2 unnumbered unlisted">
 <h2>Estadígrafos</h2>
 <h3 id="los-más-comunes">los más comunes</h3>
 
 <img data-src="img/tabla_estadigrafoscomunes.png" class="r-stretch quarto-figure-center"><p class="caption">Estadigrafos más comunes</p></section>
-<section id="estadígrafos-y-parámetros" class="slide level2">
+<section id="estadígrafos-y-parámetros" class="slide level2 unnumbered unlisted">
 <h2>Estadígrafos y parámetros</h2>
 <h3 id="conectados-por-el-teorema-del-límite-central">Conectados por el Teorema del Límite central</h3>
 <ul>
@@ -1500,14 +1455,14 @@ memory usage: 2.0+ KB</code></pre>
 <li class="fragment"><p>Este teorema es esencial en inferencia estadística y tiene amplias aplicaciones en análisis de datos y toma de decisiones.</p></li>
 </ul>
 </section>
-<section id="estadígrafos-y-parámetros-1" class="slide level2">
+<section id="estadígrafos-y-parámetros-1" class="slide level2 unnumbered unlisted">
 <h2>Estadígrafos y parámetros</h2>
-<h3 id="conectados-por-el-teorema-del-límite-central-1">Conectados por el Teorema del Límite central</h3>
+<h3 class="unnumbered unlisted" id="conectados-por-el-teorema-del-límite-central-1">Conectados por el Teorema del Límite central</h3>
 
 <img data-src="img/promedio_TLC.png" class="r-stretch quarto-figure-center"><p class="caption">La media muestral se distribuye normal, sin importar la distribución de la variable subyacente</p></section>
-<section id="estadígrafos-y-parámetros-2" class="slide level2">
+<section id="estadígrafos-y-parámetros-2" class="slide level2 unnumbered unlisted">
 <h2>Estadígrafos y parámetros</h2>
-<h3 id="conectados-por-el-teorema-del-límite-central-2">Conectados por el Teorema del Límite central</h3>
+<h3 class="unnumbered unlisted" id="conectados-por-el-teorema-del-límite-central-2">Conectados por el Teorema del Límite central</h3>
 <div class="columns">
 <div class="column" style="width:40%;">
 <p>Formalmente: <span class="math display">\[ \bar{x} \sim_a N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)\]</span></p>
@@ -1522,9 +1477,9 @@ memory usage: 2.0+ KB</code></pre>
 </div>
 </div>
 </section>
-<section id="estadígrafos-y-parámetros-3" class="slide level2">
+<section id="estadígrafos-y-parámetros-3" class="slide level2 unnumbered unlisted">
 <h2>Estadígrafos y parámetros</h2>
-<h3 id="conectados-por-el-teorema-del-límite-central-3">Conectados por el Teorema del Límite central</h3>
+<h3 class="unnumbered unlisted" id="conectados-por-el-teorema-del-límite-central-3">Conectados por el Teorema del Límite central</h3>
 <div class="columns">
 <div class="column" style="width:40%;">
 <p>Formalmente: <span class="math display">\[ \bar{x} \sim_a N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)\]</span></p>
@@ -1540,51 +1495,48 @@ memory usage: 2.0+ KB</code></pre>
 </div>
 </div>
 </section>
-<section id="estadígrafos-y-parámetros-4" class="slide level2">
+<section id="estadígrafos-y-parámetros-4" class="slide level2 unnumbered unlisted">
 <h2>Estadígrafos y parámetros</h2>
 <h3 id="intervalos-de-confianza">Intervalos de confianza</h3>
 
 <img data-src="img/intervalo_dist.png" class="r-stretch"></section>
-<section id="estadígrafos-y-parámetros-5" class="slide level2">
+<section id="estadígrafos-y-parámetros-5" class="slide level2 unnumbered unlisted">
 <h2>Estadígrafos y parámetros</h2>
-<h3 id="intervalos-de-confianza-1">Intervalos de confianza</h3>
+<h3 class="unnumbered unlisted" id="intervalos-de-confianza-1">Intervalos de confianza</h3>
 
 <img data-src="img/intervalo_dist2.png" class="r-stretch"></section>
-<section id="estadígrafos-y-parámetros-6" class="slide level2">
+<section id="estadígrafos-y-parámetros-6" class="slide level2 unnumbered unlisted">
 <h2>Estadígrafos y parámetros</h2>
-<h3 id="intervalos-de-confianza-2">Intervalos de confianza</h3>
+<h3 class="unnumbered unlisted" id="intervalos-de-confianza-2">Intervalos de confianza</h3>
 <ul>
 <li class="fragment"><p>Un intervalo de confianza contiene los posibles valores del estimador, entre un límite inferior y un límite superior, con cierta probabilidad.</p></li>
 <li class="fragment"><p>Este intervalo es aleatorio, porque <span class="math inline">\(\bar{y}\)</span> es diferente en cada muestra.</p></li>
 </ul>
 </section>
-<section id="estadígrafos-y-parámetros-7" class="slide level2">
+<section id="estadígrafos-y-parámetros-7" class="slide level2 unnumbered unlisted">
 <h2>Estadígrafos y parámetros</h2>
-<h3 id="intervalos-de-confianza-3">Intervalos de confianza</h3>
-<p>Matemáticamente</p>
+<h3 class="unnumbered unlisted" id="intervalos-de-confianza-3">Intervalos de confianza</h3>
+<p>Matemáticamente, para cada muestra podemos construir un intervalo.</p>
 <div class="panel-tabset">
-<ul id="tabset-7" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-7-1">Con varianza conocida)</a></li><li><a href="#tabset-7-2">Con varianza desconocida</a></li></ul>
+<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">Con varianza conocida</a></li><li><a href="#tabset-8-2">Con varianza desconocida</a></li></ul>
 <div class="tab-content">
-<div id="tabset-7-1">
-<p><span class="math display">\[ P( \bar{y}-\frac{1.96\sigma }{\sqrt{n}} &lt; \mu &lt; \bar{y} + \frac{1.96\sigma }{\sqrt{n}}  ) = 0.95 \]</span></p>
+<div id="tabset-8-1">
+<p><span class="math display">\[ P\left( \bar{y}-\frac{1.96\sigma }{\sqrt{n}} &lt; \mu &lt; \bar{y} + \frac{1.96\sigma }{\sqrt{n}}  \right) = 0.95 \]</span></p>
 </div>
-<div id="tabset-7-2">
-<p><span class="math display">\[ (\bar{y} - \frac{c\times S}{\sqrt{n}}, \bar{y} + \frac{c\times S}{\sqrt{n}} ) \]</span></p>
+<div id="tabset-8-2">
+<p><span class="math display">\[ \left(\bar{y} - \frac{c\times S}{\sqrt{n}}, \bar{y} + \frac{c\times S}{\sqrt{n}} \right) \]</span></p>
 </div>
 </div>
 </div>
-<ul>
-<li class="fragment">Para cada muestra podemos construir un intervalo.</li>
-</ul>
 </section>
 <section id="estadígrafos-y-parámetros-8" class="slide level2">
 <h2>Estadígrafos y parámetros</h2>
-<h3 id="intervalos-de-confianza-4">Intervalos de confianza</h3>
+<h3 class="unnumbered unlisted" id="intervalos-de-confianza-4">Intervalos de confianza</h3>
 <ul>
 <li class="fragment">Con 20 muestras, tenemos 20 intervalos. <img data-src="img/intervalo_confianza1.png"></li>
 </ul>
 </section>
-<section id="estadígrafos-y-parámetros-9" class="slide level2">
+<section id="estadígrafos-y-parámetros-9" class="slide level2 unnumbered unlisted">
 <h2>Estadígrafos y parámetros</h2>
 <h3 id="intervalos-de-confianza---interpretación">Intervalos de confianza - Interpretación</h3>
 <p>Pensemos en un 95% de confianza (un valor usual):</p>
@@ -1594,56 +1546,56 @@ memory usage: 2.0+ KB</code></pre>
 <li class="fragment">No significa que con 95% de certeza el parámetro está exactamente en estos valores.</li>
 </ul>
 </section>
-<section id="estadígrafos-y-parámetros-10" class="slide level2">
+<section id="estadígrafos-y-parámetros-10" class="slide level2 unnumbered unlisted">
 <h2>Estadígrafos y parámetros</h2>
-<h3 id="intervalos-de-confianza---interpretación-1">Intervalos de confianza - Interpretación</h3>
+<h3 class="unnumbered unlisted" id="intervalos-de-confianza---interpretación-1">Intervalos de confianza - Interpretación</h3>
 <ul>
 <li class="fragment">Al 95% de confianza con 20 intervalos 19 contendrán el parámetro.</li>
 </ul>
 
 <img data-src="img/intervalo_confianza2.png" class="r-stretch"></section>
-<section id="estadígrafos-y-parámetros-11" class="slide level2">
+<section id="estadígrafos-y-parámetros-11" class="slide level2 unnumbered unlisted">
 <h2>Estadígrafos y parámetros</h2>
-<h3 id="pruebas-de-hipótesis-1">Pruebas de hipótesis</h3>
+<h3 id="pruebas-de-hipótesis">Pruebas de hipótesis</h3>
 <p>Una forma de verificar hipotesis sobre los parámetros es mediante el contraste de hipótesis.</p>
 
 <img data-src="img/prueba_hip2.png" class="r-stretch"></section>
-<section id="estadígrafos-y-parámetros-12" class="slide level2">
+<section id="estadígrafos-y-parámetros-12" class="slide level2 unnumbered unlisted">
 <h2>Estadígrafos y parámetros</h2>
-<h3 id="pruebas-de-hipótesis-2">Pruebas de hipótesis</h3>
+<h3 class="unnumbered unlisted" id="pruebas-de-hipótesis-1">Pruebas de hipótesis</h3>
 <p>Empezamos suponiendo que hay una distribución conocida para el estadígrafo, centrada en un valor específico.</p>
 
 <img data-src="img/prueba_hip3.png" class="r-stretch"></section>
-<section id="estadígrafos-y-parámetros-13" class="slide level2">
+<section id="estadígrafos-y-parámetros-13" class="slide level2 unnumbered unlisted">
 <h2>Estadígrafos y parámetros</h2>
-<h3 id="pruebas-de-hipótesis-3">Pruebas de hipótesis</h3>
+<h3 class="unnumbered unlisted" id="pruebas-de-hipótesis-2">Pruebas de hipótesis</h3>
 <p>Y nos preguntamos, si esto fuea verdad ¿qué tan probable es la muestra que tengo?</p>
 
 <img data-src="img/prueba_hip3.png" class="r-stretch"></section>
-<section id="estadígrafos-y-parámetros-14" class="slide level2">
+<section id="estadígrafos-y-parámetros-14" class="slide level2 unnumbered unlisted">
 <h2>Estadígrafos y parámetros</h2>
-<h3 id="pruebas-de-hipótesis-4">Pruebas de hipótesis</h3>
+<h3 class="unnumbered unlisted" id="pruebas-de-hipótesis-3">Pruebas de hipótesis</h3>
 <p>Llamamos la hipótesis a probar Ho, y su alternativa H1.</p>
 
 <img data-src="img/prueba_hip.png" class="r-stretch"></section>
-<section id="estadígrafos-y-parámetros-15" class="slide level2">
+<section id="estadígrafos-y-parámetros-15" class="slide level2 unnumbered unlisted">
 <h2>Estadígrafos y parámetros</h2>
 <h3 id="errores-y-p-valor">Errores y P-valor</h3>
 <p>Asociada esta prueba, entonces, hay asociados dos tipos de errores:</p>
 
 <img data-src="img/prueba_errores.png" class="r-stretch"></section>
-<section id="estadígrafos-y-parámetros-16" class="slide level2">
+<section id="estadígrafos-y-parámetros-16" class="slide level2 unnumbered unlisted">
 <h2>Estadígrafos y parámetros</h2>
-<h3 id="errores-y-p-valor-1">Errores y P-valor</h3>
+<h3 class="unnumbered unlisted" id="errores-y-p-valor-1">Errores y P-valor</h3>
 <ul>
 <li class="fragment"><p>Se elige nivel de significancia de contraste (α) = probabilidad de cometer error Tipo I. Típicamente α = 0,01, 0,05, 0,10.</p></li>
 <li class="fragment"><p>Definimos la prueba de hipótesis de <strong>significancia</strong> como aquella que indica si un estimador <span class="math inline">\(\hat{T}\)</span> es 0.</p></li>
 </ul>
 <p><span class="math display">\[ H_0: T =0\text{ vs }H_1: T \neq 0 \]</span></p>
 </section>
-<section id="estadígrafos-y-parámetros-17" class="slide level2">
+<section id="estadígrafos-y-parámetros-17" class="slide level2 unnumbered unlisted">
 <h2>Estadígrafos y parámetros</h2>
-<h3 id="errores-y-p-valor-2">Errores y P-valor</h3>
+<h3 class="unnumbered unlisted" id="errores-y-p-valor-2">Errores y P-valor</h3>
 <p>El <strong>Valor de probabilidad (ó p-valor)</strong> es el nivel probabilidad más alto para el cual no podemos rechazar la hipótesis nula de la prueba de significancia.</p>
 
 <img data-src="img/prueba_errores2.png" class="r-stretch"></section></section>
@@ -1652,27 +1604,39 @@ memory usage: 2.0+ KB</code></pre>
 <h1>Ejemplo de aplicación</h1>
 
 </section>
-<section id="ejemplo_-peso-de-los-pingüinos-palmer" class="slide level2">
-<h2>Ejemplo_ Peso de los Pingüinos Palmer</h2>
+<section id="ejemplo-peso-de-los-pingüinos-palmer" class="slide level2">
+<h2>Ejemplo: Peso de los Pingüinos Palmer</h2>
 <ul>
 <li class="fragment"><p>Los datos “Palmer Penguins” son un conjunto que detalla medidas morfológicas y características de tres especies de pingüinos: Adelie, Gentoo y Chinstrap.</p></li>
 <li class="fragment"><p>Recopilados por el Dr.&nbsp;Bill Link y su equipo. (Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. doi:10.5281/zenodo.3960218, R package version 0.1.0, https://allisonhorst.github.io/palmerpenguins/index.html)</p></li>
 </ul>
 </section>
-<section id="ejemplo-peso-de-los-pingüinos-palmer" class="slide level2">
+<section id="ejemplo-peso-de-los-pingüinos-palmer-1" class="slide level2 unnumbered unlisted">
 <h2>Ejemplo: Peso de los Pingüinos Palmer</h2>
-
-<img data-src="https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png" class="r-stretch"><div class="cell" data-execution_count="15">
+<div class="columns">
+<div class="column" style="width:30%;">
+<p><img data-src="https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png"></p>
+</div><div class="column" style="width:70%;">
+<div class="panel-tabset">
+<ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">code</a></li><li><a href="#tabset-9-2">tabla</a></li></ul>
+<div class="tab-content">
+<div id="tabset-9-1">
+<div id="507dbf93" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb10-2"><a href="#cb10-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb10-3"><a href="#cb10-3"></a></span>
 <span id="cb10-4"><a href="#cb10-4"></a><span class="co"># Cargar el conjunto de datos "Penguins"</span></span>
 <span id="cb10-5"><a href="#cb10-5"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">"penguins"</span>)</span>
 <span id="cb10-6"><a href="#cb10-6"></a></span>
-<span id="cb10-7"><a href="#cb10-7"></a>penguins.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-7"><a href="#cb10-7"></a>penguins.head(<span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-execution_count="15">
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div class="cell fragment" data-execution_count="16">
+
+</div>
+</div>
+<div id="tabset-9-2">
+<div id="4290ee9b" class="cell" data-execution_count="17">
+<div class="cell-output cell-output-display" data-execution_count="17">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -1752,39 +1716,57 @@ memory usage: 2.0+ KB</code></pre>
 <td>3450.0</td>
 <td>Female</td>
 </tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>39.3</td>
+<td>20.6</td>
+<td>190.0</td>
+<td>3650.0</td>
+<td>Male</td>
+</tr>
 </tbody>
 </table>
 
 </div>
 </div>
 </div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="ejemplo-peso-de-los-pingüinos-palmer-1" class="slide level2">
+<section id="ejemplo-peso-de-los-pingüinos-palmer-2" class="slide level2 unnumbered unlisted">
 <h2>Ejemplo: Peso de los Pingüinos Palmer</h2>
-<p>En el contexto de los pingüinos y el peso de su población, podríamos tomar una muestra de pingüinos y calcular un intervalo de confianza para el peso promedio.</p>
-<p>Esto nos daría una estimación del peso promedio de la población total, junto con la confianza en que este valor estimado es preciso.</p>
-<p>Es importante tener en cuenta que el proceso de inferencia estadística se basa en suposiciones y en el uso adecuado de técnicas estadísticas.</p>
+<ul>
+<li class="fragment">En el contexto de los pingüinos y el peso de su población:
+<ul>
+<li class="fragment">podríamos tomar una muestra de pingüinos</li>
+<li class="fragment">y calcular un intervalo de confianza para el peso promedio.</li>
+</ul></li>
+<li class="fragment">Esto nos daría una estimación del peso promedio de la población total, junto con la confianza en que este valor estimado es preciso.</li>
+</ul>
 </section>
-<section id="ejemplo-peso-de-los-pingüinos-palmer-2" class="slide level2">
+<section id="ejemplo-peso-de-los-pingüinos-palmer-3" class="slide level2 unnumbered unlisted">
 <h2>Ejemplo: Peso de los Pingüinos Palmer</h2>
 <ul>
 <li class="fragment"><p>La elección de la muestra, la interpretación de los resultados y el nivel de confianza seleccionado son aspectos cruciales para realizar inferencias precisas y significativas.</p></li>
 <li class="fragment"><p>Relicemos algunos ejemplos de pruebas de hipótesis, sobre el peso de los pingüinos.</p></li>
-<li class="fragment"><p>Pensemos que nuestra información es la población.</p></li>
+<li class="fragment"><p>Por ahora, pensemos que nuestra información es la población completa</p></li>
 </ul>
 </section>
-<section id="ejemplo-peso-de-los-pingüinos-palmer-3" class="slide level2">
+<section id="ejemplo-peso-de-los-pingüinos-palmer-4" class="slide level2 unnumbered unlisted">
 <h2>Ejemplo: Peso de los Pingüinos Palmer</h2>
-<ul>
-<li class="fragment">Primero calcularemos el promedio muestral y lo veremos en el contexto de los datos observados:</li>
-</ul>
+<p>Calcularemos el promedio muestral y lo veremos en el contexto de los datos observados: . . .</p>
 <div class="panel-tabset">
-<ul id="tabset-8" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-8-1">code</a></li><li><a href="#tabset-8-2">output</a></li></ul>
+<ul id="tabset-10" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-10-1">code</a></li><li><a href="#tabset-10-2">output</a></li></ul>
 <div class="tab-content">
-<div id="tabset-8-1">
-<div class="cell" data-execution_count="16">
+<div id="tabset-10-1">
+<div id="cf8327e7" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="co">#| output: false</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a></span>
 <span id="cb11-3"><a href="#cb11-3"></a><span class="co"># Calcular el promedio del peso de los pingüinos</span></span>
 <span id="cb11-4"><a href="#cb11-4"></a>promedio_peso <span class="op">=</span> penguins[<span class="st">'body_mass_g'</span>].mean()</span>
 <span id="cb11-5"><a href="#cb11-5"></a></span>
@@ -1798,26 +1780,25 @@ memory usage: 2.0+ KB</code></pre>
 <span id="cb11-13"><a href="#cb11-13"></a>plt.legend()</span>
 <span id="cb11-14"><a href="#cb11-14"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-execution_count="16">
+<div class="cell fragment" data-execution_count="18">
+
+</div>
+</div>
+<div id="tabset-10-2">
+<div id="2b407824" class="cell" data-execution_count="19">
 <div class="cell-output cell-output-display">
-<p><img data-src="sesion1_slides_files/figure-revealjs/cell-17-output-1.png"></p>
-</div>
-</div>
-</div>
-<div id="tabset-8-2">
-<div class="cell" data-execution_count="17">
-<div class="cell-output cell-output-display">
-<p><img data-src="sesion1_slides_files/figure-revealjs/cell-18-output-1.png"></p>
+<p><img data-src="sesion1_slides_files/figure-revealjs/cell-20-output-1.png" width="808" height="524"></p>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="ejemplo-peso-de-los-pingüinos-palmer-4" class="slide level2">
+<section id="ejemplo-peso-de-los-pingüinos-palmer-5" class="slide level2 unnumbered unlisted">
 <h2>Ejemplo: Peso de los Pingüinos Palmer</h2>
 <ul>
-<li class="fragment"><p>Nuestra idea de la inferencia, es aprovechar las propiedades del promedio muestral. De que es el promedio muestral el que se distribuye normal, su media es la media poblacional y conocemos sus características.</p></li>
+<li class="fragment"><p>Nuestra idea de la inferencia, es aprovechar las propiedades del promedio muestral.</p></li>
+<li class="fragment"><p>De que es el promedio muestral el que se distribuye normal, su media es la media poblacional y conocemos sus características.</p></li>
 <li class="fragment"><p>Por ejemplo, consideremos que de esta población de pingüinos obtenemos 1000 muestras de 40 individuos cada una.</p></li>
 <li class="fragment"><p>Si graficamos sus medias, podremos ver que estas se distribuyen aproximadamente normal.</p>
 <ul>
@@ -1826,13 +1807,13 @@ memory usage: 2.0+ KB</code></pre>
 </ul></li>
 </ul>
 </section>
-<section id="ejemplo-peso-de-los-pingüinos-palmer-5" class="slide level2">
+<section id="ejemplo-peso-de-los-pingüinos-palmer-6" class="slide level2 unnumbered unlisted">
 <h2>Ejemplo: Peso de los Pingüinos Palmer</h2>
 <div class="panel-tabset">
-<ul id="tabset-9" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-9-1">code</a></li><li><a href="#tabset-9-2">Plot</a></li></ul>
+<ul id="tabset-11" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-11-1">code</a></li><li><a href="#tabset-11-2">Plot</a></li></ul>
 <div class="tab-content">
-<div id="tabset-9-1">
-<div class="cell" data-execution_count="18">
+<div id="tabset-11-1">
+<div id="8c5e87a6" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb12-2"><a href="#cb12-2"></a></span>
 <span id="cb12-3"><a href="#cb12-3"></a><span class="co"># Definir el tamaño de cada muestra y la cantidad de muestras</span></span>
@@ -1861,14 +1842,14 @@ memory usage: 2.0+ KB</code></pre>
 <span id="cb12-26"><a href="#cb12-26"></a>plt.legend()</span>
 <span id="cb12-27"><a href="#cb12-27"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-execution_count="18">
+<div class="cell fragment" data-execution_count="20">
 
 </div>
 </div>
-<div id="tabset-9-2">
-<div class="cell" data-execution_count="19">
+<div id="tabset-11-2">
+<div id="f7620171" class="cell" data-execution_count="21">
 <div class="cell-output cell-output-display">
-<p><img data-src="sesion1_slides_files/figure-revealjs/cell-20-output-1.png"></p>
+<p><img data-src="sesion1_slides_files/figure-revealjs/cell-22-output-1.png" width="825" height="523"></p>
 </div>
 </div>
 </div>
@@ -1879,7 +1860,7 @@ memory usage: 2.0+ KB</code></pre>
 <h2>Intervalo de confianza</h2>
 <p>Obtengamos una muestra y calculemos un intervalo de confianza:</p>
 <div class="fragment">
-<div class="cell" data-execution_count="20">
+<div id="aa4d0572" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb13-2"><a href="#cb13-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb13-3"><a href="#cb13-3"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
@@ -1905,13 +1886,30 @@ memory usage: 2.0+ KB</code></pre>
 <span id="cb13-23"><a href="#cb13-23"></a><span class="bu">print</span>(<span class="st">"Intervalo de Confianza para el Peso:"</span>)</span>
 <span id="cb13-24"><a href="#cb13-24"></a><span class="bu">print</span>(confidence_interval)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-execution_count="20">
+<div class="cell fragment" data-execution_count="22">
 
 </div>
+</div>
+</section>
+<section id="intervalo-de-confianza-1" class="slide level2 unnumbered unlisted">
+<h2>Intervalo de confianza</h2>
+<p>Obtengamos una muestra y calculemos un intervalo de confianza:</p>
 <ul>
 <li class="fragment"><p>El resultado será un rango de valores dentro del cual es probable que se encuentre el verdadero peso promedio de los pingüinos en la población, con un nivel de confianza del 95%.</p></li>
 <li class="fragment"><p>¿Como nos fue? ¿Contiene al verdadero valor?</p></li>
 </ul>
+<div class="fragment">
+<div id="0619ad94" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="bu">print</span>(<span class="st">"Media poblacional:"</span>, penguins[<span class="st">'body_mass_g'</span>].mean())</span>
+<span id="cb14-2"><a href="#cb14-2"></a></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="bu">print</span>(<span class="st">"Intervalo de Confianza para el Peso:"</span>, confidence_interval)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="23">
+<div class="cell-output cell-output-stdout">
+<pre><code>Media poblacional: 4201.754385964912
+Intervalo de Confianza para el Peso: (4057.6777501605625, 4561.072249839437)</code></pre>
+</div>
+</div>
 </div>
 </section>
 <section id="comparaciones-de-grupos" class="slide level2">
@@ -1920,26 +1918,27 @@ memory usage: 2.0+ KB</code></pre>
 <li class="fragment"><p>Ahora consideremos que tenemos grupos que queremos comparar.</p></li>
 <li class="fragment"><p>Si hacemos una grafica de distribución de tamaño por especie y sexo, podriamos empezar a analizar diferencias entre los grupos.</p></li>
 </ul>
+<div class="fragment">
 <div class="panel-tabset">
-<ul id="tabset-10" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-10-1">code</a></li><li><a href="#tabset-10-2">Tabla</a></li></ul>
+<ul id="tabset-12" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-12-1">code</a></li><li><a href="#tabset-12-2">Tabla</a></li></ul>
 <div class="tab-content">
-<div id="tabset-10-1">
-<div class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Crear la tabla de doble entrada por tipo y sexo de los pinguinos</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a>tabla_doble_entrada <span class="op">=</span> penguins.groupby([<span class="st">'species'</span>, <span class="st">'sex'</span>])[<span class="st">'body_mass_g'</span>].agg([<span class="st">'mean'</span>, <span class="st">'var'</span>]).reset_index()</span>
-<span id="cb14-3"><a href="#cb14-3"></a></span>
-<span id="cb14-4"><a href="#cb14-4"></a><span class="co"># Renombrar las columnas para mayor claridad</span></span>
-<span id="cb14-5"><a href="#cb14-5"></a>tabla_doble_entrada.rename(columns<span class="op">=</span>{<span class="st">'mean'</span>: <span class="st">'Promedio'</span>, <span class="st">'var'</span>: <span class="st">'Varianza'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb14-6"><a href="#cb14-6"></a></span>
-<span id="cb14-7"><a href="#cb14-7"></a><span class="co"># Mostrar la tabla de doble entrada</span></span>
-<span id="cb14-8"><a href="#cb14-8"></a><span class="bu">print</span>(tabla_doble_entrada)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tabset-12-1">
+<div id="5bc9ac77" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Crear la tabla de doble entrada por tipo y sexo de los pinguinos</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>tabla_doble_entrada <span class="op">=</span> penguins.groupby([<span class="st">'species'</span>, <span class="st">'sex'</span>])[<span class="st">'body_mass_g'</span>].agg([<span class="st">'mean'</span>, <span class="st">'var'</span>]).reset_index()</span>
+<span id="cb16-3"><a href="#cb16-3"></a></span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="co"># Renombrar las columnas para mayor claridad</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a>tabla_doble_entrada.rename(columns<span class="op">=</span>{<span class="st">'mean'</span>: <span class="st">'Promedio'</span>, <span class="st">'var'</span>: <span class="st">'Varianza'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb16-6"><a href="#cb16-6"></a></span>
+<span id="cb16-7"><a href="#cb16-7"></a><span class="co"># Mostrar la tabla de doble entrada</span></span>
+<span id="cb16-8"><a href="#cb16-8"></a><span class="bu">print</span>(tabla_doble_entrada)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-execution_count="21">
+<div class="cell fragment" data-execution_count="24">
 
 </div>
 </div>
-<div id="tabset-10-2">
-<div class="cell" data-execution_count="22">
+<div id="tabset-12-2">
+<div id="85daa620" class="cell" data-execution_count="25">
 <div class="cell-output cell-output-stdout">
 <pre><code>     species     sex     Promedio       Varianza
 0     Adelie  Female  3368.835616   72565.639269
@@ -1953,15 +1952,16 @@ memory usage: 2.0+ KB</code></pre>
 </div>
 </div>
 </div>
+</div>
 </section>
-<section id="comparaciones-de-grupos-1" class="slide level2">
+<section id="comparaciones-de-grupos-1" class="slide level2 unnumbered unlisted">
 <h2>Comparaciones de grupos</h2>
 <ul>
 <li class="fragment"><p>Podriamos querer saber si el peso es diferente para los pinguinos de la especie Adelie, para diferentes sexos:</p></li>
 <li class="fragment"><p><strong>Pregunta de Prueba de Hipótesis:</strong> ¿Existe una diferencia significativa en el peso promedio entre los pingüinos machos y las pingüinas hembras en la especie “Adelie”?</p></li>
 </ul>
 </section>
-<section id="comparaciones-de-grupos-2" class="slide level2">
+<section id="comparaciones-de-grupos-2" class="slide level2 unnumbered unlisted">
 <h2>Comparaciones de grupos</h2>
 <ul>
 <li class="fragment"><p><strong>Hipótesis Nula (H0):</strong></p>
@@ -1970,178 +1970,184 @@ memory usage: 2.0+ KB</code></pre>
 <p>Existe una diferencia significativa en el peso promedio entre los pingüinos machos y las pingüinas hembras en la especie “Adelie”.</p></li>
 </ul>
 </section>
-<section id="comparaciones-de-grupos-3" class="slide level2">
+<section id="comparaciones-de-grupos-3" class="slide level2 unnumbered unlisted">
 <h2>Comparaciones de grupos</h2>
 <ul>
 <li class="fragment">Para probar esta hipótesis, podrías utilizar una prueba de hipótesis para comparar las medias de las muestras de peso de los pingüinos machos y hembras en la especie “Adelie”.</li>
 </ul>
+<div class="fragment">
 <div class="panel-tabset">
-<ul id="tabset-11" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-11-1">code</a></li><li><a href="#tabset-11-2">Plot</a></li></ul>
+<ul id="tabset-13" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-13-1">code</a></li><li><a href="#tabset-13-2">Plot</a></li></ul>
 <div class="tab-content">
-<div id="tabset-11-1">
-<div class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb16-2"><a href="#cb16-2"></a></span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="co"># Cargar el conjunto de datos "Penguins"</span></span>
-<span id="cb16-4"><a href="#cb16-4"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">"penguins"</span>)</span>
-<span id="cb16-5"><a href="#cb16-5"></a></span>
-<span id="cb16-6"><a href="#cb16-6"></a><span class="co"># Filtrar los pingüinos de la especie "Adelie"</span></span>
-<span id="cb16-7"><a href="#cb16-7"></a>adelie_penguins <span class="op">=</span> penguins[penguins[<span class="st">'species'</span>] <span class="op">==</span> <span class="st">'Adelie'</span>]</span>
-<span id="cb16-8"><a href="#cb16-8"></a></span>
-<span id="cb16-9"><a href="#cb16-9"></a><span class="co"># Crear un histograma para la distribución de peso por sexo</span></span>
-<span id="cb16-10"><a href="#cb16-10"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb16-11"><a href="#cb16-11"></a>sns.histplot(data<span class="op">=</span>adelie_penguins, x<span class="op">=</span><span class="st">'body_mass_g'</span>, hue<span class="op">=</span><span class="st">'sex'</span>, bins<span class="op">=</span><span class="dv">20</span>, kde<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb16-12"><a href="#cb16-12"></a>plt.title(<span class="st">'Distribución de Peso por Sexo para Pingüinos Adelie'</span>)</span>
-<span id="cb16-13"><a href="#cb16-13"></a>plt.xlabel(<span class="st">'Masa Corporal (g)'</span>)</span>
-<span id="cb16-14"><a href="#cb16-14"></a>plt.ylabel(<span class="st">'Frecuencia'</span>)</span>
-<span id="cb16-15"><a href="#cb16-15"></a>plt.legend(title<span class="op">=</span><span class="st">'Sexo'</span>)</span>
-<span id="cb16-16"><a href="#cb16-16"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tabset-13-1">
+<div id="40d4345e" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb18-2"><a href="#cb18-2"></a></span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="co"># Cargar el conjunto de datos "Penguins"</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">"penguins"</span>)</span>
+<span id="cb18-5"><a href="#cb18-5"></a></span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="co"># Filtrar los pingüinos de la especie "Adelie"</span></span>
+<span id="cb18-7"><a href="#cb18-7"></a>adelie_penguins <span class="op">=</span> penguins[penguins[<span class="st">'species'</span>] <span class="op">==</span> <span class="st">'Adelie'</span>]</span>
+<span id="cb18-8"><a href="#cb18-8"></a></span>
+<span id="cb18-9"><a href="#cb18-9"></a><span class="co"># Crear un histograma para la distribución de peso por sexo</span></span>
+<span id="cb18-10"><a href="#cb18-10"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb18-11"><a href="#cb18-11"></a>sns.histplot(data<span class="op">=</span>adelie_penguins, x<span class="op">=</span><span class="st">'body_mass_g'</span>, hue<span class="op">=</span><span class="st">'sex'</span>, bins<span class="op">=</span><span class="dv">20</span>, kde<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb18-12"><a href="#cb18-12"></a>plt.title(<span class="st">'Distribución de Peso por Sexo para Pingüinos Adelie'</span>)</span>
+<span id="cb18-13"><a href="#cb18-13"></a>plt.xlabel(<span class="st">'Masa Corporal (g)'</span>)</span>
+<span id="cb18-14"><a href="#cb18-14"></a>plt.ylabel(<span class="st">'Frecuencia'</span>)</span>
+<span id="cb18-15"><a href="#cb18-15"></a>plt.legend(title<span class="op">=</span><span class="st">'Sexo'</span>)</span>
+<span id="cb18-16"><a href="#cb18-16"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-execution_count="23">
+<div class="cell fragment" data-execution_count="26">
 
 </div>
 </div>
-<div id="tabset-11-2">
-<div class="cell" data-execution_count="24">
+<div id="tabset-13-2">
+<div id="9de61436" class="cell" data-execution_count="27">
 <div class="cell-output cell-output-display">
-<p><img data-src="sesion1_slides_files/figure-revealjs/cell-25-output-1.png"></p>
+<p><img data-src="sesion1_slides_files/figure-revealjs/cell-28-output-1.png" width="808" height="524"></p>
+</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="comparaciones-de-grupos-4" class="slide level2">
+<section id="comparaciones-de-grupos-4" class="slide level2 unnumbered unlisted">
 <h2>Comparaciones de grupos</h2>
 <ul>
 <li class="fragment">A simple vista podriamos pensar ambos grupos son diferentes.</li>
 <li class="fragment">Es más claro si dibujamos el promedio muestral observado.</li>
 </ul>
+<div class="fragment">
 <div class="panel-tabset">
-<ul id="tabset-12" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-12-1">code</a></li><li><a href="#tabset-12-2">plot</a></li></ul>
+<ul id="tabset-14" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-14-1">code</a></li><li><a href="#tabset-14-2">plot</a></li></ul>
 <div class="tab-content">
-<div id="tabset-12-1">
-<div class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Crear un gráfico de densidad con líneas de promedio</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb17-3"><a href="#cb17-3"></a>sns.kdeplot(data<span class="op">=</span>adelie_penguins, x<span class="op">=</span><span class="st">'body_mass_g'</span>, hue<span class="op">=</span><span class="st">'sex'</span>, fill<span class="op">=</span><span class="va">True</span>, common_norm<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb17-4"><a href="#cb17-4"></a>plt.axvline(x<span class="op">=</span>adelie_penguins.groupby(<span class="st">'sex'</span>)[<span class="st">'body_mass_g'</span>].mean()[<span class="st">'Female'</span>], color<span class="op">=</span><span class="st">'blue'</span>, linestyle<span class="op">=</span><span class="st">'dashed'</span>, label<span class="op">=</span><span class="st">'Promedio Femenino'</span>)</span>
-<span id="cb17-5"><a href="#cb17-5"></a>plt.axvline(x<span class="op">=</span>adelie_penguins.groupby(<span class="st">'sex'</span>)[<span class="st">'body_mass_g'</span>].mean()[<span class="st">'Male'</span>], color<span class="op">=</span><span class="st">'orange'</span>, linestyle<span class="op">=</span><span class="st">'dashed'</span>, label<span class="op">=</span><span class="st">'Promedio Masculino'</span>)</span>
-<span id="cb17-6"><a href="#cb17-6"></a>plt.title(<span class="st">'Densidad de Peso por Sexo para Pingüinos Adelie'</span>)</span>
-<span id="cb17-7"><a href="#cb17-7"></a>plt.xlabel(<span class="st">'Masa Corporal (g)'</span>)</span>
-<span id="cb17-8"><a href="#cb17-8"></a>plt.ylabel(<span class="st">'Densidad'</span>)</span>
-<span id="cb17-9"><a href="#cb17-9"></a>plt.legend()</span>
-<span id="cb17-10"><a href="#cb17-10"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tabset-14-1">
+<div id="5ce79269" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Crear un gráfico de densidad con líneas de promedio</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb19-3"><a href="#cb19-3"></a>sns.kdeplot(data<span class="op">=</span>adelie_penguins, x<span class="op">=</span><span class="st">'body_mass_g'</span>, hue<span class="op">=</span><span class="st">'sex'</span>, fill<span class="op">=</span><span class="va">True</span>, common_norm<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb19-4"><a href="#cb19-4"></a>plt.axvline(x<span class="op">=</span>adelie_penguins.groupby(<span class="st">'sex'</span>)[<span class="st">'body_mass_g'</span>].mean()[<span class="st">'Female'</span>], color<span class="op">=</span><span class="st">'blue'</span>, linestyle<span class="op">=</span><span class="st">'dashed'</span>, label<span class="op">=</span><span class="st">'Promedio Femenino'</span>)</span>
+<span id="cb19-5"><a href="#cb19-5"></a>plt.axvline(x<span class="op">=</span>adelie_penguins.groupby(<span class="st">'sex'</span>)[<span class="st">'body_mass_g'</span>].mean()[<span class="st">'Male'</span>], color<span class="op">=</span><span class="st">'orange'</span>, linestyle<span class="op">=</span><span class="st">'dashed'</span>, label<span class="op">=</span><span class="st">'Promedio Masculino'</span>)</span>
+<span id="cb19-6"><a href="#cb19-6"></a>plt.title(<span class="st">'Densidad de Peso por Sexo para Pingüinos Adelie'</span>)</span>
+<span id="cb19-7"><a href="#cb19-7"></a>plt.xlabel(<span class="st">'Masa Corporal (g)'</span>)</span>
+<span id="cb19-8"><a href="#cb19-8"></a>plt.ylabel(<span class="st">'Densidad'</span>)</span>
+<span id="cb19-9"><a href="#cb19-9"></a>plt.legend()</span>
+<span id="cb19-10"><a href="#cb19-10"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-execution_count="25">
+<div class="cell fragment" data-execution_count="28">
 
 </div>
 </div>
-<div id="tabset-12-2">
-<div class="cell" data-execution_count="26">
+<div id="tabset-14-2">
+<div id="bb1a68b8" class="cell" data-execution_count="29">
 <div class="cell-output cell-output-display">
-<p><img data-src="sesion1_slides_files/figure-revealjs/cell-27-output-1.png"></p>
+<p><img data-src="sesion1_slides_files/figure-revealjs/cell-30-output-1.png" width="838" height="523"></p>
+</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="comparaciones-de-grupos-5" class="slide level2">
+<section id="comparaciones-de-grupos-5" class="slide level2 unnumbered unlisted">
 <h2>Comparaciones de grupos</h2>
 <div class="panel-tabset">
-<ul id="tabset-13" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-13-1">code</a></li><li><a href="#tabset-13-2">Test t diferencia</a></li><li><a href="#tabset-13-3">plot</a></li></ul>
+<ul id="tabset-15" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-15-1">code</a></li><li><a href="#tabset-15-2">Test t diferencia</a></li><li><a href="#tabset-15-3">plot</a></li></ul>
 <div class="tab-content">
-<div id="tabset-13-1">
-<div class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Filtrar los pingüinos de la especie "Adelie"</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a>adelie_penguins <span class="op">=</span> penguins[penguins[<span class="st">'species'</span>] <span class="op">==</span> <span class="st">'Adelie'</span>]</span>
-<span id="cb18-3"><a href="#cb18-3"></a></span>
-<span id="cb18-4"><a href="#cb18-4"></a><span class="co"># Filtrar machos y hembras</span></span>
-<span id="cb18-5"><a href="#cb18-5"></a>machos <span class="op">=</span> adelie_penguins[adelie_penguins[<span class="st">'sex'</span>] <span class="op">==</span> <span class="st">'Male'</span>]</span>
-<span id="cb18-6"><a href="#cb18-6"></a>hembras <span class="op">=</span> adelie_penguins[adelie_penguins[<span class="st">'sex'</span>] <span class="op">==</span> <span class="st">'Female'</span>]</span>
-<span id="cb18-7"><a href="#cb18-7"></a></span>
-<span id="cb18-8"><a href="#cb18-8"></a><span class="co"># Realizar la prueba t independiente</span></span>
-<span id="cb18-9"><a href="#cb18-9"></a>t_statistic, p_value <span class="op">=</span> stats.ttest_ind(machos[<span class="st">'body_mass_g'</span>], hembras[<span class="st">'body_mass_g'</span>], equal_var<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb18-10"><a href="#cb18-10"></a></span>
-<span id="cb18-11"><a href="#cb18-11"></a><span class="co"># Imprimir resultados</span></span>
-<span id="cb18-12"><a href="#cb18-12"></a><span class="bu">print</span>(<span class="st">"Estadística t:"</span>, t_statistic)</span>
-<span id="cb18-13"><a href="#cb18-13"></a><span class="bu">print</span>(<span class="st">"Valor p:"</span>, p_value)</span>
-<span id="cb18-14"><a href="#cb18-14"></a></span>
-<span id="cb18-15"><a href="#cb18-15"></a><span class="co"># Crear un gráfico de comparación de peso</span></span>
-<span id="cb18-16"><a href="#cb18-16"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb18-17"><a href="#cb18-17"></a>sns.boxplot(data<span class="op">=</span>[machos[<span class="st">'body_mass_g'</span>], hembras[<span class="st">'body_mass_g'</span>]], palette<span class="op">=</span>[<span class="st">'blue'</span>, <span class="st">'pink'</span>])</span>
-<span id="cb18-18"><a href="#cb18-18"></a>plt.title(<span class="st">'Comparación de Peso entre Machos y Hembras de Pingüinos Adelie'</span>)</span>
-<span id="cb18-19"><a href="#cb18-19"></a>plt.xticks([<span class="dv">0</span>, <span class="dv">1</span>], [<span class="st">'Machos'</span>, <span class="st">'Hembras'</span>])</span>
-<span id="cb18-20"><a href="#cb18-20"></a>plt.ylabel(<span class="st">'Peso (g)'</span>)</span>
-<span id="cb18-21"><a href="#cb18-21"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tabset-15-1">
+<div id="da584342" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># Filtrar los pingüinos de la especie "Adelie"</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>adelie_penguins <span class="op">=</span> penguins[penguins[<span class="st">'species'</span>] <span class="op">==</span> <span class="st">'Adelie'</span>]</span>
+<span id="cb20-3"><a href="#cb20-3"></a></span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="co"># Filtrar machos y hembras</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a>machos <span class="op">=</span> adelie_penguins[adelie_penguins[<span class="st">'sex'</span>] <span class="op">==</span> <span class="st">'Male'</span>]</span>
+<span id="cb20-6"><a href="#cb20-6"></a>hembras <span class="op">=</span> adelie_penguins[adelie_penguins[<span class="st">'sex'</span>] <span class="op">==</span> <span class="st">'Female'</span>]</span>
+<span id="cb20-7"><a href="#cb20-7"></a></span>
+<span id="cb20-8"><a href="#cb20-8"></a><span class="co"># Realizar la prueba t independiente</span></span>
+<span id="cb20-9"><a href="#cb20-9"></a>t_statistic, p_value <span class="op">=</span> stats.ttest_ind(machos[<span class="st">'body_mass_g'</span>], hembras[<span class="st">'body_mass_g'</span>], equal_var<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb20-10"><a href="#cb20-10"></a></span>
+<span id="cb20-11"><a href="#cb20-11"></a><span class="co"># Imprimir resultados</span></span>
+<span id="cb20-12"><a href="#cb20-12"></a><span class="bu">print</span>(<span class="st">"Estadística t:"</span>, t_statistic)</span>
+<span id="cb20-13"><a href="#cb20-13"></a><span class="bu">print</span>(<span class="st">"Valor p:"</span>, p_value)</span>
+<span id="cb20-14"><a href="#cb20-14"></a></span>
+<span id="cb20-15"><a href="#cb20-15"></a><span class="co"># Crear un gráfico de comparación de peso</span></span>
+<span id="cb20-16"><a href="#cb20-16"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb20-17"><a href="#cb20-17"></a>sns.boxplot(data<span class="op">=</span>[machos[<span class="st">'body_mass_g'</span>], hembras[<span class="st">'body_mass_g'</span>]], palette<span class="op">=</span>[<span class="st">'blue'</span>, <span class="st">'pink'</span>])</span>
+<span id="cb20-18"><a href="#cb20-18"></a>plt.title(<span class="st">'Comparación de Peso entre Machos y Hembras de Pingüinos Adelie'</span>)</span>
+<span id="cb20-19"><a href="#cb20-19"></a>plt.xticks([<span class="dv">0</span>, <span class="dv">1</span>], [<span class="st">'Machos'</span>, <span class="st">'Hembras'</span>])</span>
+<span id="cb20-20"><a href="#cb20-20"></a>plt.ylabel(<span class="st">'Peso (g)'</span>)</span>
+<span id="cb20-21"><a href="#cb20-21"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-execution_count="27">
+<div class="cell fragment" data-execution_count="30">
 
 </div>
 </div>
-<div id="tabset-13-2">
-<div class="cell" data-execution_count="28">
+<div id="tabset-15-2">
+<div id="52aeefb4" class="cell" data-execution_count="31">
 <div class="cell-output cell-output-stdout">
 <pre><code>Estadística t: 13.126285923485874
 Valor p: 6.402319748031793e-26</code></pre>
 </div>
 </div>
 </div>
-<div id="tabset-13-3">
-<div class="cell" data-execution_count="29">
+<div id="tabset-15-3">
+<div id="92d6e7d4" class="cell" data-execution_count="32">
 <div class="cell-output cell-output-display">
-<p><img data-src="sesion1_slides_files/figure-revealjs/cell-30-output-1.png"></p>
+<p><img data-src="sesion1_slides_files/figure-revealjs/cell-33-output-1.png" width="825" height="506"></p>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="comparaciones-de-grupos-6" class="slide level2">
+<section id="comparaciones-de-grupos-6" class="slide level2 unnumbered unlisted">
 <h2>Comparaciones de grupos</h2>
 <ul>
 <li class="fragment">Finalmente, podriamos querer comparar hembras y machos de diferentes Islas.</li>
 <li class="fragment">Para esto podriamos usar una prueba ANOVA.</li>
 </ul>
+<div class="fragment">
 <div class="panel-tabset">
-<ul id="tabset-14" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-14-1">code</a></li><li><a href="#tabset-14-2">ANOVA Results</a></li><li><a href="#tabset-14-3">Plot</a></li></ul>
+<ul id="tabset-16" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-16-1">code</a></li><li><a href="#tabset-16-2">ANOVA Results</a></li><li><a href="#tabset-16-3">Plot</a></li></ul>
 <div class="tab-content">
-<div id="tabset-14-1">
-<div class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb20-2"><a href="#cb20-2"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
-<span id="cb20-3"><a href="#cb20-3"></a></span>
-<span id="cb20-4"><a href="#cb20-4"></a><span class="co"># Cargar el conjunto de datos "Penguins"</span></span>
-<span id="cb20-5"><a href="#cb20-5"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">"penguins"</span>)</span>
-<span id="cb20-6"><a href="#cb20-6"></a></span>
-<span id="cb20-7"><a href="#cb20-7"></a><span class="co"># Filtrar machos y hembras</span></span>
-<span id="cb20-8"><a href="#cb20-8"></a>machos <span class="op">=</span> penguins[penguins[<span class="st">'sex'</span>] <span class="op">==</span> <span class="st">'Male'</span>]</span>
-<span id="cb20-9"><a href="#cb20-9"></a>hembras <span class="op">=</span> penguins[penguins[<span class="st">'sex'</span>] <span class="op">==</span> <span class="st">'Female'</span>]</span>
-<span id="cb20-10"><a href="#cb20-10"></a></span>
-<span id="cb20-11"><a href="#cb20-11"></a><span class="co"># Realizar una prueba ANOVA</span></span>
-<span id="cb20-12"><a href="#cb20-12"></a>result <span class="op">=</span> stats.f_oneway(machos[<span class="st">'body_mass_g'</span>], hembras[<span class="st">'body_mass_g'</span>])</span>
-<span id="cb20-13"><a href="#cb20-13"></a></span>
-<span id="cb20-14"><a href="#cb20-14"></a><span class="co"># Imprimir resultados</span></span>
-<span id="cb20-15"><a href="#cb20-15"></a><span class="bu">print</span>(<span class="st">"Estadística F:"</span>, result.statistic)</span>
-<span id="cb20-16"><a href="#cb20-16"></a><span class="bu">print</span>(<span class="st">"Valor p:"</span>, result.pvalue)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tabset-16-1">
+<div id="a2a0651f" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
+<span id="cb22-3"><a href="#cb22-3"></a></span>
+<span id="cb22-4"><a href="#cb22-4"></a><span class="co"># Cargar el conjunto de datos "Penguins"</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">"penguins"</span>)</span>
+<span id="cb22-6"><a href="#cb22-6"></a></span>
+<span id="cb22-7"><a href="#cb22-7"></a><span class="co"># Filtrar machos y hembras</span></span>
+<span id="cb22-8"><a href="#cb22-8"></a>machos <span class="op">=</span> penguins[penguins[<span class="st">'sex'</span>] <span class="op">==</span> <span class="st">'Male'</span>]</span>
+<span id="cb22-9"><a href="#cb22-9"></a>hembras <span class="op">=</span> penguins[penguins[<span class="st">'sex'</span>] <span class="op">==</span> <span class="st">'Female'</span>]</span>
+<span id="cb22-10"><a href="#cb22-10"></a></span>
+<span id="cb22-11"><a href="#cb22-11"></a><span class="co"># Realizar una prueba ANOVA</span></span>
+<span id="cb22-12"><a href="#cb22-12"></a>result <span class="op">=</span> stats.f_oneway(machos[<span class="st">'body_mass_g'</span>], hembras[<span class="st">'body_mass_g'</span>])</span>
+<span id="cb22-13"><a href="#cb22-13"></a></span>
+<span id="cb22-14"><a href="#cb22-14"></a><span class="co"># Imprimir resultados</span></span>
+<span id="cb22-15"><a href="#cb22-15"></a><span class="bu">print</span>(<span class="st">"Estadística F:"</span>, result.statistic)</span>
+<span id="cb22-16"><a href="#cb22-16"></a><span class="bu">print</span>(<span class="st">"Valor p:"</span>, result.pvalue)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-execution_count="30">
+<div class="cell fragment" data-execution_count="33">
 
 </div>
 </div>
-<div id="tabset-14-2">
-<div class="cell" data-execution_count="31">
+<div id="tabset-16-2">
+<div id="fd1759d5" class="cell" data-execution_count="34">
 <div class="cell-output cell-output-stdout">
 <pre><code>Estadística F: 72.96098633250911
 Valor p: 4.897246751596325e-16</code></pre>
 </div>
 </div>
 </div>
-<div id="tabset-14-3">
-<div class="cell" data-execution_count="32">
+<div id="tabset-16-3">
+<div id="10873f6c" class="cell" data-execution_count="35">
 <div class="cell-output cell-output-display">
-<p><img data-src="sesion1_slides_files/figure-revealjs/cell-33-output-1.png"></p>
+<p><img data-src="sesion1_slides_files/figure-revealjs/cell-36-output-1.png" width="825" height="524"></p>
+</div>
 </div>
 </div>
 </div>
@@ -2194,45 +2200,45 @@ Valor p: 4.897246751596325e-16</code></pre>
 <section id="creación-de-los-datos" class="slide level2">
 <h2>Creación de los datos</h2>
 <div class="panel-tabset">
-<ul id="tabset-15" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-15-1">code</a></li><li><a href="#tabset-15-2">Dataframe</a></li></ul>
+<ul id="tabset-17" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-17-1">code</a></li><li><a href="#tabset-17-2">Dataframe</a></li></ul>
 <div class="tab-content">
-<div id="tabset-15-1">
-<div class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb22-3"><a href="#cb22-3"></a><span class="im">import</span> random</span>
-<span id="cb22-4"><a href="#cb22-4"></a></span>
-<span id="cb22-5"><a href="#cb22-5"></a><span class="co">#| output: false</span></span>
-<span id="cb22-6"><a href="#cb22-6"></a></span>
-<span id="cb22-7"><a href="#cb22-7"></a><span class="co"># Define una semilla para la generación de números aleatorios</span></span>
-<span id="cb22-8"><a href="#cb22-8"></a>np.random.seed(<span class="dv">123</span>)</span>
-<span id="cb22-9"><a href="#cb22-9"></a>random.seed(<span class="dv">123</span>)</span>
-<span id="cb22-10"><a href="#cb22-10"></a></span>
-<span id="cb22-11"><a href="#cb22-11"></a><span class="co"># Crear un vector de 200 valores aleatorios para el grupo de control</span></span>
-<span id="cb22-12"><a href="#cb22-12"></a>control <span class="op">=</span> np.random.choice([<span class="st">"Control"</span>], size<span class="op">=</span><span class="dv">200</span>, replace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb22-13"><a href="#cb22-13"></a></span>
-<span id="cb22-14"><a href="#cb22-14"></a><span class="co"># Crear un vector de 200 valores aleatorios para el grupo de tratamiento</span></span>
-<span id="cb22-15"><a href="#cb22-15"></a>tratamiento <span class="op">=</span> np.random.choice([<span class="st">"Treatment 1"</span>, <span class="st">"Treatment 2"</span>], size<span class="op">=</span><span class="dv">100</span>, replace<span class="op">=</span><span class="va">True</span>, p<span class="op">=</span>[<span class="fl">0.7</span>, <span class="fl">0.3</span>])</span>
-<span id="cb22-16"><a href="#cb22-16"></a></span>
-<span id="cb22-17"><a href="#cb22-17"></a><span class="co"># Crear un vector de número de compras para cada grupo</span></span>
-<span id="cb22-18"><a href="#cb22-18"></a>control_compras <span class="op">=</span> np.random.binomial(<span class="dv">5</span>, <span class="fl">0.2</span>, size<span class="op">=</span><span class="dv">200</span>)</span>
-<span id="cb22-19"><a href="#cb22-19"></a>tratamiento1_compras <span class="op">=</span> np.random.binomial(<span class="dv">5</span>, <span class="fl">0.4</span>, size<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb22-20"><a href="#cb22-20"></a>tratamiento2_compras <span class="op">=</span> np.random.binomial(<span class="dv">5</span>, <span class="fl">0.6</span>, size<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb22-21"><a href="#cb22-21"></a></span>
-<span id="cb22-22"><a href="#cb22-22"></a><span class="co"># Combinar los vectores en un DataFrame</span></span>
-<span id="cb22-23"><a href="#cb22-23"></a>data <span class="op">=</span> {</span>
-<span id="cb22-24"><a href="#cb22-24"></a>    <span class="st">'grupo'</span>: np.concatenate((control, np.repeat(<span class="st">"Treatment"</span>, <span class="dv">200</span>))),</span>
-<span id="cb22-25"><a href="#cb22-25"></a>    <span class="st">'tipo_tratamiento'</span>: np.concatenate((np.repeat(<span class="st">"Control"</span>, <span class="dv">200</span>), np.repeat([<span class="st">"Treatment 1"</span>, <span class="st">"Treatment 2"</span>], [<span class="dv">100</span>, <span class="dv">100</span>]))),</span>
-<span id="cb22-26"><a href="#cb22-26"></a>    <span class="st">'ventas'</span>: np.concatenate((control_compras, tratamiento1_compras, tratamiento2_compras))</span>
-<span id="cb22-27"><a href="#cb22-27"></a>}</span>
-<span id="cb22-28"><a href="#cb22-28"></a></span>
-<span id="cb22-29"><a href="#cb22-29"></a>ventas_df <span class="op">=</span> pd.DataFrame(data)</span>
-<span id="cb22-30"><a href="#cb22-30"></a></span>
-<span id="cb22-31"><a href="#cb22-31"></a><span class="co"># Verificar el DataFrame</span></span>
-<span id="cb22-32"><a href="#cb22-32"></a>ventas_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tabset-17-1">
+<div id="353448b1" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb24-3"><a href="#cb24-3"></a><span class="im">import</span> random</span>
+<span id="cb24-4"><a href="#cb24-4"></a></span>
+<span id="cb24-5"><a href="#cb24-5"></a><span class="co">#| output: false</span></span>
+<span id="cb24-6"><a href="#cb24-6"></a></span>
+<span id="cb24-7"><a href="#cb24-7"></a><span class="co"># Define una semilla para la generación de números aleatorios</span></span>
+<span id="cb24-8"><a href="#cb24-8"></a>np.random.seed(<span class="dv">123</span>)</span>
+<span id="cb24-9"><a href="#cb24-9"></a>random.seed(<span class="dv">123</span>)</span>
+<span id="cb24-10"><a href="#cb24-10"></a></span>
+<span id="cb24-11"><a href="#cb24-11"></a><span class="co"># Crear un vector de 200 valores aleatorios para el grupo de control</span></span>
+<span id="cb24-12"><a href="#cb24-12"></a>control <span class="op">=</span> np.random.choice([<span class="st">"Control"</span>], size<span class="op">=</span><span class="dv">200</span>, replace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb24-13"><a href="#cb24-13"></a></span>
+<span id="cb24-14"><a href="#cb24-14"></a><span class="co"># Crear un vector de 200 valores aleatorios para el grupo de tratamiento</span></span>
+<span id="cb24-15"><a href="#cb24-15"></a>tratamiento <span class="op">=</span> np.random.choice([<span class="st">"Treatment 1"</span>, <span class="st">"Treatment 2"</span>], size<span class="op">=</span><span class="dv">100</span>, replace<span class="op">=</span><span class="va">True</span>, p<span class="op">=</span>[<span class="fl">0.7</span>, <span class="fl">0.3</span>])</span>
+<span id="cb24-16"><a href="#cb24-16"></a></span>
+<span id="cb24-17"><a href="#cb24-17"></a><span class="co"># Crear un vector de número de compras para cada grupo</span></span>
+<span id="cb24-18"><a href="#cb24-18"></a>control_compras <span class="op">=</span> np.random.binomial(<span class="dv">5</span>, <span class="fl">0.2</span>, size<span class="op">=</span><span class="dv">200</span>)</span>
+<span id="cb24-19"><a href="#cb24-19"></a>tratamiento1_compras <span class="op">=</span> np.random.binomial(<span class="dv">5</span>, <span class="fl">0.4</span>, size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb24-20"><a href="#cb24-20"></a>tratamiento2_compras <span class="op">=</span> np.random.binomial(<span class="dv">5</span>, <span class="fl">0.6</span>, size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb24-21"><a href="#cb24-21"></a></span>
+<span id="cb24-22"><a href="#cb24-22"></a><span class="co"># Combinar los vectores en un DataFrame</span></span>
+<span id="cb24-23"><a href="#cb24-23"></a>data <span class="op">=</span> {</span>
+<span id="cb24-24"><a href="#cb24-24"></a>    <span class="st">'grupo'</span>: np.concatenate((control, np.repeat(<span class="st">"Treatment"</span>, <span class="dv">200</span>))),</span>
+<span id="cb24-25"><a href="#cb24-25"></a>    <span class="st">'tipo_tratamiento'</span>: np.concatenate((np.repeat(<span class="st">"Control"</span>, <span class="dv">200</span>), np.repeat([<span class="st">"Treatment 1"</span>, <span class="st">"Treatment 2"</span>], [<span class="dv">100</span>, <span class="dv">100</span>]))),</span>
+<span id="cb24-26"><a href="#cb24-26"></a>    <span class="st">'ventas'</span>: np.concatenate((control_compras, tratamiento1_compras, tratamiento2_compras))</span>
+<span id="cb24-27"><a href="#cb24-27"></a>}</span>
+<span id="cb24-28"><a href="#cb24-28"></a></span>
+<span id="cb24-29"><a href="#cb24-29"></a>ventas_df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb24-30"><a href="#cb24-30"></a></span>
+<span id="cb24-31"><a href="#cb24-31"></a><span class="co"># Verificar el DataFrame</span></span>
+<span id="cb24-32"><a href="#cb24-32"></a>ventas_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-execution_count="33">
-<div class="cell-output cell-output-display" data-execution_count="33">
+<div class="cell fragment" data-execution_count="36">
+<div class="cell-output cell-output-display" data-execution_count="36">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -2332,43 +2338,43 @@ Valor p: 4.897246751596325e-16</code></pre>
 </div>
 </div>
 </div>
-<div id="tabset-15-2">
-<div class="cell" data-execution_count="34">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb23-2"><a href="#cb23-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb23-3"><a href="#cb23-3"></a><span class="im">import</span> random</span>
-<span id="cb23-4"><a href="#cb23-4"></a></span>
-<span id="cb23-5"><a href="#cb23-5"></a><span class="co">#| echo: false</span></span>
-<span id="cb23-6"><a href="#cb23-6"></a></span>
-<span id="cb23-7"><a href="#cb23-7"></a><span class="co"># Define una semilla para la generación de números aleatorios</span></span>
-<span id="cb23-8"><a href="#cb23-8"></a>np.random.seed(<span class="dv">123</span>)</span>
-<span id="cb23-9"><a href="#cb23-9"></a>random.seed(<span class="dv">123</span>)</span>
-<span id="cb23-10"><a href="#cb23-10"></a></span>
-<span id="cb23-11"><a href="#cb23-11"></a><span class="co"># Crear un vector de 200 valores aleatorios para el grupo de control</span></span>
-<span id="cb23-12"><a href="#cb23-12"></a>control <span class="op">=</span> np.random.choice([<span class="st">"Control"</span>], size<span class="op">=</span><span class="dv">200</span>, replace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb23-13"><a href="#cb23-13"></a></span>
-<span id="cb23-14"><a href="#cb23-14"></a><span class="co"># Crear un vector de 200 valores aleatorios para el grupo de tratamiento</span></span>
-<span id="cb23-15"><a href="#cb23-15"></a>tratamiento <span class="op">=</span> np.random.choice([<span class="st">"Treatment 1"</span>, <span class="st">"Treatment 2"</span>], size<span class="op">=</span><span class="dv">100</span>, replace<span class="op">=</span><span class="va">True</span>, p<span class="op">=</span>[<span class="fl">0.7</span>, <span class="fl">0.3</span>])</span>
-<span id="cb23-16"><a href="#cb23-16"></a></span>
-<span id="cb23-17"><a href="#cb23-17"></a><span class="co"># Crear un vector de número de compras para cada grupo</span></span>
-<span id="cb23-18"><a href="#cb23-18"></a>control_compras <span class="op">=</span> np.random.binomial(<span class="dv">5</span>, <span class="fl">0.2</span>, size<span class="op">=</span><span class="dv">200</span>)</span>
-<span id="cb23-19"><a href="#cb23-19"></a>tratamiento1_compras <span class="op">=</span> np.random.binomial(<span class="dv">5</span>, <span class="fl">0.4</span>, size<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb23-20"><a href="#cb23-20"></a>tratamiento2_compras <span class="op">=</span> np.random.binomial(<span class="dv">5</span>, <span class="fl">0.6</span>, size<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb23-21"><a href="#cb23-21"></a></span>
-<span id="cb23-22"><a href="#cb23-22"></a><span class="co"># Combinar los vectores en un DataFrame</span></span>
-<span id="cb23-23"><a href="#cb23-23"></a>data <span class="op">=</span> {</span>
-<span id="cb23-24"><a href="#cb23-24"></a>    <span class="st">'grupo'</span>: np.concatenate((control, np.repeat(<span class="st">"Treatment"</span>, <span class="dv">200</span>))),</span>
-<span id="cb23-25"><a href="#cb23-25"></a>    <span class="st">'tipo_tratamiento'</span>: np.concatenate((np.repeat(<span class="st">"Control"</span>, <span class="dv">200</span>), np.repeat([<span class="st">"Treatment 1"</span>, <span class="st">"Treatment 2"</span>], [<span class="dv">100</span>, <span class="dv">100</span>]))),</span>
-<span id="cb23-26"><a href="#cb23-26"></a>    <span class="st">'ventas'</span>: np.concatenate((control_compras, tratamiento1_compras, tratamiento2_compras))</span>
-<span id="cb23-27"><a href="#cb23-27"></a>}</span>
-<span id="cb23-28"><a href="#cb23-28"></a></span>
-<span id="cb23-29"><a href="#cb23-29"></a>ventas_df <span class="op">=</span> pd.DataFrame(data)</span>
-<span id="cb23-30"><a href="#cb23-30"></a></span>
-<span id="cb23-31"><a href="#cb23-31"></a><span class="co"># Verificar el DataFrame</span></span>
-<span id="cb23-32"><a href="#cb23-32"></a>ventas_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tabset-17-2">
+<div id="2e1691f9" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="im">import</span> random</span>
+<span id="cb25-4"><a href="#cb25-4"></a></span>
+<span id="cb25-5"><a href="#cb25-5"></a><span class="co">#| echo: false</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a></span>
+<span id="cb25-7"><a href="#cb25-7"></a><span class="co"># Define una semilla para la generación de números aleatorios</span></span>
+<span id="cb25-8"><a href="#cb25-8"></a>np.random.seed(<span class="dv">123</span>)</span>
+<span id="cb25-9"><a href="#cb25-9"></a>random.seed(<span class="dv">123</span>)</span>
+<span id="cb25-10"><a href="#cb25-10"></a></span>
+<span id="cb25-11"><a href="#cb25-11"></a><span class="co"># Crear un vector de 200 valores aleatorios para el grupo de control</span></span>
+<span id="cb25-12"><a href="#cb25-12"></a>control <span class="op">=</span> np.random.choice([<span class="st">"Control"</span>], size<span class="op">=</span><span class="dv">200</span>, replace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb25-13"><a href="#cb25-13"></a></span>
+<span id="cb25-14"><a href="#cb25-14"></a><span class="co"># Crear un vector de 200 valores aleatorios para el grupo de tratamiento</span></span>
+<span id="cb25-15"><a href="#cb25-15"></a>tratamiento <span class="op">=</span> np.random.choice([<span class="st">"Treatment 1"</span>, <span class="st">"Treatment 2"</span>], size<span class="op">=</span><span class="dv">100</span>, replace<span class="op">=</span><span class="va">True</span>, p<span class="op">=</span>[<span class="fl">0.7</span>, <span class="fl">0.3</span>])</span>
+<span id="cb25-16"><a href="#cb25-16"></a></span>
+<span id="cb25-17"><a href="#cb25-17"></a><span class="co"># Crear un vector de número de compras para cada grupo</span></span>
+<span id="cb25-18"><a href="#cb25-18"></a>control_compras <span class="op">=</span> np.random.binomial(<span class="dv">5</span>, <span class="fl">0.2</span>, size<span class="op">=</span><span class="dv">200</span>)</span>
+<span id="cb25-19"><a href="#cb25-19"></a>tratamiento1_compras <span class="op">=</span> np.random.binomial(<span class="dv">5</span>, <span class="fl">0.4</span>, size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb25-20"><a href="#cb25-20"></a>tratamiento2_compras <span class="op">=</span> np.random.binomial(<span class="dv">5</span>, <span class="fl">0.6</span>, size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb25-21"><a href="#cb25-21"></a></span>
+<span id="cb25-22"><a href="#cb25-22"></a><span class="co"># Combinar los vectores en un DataFrame</span></span>
+<span id="cb25-23"><a href="#cb25-23"></a>data <span class="op">=</span> {</span>
+<span id="cb25-24"><a href="#cb25-24"></a>    <span class="st">'grupo'</span>: np.concatenate((control, np.repeat(<span class="st">"Treatment"</span>, <span class="dv">200</span>))),</span>
+<span id="cb25-25"><a href="#cb25-25"></a>    <span class="st">'tipo_tratamiento'</span>: np.concatenate((np.repeat(<span class="st">"Control"</span>, <span class="dv">200</span>), np.repeat([<span class="st">"Treatment 1"</span>, <span class="st">"Treatment 2"</span>], [<span class="dv">100</span>, <span class="dv">100</span>]))),</span>
+<span id="cb25-26"><a href="#cb25-26"></a>    <span class="st">'ventas'</span>: np.concatenate((control_compras, tratamiento1_compras, tratamiento2_compras))</span>
+<span id="cb25-27"><a href="#cb25-27"></a>}</span>
+<span id="cb25-28"><a href="#cb25-28"></a></span>
+<span id="cb25-29"><a href="#cb25-29"></a>ventas_df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb25-30"><a href="#cb25-30"></a></span>
+<span id="cb25-31"><a href="#cb25-31"></a><span class="co"># Verificar el DataFrame</span></span>
+<span id="cb25-32"><a href="#cb25-32"></a>ventas_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell fragment" data-execution_count="34">
-<div class="cell-output cell-output-display" data-execution_count="34">
+<div class="cell fragment" data-execution_count="37">
+<div class="cell-output cell-output-display" data-execution_count="37">
 <div>
 <style scoped="">
     .dataframe tbody tr th:only-of-type {
@@ -2494,7 +2500,7 @@ Valor p: 4.897246751596325e-16</code></pre>
 </div>
 </section></section>
 <section>
-<section id="buenas-prácticas-en-análisis-de-datos-1" class="title-slide slide level1 center">
+<section id="buenas-prácticas-en-análisis-de-datos" class="title-slide slide level1 center">
 <h1>Buenas prácticas en análisis de datos</h1>
 
 </section>
@@ -2507,16 +2513,16 @@ Valor p: 4.897246751596325e-16</code></pre>
 <li class="fragment">Garantía de Calidad y Fiabilidad en la Obtención de Datos: Obtener datos confiables es el primer paso para garantizar que nuestras conclusiones sean sólidas.</li>
 </ul>
 </section>
-<section id="desafíos-y-consideraciones-1" class="slide level2">
+<section id="desafíos-y-consideraciones-1" class="slide level2 unnumbered unlisted">
 <h2>Desafíos y Consideraciones:</h2>
-<h3 id="importancia-de-la-adquisición-y-almacenamiento-de-datos-1">Importancia de la Adquisición y Almacenamiento de Datos</h3>
+<h3 class="unnumbered unlisted" id="importancia-de-la-adquisición-y-almacenamiento-de-datos-1">Importancia de la Adquisición y Almacenamiento de Datos</h3>
 <ul>
 <li class="fragment">Exploración de Diferentes Fuentes de Datos y su Impacto en los Resultados: En el mundo actual, los datos provienen de diversas fuentes: bases de datos, encuestas, sensores, redes sociales, entre otros.</li>
 <li class="fragment">Cada fuente tiene sus propias características y potenciales sesgos.</li>
 <li class="fragment">Comprender las diferencias entre estas fuentes y cómo pueden influir en los resultados es crucial para tomar decisiones informadas.</li>
 </ul>
 </section>
-<section id="desafíos-y-consideraciones-2" class="slide level2">
+<section id="desafíos-y-consideraciones-2" class="slide level2 unnumbered unlisted">
 <h2>Desafíos y Consideraciones:</h2>
 <h3 id="privacidad-y-seguridad-de-los-datos">Privacidad y Seguridad de los Datos:</h3>
 <ul>
@@ -2524,15 +2530,15 @@ Valor p: 4.897246751596325e-16</code></pre>
 <li class="fragment">Los datos pueden contener información sensible y personal, y es esencial proteger la confidencialidad de las personas y organizaciones involucradas.</li>
 </ul>
 </section>
-<section id="desafíos-y-consideraciones-3" class="slide level2">
+<section id="desafíos-y-consideraciones-3" class="slide level2 unnumbered unlisted">
 <h2>Desafíos y Consideraciones:</h2>
-<h3 id="privacidad-y-seguridad-de-los-datos-1">Privacidad y Seguridad de los Datos:</h3>
+<h3 class="unnumbered unlisted" id="privacidad-y-seguridad-de-los-datos-1">Privacidad y Seguridad de los Datos:</h3>
 <ul>
 <li class="fragment">Exploraremos prácticas y regulaciones para garantizar que los datos se manejen de manera ética y legal.</li>
 <li class="fragment">Discutiremos cómo anonimizar los datos, utilizar técnicas de enmascaramiento y seguir las mejores prácticas para resguardar la privacidad de los individuos.</li>
 </ul>
 </section>
-<section id="desafíos-y-consideraciones-4" class="slide level2">
+<section id="desafíos-y-consideraciones-4" class="slide level2 unnumbered unlisted">
 <h2>Desafíos y Consideraciones:</h2>
 <h3 id="limpieza-y-transformación-durante-la-preparación-de-datos">Limpieza y Transformación durante la Preparación de Datos:</h3>
 <ul>
@@ -2541,9 +2547,9 @@ Valor p: 4.897246751596325e-16</code></pre>
 <li class="fragment">Los datos pueden contener valores faltantes, duplicados y errores que deben abordarse de manera adecuada.</li>
 </ul>
 </section>
-<section id="desafíos-y-consideraciones-5" class="slide level2">
+<section id="desafíos-y-consideraciones-5" class="slide level2 unnumbered unlisted">
 <h2>Desafíos y Consideraciones:</h2>
-<h3 id="limpieza-y-transformación-durante-la-preparación-de-datos-1">Limpieza y Transformación durante la Preparación de Datos:</h3>
+<h3 class="unnumbered unlisted" id="limpieza-y-transformación-durante-la-preparación-de-datos-1">Limpieza y Transformación durante la Preparación de Datos:</h3>
 <ul>
 <li class="fragment">Exploraremos técnicas para identificar y manejar valores atípicos y faltantes, errores de digitación, etc.</li>
 <li class="fragment">Los invetsigadores toman muchas decisiones en este proceso, que deben ser transparentes.</li>
@@ -2635,7 +2641,6 @@ Valor p: 4.897246751596325e-16</code></pre>
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -2897,10 +2902,9 @@ Valor p: 4.897246751596325e-16</code></pre>
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -2910,8 +2914,17 @@ Valor p: 4.897246751596325e-16</code></pre>
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 

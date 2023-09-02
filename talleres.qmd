@@ -1,0 +1,16 @@
+---
+title: "Talleres de aplicación"
+jupyter: python3
+editor: source
+
+---
+
+Vamos a trabajar 3 tralleres de aplicación:
+
+
+| Actividad       | Enunciado                  | Fecha de Entrega |
+|-----------------|----------------------------|------------------|
+| Taller 1        | [Taller 1 . Enunciado](taller1_enunciado.qmd)     | 15 de septiembre |
+| Taller 2        | | TBA   |
+| Taller 3        |       | TBA  |
+
