@@ -3,7 +3,7 @@ title: "Caso aplicación: Cursos de Verano"
 format: html
 ---
 
-# Caso aplicación:
+# Caso aplicación: Cursos de verano y resultados académicos
 
 ## Taller 1: Pregunta 4 - Aplicación datos de educación
 
@@ -50,188 +50,46 @@ Los datos estan disponibles en
 -   Este dataset incluye datos sobre cada individuo (con identificador id)
 -   Este dataset tiene información de rendimiento académico antes y después del curso de verano.
 
-## 1. Cargar datos 
+## Objetivos:
 
-En esta sección vamos a preparar los datos para el análisis. Este proceso generalmente incluye cargarlos, inspeccionarlos, limpiar y dar la estructura deseada. También revisaremos estadísticas descriptivas que nos den una idea antes de estimar cualquier modelo.
+La idea de este taller es poner en práctica los primeros pasos para un análisis:
+
+I. Este proceso generalmente incluye cargarlos, inspeccionarlos, limpiar y dar la estructura deseada. 
+
+II. También exploraremos los datos, usaremos estadísticas descriptivas que nos den una idea y resolver problemas potenciales (missing, ouliers, etc) antes de estimar cualquier modelo.
 
 En la vida real, este proceso suele ser bastante largo, laborioso e implica volver sobre lso pasos anteriores múltiples veces. También invlocura tomar desiciones por parte de los investigadores, por lo cual la documentación de esta fase es especialmente importante.
 
 En nuestro caso, será bastante lineal y directo, ya que son datos ficticios simulados. Pero en la realidad, no suele ser así.
 
-1. Cargue las tres bases de datos
-## 1 Cargar los datos
+Pasos que debe realizar:
 
-### 1.1 Intalar y cargar paquetes
+1. Preparación de los datos
 
-Para poder cargar los datos, necesiamos los paquetes adecuados. Siempre hay multiples formas de hacer las cosas en cualquier lenguaje o programa. En este caso, usaremos la función `read_csv()` del paquete *readr*. Para poder usarlo, debemos estar seguros de que está instalado.
+1.1. Cargue las tres bases de datos
 
-Si no está instalado, podemos hacerlo con la función `install.packages("[nombre paquete a instalar]")`
-
-```{r}
-#| eval: false
-
-install.packages("readr")
-```
-
-Si el paquete ya está instalado, para poder usarlo necesitamos tenerlo cargado en nuestra librería. Para esto usamos la función `library("[nombre paquete a cargar]")`.
-
-```{r}
-library(readr)
-```
-
-Cada paquete lo debemos instalar solo una vez por computador, pero debemos cargarlo en cada sesión para poder utilizarlo.
-
-### 1.2 Cargar datos csv
-
-Con *readr* estamos en condiciones de usar la función `read_csv()` para cargar la primera base de datos.
-
-Vamos a cargar *school_data_1.csv* agregando el path a los datos en paréntesis. Puede reemplazar por el path correspondiente o usar el paquete auxiliar `here`
-
-PS. notemos que tambien estamos incluyendo comentarios en los bloques de código. Las líneas que empiezan con el símbolo `#` son ignoradas por R.
-
-```{r}
-
-# cargar readr package
-library("readr", "here")
-
-#prueba el directorio que te dice con here
-here::here()
-```
-
-Entonces, dentro de `here("[Escribes el directorio relativo]")` actuará como el directorio relativo sin errores. Entonces, cargamos los datos y los asignamos a un data frame.
-
-```{r}
-
-school_data_1 <- read.csv(here::here("data/school_data_1.csv"))
-
-```
-
-Usualmente, después de cargar un dataset es útil visualizarlo. Empleamos la función `head()` para ver sus primeras 6 observaciones.
-
-```{r}
-#| warning: false
-#| eval: true
-
-head(school_data_1)
-
-```
-
-Una segunda alternativa es descargar y cargar los datos directamente en R desde internet. Puede ser cualquier link directo o, si está alojado en github, tienes que asegurarte de que sea un repositorio público.
-
-```{r}
-#| eval: false
-
-#school_data_1 <- read.csv("https://github.com/ClasesMOW/ayudantiasccs/blob/main/data_raw/school_data_1.csv")
-```
-
-### 1.3 Cargar datos STATA
-
-En Ciencias Sociales y Economía es muy comun contar con datos para ser utilizados en el programa STATA, estos son archivos que terminan en *.dta*. Para cargarlos, vamos a usar *HAVEN* del paquete *tidyverse*. También usaremos muchas otras funciones de ese paquete, asi que es buen momento para cargalo.
-
-```{r}
-library(tidyverse)
-
-school_data_2<- haven::read_dta(here::here("data/school_data_2.dta"))
-```
-
-Usemos el comando `tail()` para ver las últimas 10 entradas.
-
-```{r}
-# print las últimas 8 filas
-tail(school_data_2,n=10)
-```
-
-### 1.4 Cargar datos Microsoft Excel
-
-Finalmente, cargaremos el tercer dataset guardado como hoja de cálculo de Excel *.xlsx*. Para esto usaremos el paquete *readxl* que viene incluido en *tidyverse*. Luego de asignarlo a un dataframe, démosle una mirada con `glimpse()` (también del tidyverse).
-
-```{r}
-school_data_3 <- readxl::read_xlsx(here::here("data/school_data_3.xlsx"))
-
-glimpse(school_data_3)
-````
-
-1. Unir los datasets
+1.2. Unir los datasets
 
 Tenemos 3 bases de datos con información diferente de los mismos individuos. Generalmente es buena idea tener una sola gran tabla con toda esta información, especialmente si estimaremos modelos en base a ésta.
 
-La base de datos 1 y 2 tienen una forma similar: los individuos son filas y las variables columnas y hay una sola fila para cada individuo.
+La base de datos 1 y 2 tienen una forma similar: los individuos son filas y las variables columnas y hay una sola fila para cada individuo. Empiece uniendo ambos.
 
-Para hacerlo, podriamos usar varias alternativas.
+ - Notemos que el dataset unido debería tener 3491 filas y 9 columnas. Unimos todas las filas y agregamos al dataset de información del estudiante si recibió o no la carta (school_data_2)
 
-Una alternativa es usar la función nativa `merge( )`. En esta función, primero mencionamos los datasets a unir, luego informamos cual es la(s) columnas(s) que debe usar para unir ambos datasets con `by=....`. Por defecto, R incluye todas las filas que están en ambos datasets (basados en la variable *by*), pero podemos fijar `all=TRUE` para mantener todas las filas que están en ambos datasets o `all.x=TRUE` para mantener todas las filas coincidentes y las del primer dataset or `all.y=TRUE` para guardar todas las filas del segundo dataset.
 
-Veamos un ejemplo con los dos primeros datasets. Luego usemos `dim()` para conocer las dimensiones del nuevo dataset unido en términos de filas y columnas.
+Entonces, siga el siguiente flujo de trabajo:
 
-Notemos que el dataset unido tiene 3491 filas y 9 columnas. Unimos todas las filas y agregamos al dataset de información del estudiante si recibió o no la carta (school_data_2)
+   1.  Unimos *school_data_1* y *school_data_2* usando como variable de unión *person_id* y guardamos el dataset unido como *school_data*.
+   2.  Unimos *school_data_3* con *school_data* y sobre-escribimos *school_data*.
 
-¿Qué ocurre si las columnas tienen igual nombre? R va a renombrarlas automáticamente agregando un sufijo *.x* (a la columna del primer dataset) e *.y* ( a la columna del segundo dataset).
+       Notar que acá unimos por las columnas *person_id* y *school_id*. Esto no es realmente necesario porque cada estudiante con id única tiene un solo colegio, pero sirve de ejemplo en como usar más de una columna mediante. 
 
-Entonces, en el siguiente bloque:
+   3. Usamos la función `summary()` para obtener una estadística descriptiva de las variables en el dataset unido.
 
-1.  Unimos *school_data_1* y *school_data_2* usando como variable de unión *person_id* y guardamos el dataset unido como *school_data*.
-2.  Unimos *school_data_3* con *school_data* y sobre-escribimos *school_data*.
 
-Notar que acá unimos por las columnas *person_id* y *school_id*. Esto no es realmente necesario porque cada estudiante con id única tiene un solo colegio, pero sirve de ejemplo en como usar más de una columna mediante `c()`. 3. Usamos la función `summary()` para obtener una estadística descriptiva de las variables en el dataset unido.
+2.  Preparar los datos
 
-## 2. Unir los datasets
-
-Tenemos 3 bases de datos con información diferente de los mismos individuos. Generalmente es buena idea tener una sola gran tabla con toda esta información, especialmente si estimaremos modelos en base a ésta.
-
-La base de datos 1 y 2 tienen una forma similar: los individuos son filas y las variables columnas y hay una sola fila para cada individuo.
-
-Para hacerlo, podriamos usar varias alternativas.
-
-Una alternativa es usar la función nativa `merge( )`. En esta función, primero mencionamos los datasets a unir, luego informamos cual es la(s) columnas(s) que debe usar para unir ambos datasets con `by=....`. Por defecto, R incluye todas las filas que están en ambos datasets (basados en la variable *by*), pero podemos fijar `all=TRUE` para mantener todas las filas que están en ambos datasets o `all.x=TRUE` para mantener todas las filas coincidentes y las del primer dataset or `all.y=TRUE` para guardar todas las filas del segundo dataset.
-
-Veamos un ejemplo con los dos primeros datasets. Luego usemos `dim()` para conocer las dimensiones del nuevo dataset unido en términos de filas y columnas.
-
-```{r }
-# Unir school_data_1 con school_data_2
-school_data_merged <-merge(school_data_1,school_data_2, by="person_id")
-
-# Revisamos las dimensiones
-dim(school_data_merged)
-```
-
-Notemos que el dataset unido tiene 3491 filas y 9 columnas. Unimos todas las filas y agregamos al dataset de información del estudiante si recibió o no la carta (school_data_2)
-
-¿Qué ocurre si las columnas tienen igual nombre? R va a renombrarlas automáticamente agregando un sufijo *.x* (a la columna del primer dataset) e *.y* ( a la columna del segundo dataset).
-
-Entonces, en el siguiente bloque:
-
-1.  Unimos *school_data_1* y *school_data_2* usando como variable de unión *person_id* y guardamos el dataset unido como *school_data*.
-2.  Unimos *school_data_3* con *school_data* y sobre-escribimos *school_data*.
-
-Notar que acá unimos por las columnas *person_id* y *school_id*. Esto no es realmente necesario porque cada estudiante con id única tiene un solo colegio, pero sirve de ejemplo en como usar más de una columna mediante `c()`. 3. Usamos la función `summary()` para obtener una estadística descriptiva de las variables en el dataset unido.
-
-```{r }
-# Merge school_data_1 y school_data_2 y guardamos como school_data_merged 
-school_data_merged<-merge(school_data_1,school_data_2,by="person_id")
-
-# Merge school_data_3 con school_data_merged
-school_data_merged<-merge(school_data_merged,school_data_3,by=c("person_id","school_id"))
-
-# Estadísticas descriptivas de cada variable
-summary(school_data_merged)
-```
-
-Otra opción de hacer lo mismo es con join del paquete `dplyr` del `tidyverse`.
-
-[![Diferentes tipos de join en dplyr](images/jointypes.png){fig-alt="Diferentes tipos de join en dplyr" fig-align="center"}](https://statisticsglobe.com/r-dplyr-join-inner-left-right-full-semi-anti) (foto sacada de [link](https://statisticsglobe.com/r-dplyr-join-inner-left-right-full-semi-anti), puedes ver ejemplos detallados de los diferentes tipos de join)
-
-En este caso, podríamos hacer en un pipe `%>%` dos left joins seguidos.
-
-```{r}
-school_data_merged <- school_data_1 %>%
-                        left_join(school_data_2, by="person_id") %>%
-                        left_join(school_data_3, by=c("person_id", "school_id"))
-
-```
-
-## 3. Lipiar los datos
-
-### 3.1 Tidyng los datos
+2.1 Tidyng los datos
 
 Ahora que hemos unido las bases de datos, trataremos de que satisfazgan los principios de [Tidy Data](https://vita.had.co.nz/papers/tidy-data.pdf).
 
@@ -244,385 +102,50 @@ Un data frame se considera "tidy" (Según Hadley) si se cumplen las siguientes c
 
 Uno de estos, es que cada columna debe ser una variable y cafa fila una unidad de observación.
 
-Si inspeccionamos el número de columnas:
-
-```{r}
-# Alternativamente podemos usar la función nrow() para obtener el número de filas
-
-ncol(school_data_merged)
-
-```
-
-Son 17, pero tenemos 9 variables.
-
-```{r}
-head(school_data_merged)
-```
+Si inspeccionamos el número de columnas: Son 17, pero tenemos 9 variables.
 
 Es porque tenemos puntajes de las pruebas del año 2 al 10. Este tipo de datos son de *panel*
 
 ![](images/paste-4C87CB1E.png)
 
-Generalmente, que hagamos con este tipo de datos depende del tipo de modelos que queramos usar. Si bien el formato wide es facil de entender, generlamente para modelos y análisi preferimos que esté en formato long. Especialmente cuando modelamos incluyendo efectos fijos También es este el que adhiere a los principios tidy de mejor manera.
+Generalmente, que hacemos con este tipo de datos depende del tipo de modelos que queramos usar. Si bien el formato wide es facil de entender, generlamente para modelos y análisi preferimos que esté en formato long. Especialmente cuando modelamos incluyendo efectos fijos También es este el que adhiere a los principios tidy de mejor manera.
 
-Para cambiar a long, usamos `pivot_longer()`
-
-```{r}
-# lCargamos el paquete tidyr package. Ya está incluido en tidyverse, pero  también se puede llamar por si solo.
-
-library("tidyr")
-
-# make data tidy (make long)
-school_data_tidy<-school_data_merged%>%
-       tidyr::pivot_longer(
-                            cols = starts_with("test_year"),
-                            names_to = "year",
-                            names_prefix = "test_year_",
-                            names_transform = list(year = as.integer),
-                            values_to = "test_score",
-                             )
-
-# ncol nos da el número de columnas del nuevo dataset
-ncol(school_data_tidy)
-```
+Para cambiar a long, usamos `melt()`
 
 Ahora tenemos nuestros datos listos para que los inspeccionemos.
 
-### 3.2 Selección de muestra
+2.2 Selección de muestra
 
-Ya que contamos con datos que siguen los principios de tidy data, lo siguiente es seleccionar la muestra apropiada. En este trabajo, los unicos problemas que podríamos enfrentar son relacionados con valores faltantes o missing. Para inspeccionarlos vamos a usar la función `skim()` del paquete `skimr`, esta función nos muestra los vaores faltantes en nuestro dataset de una manera global.
+Ya que contamos con datos que siguen los principios de tidy data, lo siguiente es seleccionar la muestra apropiada. 
 
-```{r}
-# Cargar skimr
-library("skimr")
+En este trabajo, los unicos problemas que podríamos enfrentar son relacionados con valores faltantes o missing. 
 
-# Usamos skim() para inspeccionar los datos
-skim(school_data_tidy)
-```
+Identifique cuantas filas y comunas son, los tipos de varables y número de missing values. 
 
-Con esta función podemos ver facilmente cuantas filas y comunas son, los tipos de varables y número de missing values. Además la media, desviación estándar, percentiles e incluso un histograma para cada variable.
+En estos casos, para *parental_schooling* tenemos 45 missing y para *test_score* 11. 
 
-En estos casos, para *parental_schooling* tenemos 45 missing y para *test_score* 11. Asumamos que estos valores missing son random y deseamos remover estas filas. Para esto usamos `filter()`. Esta funcion toma dos argumentos, el dataset a filtrar y la condición para que se mantenga en el dataset, en este caso que no sea na o `!is.na(partental_schoolin)`. La función `is.na()` es verdad cuando el elemento en `()` es missing y usamos `!`para mostrar que queremos lo contrario a esto condición. En otras palabras queremos que la educaión parental no esté missing.
+Asumamos que estos valores missing son random y deseamos remover estas filas. 
 
-```{r}
-# Seleccionamos las columnas sin missing values
-school_data_selected<-dplyr::filter(school_data_tidy,!is.na(parental_schooling),!is.na(test_score))
 
-# Usamos skim() para revisar los datos nuevamente
-skim(school_data_selected)
+2.2 Modificar los datos
 
-```
+Un último paso que haremos antes de hacer estadística decsriptiva es modificar los datos.
 
-Hemos removido todos los missing.
+1. Cambio de nombre columna
+   Cambiaremos los nombres de algunas columnas para que se vean bien en la tablas. Vambos renombrar la variable summpercap a summer_school. 
 
-### 3.3 Modificar los datos
-
-Un último paso que haremos antes de hacer estadística decsriptiva es modificar los nombres de algunas columnas para que se vean bien en la tablas.
-
-Vambos renombrar la variable summpercap a summerschoolo. Lo hacemos con `rename()` del paquete dplyr. Esta función tiene una sintaxix similar a `filter()`
-
-```{r}
-# renombremos summercamp a summerschool
-analysisdata<-rename(school_data_selected, summerschool=summercamp)
-
-# usamos head para visualizar las primeras 6 observaciones
-head(analysisdata)
-```
-
-En un siguiente paso, vamos a transformar los puntajes en la pruebas a una variable que tenga media 0 y desviación estándar 1. Es mejor trabajar con variables estandarizadas, ya que no requieren conocer el conexto específico de la medida y es más facil de comunicar y comparar.
-
-```{r}
-# Estandarizamos los resultados de las pruebas
-# Agrupamos analysisdata por year
-analysisdata<-group_by(analysisdata,year)
-
-# Creamos una nueva variable con mutate. Como queremos que reemplace a la anterior, usamos su mismo nombre. 
-analysisdata<-mutate(analysisdata, test_score=(test_score-mean(test_score))/sd(test_score))
-
-# mostremos la media
-print(paste("Mean of test score:",mean(analysisdata$test_score)))
-```
-
-Esto tambien podemos hacerlo dentro de un pipe:
-
-```{r}
-# Estandarizamos los resultados de las pruebas
-
-analysisdata<- analysisdata %>% 
-        group_by(year) %>% # Agrupamos analysisdata por year
-        mutate(test_score=(test_score-mean(test_score))/sd(test_score))
-
-# mostremos la media
-print(paste("Mean of test score:",mean(analysisdata$test_score)))
-```
-
-Podemos comprobar que efectivamente la media y desviación estándar corresponden a dichos valores:
-
-```{r}
-# ver la media de test_score
-print(paste("Mean of test score:",mean(analysisdata$test_score)))
-
-# Ver la desviación estándar de test_score
-print(paste("SD of test score:",sd(analysisdata$test_score)))
-```
-
-Notar que si aplicamos `mean()` o `sd()` o cualquier otra función matemática a columnas que tienen valores missing, también dará un valor missing a menos que usemos la opción na.rm=FALSE.
+2. Estandarizar puntajes
+   En un siguiente paso, vamos a transformar los puntajes en la pruebas a una variable que tenga media 0 y desviación estándar 1. Es mejor trabajar con variables estandarizadas, ya que no requieren conocer el conexto específico de la medida y es más facil de comunicar y comparar.
 
 Ya estamos bien, ahora pasamos a conocer mejor nuestros datos con estadística descriptiva.
 
-## 4. Estadística descriptiva
+## 3. Estadística descriptiva
 
 Hasta ahora, cargamos datos en diversos formatos (csv, dta y xlsx) los unimos, re-estructuramos el dataset, removimos valores missing y generamos algunas transformaciones. El siguiente paso es empezar a conocer nuestros datos. Para esto haremos tablas de estadísticas descriptivas y también algunos graficos descriptivos.
 
-### 4.1 Tablas de estadística descriptiva
-
-Hasta ahora, ya conocemos dos maneras de calcular estadísticas resumen:
-
-1.  `sumary()` de R base. Esta función en realidad funciona en muchos tipos de objetos de R y suele dar un bien resumen. Pero no en el formato de una tabla exportable a un documento latex, word o etc. que podamos presentar en nuestra investigación o resultados.
-
-2.  `skim()` del paquete *skimr*
-
-#### 4.1.1 Tabla de estadísticas descriptivas "lista para llevar"
-
-Una forma rápida de obtener una tabla de estadísticas descriptivas es con un primo de `skim()` del paquete *modelsummary*.
-
-```{r}
-# cargar modelsummary
-library("modelsummary")
-
-# creamos una tabla de estádisticas descriptivas
-analysisdata%>%
-  filter(year==2)%>%
-  select(female,starts_with("paren"),letter,summerschool,test_score)%>%
-  datasummary_skim( fmt="%.2f")
-
-```
-
-Esta se puede exportar a varios formatos, como word o latex con el parámetro `output=["ruta donde guardar la tabla"]`. Primero hagámoslo en word:
-
-```{r}
-# load modelsummary
-library("modelsummary")
-
-# create a summary stat table in Latex format
-analysisdata%>%
-  filter(year==2)%>%
-  select(female,starts_with("paren"),letter,summerschool,test_score)%>%
-  datasummary_skim( fmt="%.2f",
-                 histogram=FALSE, output="tab_summary_statistics.docx")
-
-```
-
-La guardó en la carpeta por default. Si quieremos que esté en nuestra carpeta de output, podemos usar el paquete here::
-
-```{r}
-# load modelsummary
-library("modelsummary")
-
-# create a summary stat table in Latex format
-analysisdata%>%
-  filter(year==2)%>%
-  select(female,starts_with("paren"),letter,summerschool,test_score)%>%
-  datasummary_skim( fmt="%.2f",
-                 histogram=FALSE, output=here::here("output/tab_summary_statistics.docx") )
-
-```
-
-Ahora la hacemos en formato latex:
-
-```{r}
-
-# load modelsummary
-#library("modelsummary")
-
-# create a summary stat table in Latex format
-#analysisdata%>%
-#  filter(year==2)%>%
-#  ungroup() %>%
-#  select(female,starts_with("paren"),letter,summerschool,test_score)%>%
-#  datasummary_skim( fmt="%.2f", 
-#                    histogram=FALSE, output=here::here("output/tab_summary_statistics.tex"))
-    
-```
-
-#### 4.1.2 Tablas customizadas
-
-Para customizar nuestra tabla aun más, podemos usar la función `datasummary()` tambien del pquete modelsummary. Esta función perimte que definamos una *fórmula* de la estructura de la tabla.
-
-```{r}
-# creamos una tabla de estadísticas descriptivas resumen
-
-datasummary(female+parental_schooling+
-              letter+test_score~Factor(summerschool)*(Mean+SD),
-            sparse_header = FALSE,
-            data=filter(analysisdata,year==2))
-
-```
-
-En este ejemplo: - Listamos las variables a incluir separadas por un + similar to in a `female+parental_schooling+pa...` - Usamos a `~` para separar la lista de variables en la fórmula - Usamos la formula `Factor(summerschool)*(Mean+SD)` para mostror la media y desviación estándar por separado para cada grupo creado por la variable *summerschool*. - Usamos `Factor()` para indicarle a R que debería considerar *summerschool* como una variable binaria.
-
-- También podríamos haber hecho esto al limpiar y procesar la base de datos. - Podemos tambien invertir el orden `(Mean+SD)*Factor(summerschool)`, lo que entonces daría primero la media y devsicacion estándar y luego separar por los valores de la escuela de verano.
-
--   Usamos la opción `sparce_header=FALSE` para especificar que queremos incluir e *summerschool* como título.
-
-#### 4.1.3 Nombres de variables
-
-Hasta ahora hemos utilizado los nombres de variables directamente en las tablas. Estó no es muy estético, podemos cambiarle el nombre directamente con espacios y mayúsculas en el nombre para darle un emjor aspecto. También es posible asignanrle una "label" o etiqueta cuando creamos la tabla, como lo vemos en el ejemplo:
-
-```{r}
-# load modelsummary
-
-library("modelsummary")
-# create a summary stat table
-
-datasummary((`Female`=female)+
-            (`Parental schooling (years)`=parental_schooling)+
-            (`Parental income (log)`=parental_lincome)+
-            (`Received reminder letter`=letter)+
-            (`Test Score`=test_score)~
-            (`Attended summer school`=Factor(summerschool))*
-              (Mean+SD),
-            sparse_header = FALSE,
-            data=filter(analysisdata,year==2))
-
-```
-
-#### 4.1.4 Exportando nuestras tablas
-
-Podemos exportar nuestras tablas a word o Latex podemos usar la expresión `output="[nombre del archivo y ruta]"`. En `datasummary()` se ve así:
-
-```{r}
-# load modelsummary
-library("modelsummary")
-# create a summary stat table
-
-datasummary((`Female`=female)+
-            (`Parental schooling (years)`=parental_schooling)+
-            (`Parental income (log)`=parental_lincome)+
-            (`Received reminder letter`=letter)+
-            (`Test Score`=test_score)~
-            (Mean+SD+P25+P50+P75),
-            sparse_header = FALSE,
-            data=filter(analysisdata,year==2),
-            output = here::here("output/tab_descriptive_statistics.docx"))
-```
-
-### 4.2 Gráficos de estadística descriptiva
-
-Vamos a usar principalmente la librería ggplot2 para crear nuestros gráficos.
-
-#### 4.2.1 Scatter plot (o gráfico de dispersión)
-
-Nuestro primer grafico es un gráfico de dispersión. En este queremos ver como dos variables se relacionan en los datos. En estos podemos inlcuir curvas que describan la relación.
-
-En este gráfico
-
-1.  Iniciamos un objeto de grafico `ggplot()` usando los datos *analysisdata* que ya procesamos y la vamos a filtrar solo para incluir el año 5.
-2.  Especificamos que *parental_income* sea el eje x y *test_score* el eje y en `aes()`
-3.  Usamos `geom_point()` para incluir los puntos que describen la dispersión.
-4.  Usamos `geom_smooth()` para agregar una linea que describa la relación.
-5.  Usamos `theme()` para darle formato a los elementos
-6.  Usamos `labs()` para incorporar etiquetas a los ejes y al título.
-
-```{r}
-# load ggplot2
-library("ggplot2")
-# creamos un scatter plot entre ingreso parental y resultados academicos en el año 5
-ggplot(analysisdata%>%filter(year==5),  
-       aes(x=parental_lincome,y=test_score))+
-       geom_point(alpha=0.1,size=0.85,color="#63a668")+
-       geom_smooth(color="#145c21") +
-       theme(panel.background = element_rect(fill="#ededed",color="#ededed"),
-             plot.background = element_rect(fill="#ededed",color="#ededed"),
-             panel.grid.major = element_line(colour="#a3a3a3",size=0.1))+
-  labs(x="Log(Parental Income)",y="Test Score (Mean=0,SD=1)", title="Test scores & Parental income")
-```
-
-#### 4.2.2 Graficos de barras y boxplot
-
-Del grafico anteriro podemos observar que los resultados de los test se correlacionan con ingreso parental. Esto no es una sorpresa. Veamos si tambien el asistir a la escuea de verano se correlaciona con estas características individuales.
-
-Primero, creamos un scatter plot de educación de los padres y test score en el año anterior a la escuela de verano. Usemos el mismo código de arriba pero en lugar de ingreso, usamos educación parental. Segundo, creemos un gráfico de barras que muestre que los resultados previos a la asistencia a la escuela de verano. Tercero, creamos un box plot de ingreso de los padres y si asistieron o no a la escula de verano.
-
-Nuestro codigo ahora tiene estos elementos.
-
--   Creamos el objeto `ggplot()` y cargamos la data y el tema. Este objeto es llamado un *rawchart*
--   Creamos 3 gráficos basados en *rawchart*, cada uno lo guardamos con un nombre.
-    -   Para el de barras, usamos `geom_bar()` y fijamos `stat="summary", fun="mean"` para decirle a R que cree un grafico de barras con la media de *test_score*\
-    -   usamos `labs()` para decir los ejes y titulos.
-    -   Usamos `geom_boxplot()` para crear el boxplot.
--   Usamos el paquete *patchwork* para combinar varios gráficos en uno.
--   usamos *ggsave()* para guardar el gráfico combinado como un archivo *png*
-
-```{r}
-# Load patchwork 
-library("patchwork")
-# Create raw chart element
-rawchart<-ggplot(analysisdata%>%filter(year==4),x=as.factor(fill))+
-          theme_classic()
-
-# Create bar chart of pre summer school test score and summer school 
-p1<-rawchart+
-       geom_smooth(aes(x=parental_schooling,y=test_score)) +
-       geom_point(aes(x=parental_schooling,y=test_score),alpha=0.1)+
-       labs(x="Parental schooling", y="Test Score Year 5")
-
-# Create bar chart of pre summer school test score and summer school 
-p2<-rawchart+
-       geom_bar(aes(x=as.factor(summerschool),y=test_score),
-                    stat="summary",fun="mean")+
-       labs(y="Test Score Year 5", x="Attended Summer School")
-
-# Create bar chart of parental schooling and summer school attendance
-p3<-rawchart+
-              geom_boxplot(aes(x=as.factor(summerschool),y=parental_lincome))+
-       labs(y="Parental Income (log)", x="Attended Summer School")
-
-# Combine charts
-p1/(p2+p3)
-
-# Export chart
-ggsave("output/fig1.png")
-```
-
-Estos tres gráficos nos muestran que los puntajes en las pruebas se correlacionan con características de los padres (ambos scatters) y que aquellos que asistieron a la escuela de verano tenían mejores puntajes incluso antes de ir a la escuela de verano y que las caraterísticas de los padres se relaciona con la asistencia al éste 
-
-Es decir, tenemos **SESGO DE SELECCIÓN**
-
-#### 4.1.3 Histogramas y gráficos de densidad
-
-Comaperemos la distribución de los puntajes depués de asistir a la escuela de verano por quienes fueron y los que no fueron. Creamos un histograma con una linea que muestre las densidades estimadas.
-
-```{r}
-# create a histogram and density chart
-ggplot(filter(analysisdata,year==6),
-       aes(x=test_score,fill=as.factor(summerschool)))+
-       geom_histogram(aes(y=..density..),bins = 50,alpha=0.5,
-                       position="identity",color="white")+
-       geom_density(alpha=0.0,size=1,show.legend= FALSE)+
-       theme_minimal()+
-       labs(y="Densidad",x="Puntaje en prueba año 6 (estandarizado)",fill=" ")+
-       scale_fill_brewer(palette="Set2",labels=c("No asistió","Asistío a la escuela de verano"))+
-       theme(legend.position="top")
-```
-
-Claramente hay diferencias en sus resultados. Pero la estimación directa va a confundir cuanto de esto proviene del sesgo de selección y cuanto es el efecto real de ir a la escuela de verano.
-
-#### 4.1.4 Correalograma
-
-Muchas veces queremos saber que tán correlacionadas estan las variables en una muestra. Podríamos simplementa calular una tabla de correlaciones, pero el paquete \[PerformanceAnalytics\] tiene una función muy conveniente: `chart.Correlation()` que nos presenta un gráfico con las correlaciones de a pares, su significancia estadística, gráficos de dispersión y distribución.
-
-```{r}
-
-#Cargamos el paquete
-library("PerformanceAnalytics")
-
-correlations_graph <-  analysisdata %>%
-            dplyr::filter(year==6) %>%
-            ungroup() %>%
-            dplyr::select(female, parental_schooling, parental_lincome, summerschool, letter )  #variables para el correalograma
-
-chart.Correlation(correlations_graph, histogram=TRUE, pch=19)
-
-
-```
+3.1 Tablas de etsádistocas descriptivas
+   Incluya la media, la desviación estandar, la mediana, max y min, al menos.
+
+3.2  Gráficos de estadística descriptiva
+   Realice al menos scatter plot, histograma, box plot y correalograma.
+r1
