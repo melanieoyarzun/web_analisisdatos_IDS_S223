@@ -1,147 +1,146 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.166">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="author" content="Phd (c) Melanie Oyarzún - melanie.oyarzun@udd.cl">
+  <title>Web materiales Analisis de Datos - Sesión 2: Preparando los datos</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
 
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.339">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-<meta name="author" content="Phd (c) Melanie Oyarzún - melanie.oyarzun@udd.cl">
-
-<title>Web materiales Analisis de Datos - Sesión 3: Introducción al Análisis de regresión</title>
-<style>
-code{white-space: pre-wrap;}
-span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
-div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-  vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-</style>
-
-
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 20,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
-  }
-}</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="stylesheet" href="styles.css">
+  <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+  <script src="site_libs/quarto-nav/headroom.min.js"></script>
+  <script src="site_libs/clipboard/clipboard.min.js"></script>
+  <meta name="quarto:offset" content="./">
+  <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+  <script src="site_libs/quarto-search/fuse.min.js"></script>
+  <script src="site_libs/quarto-search/quarto-search.js"></script>
+  <script src="site_libs/quarto-html/quarto.js"></script>
+  <script src="site_libs/quarto-html/popper.min.js"></script>
+  <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+  <script src="site_libs/quarto-html/anchor.min.js"></script>
+  <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+  <link id="quarto-text-highlighting-styles" href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+  <script src="site_libs/bootstrap/bootstrap.min.js"></script>
+  <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+  <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <script id="quarto-search-options" type="application/json">{
+    "location": "navbar",
+    "copy-button": false,
+    "collapse-after": 3,
+    "panel-placement": "end",
+    "type": "overlay",
+    "limit": 20,
+    "language": {
+      "search-no-results-text": "No results",
+      "search-matching-documents-text": "matching documents",
+      "search-copy-link-title": "Copy link to search",
+      "search-hide-matches-text": "Hide additional matches",
+      "search-more-match-text": "more match in this document",
+      "search-more-matches-text": "more matches in this document",
+      "search-clear-button-title": "Clear",
+      "search-detached-cancel-button-title": "Cancel",
+      "search-submit-button-title": "Submit"
+    }
+  }</script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="styles.css">
 </head>
-
-<body class="nav-fixed">
-
+<body>
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+      <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Web materiales Analisis de Datos</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
+  </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Home</span></a>
+    <a class="nav-link" href="./index.html">Home</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./sesion0.html"> 
-<span class="menu-text">Overview curso</span></a>
+    <a class="nav-link" href="./sesion0.html">Overview curso</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./talleres.html"> 
-<span class="menu-text">talleres</span></a>
+    <a class="nav-link" href="./talleres.html">talleres</a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sesiones" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Sesiones</span>
-    </a>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sesiones" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sesiones</a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-sesiones">    
         <li>
     <a class="dropdown-item" href="./sesion1.html">
@@ -158,9 +157,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
 </ul>
+              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
-</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -169,103 +167,90 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#slides" id="toc-slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
-  <li><a href="#la-preparación-de-los-datos" id="toc-la-preparación-de-los-datos" class="nav-link" data-scroll-target="#la-preparación-de-los-datos">La preparación de los datos</a>
-  <ul class="collapse">
-  <li><a href="#tipos-de-datos" id="toc-tipos-de-datos" class="nav-link" data-scroll-target="#tipos-de-datos">Tipos de datos</a>
-  <ul class="collapse">
-  <li><a href="#según-estructura-de-los-datos" id="toc-según-estructura-de-los-datos" class="nav-link" data-scroll-target="#según-estructura-de-los-datos">Según estructura de los datos</a></li>
-  <li><a href="#datos-según-tamano" id="toc-datos-según-tamano" class="nav-link" data-scroll-target="#datos-según-tamano">Datos según tamaño</a></li>
-  <li><a href="#datos-según-tipo-y-su-operacionalizacion" id="toc-datos-según-tipo-y-su-operacionalizacion" class="nav-link" data-scroll-target="#datos-según-tipo-y-su-operacionalizacion">Datos según tipo y su operacionalización</a></li>
-  <li><a href="#datos-según-temporalidad-y-unidad-de-analisis." id="toc-datos-según-temporalidad-y-unidad-de-analisis." class="nav-link" data-scroll-target="#datos-según-temporalidad-y-unidad-de-analisis.">Datos según temporalidad y unidad de análisis.</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#cargando-los-datos" id="toc-cargando-los-datos" class="nav-link" data-scroll-target="#cargando-los-datos">Cargando los datos</a>
-  <ul class="collapse">
-  <li><a href="#leyendo-datos-en-pandas" id="toc-leyendo-datos-en-pandas" class="nav-link" data-scroll-target="#leyendo-datos-en-pandas">Leyendo datos en Pandas</a></li>
-  <li><a href="#formato-csv-valores-separados-por-comas" id="toc-formato-csv-valores-separados-por-comas" class="nav-link" data-scroll-target="#formato-csv-valores-separados-por-comas">Formato CSV (valores separados por comas)</a></li>
-  <li><a href="#csv-en-pandas" id="toc-csv-en-pandas" class="nav-link" data-scroll-target="#csv-en-pandas">CSV en pandas</a></li>
-  <li><a href="#json-java-script-object-notation" id="toc-json-java-script-object-notation" class="nav-link" data-scroll-target="#json-java-script-object-notation">JSON (Java Script Object Notation)</a></li>
-  <li><a href="#lectura-y-escritura-de-json-con-pandas" id="toc-lectura-y-escritura-de-json-con-pandas" class="nav-link" data-scroll-target="#lectura-y-escritura-de-json-con-pandas">Lectura y escritura de JSON con pandas</a></li>
-  <li><a href="#orientaciones-posibles-de-json" id="toc-orientaciones-posibles-de-json" class="nav-link" data-scroll-target="#orientaciones-posibles-de-json">Orientaciones posibles de JSON</a></li>
-  <li><a href="#extensible-markup-language-xml" id="toc-extensible-markup-language-xml" class="nav-link" data-scroll-target="#extensible-markup-language-xml">eXtensible Markup Language (XML)</a>
-  <ul class="collapse">
-  <li><a href="#ejemplo-xml" id="toc-ejemplo-xml" class="nav-link" data-scroll-target="#ejemplo-xml">Ejemplo XML</a></li>
-  </ul></li>
-  <li><a href="#formatos-binarios" id="toc-formatos-binarios" class="nav-link" data-scroll-target="#formatos-binarios">Formatos binarios</a></li>
-  <li><a href="#bases-de-datos-relacionales" id="toc-bases-de-datos-relacionales" class="nav-link" data-scroll-target="#bases-de-datos-relacionales">Bases de datos relacionales</a></li>
-  </ul></li>
-  <li><a href="#dirty-data" id="toc-dirty-data" class="nav-link" data-scroll-target="#dirty-data">Dirty Data</a>
-  <ul class="collapse">
-  <li><a href="#dirty-data-punto-de-vista-estadístico" id="toc-dirty-data-punto-de-vista-estadístico" class="nav-link" data-scroll-target="#dirty-data-punto-de-vista-estadístico">Dirty data: punto de vista estadístico</a></li>
-  <li><a href="#dirty-data-punto-de-vista-experto-en-base-de-datos" id="toc-dirty-data-punto-de-vista-experto-en-base-de-datos" class="nav-link" data-scroll-target="#dirty-data-punto-de-vista-experto-en-base-de-datos">Dirty data: punto de vista experto en base de datos</a></li>
-  <li><a href="#dirty-data-punto-de-vista-del-experto-en-un-área" id="toc-dirty-data-punto-de-vista-del-experto-en-un-área" class="nav-link" data-scroll-target="#dirty-data-punto-de-vista-del-experto-en-un-área">Dirty Data: Punto de vista del experto en un área</a></li>
-  <li><a href="#dirty-data-punto-de-vista-del-data-scientist" id="toc-dirty-data-punto-de-vista-del-data-scientist" class="nav-link" data-scroll-target="#dirty-data-punto-de-vista-del-data-scientist">Dirty Data: Punto de vista del Data Scientist</a></li>
-  <li><a href="#dónde-se-origina-el-dirty-data" id="toc-dónde-se-origina-el-dirty-data" class="nav-link" data-scroll-target="#dónde-se-origina-el-dirty-data">¿Dónde se origina el dirty data?</a></li>
-  <li><a href="#problemas-dirty-comunes" id="toc-problemas-dirty-comunes" class="nav-link" data-scroll-target="#problemas-dirty-comunes">Problemas Dirty comunes:</a></li>
-  </ul></li>
-  <li><a href="#preparando-los-datos" id="toc-preparando-los-datos" class="nav-link" data-scroll-target="#preparando-los-datos">Preparando los datos</a>
-  <ul class="collapse">
-  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">Data Wrangling</a></li>
-  <li><a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data">Tidy Data</a>
-  <ul class="collapse">
-  <li><a href="#porqué-datos-tidy" id="toc-porqué-datos-tidy" class="nav-link" data-scroll-target="#porqué-datos-tidy">¿Porqué datos Tidy?</a></li>
-  <li><a href="#siempre-tidy" id="toc-siempre-tidy" class="nav-link" data-scroll-target="#siempre-tidy">¿Siempre Tidy?</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#tareas-comunes-en-data-cleaning" id="toc-tareas-comunes-en-data-cleaning" class="nav-link" data-scroll-target="#tareas-comunes-en-data-cleaning">Tareas comunes en Data Cleaning</a>
-  <ul class="collapse">
-  <li><a href="#datos-perdidos" id="toc-datos-perdidos" class="nav-link" data-scroll-target="#datos-perdidos">Datos perdidos</a></li>
-  <li><a href="#fitrando-y-limpiando" id="toc-fitrando-y-limpiando" class="nav-link" data-scroll-target="#fitrando-y-limpiando">Fitrando y limpiando</a></li>
-  <li><a href="#errores-de-registro-y-textos" id="toc-errores-de-registro-y-textos" class="nav-link" data-scroll-target="#errores-de-registro-y-textos">Errores de registro y textos</a></li>
-  <li><a href="#errores-de-formato" id="toc-errores-de-formato" class="nav-link" data-scroll-target="#errores-de-formato">Errores de formato</a></li>
-  <li><a href="#transformando-strings" id="toc-transformando-strings" class="nav-link" data-scroll-target="#transformando-strings">Transformando strings</a></li>
-  <li><a href="#métodos-para-strings" id="toc-métodos-para-strings" class="nav-link" data-scroll-target="#métodos-para-strings">Métodos para strings</a></li>
-  <li><a href="#transformaciones-del-formato-de-los-datos" id="toc-transformaciones-del-formato-de-los-datos" class="nav-link" data-scroll-target="#transformaciones-del-formato-de-los-datos">Transformaciones del formato de los datos</a>
-  <ul class="collapse">
-  <li><a href="#eliminar-elegir-columnas" id="toc-eliminar-elegir-columnas" class="nav-link" data-scroll-target="#eliminar-elegir-columnas">Eliminar/ elegir columnas</a></li>
-  <li><a href="#reshapesre-formato" id="toc-reshapesre-formato" class="nav-link" data-scroll-target="#reshapesre-formato">Reshapes/re formato</a></li>
-  <li><a href="#crear-variables-dummies-dicotómicas" id="toc-crear-variables-dummies-dicotómicas" class="nav-link" data-scroll-target="#crear-variables-dummies-dicotómicas">Crear variables dummies / dicotómicas</a></li>
-  </ul></li>
-  <li><a href="#unir-datasets" id="toc-unir-datasets" class="nav-link" data-scroll-target="#unir-datasets">Unir datasets</a></li>
-  <li><a href="#apilar-dataframes" id="toc-apilar-dataframes" class="nav-link" data-scroll-target="#apilar-dataframes">1. Apilar dataframes</a></li>
-  <li><a href="#unir-dataframes" id="toc-unir-dataframes" class="nav-link" data-scroll-target="#unir-dataframes">2. Unir dataframes</a></li>
-  <li><a href="#transformaciones-estadístocas" id="toc-transformaciones-estadístocas" class="nav-link" data-scroll-target="#transformaciones-estadístocas">Transformaciones estadístocas:</a></li>
-  <li><a href="#estandarización-de-datos" id="toc-estandarización-de-datos" class="nav-link" data-scroll-target="#estandarización-de-datos">2. Estandarización de Datos</a></li>
-  <li><a href="#normalización-de-datos" id="toc-normalización-de-datos" class="nav-link" data-scroll-target="#normalización-de-datos">Normalización de Datos</a></li>
-  </ul></li>
-  </ul>
+        <nav id="TOC" role="doc-toc">
+<h2 id="toc-title">On this page</h2>
+<ul>
+<li><a href="#slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
+<li><a href="#la-preparación-de-los-datos" class="nav-link" data-scroll-target="#la-preparación-de-los-datos">La preparación de los datos</a>
+<ul class="collapse">
+<li><a href="#tipos-de-datos" class="nav-link" data-scroll-target="#tipos-de-datos">Tipos de datos</a>
+<ul class="collapse">
+<li><a href="#según-estructura-de-los-datos" class="nav-link" data-scroll-target="#según-estructura-de-los-datos">Según estructura de los datos</a></li>
+<li><a href="#datos-según-tamano" class="nav-link" data-scroll-target="#datos-según-tamano">Datos según tamaño</a></li>
+<li><a href="#datos-según-tipo-y-su-operacionalizacion" class="nav-link" data-scroll-target="#datos-según-tipo-y-su-operacionalizacion">Datos según tipo y su operacionalización</a></li>
+<li><a href="#datos-según-temporalidad-y-unidad-de-analisis." class="nav-link" data-scroll-target="#datos-según-temporalidad-y-unidad-de-analisis.">Datos según temporalidad y unidad de análisis.</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#cargando-los-datos" class="nav-link" data-scroll-target="#cargando-los-datos">Cargando los datos</a>
+<ul class="collapse">
+<li><a href="#leyendo-datos-en-pandas" class="nav-link" data-scroll-target="#leyendo-datos-en-pandas">Leyendo datos en Pandas</a></li>
+<li><a href="#formato-csv-valores-separados-por-comas" class="nav-link" data-scroll-target="#formato-csv-valores-separados-por-comas">Formato CSV (valores separados por comas)</a></li>
+<li><a href="#csv-en-pandas" class="nav-link" data-scroll-target="#csv-en-pandas">CSV en pandas</a></li>
+<li><a href="#json-java-script-object-notation" class="nav-link" data-scroll-target="#json-java-script-object-notation">JSON (Java Script Object Notation)</a></li>
+<li><a href="#lectura-y-escritura-de-json-con-pandas" class="nav-link" data-scroll-target="#lectura-y-escritura-de-json-con-pandas">Lectura y escritura de JSON con pandas</a></li>
+<li><a href="#orientaciones-posibles-de-json" class="nav-link" data-scroll-target="#orientaciones-posibles-de-json">Orientaciones posibles de JSON</a></li>
+<li><a href="#extensible-markup-language-xml" class="nav-link" data-scroll-target="#extensible-markup-language-xml">eXtensible Markup Language (XML)</a>
+<ul class="collapse">
+<li><a href="#ejemplo-xml" class="nav-link" data-scroll-target="#ejemplo-xml">Ejemplo XML</a></li>
+</ul></li>
+<li><a href="#formatos-binarios" class="nav-link" data-scroll-target="#formatos-binarios">Formatos binarios</a></li>
+<li><a href="#bases-de-datos-relacionales" class="nav-link" data-scroll-target="#bases-de-datos-relacionales">Bases de datos relacionales</a></li>
+</ul></li>
+<li><a href="#dirty-data" class="nav-link" data-scroll-target="#dirty-data">Dirty Data</a>
+<ul class="collapse">
+<li><a href="#dirty-data-punto-de-vista-estadístico" class="nav-link" data-scroll-target="#dirty-data-punto-de-vista-estadístico">Dirty data: punto de vista estadístico</a></li>
+<li><a href="#dirty-data-punto-de-vista-experto-en-base-de-datos" class="nav-link" data-scroll-target="#dirty-data-punto-de-vista-experto-en-base-de-datos">Dirty data: punto de vista experto en base de datos</a></li>
+<li><a href="#dirty-data-punto-de-vista-del-experto-en-un-área" class="nav-link" data-scroll-target="#dirty-data-punto-de-vista-del-experto-en-un-área">Dirty Data: Punto de vista del experto en un área</a></li>
+<li><a href="#dirty-data-punto-de-vista-del-data-scientist" class="nav-link" data-scroll-target="#dirty-data-punto-de-vista-del-data-scientist">Dirty Data: Punto de vista del Data Scientist</a></li>
+<li><a href="#dónde-se-origina-el-dirty-data" class="nav-link" data-scroll-target="#dónde-se-origina-el-dirty-data">¿Dónde se origina el dirty data?</a></li>
+<li><a href="#problemas-dirty-comunes" class="nav-link" data-scroll-target="#problemas-dirty-comunes">Problemas Dirty comunes:</a></li>
+</ul></li>
+<li><a href="#preparando-los-datos" class="nav-link" data-scroll-target="#preparando-los-datos">Preparando los datos</a>
+<ul class="collapse">
+<li><a href="#data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">Data Wrangling</a></li>
+<li><a href="#tidy-data" class="nav-link" data-scroll-target="#tidy-data">Tidy Data</a>
+<ul class="collapse">
+<li><a href="#porqué-datos-tidy" class="nav-link" data-scroll-target="#porqué-datos-tidy">¿Porqué datos Tidy?</a></li>
+<li><a href="#siempre-tidy" class="nav-link" data-scroll-target="#siempre-tidy">¿Siempre Tidy?</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#tareas-comunes-en-data-cleaning" class="nav-link" data-scroll-target="#tareas-comunes-en-data-cleaning">Tareas comunes en Data Cleaning</a>
+<ul class="collapse">
+<li><a href="#datos-perdidos" class="nav-link" data-scroll-target="#datos-perdidos">Datos perdidos</a></li>
+<li><a href="#fitrando-y-limpiando" class="nav-link" data-scroll-target="#fitrando-y-limpiando">Fitrando y limpiando</a></li>
+<li><a href="#errores-de-registro-y-textos" class="nav-link" data-scroll-target="#errores-de-registro-y-textos">Errores de registro y textos</a></li>
+<li><a href="#errores-de-formato" class="nav-link" data-scroll-target="#errores-de-formato">Errores de formato</a></li>
+<li><a href="#transformando-strings" class="nav-link" data-scroll-target="#transformando-strings">Transformando strings</a></li>
+<li><a href="#métodos-para-strings" class="nav-link" data-scroll-target="#métodos-para-strings">Métodos para strings</a></li>
+<li><a href="#transformaciones-del-formato-de-los-datos" class="nav-link" data-scroll-target="#transformaciones-del-formato-de-los-datos">Transformaciones del formato de los datos</a>
+<ul class="collapse">
+<li><a href="#eliminar-elegir-columnas" class="nav-link" data-scroll-target="#eliminar-elegir-columnas">Eliminar/ elegir columnas</a></li>
+<li><a href="#reshapesre-formato" class="nav-link" data-scroll-target="#reshapesre-formato">Reshapes/re formato</a></li>
+<li><a href="#crear-variables-dummies-dicotómicas" class="nav-link" data-scroll-target="#crear-variables-dummies-dicotómicas">Crear variables dummies / dicotómicas</a></li>
+</ul></li>
+<li><a href="#unir-datasets" class="nav-link" data-scroll-target="#unir-datasets">Unir datasets</a></li>
+<li><a href="#apilar-dataframes" class="nav-link" data-scroll-target="#apilar-dataframes">1. Apilar dataframes</a></li>
+<li><a href="#unir-dataframes" class="nav-link" data-scroll-target="#unir-dataframes">2. Unir dataframes</a></li>
+<li><a href="#transformaciones-estadístocas" class="nav-link" data-scroll-target="#transformaciones-estadístocas">Transformaciones estadístocas:</a></li>
+<li><a href="#estandarización-de-datos" class="nav-link" data-scroll-target="#estandarización-de-datos">2. Estandarización de Datos</a></li>
+<li><a href="#normalización-de-datos" class="nav-link" data-scroll-target="#normalización-de-datos">Normalización de Datos</a></li>
+</ul></li>
+</ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
-
 <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Sesión 2: Preparando los datos</h1>
-<p class="subtitle lead">Curso: Análisis de datos</p>
-</div>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
+<div class="quarto-title"><h1 class="title display-7">Sesión 2: Preparando los datos</h1><p class="subtitle lead">Curso: Análisis de datos</p></div><div class="quarto-title-meta"><div><div class="quarto-title-meta-heading">Author</div><div class="quarto-title-meta-contents"><div class="quarto-title-authors"><div><div>
+<p>Phd (c) Melanie Oyarzún - <a href="mailto:melanie.oyarzun@udd.cl">melanie.oyarzun@udd.cl</a></p>
+</div></div></div></div></div></div></header>
 
 <section id="slides" class="level3">
 <h3 class="anchored" data-anchor-id="slides">Slides</h3>
-<p><a href="sesion3_slides.qmd">Slides Sesión 3</a></p>
+<p><a href="./sesion3_slides.html">Slides Sesión 3</a></p>
 <iframe width="800px" height="533px" style="border:2px solid #dee2e6;" src="sesion2_slides.html"></iframe>
 </section>
 <section id="la-preparación-de-los-datos" class="level1">
@@ -308,7 +293,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/img_sesion2/structuredvsunestructures.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">fuente: https://www.igneous.io/blog/structured-data-vs-unstructured-data</figcaption>
+<p></p><figcaption aria-hidden="true" class="figure-caption">fuente: https://www.igneous.io/blog/structured-data-vs-unstructured-data</figcaption><p></p>
 </figure>
 </div>
 <section id="datos-estructurados" class="level4">
@@ -392,12 +377,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="leyendo-datos-en-pandas">Leyendo datos en Pandas</h2>
 <p>En <code>Pandas</code> podemos cargar una gran variedad de datos, a través de la familia de funciones <code>read_tipo</code></p>
 <p><img src="img/pandas_read.png" class="img-fluid"></p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Algunos tipos de argumentos para funciones read_*
 </div>
 </div>
@@ -502,8 +487,8 @@ Algunos tipos de argumentos para funciones read_*
 <li><p>¿Qué es un formato binario?</p></li>
 <li><p>Pickle: Python’s built-in serialization</p></li>
 </ul>
-<div id="a6a1e324" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Objeto que queremos guardar</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'nombre'</span>: <span class="st">'Juan'</span>, <span class="st">'edad'</span>: <span class="dv">25</span>, <span class="st">'profesion'</span>: <span class="st">'ingeniero'</span>}</span>
@@ -517,9 +502,6 @@ Algunos tipos de argumentos para funciones read_*
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    datos_cargados <span class="op">=</span> pickle.load(archivo)</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Objeto cargado:"</span>, datos_cargados)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Objeto cargado: {'nombre': 'Juan', 'edad': 25, 'profesion': 'ingeniero'}</code></pre>
-</div>
 </div>
 <ul>
 <li><p>HDF5: Librería para almacenar gran cantidad de datos científicos</p>
@@ -670,7 +652,7 @@ Algunos tipos de argumentos para funciones read_*
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/tidydata_3.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Fuente: https://allisonhorst.com/other-r-fun</figcaption>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Fuente: https://allisonhorst.com/other-r-fun</figcaption><p></p>
 </figure>
 </div>
 <ul>
@@ -680,7 +662,7 @@ Algunos tipos de argumentos para funciones read_*
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/tidydata_4.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Fuente: https://allisonhorst.com/other-r-fun</figcaption>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Fuente: https://allisonhorst.com/other-r-fun</figcaption><p></p>
 </figure>
 </div>
 <ul>
@@ -690,7 +672,7 @@ Algunos tipos de argumentos para funciones read_*
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/tidydata_5.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Fuente: https://allisonhorst.com/other-r-fun</figcaption>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Fuente: https://allisonhorst.com/other-r-fun</figcaption><p></p>
 </figure>
 </div>
 </section>
@@ -732,28 +714,22 @@ Algunos tipos de argumentos para funciones read_*
 <li>valores por encima o por debajo de los umbrales especificados se establecen en un valor máximo/mínimo.</li>
 </ul></li>
 </ul>
-<div id="16e921d3" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Nombre'</span>: [<span class="st">'Juan'</span>, <span class="st">'Ana'</span>, <span class="st">'Luis'</span>, np.nan, <span class="st">'Carlos'</span>],</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Edad'</span>: [<span class="dv">25</span>, <span class="dv">30</span>, np.nan, <span class="dv">30</span>, <span class="dv">28</span>]}</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Eliminar filas con valores faltantes</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna()</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Llenar valores faltantes con un valor específico</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Edad'</span>].fillna(<span class="dv">0</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Nombre  Edad
-0    Juan  25.0
-1     Ana  30.0
-4  Carlos  28.0</code></pre>
-</div>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Nombre'</span>: [<span class="st">'Juan'</span>, <span class="st">'Ana'</span>, <span class="st">'Luis'</span>, np.nan, <span class="st">'Carlos'</span>],</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Edad'</span>: [<span class="dv">25</span>, <span class="dv">30</span>, np.nan, <span class="dv">30</span>, <span class="dv">28</span>]}</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Eliminar filas con valores faltantes</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna()</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Llenar valores faltantes con un valor específico</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Edad'</span>].fillna(<span class="dv">0</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="datos-perdidos" class="level2">
 <h2 class="anchored" data-anchor-id="datos-perdidos">Datos perdidos</h2>
@@ -774,7 +750,7 @@ Algunos tipos de argumentos para funciones read_*
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="img/pandas_missing.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Missing en Pandas</figcaption>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Missing en Pandas</figcaption><p></p>
 </figure>
 </div>
 </section>
@@ -792,23 +768,16 @@ Algunos tipos de argumentos para funciones read_*
 </ul></li>
 <li>Puede recibir columnas específics para chequear por duplicados, e.g. chequear solo la columna key.</li>
 </ul>
-<div id="895e0c31" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Nombre'</span>: [<span class="st">'Juan'</span>, <span class="st">'Ana'</span>, <span class="st">'Luis'</span>, <span class="st">'Ana'</span>, <span class="st">'Carlos'</span>],</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Edad'</span>: [<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">30</span>, <span class="dv">28</span>]}</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.drop_duplicates()</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Nombre  Edad
-0    Juan    25
-1     Ana    30
-2    Luis    35
-4  Carlos    28</code></pre>
-</div>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Nombre'</span>: [<span class="st">'Juan'</span>, <span class="st">'Ana'</span>, <span class="st">'Luis'</span>, <span class="st">'Ana'</span>, <span class="st">'Carlos'</span>],</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Edad'</span>: [<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">30</span>, <span class="dv">28</span>]}</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.drop_duplicates()</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="errores-de-registro-y-textos" class="level2">
@@ -826,30 +795,18 @@ Algunos tipos de argumentos para funciones read_*
 <section id="errores-de-formato" class="level2">
 <h2 class="anchored" data-anchor-id="errores-de-formato">Errores de formato</h2>
 <p>A veces, los datos se almacenan en el formato incorrecto y necesitas corregirlos.</p>
-<div id="eefa13a9" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Fecha'</span>: [<span class="st">'2023-08-26'</span>, <span class="st">'2023-08-27'</span>, <span class="st">'2023-08-28'</span>],</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Ventas'</span>: [<span class="st">'$1000'</span>, <span class="st">'$1500'</span>, <span class="st">'$1200'</span>]}</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir la columna 'Ventas' a números eliminando el símbolo de dólar</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Ventas'</span>] <span class="op">=</span> df[<span class="st">'Ventas'</span>].<span class="bu">str</span>.replace(<span class="st">'$'</span>, <span class="st">''</span>).astype(<span class="bu">float</span>)</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>        Fecha  Ventas
-0  2023-08-26  1000.0
-1  2023-08-27  1500.0
-2  2023-08-28  1200.0</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/ry/0yrdh5kn1m92t_pmx56nnqkc0000gn/T/ipykernel_95173/2310739606.py:9: FutureWarning:
-
-The default value of regex will change from True to False in a future version. In addition, single character regular expressions will *not* be treated as literal strings when regex=True.
-</code></pre>
-</div>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Fecha'</span>: [<span class="st">'2023-08-26'</span>, <span class="st">'2023-08-27'</span>, <span class="st">'2023-08-28'</span>],</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Ventas'</span>: [<span class="st">'$1000'</span>, <span class="st">'$1500'</span>, <span class="st">'$1200'</span>]}</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertir la columna 'Ventas' a números eliminando el símbolo de dólar</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Ventas'</span>] <span class="op">=</span> df[<span class="st">'Ventas'</span>].<span class="bu">str</span>.replace(<span class="st">'$'</span>, <span class="st">''</span>).astype(<span class="bu">float</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="transformando-strings" class="level2">
@@ -857,41 +814,29 @@ The default value of regex will change from True to False in a future version. I
 <ul>
 <li>index()encuentra donde ocurre primero un substring(error si no lo encuentra):</li>
 </ul>
-<div id="9b9a97cd" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">"12,13, 14"</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>s.index(<span class="st">','</span>) <span class="co"># 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="27">
-<pre><code>2</code></pre>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">"12,13, 14"</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>s.index(<span class="st">','</span>) <span class="co"># 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<div id="4b783724" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#s.index(':') # ValueError raised</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#s.index(':') # ValueError raised</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><code>find(&lt;str&gt;)</code>: Lo mismo que index pero -1 si no es encontrado</li>
 </ul>
-<div id="4b54ebd4" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">"12,13, 14"</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>s.find(<span class="st">','</span>) <span class="co"># 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="29">
-<pre><code>2</code></pre>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">"12,13, 14"</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>s.find(<span class="st">','</span>) <span class="co"># 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<div id="26be5171" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>s.find(<span class="st">':'</span>) <span class="co"># -1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="30">
-<pre><code>-1</code></pre>
-</div>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>s.find(<span class="st">':'</span>) <span class="co"># -1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><code>startswith()</code> or <code>endswith()</code>: chequeo booleano para la ocurrencia de un string</li>
 </ul>
-<div id="e9ec79bd" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>    s.startswith(<span class="st">"1"</span>) <span class="co"># True</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    s.endswith(<span class="st">"5"</span>) <span class="co"># False`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="31">
-<pre><code>False</code></pre>
-</div>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>    s.startswith(<span class="st">"1"</span>) <span class="co"># True</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    s.endswith(<span class="st">"5"</span>) <span class="co"># False`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="métodos-para-strings" class="level2">
@@ -901,46 +846,24 @@ The default value of regex will change from True to False in a future version. I
 <p>Cualquier columna o serie puede tener métodos string (e.g.&nbsp;replace, split) aplicado a la serie completa</p>
 <p>Está vectorizado para columnas completas o incluso el dataframe (lo cual lo hace rápido) Se debe usar .str.<method_name> (es importante el .str).</method_name></p>
 <p>Ejemplo:</p>
-<div id="a11824c6" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.Series({<span class="st">'Dave'</span>: <span class="st">'dave@google.com'</span>, <span class="st">'Steve'</span>: <span class="st">'steve@gmail.com'</span>, <span class="st">'Rob'</span>: <span class="st">'rob@gmail.com'</span>, <span class="st">'Wes'</span>: np.nan})</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>contains_gmail <span class="op">=</span> data.<span class="bu">str</span>.contains(<span class="st">'gmail'</span>)</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>split_at <span class="op">=</span> data.<span class="bu">str</span>.split(<span class="st">'@'</span>).<span class="bu">str</span>[<span class="dv">1</span>]</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>last_three_chars <span class="op">=</span> data.<span class="bu">str</span>[<span class="op">-</span><span class="dv">3</span>:]</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Contains 'gmail':"</span>)</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(contains_gmail)</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Split at '@', second part:"</span>)</span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(split_at)</span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Last three characters:"</span>)</span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(last_three_chars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Contains 'gmail':
-Dave     False
-Steve     True
-Rob       True
-Wes        NaN
-dtype: object
-
-Split at '@', second part:
-Dave     google.com
-Steve     gmail.com
-Rob       gmail.com
-Wes             NaN
-dtype: object
-
-Last three characters:
-Dave     com
-Steve    com
-Rob      com
-Wes      NaN
-dtype: object</code></pre>
-</div>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.Series({<span class="st">'Dave'</span>: <span class="st">'dave@google.com'</span>, <span class="st">'Steve'</span>: <span class="st">'steve@gmail.com'</span>, <span class="st">'Rob'</span>: <span class="st">'rob@gmail.com'</span>, <span class="st">'Wes'</span>: np.nan})</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>contains_gmail <span class="op">=</span> data.<span class="bu">str</span>.contains(<span class="st">'gmail'</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>split_at <span class="op">=</span> data.<span class="bu">str</span>.split(<span class="st">'@'</span>).<span class="bu">str</span>[<span class="dv">1</span>]</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>last_three_chars <span class="op">=</span> data.<span class="bu">str</span>[<span class="op">-</span><span class="dv">3</span>:]</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Contains 'gmail':"</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(contains_gmail)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Split at '@', second part:"</span>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(split_at)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Last three characters:"</span>)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(last_three_chars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="transformaciones-del-formato-de-los-datos" class="level2">
@@ -954,26 +877,19 @@ dtype: object</code></pre>
 <section id="eliminar-elegir-columnas" class="level3">
 <h3 class="anchored" data-anchor-id="eliminar-elegir-columnas">Eliminar/ elegir columnas</h3>
 <p>A veces, queremos deshacernos de columnas que no son relevantes para nuestro análisis.</p>
-<div id="71cb81e0" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Nombre'</span>: [<span class="st">'Juan'</span>, <span class="st">'Ana'</span>, <span class="st">'Luis'</span>, <span class="st">'Carlos'</span>],</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Edad'</span>: [<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">28</span>],</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Peso (kg)'</span>: [<span class="dv">70</span>, <span class="dv">65</span>, <span class="dv">80</span>, <span class="dv">75</span>]}</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Eliminar la columna 'Peso (kg)'</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.drop(columns<span class="op">=</span>[<span class="st">'Peso (kg)'</span>])</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Nombre  Edad
-0    Juan    25
-1     Ana    30
-2    Luis    35
-3  Carlos    28</code></pre>
-</div>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Nombre'</span>: [<span class="st">'Juan'</span>, <span class="st">'Ana'</span>, <span class="st">'Luis'</span>, <span class="st">'Carlos'</span>],</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Edad'</span>: [<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">28</span>],</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Peso (kg)'</span>: [<span class="dv">70</span>, <span class="dv">65</span>, <span class="dv">80</span>, <span class="dv">75</span>]}</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Eliminar la columna 'Peso (kg)'</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.drop(columns<span class="op">=</span>[<span class="st">'Peso (kg)'</span>])</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="reshapesre-formato" class="level3">
@@ -984,38 +900,24 @@ dtype: object</code></pre>
 <li>El “reshape” es comúnmente realizado en la manipulación de datos utilizando bibliotecas como Pandas en Python o funciones de pivote en hojas de cálculo.</li>
 </ul>
 <p><img src="img/reshape.png" class="img-fluid"></p>
-<div id="6cd4ab9f" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear DataFrame de ejemplo en formato largo</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Fecha'</span>: [<span class="st">'2023-08-01'</span>, <span class="st">'2023-08-01'</span>, <span class="st">'2023-08-02'</span>, <span class="st">'2023-08-02'</span>],</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Ciudad'</span>: [<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'A'</span>, <span class="st">'B'</span>],</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Temperatura'</span>: [<span class="dv">25</span>, <span class="dv">28</span>, <span class="dv">26</span>, <span class="dv">29</span>]}</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>df_largo <span class="op">=</span> pd.DataFrame(data)</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizar el reshape de largo a ancho usando pivot()</span></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>df_ancho <span class="op">=</span> df_largo.pivot(index<span class="op">=</span><span class="st">'Fecha'</span>, columns<span class="op">=</span><span class="st">'Ciudad'</span>, values<span class="op">=</span><span class="st">'Temperatura'</span>)</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"DataFrame en formato largo:"</span>)</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_largo)</span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">DataFrame en formato ancho:"</span>)</span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_ancho)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>DataFrame en formato largo:
-        Fecha Ciudad  Temperatura
-0  2023-08-01      A           25
-1  2023-08-01      B           28
-2  2023-08-02      A           26
-3  2023-08-02      B           29
-
-DataFrame en formato ancho:
-Ciudad       A   B
-Fecha             
-2023-08-01  25  28
-2023-08-02  26  29</code></pre>
-</div>
+<div class="cell">
+<div class="sourceCode" id="cb12"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear DataFrame de ejemplo en formato largo</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Fecha'</span>: [<span class="st">'2023-08-01'</span>, <span class="st">'2023-08-01'</span>, <span class="st">'2023-08-02'</span>, <span class="st">'2023-08-02'</span>],</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Ciudad'</span>: [<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'A'</span>, <span class="st">'B'</span>],</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Temperatura'</span>: [<span class="dv">25</span>, <span class="dv">28</span>, <span class="dv">26</span>, <span class="dv">29</span>]}</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>df_largo <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizar el reshape de largo a ancho usando pivot()</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>df_ancho <span class="op">=</span> df_largo.pivot(index<span class="op">=</span><span class="st">'Fecha'</span>, columns<span class="op">=</span><span class="st">'Ciudad'</span>, values<span class="op">=</span><span class="st">'Temperatura'</span>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"DataFrame en formato largo:"</span>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_largo)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">DataFrame en formato ancho:"</span>)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_ancho)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="crear-variables-dummies-dicotómicas" class="level3">
@@ -1027,35 +929,26 @@ Fecha
 <li>Se pueden generar mediante <code>pd.get_dummies(df[‘key’])</code></li>
 </ul>
 <p><img src="img/onehot_dogs.png" class="img-fluid"></p>
-<div id="f459d315" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Lista de razas de perros</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>razas <span class="op">=</span> [<span class="st">'Labrador'</span>, <span class="st">'Poodle'</span>, <span class="st">'Bulldog'</span>, <span class="st">'Golden Retriever'</span>, <span class="st">'Chihuahua'</span>, <span class="st">'Husky'</span>]</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un DataFrame con la lista de razas</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'Raza'</span>: razas})</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Razas que queremos crear como variables dicotómicas</span></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>razas_interes <span class="op">=</span> [<span class="st">'Labrador'</span>, <span class="st">'Poodle'</span>, <span class="st">'Bulldog'</span>]</span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear variables dicotómicas para las razas de interés</span></span>
-<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> raza <span class="kw">in</span> razas_interes:</span>
-<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>    df[raza] <span class="op">=</span> df[<span class="st">'Raza'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="dv">1</span> <span class="cf">if</span> x <span class="op">==</span> raza <span class="cf">else</span> <span class="dv">0</span>)</span>
-<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Eliminar la columna original de 'Raza'</span></span>
-<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>df.drop(columns<span class="op">=</span>[<span class="st">'Raza'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Labrador  Poodle  Bulldog
-0         1       0        0
-1         0       1        0
-2         0       0        1
-3         0       0        0
-4         0       0        0
-5         0       0        0</code></pre>
-</div>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Lista de razas de perros</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>razas <span class="op">=</span> [<span class="st">'Labrador'</span>, <span class="st">'Poodle'</span>, <span class="st">'Bulldog'</span>, <span class="st">'Golden Retriever'</span>, <span class="st">'Chihuahua'</span>, <span class="st">'Husky'</span>]</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un DataFrame con la lista de razas</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'Raza'</span>: razas})</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Razas que queremos crear como variables dicotómicas</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>razas_interes <span class="op">=</span> [<span class="st">'Labrador'</span>, <span class="st">'Poodle'</span>, <span class="st">'Bulldog'</span>]</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear variables dicotómicas para las razas de interés</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> raza <span class="kw">in</span> razas_interes:</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    df[raza] <span class="op">=</span> df[<span class="st">'Raza'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="dv">1</span> <span class="cf">if</span> x <span class="op">==</span> raza <span class="cf">else</span> <span class="dv">0</span>)</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Eliminar la columna original de 'Raza'</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>df.drop(columns<span class="op">=</span>[<span class="st">'Raza'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -1071,152 +964,43 @@ Fecha
 <section id="apilar-dataframes" class="level2">
 <h2 class="anchored" data-anchor-id="apilar-dataframes">1. Apilar dataframes</h2>
 <p>Creemos los dataframes:</p>
-<div id="08cdfdc7" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame([[<span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>]], columns<span class="op">=</span><span class="bu">list</span>(<span class="st">'PQ'</span>))</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.DataFrame([[<span class="dv">6</span>, <span class="dv">7</span>], [<span class="dv">8</span>, <span class="dv">9</span>]], columns<span class="op">=</span><span class="bu">list</span>(<span class="st">'PQ'</span>))</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   P  Q
-0  2  3
-1  4  5
-   P  Q
-0  6  7
-1  8  9</code></pre>
-</div>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame([[<span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>]], columns<span class="op">=</span><span class="bu">list</span>(<span class="st">'PQ'</span>))</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.DataFrame([[<span class="dv">6</span>, <span class="dv">7</span>], [<span class="dv">8</span>, <span class="dv">9</span>]], columns<span class="op">=</span><span class="bu">list</span>(<span class="st">'PQ'</span>))</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Hagamos el apilar. Atención a los index</p>
-<div id="515ad592" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df.append(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/ry/0yrdh5kn1m92t_pmx56nnqkc0000gn/T/ipykernel_95173/2094904254.py:1: FutureWarning:
-
-The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="37">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">P</th>
-<th data-quarto-table-cell-role="th">Q</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>2</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>4</td>
-<td>5</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>6</td>
-<td>7</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>8</td>
-<td>9</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df.append(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="img/append1.png" class="img-fluid"></p>
 <p>Usemos ignorar index</p>
-<div id="650c6bc5" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df.append(df2, ignore_index<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/ry/0yrdh5kn1m92t_pmx56nnqkc0000gn/T/ipykernel_95173/26416246.py:1: FutureWarning:
-
-The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
-</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="38">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">P</th>
-<th data-quarto-table-cell-role="th">Q</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>2</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>4</td>
-<td>5</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>6</td>
-<td>7</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>8</td>
-<td>9</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df.append(df2, ignore_index<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><img src="img/append2.png" class="img-fluid"></p>
 </section>
 <section id="unir-dataframes" class="level2">
 <h2 class="anchored" data-anchor-id="unir-dataframes">2. Unir dataframes</h2>
 <p>Utilizando la función pd.merge().</p>
-<div id="4e701c43" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear dos DataFrames con columnas en común</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>df3 <span class="op">=</span> pd.DataFrame({<span class="st">'Key'</span>: [<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'C'</span>], <span class="st">'Value'</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]})</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>df4 <span class="op">=</span> pd.DataFrame({<span class="st">'Key'</span>: [<span class="st">'B'</span>, <span class="st">'C'</span>, <span class="st">'D'</span>], <span class="st">'Value'</span>: [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]})</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Unión interna basada en la columna 'Key'</span></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>inner_join <span class="op">=</span> pd.merge(df3, df4, on<span class="op">=</span><span class="st">'Key'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Unión externa basada en la columna 'Key'</span></span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>outer_join <span class="op">=</span> pd.merge(df3, df4, on<span class="op">=</span><span class="st">'Key'</span>, how<span class="op">=</span><span class="st">'outer'</span>)</span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Unión interna:"</span>)</span>
-<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(inner_join)</span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Unión externa:"</span>)</span>
-<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(outer_join)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Unión interna:
-  Key  Value_x  Value_y
-0   B        2        4
-1   C        3        5
-
-Unión externa:
-  Key  Value_x  Value_y
-0   A      1.0      NaN
-1   B      2.0      4.0
-2   C      3.0      5.0
-3   D      NaN      6.0</code></pre>
-</div>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear dos DataFrames con columnas en común</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>df3 <span class="op">=</span> pd.DataFrame({<span class="st">'Key'</span>: [<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'C'</span>], <span class="st">'Value'</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]})</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>df4 <span class="op">=</span> pd.DataFrame({<span class="st">'Key'</span>: [<span class="st">'B'</span>, <span class="st">'C'</span>, <span class="st">'D'</span>], <span class="st">'Value'</span>: [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]})</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Unión interna basada en la columna 'Key'</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>inner_join <span class="op">=</span> pd.merge(df3, df4, on<span class="op">=</span><span class="st">'Key'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Unión externa basada en la columna 'Key'</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>outer_join <span class="op">=</span> pd.merge(df3, df4, on<span class="op">=</span><span class="st">'Key'</span>, how<span class="op">=</span><span class="st">'outer'</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Unión interna:"</span>)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(inner_join)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Unión externa:"</span>)</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(outer_join)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="transformaciones-estadístocas" class="level2">
@@ -1227,96 +1011,75 @@ Unión externa:
 <p>Un valor atípico, también conocido como valor outlier en inglés, es un punto de datos que difiere significativamente del patrón general de los demás datos en un conjunto. Estos valores son inusuales en relación con el resto de la distribución de los datos y pueden ser considerablemente más altos o más bajos que los valores típicos del conjunto.</p>
 <p>La identificación de valores atípicos es importante por varias razones: 1. Calidad de los datos 2. Impacto en estadísticas y modelos 3. Anomalías y problemas reales 4. Toma de decisiones informada</p>
 <p>Veamos un ejemplo:</p>
-<div id="0adcbf05" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un conjunto de datos con valores atípicos</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">200</span>, <span class="dv">40</span>, <span class="dv">45</span>, <span class="dv">50</span>]</span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un DataFrame</span></span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'Valor'</span>: data})</span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular el rango intercuartílico (IQR)</span></span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>Q1 <span class="op">=</span> df[<span class="st">'Valor'</span>].quantile(<span class="fl">0.25</span>)</span>
-<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>Q3 <span class="op">=</span> df[<span class="st">'Valor'</span>].quantile(<span class="fl">0.75</span>)</span>
-<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>IQR <span class="op">=</span> Q3 <span class="op">-</span> Q1</span>
-<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Definir los límites para identificar valores atípicos</span></span>
-<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>lower_limit <span class="op">=</span> Q1 <span class="op">-</span> <span class="fl">1.5</span> <span class="op">*</span> IQR</span>
-<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>upper_limit <span class="op">=</span> Q3 <span class="op">+</span> <span class="fl">1.5</span> <span class="op">*</span> IQR</span>
-<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Identificar valores atípicos</span></span>
-<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>outliers <span class="op">=</span> df[(df[<span class="st">'Valor'</span>] <span class="op">&lt;</span> lower_limit) <span class="op">|</span> (df[<span class="st">'Valor'</span>] <span class="op">&gt;</span> upper_limit)]</span>
-<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Valores atípicos:"</span>)</span>
-<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(outliers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Valores atípicos:
-   Valor
-6    200</code></pre>
-</div>
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un conjunto de datos con valores atípicos</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">200</span>, <span class="dv">40</span>, <span class="dv">45</span>, <span class="dv">50</span>]</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un DataFrame</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'Valor'</span>: data})</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular el rango intercuartílico (IQR)</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>Q1 <span class="op">=</span> df[<span class="st">'Valor'</span>].quantile(<span class="fl">0.25</span>)</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>Q3 <span class="op">=</span> df[<span class="st">'Valor'</span>].quantile(<span class="fl">0.75</span>)</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>IQR <span class="op">=</span> Q3 <span class="op">-</span> Q1</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Definir los límites para identificar valores atípicos</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>lower_limit <span class="op">=</span> Q1 <span class="op">-</span> <span class="fl">1.5</span> <span class="op">*</span> IQR</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>upper_limit <span class="op">=</span> Q3 <span class="op">+</span> <span class="fl">1.5</span> <span class="op">*</span> IQR</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Identificar valores atípicos</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>outliers <span class="op">=</span> df[(df[<span class="st">'Valor'</span>] <span class="op">&lt;</span> lower_limit) <span class="op">|</span> (df[<span class="st">'Valor'</span>] <span class="op">&gt;</span> upper_limit)]</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Valores atípicos:"</span>)</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(outliers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="estandarización-de-datos" class="level2">
 <h2 class="anchored" data-anchor-id="estandarización-de-datos">2. Estandarización de Datos</h2>
 <p>La estandarización es un proceso importante en el análisis de datos y el aprendizaje automático. Consiste en transformar los valores de una variable de manera que tengan una media de cero y una desviación estándar de uno. Esta transformación se logra mediante la fórmula:</p>
-<p><span class="math display">\[ z = \frac{x - \mu}{\sigma} \]</span></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mfrac><mrow><mi>x</mi><mo>−</mo><mi>μ</mi></mrow><mi>σ</mi></mfrac></mrow><annotation encoding="application/x-tex"> z = \frac{x - \mu}{\sigma} </annotation></semantics></math></p>
 <p>Donde $ x $ es el valor original, $ $ es la media de los valores y $ $ es la desviación estándar.</p>
 <p>La estandarización es especialmente útil cuando se tienen variables con diferentes escalas y distribuciones, ya que permite compararlas de manera equitativa y mejorar la eficacia de los algoritmos de aprendizaje automático al mitigar el impacto de las diferencias en las magnitudes de las características.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
+<div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Pandas</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Numpy</a></li></ul>
 <div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div id="37181793" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un DataFrame con datos</span></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Valor'</span>: [<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>, <span class="dv">45</span>, <span class="dv">50</span>]}</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular la media y la desviación estándar</span></span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> df[<span class="st">'Valor'</span>].mean()</span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>std_dev <span class="op">=</span> df[<span class="st">'Valor'</span>].std()</span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Estandarización de los datos utilizando Pandas</span></span>
-<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Valor_estandarizado'</span>] <span class="op">=</span> (df[<span class="st">'Valor'</span>] <span class="op">-</span> mean) <span class="op">/</span> std_dev</span>
-<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Valor  Valor_estandarizado
-0     10            -1.460593
-1     15            -1.095445
-2     20            -0.730297
-3     25            -0.365148
-4     30             0.000000
-5     35             0.365148
-6     40             0.730297
-7     45             1.095445
-8     50             1.460593</code></pre>
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labeledby="tabset-1-1-tab">
+<div class="cell">
+<div class="sourceCode" id="cb19"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un DataFrame con datos</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Valor'</span>: [<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>, <span class="dv">45</span>, <span class="dv">50</span>]}</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular la media y la desviación estándar</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> df[<span class="st">'Valor'</span>].mean()</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>std_dev <span class="op">=</span> df[<span class="st">'Valor'</span>].std()</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Estandarización de los datos utilizando Pandas</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Valor_estandarizado'</span>] <span class="op">=</span> (df[<span class="st">'Valor'</span>] <span class="op">-</span> mean) <span class="op">/</span> std_dev</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div id="5aaef320" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos originales</span></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>, <span class="dv">45</span>, <span class="dv">50</span>]</span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular la media y la desviación estándar</span></span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> np.mean(data)</span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>std_dev <span class="op">=</span> np.std(data)</span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Estandarización de los datos</span></span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>standardized_data <span class="op">=</span> [(x <span class="op">-</span> mean) <span class="op">/</span> std_dev <span class="cf">for</span> x <span class="kw">in</span> data]</span>
-<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Datos originales:"</span>, data)</span>
-<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Datos estandarizados:"</span>, standardized_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Datos originales: [10, 15, 20, 25, 30, 35, 40, 45, 50]
-Datos estandarizados: [-1.5491933384829668, -1.161895003862225, -0.7745966692414834, -0.3872983346207417, 0.0, 0.3872983346207417, 0.7745966692414834, 1.161895003862225, 1.5491933384829668]</code></pre>
-</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labeledby="tabset-1-2-tab">
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos originales</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>, <span class="dv">45</span>, <span class="dv">50</span>]</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular la media y la desviación estándar</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> np.mean(data)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>std_dev <span class="op">=</span> np.std(data)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Estandarización de los datos</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>standardized_data <span class="op">=</span> [(x <span class="op">-</span> mean) <span class="op">/</span> std_dev <span class="cf">for</span> x <span class="kw">in</span> data]</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Datos originales:"</span>, data)</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Datos estandarizados:"</span>, standardized_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1325,92 +1088,58 @@ Datos estandarizados: [-1.5491933384829668, -1.161895003862225, -0.7745966692414
 <section id="normalización-de-datos" class="level2">
 <h2 class="anchored" data-anchor-id="normalización-de-datos">Normalización de Datos</h2>
 <p>La normalización es un proceso esencial en el análisis de datos y el aprendizaje automático. Consiste en ajustar los valores de una variable para que se encuentren dentro de un rango específico, generalmente entre 0 y 1. La fórmula matemática utilizada para la normalización es:</p>
-<p><span class="math display">\[ x_{\text{norm}} = \frac{x - \min(x)}{\max(x) - \min(x)} \]</span></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mtext mathvariant="normal">norm</mtext></msub><mo>=</mo><mfrac><mrow><mi>x</mi><mo>−</mo><mo>min</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mo>max</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mo>min</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac></mrow><annotation encoding="application/x-tex"> x_{\text{norm}} = \frac{x - \min(x)}{\max(x) - \min(x)} </annotation></semantics></math></p>
 <p>Donde $ x $ es el valor original y $x_{} $ es el valor normalizado.</p>
 <p>La normalización es beneficiosa para igualar la escala de las variables y mejorar el rendimiento de los modelos que son sensibles a la magnitud de las características.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
+<div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Pandas</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Numpy</a></li></ul>
 <div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<div id="f4e44121" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un DataFrame con datos</span></span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Valor'</span>: [<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>, <span class="dv">45</span>, <span class="dv">50</span>]}</span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular los valores mínimo y máximo</span></span>
-<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>min_value <span class="op">=</span> df[<span class="st">'Valor'</span>].<span class="bu">min</span>()</span>
-<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>max_value <span class="op">=</span> df[<span class="st">'Valor'</span>].<span class="bu">max</span>()</span>
-<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar la normalización min-max</span></span>
-<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Valor_normalizado'</span>] <span class="op">=</span> (df[<span class="st">'Valor'</span>] <span class="op">-</span> min_value) <span class="op">/</span> (max_value <span class="op">-</span> min_value)</span>
-<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Valor  Valor_normalizado
-0     10              0.000
-1     15              0.125
-2     20              0.250
-3     25              0.375
-4     30              0.500
-5     35              0.625
-6     40              0.750
-7     45              0.875
-8     50              1.000</code></pre>
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labeledby="tabset-2-1-tab">
+<div class="cell">
+<div class="sourceCode" id="cb21"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un DataFrame con datos</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Valor'</span>: [<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>, <span class="dv">45</span>, <span class="dv">50</span>]}</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular los valores mínimo y máximo</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>min_value <span class="op">=</span> df[<span class="st">'Valor'</span>].<span class="bu">min</span>()</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>max_value <span class="op">=</span> df[<span class="st">'Valor'</span>].<span class="bu">max</span>()</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar la normalización min-max</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Valor_normalizado'</span>] <span class="op">=</span> (df[<span class="st">'Valor'</span>] <span class="op">-</span> min_value) <span class="op">/</span> (max_value <span class="op">-</span> min_value)</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-</div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<div id="7d95b4b4" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos originales</span></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.array([<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>, <span class="dv">45</span>, <span class="dv">50</span>])</span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular los valores mínimo y máximo</span></span>
-<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>min_value <span class="op">=</span> np.<span class="bu">min</span>(data)</span>
-<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>max_value <span class="op">=</span> np.<span class="bu">max</span>(data)</span>
-<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar la normalización min-max utilizando NumPy</span></span>
-<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>normalized_data <span class="op">=</span> (data <span class="op">-</span> min_value) <span class="op">/</span> (max_value <span class="op">-</span> min_value)</span>
-<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Datos originales:"</span>, data)</span>
-<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Datos normalizados:"</span>, normalized_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Datos originales: [10 15 20 25 30 35 40 45 50]
-Datos normalizados: [0.    0.125 0.25  0.375 0.5   0.625 0.75  0.875 1.   ]</code></pre>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labeledby="tabset-2-2-tab">
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="sourceCode python cell-code code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos originales</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.array([<span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>, <span class="dv">45</span>, <span class="dv">50</span>])</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular los valores mínimo y máximo</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>min_value <span class="op">=</span> np.<span class="bu">min</span>(data)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>max_value <span class="op">=</span> np.<span class="bu">max</span>(data)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar la normalización min-max utilizando NumPy</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>normalized_data <span class="op">=</span> (data <span class="op">-</span> min_value) <span class="op">/</span> (max_value <span class="op">-</span> min_value)</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Datos originales:"</span>, data)</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Datos normalizados:"</span>, normalized_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
-</div>
+
 
 
 </section>
 </section>
-
 </main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+<script type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -1418,23 +1147,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
+    target: function(trigger) {
+      return trigger.previousElementSibling;
     }
   });
   clipboard.on('success', function(e) {
@@ -1444,35 +1159,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.blur();
     // flash "checked"
     button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
     setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1482,262 +1178,43 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      let href = ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
     });
   }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
-        }
-        return container.innerHTML
-      } else {
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      return note.innerHTML;
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        console.log("RESIZE");
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
       });
-    }
+      return popup.innerHTML;
+    });
   }
 });
 </script>
 </div> <!-- /content -->
-
-
 
 
 </body></html>

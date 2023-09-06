@@ -14,8 +14,9 @@ code-fold: true
 
 ## Instrucciones:
 
+El siguiete taller es un co
 
-### Pregunta 1 - Bajando y formateando datos del Banco Mundial
+## Pregunta 1 - Bajando y formateando datos del Banco Mundial
 
 Replique el ejemplo práctico de importar datos desde la API del Banco
 Mundial y empezar la base para su análisis de series de tiempo.
@@ -27,7 +28,7 @@ y realice un grafico.
 ¿pareciera haber tendencias?
 
 
-### Pregunta 2 - Investigando sobre países:
+## Pregunta 2 - Investigando sobre países:
 
 Considere que tenemos los datos del banco mundial, del país que
 selecciono anteriormente, y desea aprender sobre alguna caracterpistica
@@ -38,10 +39,10 @@ datos disponibles. ¿Cómo definiria la variable aleatoria relevante? ¿Qué
 hipótesis podria responder su pregunta?
 
 
-### Pregunta 3 - Ejemplo AB test en Marketing:
+## Pregunta 3 - Caso aplicación: Ejemplo AB test en Marketing:
 
 
-#### Enunciado
+### Enunciado
 
 Imaginemos que trabajamos en una empresa de e-commerce que vende
 productos electrónicos y queremos aumentar las ventas en una línea de
@@ -112,3 +113,148 @@ Estudiemos si la promoción fue efectiva en estos datos. Para esto:
 3.  ¿Fue la promocion efectiva? Use una prueba de hipotesis para
     analizar el grupo tratado y de control.
 4.  ¿Cual de las promociones fue más efectiva? Use una prueba ANOVA.
+
+
+## Taller 1: Pregunta 4 - Aplicación datos de educación
+
+Vamos a usar una situación ficticia, con datos simulados para poder aplicar de manera consisa los diferentes tipos de estrategias de identificación revisadas en clase. Algunas (que se supone ya manejan) las revisaremos muy rápidamente y en otras, vamos a tener mayor énfasis.
+
+### Pregunta de investigación
+
+Nuestro objetivo es responder la siguiente pregunta **ficticia** de investigación:
+
+> Asistir a cursos de verano mejora los resultados académicos?
+
+Para responder esta pregunta, usaremos unos datos **ficticios y simulados**
+
+### Contexto
+
+La pregunta de investigación se inspira en trabajos como el de [Matsudaira (2007)](https://www.sciencedirect.com/science/article/pii/S0304407607001194?casa_token=hnnF764CKPoAAAAA:5b9WhCManNDsdW4SmOHnnzNr0fZIarW8s6EsvpQW7MdUt470eNPmN2T8IFCsNc6Iajew5tEeNA) e intervenciones en estudiantes de bajo nivel socioeconómico por [Dietrichson et al ( 2017)](https://journals.sagepub.com/doi/abs/10.3102/0034654316687036).
+
+El **escenario ficticio** es el siguiente:
+
+-   Para un conjunto de colegios en una comuna, existe la opción de asistir a un curso de verano intensivo durante el verano entre 5 y 6to básico.
+-   El curso de verano se enfoca en mejorar las habilidades académicas de preparar la prueba de admisión a la universidad vigente (PSU en ese momento)
+-   El curso de verano es gratuito, pero para ser matriculados requiere que los padres se involucren en un proceso.
+-   Estamos interesados en testear el impacto de la participación en el curso en los resultados académicos de los estudiantes.
+
+### Datos ficticios dispobibles
+
+Los datos estan disponibles en 
+
+1.  school_data_1.csv
+
+-   Usamos esta data para ejemplificar como cargar data guardada en formato csv.
+-   Este dataset tiene información sobre cada individuo (con identificador id), la escuela a la que asiste, un indicador si participó en el curso de verano, sexo, ingreso del hogar (en logaritmo), educación de los padres, resultados en una prueba estandarizada que se realiza a nivel de la comuna tanto para el año 5 como para el año 6.
+
+2.  school_data_2.dta
+
+-   Usamos esta data para ejemplificar como cargar data guardada en formato STATA.
+-   Este dataset tiene información de cada individuo (con identificador id).
+-   Este dataset tiene la información si el individuo recibió la carta de invitación para participar del curso de verano.
+
+3.  school_data_3.xlsx
+
+-   Usamos este dataset para practicar como cargar datos guardados en formato Microsoft Excel.
+-   Este dataset incluye datos sobre cada individuo (con identificador id)
+-   Este dataset tiene información de rendimiento académico antes y después del curso de verano.
+
+## Objetivos:
+
+La idea de este taller es poner en práctica los primeros pasos para un análisis:
+
+I. Este proceso generalmente incluye cargarlos, inspeccionarlos, limpiar y dar la estructura deseada. 
+
+II. También exploraremos los datos, usaremos estadísticas descriptivas que nos den una idea y resolver problemas potenciales (missing, ouliers, etc) antes de estimar cualquier modelo.
+
+En la vida real, este proceso suele ser bastante largo, laborioso e implica volver sobre lso pasos anteriores múltiples veces. También invlocura tomar desiciones por parte de los investigadores, por lo cual la documentación de esta fase es especialmente importante.
+
+En nuestro caso, será bastante lineal y directo, ya que son datos ficticios simulados. Pero en la realidad, no suele ser así.
+
+Pasos que debe realizar:
+
+1. Preparación de los datos
+
+1.1. Cargue las tres bases de datos
+
+1.2. Unir los datasets
+
+Tenemos 3 bases de datos con información diferente de los mismos individuos. Generalmente es buena idea tener una sola gran tabla con toda esta información, especialmente si estimaremos modelos en base a ésta.
+
+La base de datos 1 y 2 tienen una forma similar: los individuos son filas y las variables columnas y hay una sola fila para cada individuo. Empiece uniendo ambos.
+
+ - Notemos que el dataset unido debería tener 3491 filas y 9 columnas. Unimos todas las filas y agregamos al dataset de información del estudiante si recibió o no la carta (school_data_2)
+
+
+Entonces, siga el siguiente flujo de trabajo:
+
+   1.  Unimos *school_data_1* y *school_data_2* usando como variable de unión *person_id* y guardamos el dataset unido como *school_data*.
+   2.  Unimos *school_data_3* con *school_data* y sobre-escribimos *school_data*.
+
+       Notar que acá unimos por las columnas *person_id* y *school_id*. Esto no es realmente necesario porque cada estudiante con id única tiene un solo colegio, pero sirve de ejemplo en como usar más de una columna mediante. 
+
+   3. Usamos la función `summary()` para obtener una estadística descriptiva de las variables en el dataset unido.
+
+
+2.  Preparar los datos
+
+2.1 Tidyng los datos
+
+Ahora que hemos unido las bases de datos, trataremos de que satisfazgan los principios de [Tidy Data](https://vita.had.co.nz/papers/tidy-data.pdf).
+
+Un data frame se considera "tidy" (Según Hadley) si se cumplen las siguientes condiciones:
+
+-   Cada columna (variable) contiene todas las medidas de la misma data/feature/caracteristica de las observaciones.
+-   Cada fila contiene medidas de la misma unidad de observación.
+
+(puedes profundizar y ver más ejemplos aplicados en <https://sscc.wisc.edu/sscc/pubs/DWE/book/6-2-tidy-data.html> )
+
+Uno de estos, es que cada columna debe ser una variable y cafa fila una unidad de observación.
+
+Si inspeccionamos el número de columnas: Son 17, pero tenemos 9 variables.
+
+Es porque tenemos puntajes de las pruebas del año 2 al 10. Este tipo de datos son de *panel*
+
+![](images/paste-4C87CB1E.png)
+
+Generalmente, que hacemos con este tipo de datos depende del tipo de modelos que queramos usar. Si bien el formato wide es facil de entender, generlamente para modelos y análisi preferimos que esté en formato long. Especialmente cuando modelamos incluyendo efectos fijos También es este el que adhiere a los principios tidy de mejor manera.
+
+Para cambiar a long, usamos pivot_longer. 
+
+Ahora tenemos nuestros datos listos para que los inspeccionemos.
+
+2.2 Selección de muestra
+
+Ya que contamos con datos que siguen los principios de tidy data, lo siguiente es seleccionar la muestra apropiada. 
+
+En este trabajo, los unicos problemas que podríamos enfrentar son relacionados con valores faltantes o missing. 
+
+Identifique cuantas filas y comunas son, los tipos de varables y número de missing values. 
+
+En estos casos, para *parental_schooling* tenemos 45 missing y para *test_score* 11. 
+
+Asumamos que estos valores missing son random y deseamos remover estas filas. 
+
+
+2.2 Modificar los datos
+
+Un último paso que haremos antes de hacer estadística decsriptiva es modificar los datos.
+
+1. Cambio de nombre columna
+   Cambiaremos los nombres de algunas columnas para que se vean bien en la tablas. Vambos renombrar la variable summpercap a summer_school. 
+
+2. Estandarizar puntajes
+   En un siguiente paso, vamos a transformar los puntajes en la pruebas a una variable que tenga media 0 y desviación estándar 1. Es mejor trabajar con variables estandarizadas, ya que no requieren conocer el conexto específico de la medida y es más facil de comunicar y comparar.
+
+Ya estamos bien, ahora pasamos a conocer mejor nuestros datos con estadística descriptiva.
+
+## 3. Estadística descriptiva
+
+Hasta ahora, cargamos datos en diversos formatos (csv, dta y xlsx) los unimos, re-estructuramos el dataset, removimos valores missing y generamos algunas transformaciones. El siguiente paso es empezar a conocer nuestros datos. Para esto haremos tablas de estadísticas descriptivas y también algunos graficos descriptivos.
+
+3.1 Tablas de etsádistocas descriptivas
+   Incluya la media, la desviación estandar, la mediana, max y min, al menos.
+
+3.2  Gráficos de estadística descriptiva
+   Realice al menos scatter plot, histograma, box plot y correalograma.
+r1
