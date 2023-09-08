@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.339">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -81,6 +81,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "panel-placement": "end",
   "type": "overlay",
   "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -108,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Web materiales Analisis de Datos</span>
     </a>
@@ -120,40 +125,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./sesion0.html" rel="" target="">
- <span class="menu-text">Overview curso</span></a>
+    <a class="nav-link" href="./sesion0.html"> 
+<span class="menu-text">Overview curso</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./talleres.html" rel="" target="">
- <span class="menu-text">talleres</span></a>
+    <a class="nav-link" href="./talleres.html"> 
+<span class="menu-text">talleres</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sesiones" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sesiones" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Sesiones</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-sesiones">    
         <li>
-    <a class="dropdown-item" href="./sesion1.html" rel="" target="">
+    <a class="dropdown-item" href="./sesion1.html">
  <span class="dropdown-text">Sesión 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./sesion2.html" rel="" target="">
+    <a class="dropdown-item" href="./sesion2.html">
  <span class="dropdown-text">Sesión 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./sesion3.html" rel="" target="">
+    <a class="dropdown-item" href="./sesion3.html">
  <span class="dropdown-text">Sesión 3: Introducción al Análisis de regresión</span></a>
   </li>  
     </ul>
   </li>
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
-</div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -166,22 +171,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#instrucciones" id="toc-instrucciones" class="nav-link active" data-scroll-target="#instrucciones">Instrucciones:</a>
-  <ul class="collapse">
+  <li><a href="#instrucciones" id="toc-instrucciones" class="nav-link active" data-scroll-target="#instrucciones">Instrucciones:</a></li>
   <li><a href="#pregunta-1---bajando-y-formateando-datos-del-banco-mundial" id="toc-pregunta-1---bajando-y-formateando-datos-del-banco-mundial" class="nav-link" data-scroll-target="#pregunta-1---bajando-y-formateando-datos-del-banco-mundial">Pregunta 1 - Bajando y formateando datos del Banco Mundial</a></li>
   <li><a href="#pregunta-2---investigando-sobre-países" id="toc-pregunta-2---investigando-sobre-países" class="nav-link" data-scroll-target="#pregunta-2---investigando-sobre-países">Pregunta 2 - Investigando sobre países:</a></li>
-  <li><a href="#pregunta-3---ejemplo-ab-test-en-marketing" id="toc-pregunta-3---ejemplo-ab-test-en-marketing" class="nav-link" data-scroll-target="#pregunta-3---ejemplo-ab-test-en-marketing">Pregunta 3 - Ejemplo AB test en Marketing:</a></li>
-  </ul></li>
-  <li><a href="#caso-aplicación-cursos-de-verano-y-resultados-académicos" id="toc-caso-aplicación-cursos-de-verano-y-resultados-académicos" class="nav-link" data-scroll-target="#caso-aplicación-cursos-de-verano-y-resultados-académicos">Caso aplicación: Cursos de verano y resultados académicos</a>
+  <li><a href="#pregunta-3---caso-aplicación-ejemplo-ab-test-en-marketing" id="toc-pregunta-3---caso-aplicación-ejemplo-ab-test-en-marketing" class="nav-link" data-scroll-target="#pregunta-3---caso-aplicación-ejemplo-ab-test-en-marketing">Pregunta 3 - Caso aplicación: Ejemplo AB test en Marketing:</a>
   <ul class="collapse">
-  <li><a href="#taller-1-pregunta-4---aplicación-datos-de-educación" id="toc-taller-1-pregunta-4---aplicación-datos-de-educación" class="nav-link" data-scroll-target="#taller-1-pregunta-4---aplicación-datos-de-educación">Taller 1: Pregunta 4 - Aplicación datos de educación</a>
+  <li><a href="#enunciado" id="toc-enunciado" class="nav-link" data-scroll-target="#enunciado">Enunciado</a></li>
+  <li><a href="#creación-de-los-datos" id="toc-creación-de-los-datos" class="nav-link" data-scroll-target="#creación-de-los-datos">Creación de los datos</a></li>
+  <li><a href="#preguntas" id="toc-preguntas" class="nav-link" data-scroll-target="#preguntas">Preguntas:</a></li>
+  </ul></li>
+  <li><a href="#pregunta-4---caso-de-aplicación-datos-de-educación" id="toc-pregunta-4---caso-de-aplicación-datos-de-educación" class="nav-link" data-scroll-target="#pregunta-4---caso-de-aplicación-datos-de-educación">Pregunta 4 - Caso de aplicación datos de educación</a>
   <ul class="collapse">
   <li><a href="#pregunta-de-investigación" id="toc-pregunta-de-investigación" class="nav-link" data-scroll-target="#pregunta-de-investigación">Pregunta de investigación</a></li>
   <li><a href="#contexto" id="toc-contexto" class="nav-link" data-scroll-target="#contexto">Contexto</a></li>
   <li><a href="#datos-ficticios-dispobibles" id="toc-datos-ficticios-dispobibles" class="nav-link" data-scroll-target="#datos-ficticios-dispobibles">Datos ficticios dispobibles</a></li>
-  </ul></li>
   <li><a href="#objetivos" id="toc-objetivos" class="nav-link" data-scroll-target="#objetivos">Objetivos:</a></li>
-  <li><a href="#estadística-descriptiva" id="toc-estadística-descriptiva" class="nav-link" data-scroll-target="#estadística-descriptiva">3. Estadística descriptiva</a></li>
+  <li><a href="#pasos-que-debe-realizar" id="toc-pasos-que-debe-realizar" class="nav-link" data-scroll-target="#pasos-que-debe-realizar">Pasos que debe realizar:</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="taller1_enunciado.ipynb" download="taller1_enunciado.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></nav>
@@ -218,36 +223,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
 
 <section id="instrucciones" class="level2">
 <h2 class="anchored" data-anchor-id="instrucciones">Instrucciones:</h2>
-<p>El siguiete taller es un co</p>
-<section id="pregunta-1---bajando-y-formateando-datos-del-banco-mundial" class="level3">
-<h3 class="anchored" data-anchor-id="pregunta-1---bajando-y-formateando-datos-del-banco-mundial">Pregunta 1 - Bajando y formateando datos del Banco Mundial</h3>
+<p>Este taller es un conjunto de actividades para poner en práctica y consolidar los contenidos revisados en la primera unidad del curso, en las sesiones 1 y 2.</p>
+<ul>
+<li>Puedes realizarlo individualmente o hasta en grupos de 3 personas.</li>
+<li>La entrega es hasta el 15 de septiembre (para todo el crédito)</li>
+<li>Debes entregar un notebook en el que desarrolle las preguntas y no olvide concluir sus respuestas.</li>
+<li>Será evaluado mediante la rúbrica de evaluación disponible.</li>
+</ul>
+</section>
+<section id="pregunta-1---bajando-y-formateando-datos-del-banco-mundial" class="level2">
+<h2 class="anchored" data-anchor-id="pregunta-1---bajando-y-formateando-datos-del-banco-mundial">Pregunta 1 - Bajando y formateando datos del Banco Mundial</h2>
 <p>Replique el ejemplo práctico de importar datos desde la API del Banco Mundial y empezar la base para su análisis de series de tiempo.</p>
 <p>Importe usted la serie de GDP total Y Percapita para otro país serie desde la API del Banco mundial, muestre sus principales características y realice un grafico.</p>
-<p>¿pareciera haber tendencias?</p>
+<p>¿Pareciera haber tendencias? Explique.</p>
 </section>
-<section id="pregunta-2---investigando-sobre-países" class="level3">
-<h3 class="anchored" data-anchor-id="pregunta-2---investigando-sobre-países">Pregunta 2 - Investigando sobre países:</h3>
+<section id="pregunta-2---investigando-sobre-países" class="level2">
+<h2 class="anchored" data-anchor-id="pregunta-2---investigando-sobre-países">Pregunta 2 - Investigando sobre países:</h2>
 <p>Considere que tenemos los datos del banco mundial, del país que selecciono anteriormente, y desea aprender sobre alguna caracterpistica de dicho pais en el periodo.</p>
 <p>Escriba una pregunta de investigación que se pueda responder con los datos disponibles. ¿Cómo definiria la variable aleatoria relevante? ¿Qué hipótesis podria responder su pregunta?</p>
 </section>
-<section id="pregunta-3---ejemplo-ab-test-en-marketing" class="level3">
-<h3 class="anchored" data-anchor-id="pregunta-3---ejemplo-ab-test-en-marketing">Pregunta 3 - Ejemplo AB test en Marketing:</h3>
-<section id="enunciado" class="level4">
-<h4 class="anchored" data-anchor-id="enunciado">Enunciado</h4>
+<section id="pregunta-3---caso-aplicación-ejemplo-ab-test-en-marketing" class="level2">
+<h2 class="anchored" data-anchor-id="pregunta-3---caso-aplicación-ejemplo-ab-test-en-marketing">Pregunta 3 - Caso aplicación: Ejemplo AB test en Marketing:</h2>
+<section id="enunciado" class="level3">
+<h3 class="anchored" data-anchor-id="enunciado">Enunciado</h3>
 <p>Imaginemos que trabajamos en una empresa de e-commerce que vende productos electrónicos y queremos aumentar las ventas en una línea de productos específica, como teléfonos móviles.</p>
 <p>Para ello, decidimos utilizar una promoción de ventas basada en una ruleta lúdica que ofrecerá descuentos a los clientes que la utilicen.</p>
 <p>Para implementar la promoción, primero seleccionamos aleatoriamente un grupo de clientes y les enviamos un correo electrónico con un enlace a la ruleta lúdica. Al hacer clic en el enlace, los clientes son redirigidos a una página en la que pueden girar la ruleta y ganar un descuento en su próxima compra.</p>
 <p>Vamos a pensar que los clientes son asignados a uno de los siguientes grupos: - Control: no les da una promoción (mala suerte, intentalo otra vez) - Tratamiento 1: 20% de descuento en el producto - Tratamiento 2: Un complemento gratuito (carcasa) que tiene un costo para la empresa similar al descuento.</p>
 </section>
-<section id="creación-de-los-datos" class="level4">
-<h4 class="anchored" data-anchor-id="creación-de-los-datos">Creación de los datos</h4>
+<section id="creación-de-los-datos" class="level3">
+<h3 class="anchored" data-anchor-id="creación-de-los-datos">Creación de los datos</h3>
 <p>Como nuestro caso es un ejemplo ficticio, vamos a crear los datos.</p>
 <p>Este código creará un conjunto de datos con 400 observaciones (200 en el grupo de control y 200 en el grupo de tratamiento), donde se simulan lascompras de cada usuario.</p>
-<div class="cell" data-execution_count="1">
+<div id="20c24064" class="cell" data-execution_count="1">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -331,6 +344,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+</section>
+<section id="preguntas" class="level3">
+<h3 class="anchored" data-anchor-id="preguntas">Preguntas:</h3>
 <p>Estudiemos si la promoción fue efectiva en estos datos. Para esto:</p>
 <ol type="1">
 <li>Describa los resultados de la promocion para los diferentes grupos, en terminos de estadisticas descriptivas.</li>
@@ -340,12 +356,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 </section>
 </section>
-</section>
-<section id="caso-aplicación-cursos-de-verano-y-resultados-académicos" class="level1">
-<h1>Caso aplicación: Cursos de verano y resultados académicos</h1>
-<section id="taller-1-pregunta-4---aplicación-datos-de-educación" class="level2">
-<h2 class="anchored" data-anchor-id="taller-1-pregunta-4---aplicación-datos-de-educación">Taller 1: Pregunta 4 - Aplicación datos de educación</h2>
-<p>Vamos a usar una situación ficticia, con datos simulados para poder aplicar de manera consisa los diferentes tipos de estrategias de identificación revisadas en clase. Algunas (que se supone ya manejan) las revisaremos muy rápidamente y en otras, vamos a tener mayor énfasis.</p>
+<section id="pregunta-4---caso-de-aplicación-datos-de-educación" class="level2">
+<h2 class="anchored" data-anchor-id="pregunta-4---caso-de-aplicación-datos-de-educación">Pregunta 4 - Caso de aplicación datos de educación</h2>
 <section id="pregunta-de-investigación" class="level3">
 <h3 class="anchored" data-anchor-id="pregunta-de-investigación">Pregunta de investigación</h3>
 <p>Nuestro objetivo es responder la siguiente pregunta <strong>ficticia</strong> de investigación:</p>
@@ -392,22 +404,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Este dataset tiene información de rendimiento académico antes y después del curso de verano.</li>
 </ul>
 </section>
-</section>
-<section id="objetivos" class="level2">
-<h2 class="anchored" data-anchor-id="objetivos">Objetivos:</h2>
+<section id="objetivos" class="level3">
+<h3 class="anchored" data-anchor-id="objetivos">Objetivos:</h3>
 <p>La idea de este taller es poner en práctica los primeros pasos para un análisis:</p>
-<p>I. Este proceso generalmente incluye cargarlos, inspeccionarlos, limpiar y dar la estructura deseada.</p>
-<ol start="2" type="I">
-<li>También exploraremos los datos, usaremos estadísticas descriptivas que nos den una idea y resolver problemas potenciales (missing, ouliers, etc) antes de estimar cualquier modelo.</li>
-</ol>
-<p>En la vida real, este proceso suele ser bastante largo, laborioso e implica volver sobre lso pasos anteriores múltiples veces. También invlocura tomar desiciones por parte de los investigadores, por lo cual la documentación de esta fase es especialmente importante.</p>
+<p><strong>I.</strong> Este proceso generalmente incluye cargarlos, inspeccionarlos, limpiar y dar la estructura deseada. <strong>II.</strong> También exploraremos los datos, usaremos estadísticas descriptivas que nos den una idea y resolver problemas potenciales (missing, ouliers, etc) antes de estimar cualquier modelo.</p>
+<p>En la vida real, este proceso suele ser bastante largo, laborioso e implica volver sobre los pasos anteriores múltiples veces. También invlocura tomar desiciones por parte de los investigadores, por lo cual la documentación de esta fase es especialmente importante.</p>
 <p>En nuestro caso, será bastante lineal y directo, ya que son datos ficticios simulados. Pero en la realidad, no suele ser así.</p>
-<p>Pasos que debe realizar:</p>
-<ol type="1">
-<li>Preparación de los datos</li>
-</ol>
-<p>1.1. Cargue las tres bases de datos</p>
-<p>1.2. Unir los datasets</p>
+</section>
+<section id="pasos-que-debe-realizar" class="level3">
+<h3 class="anchored" data-anchor-id="pasos-que-debe-realizar">Pasos que debe realizar:</h3>
+<section id="preparación-inicial-de-los-datos" class="level4">
+<h4 class="anchored" data-anchor-id="preparación-inicial-de-los-datos">1. Preparación inicial de los datos</h4>
 <p>Tenemos 3 bases de datos con información diferente de los mismos individuos. Generalmente es buena idea tener una sola gran tabla con toda esta información, especialmente si estimaremos modelos en base a ésta.</p>
 <p>La base de datos 1 y 2 tienen una forma similar: los individuos son filas y las variables columnas y hay una sola fila para cada individuo. Empiece uniendo ambos.</p>
 <ul>
@@ -419,8 +426,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Unimos <em>school_data_3</em> con <em>school_data</em> y sobre-escribimos <em>school_data</em>.</p>
 <p>Notar que acá unimos por las columnas <em>person_id</em> y <em>school_id</em>. Esto no es realmente necesario porque cada estudiante con id única tiene un solo colegio, pero sirve de ejemplo en como usar más de una columna mediante.</p></li>
 <li><p>Usamos la función <code>summary()</code> para obtener una estadística descriptiva de las variables en el dataset unido.</p></li>
-<li><p>Preparar los datos</p></li>
 </ol>
+</section>
+<section id="limpieza-de-los-datos" class="level4">
+<h4 class="anchored" data-anchor-id="limpieza-de-los-datos">2. Limpieza de los datos</h4>
 <p>2.1 Tidyng los datos</p>
 <p>Ahora que hemos unido las bases de datos, trataremos de que satisfazgan los principios de <a href="https://vita.had.co.nz/papers/tidy-data.pdf">Tidy Data</a>.</p>
 <p>Un data frame se considera “tidy” (Según Hadley) si se cumplen las siguientes condiciones:</p>
@@ -431,10 +440,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>(puedes profundizar y ver más ejemplos aplicados en <a href="https://sscc.wisc.edu/sscc/pubs/DWE/book/6-2-tidy-data.html" class="uri">https://sscc.wisc.edu/sscc/pubs/DWE/book/6-2-tidy-data.html</a> )</p>
 <p>Uno de estos, es que cada columna debe ser una variable y cafa fila una unidad de observación.</p>
 <p>Si inspeccionamos el número de columnas: Son 17, pero tenemos 9 variables.</p>
-<p>Es porque tenemos puntajes de las pruebas del año 2 al 10. Este tipo de datos son de <em>panel</em></p>
-<p><img src="images/paste-4C87CB1E.png" class="img-fluid"></p>
+<p>Es porque tenemos puntajes de las pruebas del año 2 al 10. Este tipo de datos son de <em>panel</em>.</p>
 <p>Generalmente, que hacemos con este tipo de datos depende del tipo de modelos que queramos usar. Si bien el formato wide es facil de entender, generlamente para modelos y análisi preferimos que esté en formato long. Especialmente cuando modelamos incluyendo efectos fijos También es este el que adhiere a los principios tidy de mejor manera.</p>
-<p>Para cambiar a long, usamos <code>melt()</code></p>
+<p>Para cambiar a long, usamos pivot_longer.</p>
 <p>Ahora tenemos nuestros datos listos para que los inspeccionemos.</p>
 <p>2.2 Selección de muestra</p>
 <p>Ya que contamos con datos que siguen los principios de tidy data, lo siguiente es seleccionar la muestra apropiada.</p>
@@ -450,13 +458,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <p>Ya estamos bien, ahora pasamos a conocer mejor nuestros datos con estadística descriptiva.</p>
 </section>
-<section id="estadística-descriptiva" class="level2">
-<h2 class="anchored" data-anchor-id="estadística-descriptiva">3. Estadística descriptiva</h2>
+<section id="estadística-descriptiva" class="level4">
+<h4 class="anchored" data-anchor-id="estadística-descriptiva">3. Estadística descriptiva</h4>
 <p>Hasta ahora, cargamos datos en diversos formatos (csv, dta y xlsx) los unimos, re-estructuramos el dataset, removimos valores missing y generamos algunas transformaciones. El siguiente paso es empezar a conocer nuestros datos. Para esto haremos tablas de estadísticas descriptivas y también algunos graficos descriptivos.</p>
 <p>3.1 Tablas de etsádistocas descriptivas Incluya la media, la desviación estandar, la mediana, max y min, al menos.</p>
-<p>3.2 Gráficos de estadística descriptiva Realice al menos scatter plot, histograma, box plot y correalograma. r1</p>
+<p>3.2 Gráficos de estadística descriptiva Realice al menos scatter plot, histograma, box plot y correalograma.</p>
 
 
+</section>
 </section>
 </section>
 
@@ -540,10 +549,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -553,8 +561,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -567,6 +584,81 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -610,6 +702,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -635,6 +728,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        console.log("RESIZE");
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -695,6 +815,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

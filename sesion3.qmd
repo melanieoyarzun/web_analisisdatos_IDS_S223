@@ -8,8 +8,8 @@ format: html
 [Slides Sesión 3](sesion3_slides.qmd) 
 
 ```{=html}
-<iframe width="800px" height="533px" style="border:2px solid #dee2e6;" src="sesion2_slides.html"></iframe>
+<iframe width="800px" height="533px" style="border:2px solid #dee2e6;" src="sesion3_slides.html"></iframe>
 ```
 
-{{< include sesion2_notas.qmd >}}
+{{< include sesion3_notas.qmd >}}
 

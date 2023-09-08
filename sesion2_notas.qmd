@@ -614,7 +614,9 @@ print(df)
 
 ```
 
-## Errores de registro y textos
+## Problemas de registro relacionados con textos
+
+Textos o strings, es muy común tener problemas de codificación, errores de tipeo, problemas de formato, etc.
 
 Uno de los errores de registro más típico, tiene que ver con que los
 textos/strings estan ingresados con errores.
@@ -637,7 +639,7 @@ textos/strings estan ingresados con errores.
 -   upper()/lower(): casing `"AbCd".upper () # "ABCD”`
     `"AbCd".lower() # "abcd"`
 
-## Errores de formato
+### Errores de formato
 
 A veces, los datos se almacenan en el formato incorrecto y necesitas
 corregirlos.
@@ -657,7 +659,8 @@ print(df)
 
 ```
 
-## Transformando strings
+
+### Transformando strings
 
 -   index()encuentra donde ocurre primero un substring(error si no lo
     encuentra):
@@ -690,7 +693,7 @@ s.find(':') # -1
     s.endswith("5") # False`
 ```
 
-## Métodos para strings
+### Métodos para strings
 
 ![](img/metodos_strings.png)
 
@@ -836,7 +839,7 @@ métodos principales:
 
 ![](img/joins.png)
 
-## 1. Apilar dataframes
+### 1. Apilar dataframes
 
 Creemos los dataframes:
 
@@ -864,7 +867,7 @@ df.append(df2, ignore_index=True)
 
 ![](img/append2.png)
 
-## 2. Unir dataframes
+### 2. Unir dataframes
 
 Utilizando la función pd.merge().
 
@@ -886,9 +889,9 @@ print("\nUnión externa:")
 print(outer_join)
 ```
 
-## Transformaciones estadístocas:
+## Transformaciones estadísticas:
 
-1.  Outliers
+### 1.  Outliers
 
 Un valor atípico, también conocido como valor outlier en inglés, es un
 punto de datos que difiere significativamente del patrón general de los
@@ -929,7 +932,7 @@ print(outliers)
 
 ```
 
-## 2. Estandarización de Datos
+### 2. Estandarización de Datos
 
 La estandarización es un proceso importante en el análisis de datos y el
 aprendizaje automático. Consiste en transformar los valores de una
@@ -989,7 +992,7 @@ print("Datos estandarizados:", standardized_data)
 ```
 :::
 
-## Normalización de Datos
+### 3. Normalización de Datos
 
 La normalización es un proceso esencial en el análisis de datos y el
 aprendizaje automático. Consiste en ajustar los valores de una variable
@@ -1045,4 +1048,74 @@ print("Datos originales:", data)
 print("Datos normalizados:", normalized_data)
 
 ```
+:::
+
+
+# Taller de aplicación
+
+::: callout-tip
+## **Taller de aplicación 1: Pregunta 4**
+
+Vamos a usar una situación ficticia, con datos simulados para poder aplicar de manera consisa los diferentes tipos de estrategias de dentificación revisadas en clase. Algunas (que se supone ya manejan) las revisaremos muy rápidamente y en otras, vamos a tener mayor énfasis.
+
+**Pregunta de investigación** 
+
+> Asistir a cursos de verano mejora los resultados académicos?
+
+Para responder esta pregunta, usaremos unos datos **ficticios y simulados**
+
+El **escenario ficticio** es el siguiente:
+
+ -   Para un conjunto de colegios en una comuna, existe la opción de
+     asistir a un curso de verano intensivo durante el verano entre 5 y
+     6to básico.
+ -   El curso de verano se enfoca en mejorar las habilidades académicas
+     de preparar la prueba de admisión a la universidad vigente (PSU en
+     ese momento)
+ -   El curso de verano es gratuito, pero para ser matriculados
+     requiere que los padres se involucren en un proceso.
+ -   Estamos interesados en testear el impacto de la participación en
+     el curso en los resultados académicos de los estudiantes.
+
+ **Datos ficticios dispobibles**
+
+ Los datos estan disponibles en [github](https://github.com/melanieoyarzun/web_analisisdatos_IDS_S223/tree/main/data)
+
+ 1.  school_data_1.csv
+
+ -   Usamos esta data para ejemplificar como cargar data guardada en
+     formato csv.
+ -   Este dataset tiene información sobre cada individuo (con
+     identificador id), la escuela a la que asiste, un indicador si
+     participó en el curso de verano, sexo, ingreso del hogar (en
+     logaritmo), educación de los padres, resultados en una prueba
+     estandarizada que se realiza a nivel de la comuna tanto para el
+     año 5 como para el año 6.
+
+ 2.  school_data_2.dta
+
+ -   Usamos esta data para ejemplificar como cargar data guardada en
+     formato STATA.
+ -   Este dataset tiene información de cada individuo (con
+     identificador id).
+ -   Este dataset tiene la información si el individuo recibió la carta
+     de invitación para participar del curso de verano.
+
+ 3.  school_data_3.xlsx
+
+ -   Usamos este dataset para practicar como cargar datos guardados en
+     formato Microsoft Excel.
+ -   Este dataset incluye datos sobre cada individuo (con identificador
+     id)
+ -   Este dataset tiene información de rendimiento académico antes y  después del curso de verano.
+
+ **Objetivos:**
+
+ La idea de este taller es poner en práctica los primeros pasos para un
+ análisis:
+ 
+ 1. Este proceso generalmente incluye cargarlos, inspeccionarlos, limpiar y dar la estructura deseada.
+ 2. También exploraremos los datos, usaremos estadísticas descriptivas que nos permita entender los datos e identificar problemas.
+
+ Sigue los detalles en el siguiente link [Taller 1 - Pregunta 4 : Cursos de verano](taller1_aplicacion_educ.qmd)
 :::

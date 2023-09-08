@@ -16,7 +16,7 @@ Sitio web complementario con material curso Análisis de Datos
 | 0        | 17 ago  |   Introducción al Curso   |   [slides sesión introductoria](sesion0_slides.qmd) |  [Notas sesión introductoria](sesion0_notas.qmd)  |
 | 1        | 17 ago  |   Respondiendo Preguntas con datos   |     [slides sesión 1](sesion1_slides.qmd)  |  [Notas sesión 1](sesion1_notas.qmd)   |
 | 2        | 25 ago  |   Preparando los datos   |    [slides sesión 2](sesion2_slides.qmd)                                     |   [Notas sesión 2](sesion2_notas.qmd)                                     |
-| 3        | 2 sep  |  Introducción al análisis de regresión    |                                         |                                        |
+| 3        | 2 sep  |  Introducción al análisis de regresión    |    [slides sesión 3](sesion3_slides.qmd)      |   [Notas sesión 3](sesion3_notas.qmd)    |
 | 4        | 9 sep  |   Profundizando en análisis de regresión, supuestos y limitaciones   |                                         |                                        |
 | 5        | 30 sep |   Introduccion al análisis de series de tiempo   |                                         |                                        |
 | 6        | 7 oct   |   Modelando series temporales   |                                         |                                        |

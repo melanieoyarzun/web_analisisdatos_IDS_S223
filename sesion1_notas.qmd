@@ -1124,9 +1124,9 @@ Estudiemos si la promoción fue efectiva en estos datos. Para esto:
 4.  ¿Cual de las promociones fue más efectiva? Use una prueba ANOVA.
 :::
 
-### Buenas prácticas en análisis de datos
+## Buenas prácticas en análisis de datos
 
-#### Importancia de la Adquisición y Almacenamiento de Datos
+### Importancia de la Adquisición y Almacenamiento de Datos
 
 La adquisición y el almacenamiento de datos son los cimientos sobre los
 cuales se construye todo el proceso de análisis. La calidad y la
@@ -1180,7 +1180,7 @@ Estos desafíos abarcan desde la protección de la privacidad de los datos
 hasta las complejidades de la limpieza y transformación durante la etapa
 de preparación.
 
-#### Privacidad y Seguridad de los Datos:
+### Privacidad y Seguridad de los Datos:
 
 Uno de los aspectos más críticos en el análisis de datos es la
 privacidad y seguridad de la información. Los datos pueden contener
@@ -1191,7 +1191,7 @@ manejen de manera ética y legal. Discutiremos cómo anonimizar los datos,
 utilizar técnicas de enmascaramiento y seguir las mejores prácticas para
 resguardar la privacidad de los individuos.
 
-#### Limpieza y Transformación durante la Preparación de Datos:
+### Limpieza y Transformación durante la Preparación de Datos:
 
 La etapa de preparación de datos es crucial para asegurarse de que los
 datos sean aptos para el análisis. Sin embargo, este proceso no está
@@ -1208,7 +1208,7 @@ preparación efectiva de los datos, abordar estos desafíos de manera
 adecuada es esencial para garantizar que nuestras conclusiones sean
 sólidas, confiables y éticas.
 
-#### Reproducibilidad y Control de Versiones (GIT):
+### Reproducibilidad y Control de Versiones (GIT):
 
 Key ideas:
 
@@ -1276,7 +1276,7 @@ fomenta la colaboración y la mejora continua en proyectos de preparación
 y análisis de datos.
 
 ::: callout-tip
-#### Actividad de proyecto - Inicio reproducible
+## Actividad de proyecto - Inicio reproducible
 
 Vamos a empezar el proyecto, dando los primeros pasos considerando que
 sea reproducible y transparente.

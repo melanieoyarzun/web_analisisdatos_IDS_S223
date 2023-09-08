@@ -1,0 +1,2172 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.339">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Phd (c) Melanie Oyarzún - melanie.oyarzun@udd.cl">
+
+<title>Web materiales Analisis de Datos - Sesión 1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Web materiales Analisis de Datos</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./sesion0.html"> 
+<span class="menu-text">Overview curso</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./talleres.html"> 
+<span class="menu-text">talleres</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-sesiones" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Sesiones</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-sesiones">    
+        <li>
+    <a class="dropdown-item" href="./sesion1.html">
+ <span class="dropdown-text">Sesión 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./sesion2.html">
+ <span class="dropdown-text">Sesión 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./sesion3.html">
+ <span class="dropdown-text">Sesión 3: Introducción al Análisis de regresión</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#slides" id="toc-slides" class="nav-link active" data-scroll-target="#slides">Slides</a></li>
+  <li><a href="#objetivos-de-aprendizaje-de-la-sesión" id="toc-objetivos-de-aprendizaje-de-la-sesión" class="nav-link" data-scroll-target="#objetivos-de-aprendizaje-de-la-sesión">Objetivos de aprendizaje de la sesión</a></li>
+  <li><a href="#contenidos" id="toc-contenidos" class="nav-link" data-scroll-target="#contenidos">Contenidos:</a></li>
+  <li><a href="#el-proceso-de-análisis-de-datos-1" id="toc-el-proceso-de-análisis-de-datos-1" class="nav-link" data-scroll-target="#el-proceso-de-análisis-de-datos-1">El proceso de análisis de datos</a>
+  <ul class="collapse">
+  <li><a href="#adquisición-de-datos" id="toc-adquisición-de-datos" class="nav-link" data-scroll-target="#adquisición-de-datos">Adquisición de datos:</a></li>
+  <li><a href="#preguntando-a-los-datos" id="toc-preguntando-a-los-datos" class="nav-link" data-scroll-target="#preguntando-a-los-datos">Preguntando a los datos</a></li>
+  </ul></li>
+  <li><a href="#respondiendo-desde-los-datos" id="toc-respondiendo-desde-los-datos" class="nav-link" data-scroll-target="#respondiendo-desde-los-datos">Respondiendo desde los datos</a>
+  <ul class="collapse">
+  <li><a href="#inferencia-estadística" id="toc-inferencia-estadística" class="nav-link" data-scroll-target="#inferencia-estadística">Inferencia estadística</a></li>
+  <li><a href="#intervalos-de-confianza" id="toc-intervalos-de-confianza" class="nav-link" data-scroll-target="#intervalos-de-confianza">Intervalos de confianza</a></li>
+  <li><a href="#el-intervalo-es-una-muestra-aleatoria" id="toc-el-intervalo-es-una-muestra-aleatoria" class="nav-link" data-scroll-target="#el-intervalo-es-una-muestra-aleatoria">El intervalo es una muestra aleatoria</a></li>
+  <li><a href="#pruebas-de-hipótesis" id="toc-pruebas-de-hipótesis" class="nav-link" data-scroll-target="#pruebas-de-hipótesis">Pruebas de hipótesis</a></li>
+  <li><a href="#errores-y-p-valor" id="toc-errores-y-p-valor" class="nav-link" data-scroll-target="#errores-y-p-valor">Errores y P-valor</a></li>
+  <li><a href="#prueba-de-significancia" id="toc-prueba-de-significancia" class="nav-link" data-scroll-target="#prueba-de-significancia">Prueba de significancia</a></li>
+  <li><a href="#ejemplo-de-aplicación-peso-de-los-pingüinos-palmer" id="toc-ejemplo-de-aplicación-peso-de-los-pingüinos-palmer" class="nav-link" data-scroll-target="#ejemplo-de-aplicación-peso-de-los-pingüinos-palmer">Ejemplo de aplicación: Peso de los Pingüinos Palmer</a></li>
+  <li><a href="#comparaciones-de-grupos" id="toc-comparaciones-de-grupos" class="nav-link" data-scroll-target="#comparaciones-de-grupos">Comparaciones de grupos</a></li>
+  <li><a href="#experimentos-aleatorios-y-pruebas-ab" id="toc-experimentos-aleatorios-y-pruebas-ab" class="nav-link" data-scroll-target="#experimentos-aleatorios-y-pruebas-ab">Experimentos Aleatorios y pruebas A/B</a></li>
+  </ul></li>
+  <li><a href="#caso-aplicación-de-ab-testing-para-promoción-de-marketing" id="toc-caso-aplicación-de-ab-testing-para-promoción-de-marketing" class="nav-link" data-scroll-target="#caso-aplicación-de-ab-testing-para-promoción-de-marketing">Caso: <strong>Aplicación de A/B testing para promoción de Marketing</strong></a>
+  <ul class="collapse">
+  <li><a href="#enunciado" id="toc-enunciado" class="nav-link" data-scroll-target="#enunciado">Enunciado</a></li>
+  <li><a href="#creación-de-los-datos" id="toc-creación-de-los-datos" class="nav-link" data-scroll-target="#creación-de-los-datos">Creación de los datos</a></li>
+  <li><a href="#buenas-prácticas-en-análisis-de-datos-1" id="toc-buenas-prácticas-en-análisis-de-datos-1" class="nav-link" data-scroll-target="#buenas-prácticas-en-análisis-de-datos-1">Buenas prácticas en análisis de datos</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Sesión 1: Planteando y respondiendo preguntas con datos. (y un -breve- repaso a pruebas de hipótesis)</h1>
+<p class="subtitle lead">Curso: Análisis de datos</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+<section id="slides" class="level3">
+<h3 class="anchored" data-anchor-id="slides">Slides</h3>
+<p><a href="./sesion1_slides.html">Slides Sesión 1</a></p>
+<iframe width="800px" height="533px" style="border:2px solid #dee2e6;" src="sesion1_slides.html"></iframe>
+</section>
+<section id="detalles" class="level2 unnumbered unlisted" data-visibility="hidden">
+<h2 class="unnumbered unlisted anchored" data-visibility="hidden" data-anchor-id="detalles">Detalles</h2>
+<p>Notas detalladas de la sesión 1, curso análisis de datos, magíster en Data Science Universidad del Desarrollo.</p>
+<p>Fecha: 19 agosto 2023. Versión 1</p>
+</section>
+<section id="objetivos-de-aprendizaje-de-la-sesión" class="level2">
+<h2 class="anchored" data-anchor-id="objetivos-de-aprendizaje-de-la-sesión">Objetivos de aprendizaje de la sesión</h2>
+<ol type="1">
+<li>Comprender el papel del proceso de adquisición y almacenamiento en un proyecto de análisis de datos, junto a buenas prácticas que promuevan la transparencia y replicabilidad.</li>
+<li>Aprender a formular preguntas y plantear hipótesis que puedan ser abordadas mediante el análisis de datos.</li>
+<li>Desarrollar la habilidad de realizar pruebas de hipótesis y comprender la interpretación de sus resultados.</li>
+</ol>
+</section>
+<section id="contenidos" class="level2">
+<h2 class="anchored" data-anchor-id="contenidos">Contenidos:</h2>
+<section id="el-proceso-de-análisis-de-datos" class="level4 unnumbered unlisted">
+<h4 class="unnumbered unlisted anchored" data-anchor-id="el-proceso-de-análisis-de-datos">El proceso de análisis de datos</h4>
+<ol type="1">
+<li><strong>El proceso de análisis de datos</strong>
+<ul>
+<li>Una visión general a las metodologías de análisis que veremos en el curso</li>
+<li>Adquision y almacenmiento de los datos</li>
+<li>Preparación de los datos</li>
+</ul></li>
+<li><strong>Preguntando a los datos</strong>
+<ul>
+<li>Asbtrayendo la realidad, variables aleatorias y probabilidades.</li>
+<li>Planteamiento de preguntas.</li>
+<li>Preguntas y respuestas: el rol de las hipótesis.</li>
+</ul></li>
+</ol>
+</section>
+<section id="respondiendo-desde-los-datos-pruebas-de-hipótesis" class="level4 unnumbered unlisted">
+<h4 class="unnumbered unlisted anchored" data-anchor-id="respondiendo-desde-los-datos-pruebas-de-hipótesis">Respondiendo desde los datos: Pruebas de hipótesis</h4>
+<ol type="1">
+<li><strong>Conceptos Básicos de Pruebas de Hipótesis:</strong>
+<ul>
+<li>Definición de hipótesis nula y alternativa.</li>
+<li>Niveles de significancia y p-values.</li>
+<li>Errores tipo I y tipo II.</li>
+</ul></li>
+<li><strong>Tipos de Pruebas de Hipótesis:</strong>
+<ul>
+<li>Pruebas t para comparación de medias.</li>
+<li>Pruebas chi-cuadrado para variables categóricas.</li>
+<li>Pruebas ANOVA para comparación de múltiples grupos.</li>
+</ul></li>
+<li><strong>Interpretación de Resultados:</strong>
+<ul>
+<li>Evaluación de p-values y toma de decisiones.</li>
+<li>Significación estadística vs.&nbsp;significación práctica.</li>
+<li>Comunicación de los resultados de las pruebas de hipótesis.</li>
+</ul></li>
+</ol>
+</section>
+<section id="buenas-prácticas-en-análisis-de-datos" class="level4 unnumbered unlisted">
+<h4 class="unnumbered unlisted anchored" data-anchor-id="buenas-prácticas-en-análisis-de-datos">Buenas prácticas en análisis de datos</h4>
+<ol type="1">
+<li><strong>Desafíos y Consideraciones:</strong>
+<ul>
+<li>Privacidad y seguridad de los datos.</li>
+<li>Limpieza y transformación durante la preparación de datos.</li>
+</ul></li>
+<li><strong>Reproducibilidad y Control de Versiones (GIT):</strong>
+<ul>
+<li>Importancia de mantener un registro de los cambios en los datos.</li>
+<li>Uso de sistemas de control de versiones como GIT para rastrear cambios.</li>
+<li>Aplicación de control de versiones en proyectos de preparación de datos.</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="el-proceso-de-análisis-de-datos-1" class="level2">
+<h2 class="anchored" data-anchor-id="el-proceso-de-análisis-de-datos-1">El proceso de análisis de datos</h2>
+<p>En el mundo actual, la generación y recopilación de datos se ha vuelto más accesible y significativa que nunca antes. Esta abundancia de información ofrece la oportunidad de extraer conocimientos valiosos que pueden influir en la toma de decisiones y el desarrollo de soluciones eficientes.</p>
+<p>Sin embargo, el proceso de transformar estos datos crudos en información útil y significativa requiere una serie de pasos fundamentales que forman parte integral de la disciplina conocida como Ciencia de Datos.</p>
+<p><img src="img/objetivo_ds.png" class="img-fluid"></p>
+<p>En esta primera parte, daremos un vistazo general a las metodologías y enfoques clave que exploraremos a lo largo del curso, con énfasis en la importancia de la preparación de los datos.</p>
+<p>El proceso de análisis de datos se puede dividir en varias etapas interconectadas, cada una con su propio conjunto de desafíos y consideraciones.</p>
+<p><img src="img/proceso_datascience.png" class="img-fluid"></p>
+<p>Bajo esta mirada, tenemos varias fases clave que están interconectadas. En este curso nos enfocaremos en la preparación de los datos y en su análisis mediante modelos de regresión. Esto con el objetivo de responder preguntas desde los datos, que provean información valiosa.</p>
+<section id="adquisición-de-datos" class="level3">
+<h3 class="anchored" data-anchor-id="adquisición-de-datos">Adquisición de datos:</h3>
+<p>El primer paso en el proceso de análisis de datos implica la adquisición y el almacenamiento de los datos. Esto se refiere a la recolección de los datos necesarios para abordar una pregunta o problema en particular.</p>
+<p>Puede implicar la recopilación de datos de fuentes diversas, como bases de datos, archivos CSV, páginas web o incluso sensores en tiempo real.</p>
+<p>Es crucial comprender cómo recopilar y almacenar estos datos de manera adecuada, garantizando su calidad, integridad y seguridad.</p>
+<p>Existen tantas fuentes de datos, como podríamos imaginar. ALgunas de las más comunes son las siguientes:</p>
+<ol type="1">
+<li><strong>Encuestas y Cuestionarios:</strong>
+<ul>
+<li>Diseño y administración de encuestas para recopilar datos directamente de los participantes.</li>
+<li>Permite obtener información específica y detallada según las preguntas planteadas.</li>
+</ul></li>
+<li><strong>Experimentos Controlados:</strong>
+<ul>
+<li>Diseño de experimentos para recopilar datos bajo condiciones controladas.</li>
+<li>Útil para establecer relaciones causales y evaluar efectos de cambios controlados.</li>
+</ul></li>
+<li><strong>Observación y Sensores:</strong>
+<ul>
+<li>Uso de sensores y dispositivos para capturar datos en tiempo real.</li>
+<li>Ampliamente utilizado en aplicaciones IoT (Internet of Things) para monitorizar y recopilar información ambiental.</li>
+<li>Utilización de sensores en dispositivos móviles y wearables para recopilar datos de ubicación, salud y actividad.</li>
+</ul></li>
+<li><strong>Recopilación de Datos Existentes:</strong>
+<ul>
+<li>Utilización de datos ya recopilados y disponibles en bases de datos o fuentes públicas.</li>
+<li>Reduce el tiempo y costo de recopilación, pero puede tener limitaciones en términos de calidad y relevancia.</li>
+</ul></li>
+<li><strong>Web Scraping (Web Scrapping):</strong>
+<ul>
+<li>Extracción de datos de sitios web utilizando herramientas y técnicas automatizadas.</li>
+<li>Permite recopilar información no estructurada de manera eficiente, pero requiere atención a la ética y términos de uso.</li>
+</ul></li>
+<li><strong>Acceso a APIs (Application Programming Interfaces):</strong>
+<ul>
+<li>Interacción programática con sistemas y servicios para obtener datos en tiempo real.</li>
+<li>Común en la obtención de datos de redes sociales, información climática, finanzas, entre otros.</li>
+</ul></li>
+<li><strong>Colaboración y Participación Comunitaria:</strong>
+<ul>
+<li>Colaboración con comunidades y grupos para recopilar datos de manera colectiva.</li>
+<li>Puede ser útil para proyectos de mapeo colaborativo, ciencia ciudadana y recopilación de información local.</li>
+</ul></li>
+<li><strong>Data Lakes y Almacenamiento en la Nube:</strong>
+<ul>
+<li>Almacenamiento de grandes volúmenes de datos sin estructura definida en sistemas de almacenamiento en la nube.</li>
+<li>Facilita la recopilación y posterior análisis de datos heterogéneos.</li>
+<li>Usualmente se accede a través de querys SQL</li>
+</ul></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Datos disponibles para el proyecto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En nuestro proyecto vamos a usar datos de tres posibles fuentes:</p>
+<ol type="1">
+<li>Datos públicos sobre educación chilena</li>
+<li>Datos públicos sobre adjudicaciones municipales</li>
+<li>Datos publicos sobre individuos en comunas chilenas (encuesta Casen)</li>
+<li>Datos sobre crecimiento de paises y complejidad económica</li>
+</ol>
+<p>Veamos como acceder algunos de estos datos.</p>
+</div>
+</div>
+<p><strong>Ejemplo: Datos públicos sobre individuos en comunas chilenas (encuesta Casen)</strong></p>
+<p>La Encuesta de Caracterización Socioeconómica Nacional (CASEN) es una investigación realizada en Chile que tiene como objetivo principal recopilar información detallada sobre la situación socioeconómica de los hogares y las personas en el país. Esta encuesta se lleva a cabo de manera periódica y abarca una amplia variedad de temas, como ingresos, educación, empleo, salud, vivienda y otros aspectos relevantes para comprender la realidad socioeconómica de la población chilena. La información recopilada en la Encuesta CASEN se utiliza para informar políticas públicas, tomar decisiones informadas y analizar la evolución de indicadores sociales a lo largo del tiempo.</p>
+<p><a href="https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen">Sitio Web oficial</a></p>
+<p>Si tenemos los datos alojados en una dependencia, simplemente los cargamos. El formato mas comun es .csv, pero a veces estan en formatos extraños. Por ejemplo, .dta de STATA.</p>
+<div id="6a806da4" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df_casen2020<span class="op">=</span> pd.read_stata(<span class="st">"https://github.com/melanieoyarzun/taller_seriestiempo_IDS/blob/b0be4e78a8c7a738e41b284a65d350179abbda96/Data/casen_2020_ingresos.dta?raw=true"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df_casen2020.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">folio</th>
+<th data-quarto-table-cell-role="th">o</th>
+<th data-quarto-table-cell-role="th">id_persona</th>
+<th data-quarto-table-cell-role="th">region</th>
+<th data-quarto-table-cell-role="th">comuna</th>
+<th data-quarto-table-cell-role="th">zona</th>
+<th data-quarto-table-cell-role="th">expr</th>
+<th data-quarto-table-cell-role="th">edad</th>
+<th data-quarto-table-cell-role="th">sexo</th>
+<th data-quarto-table-cell-role="th">tot_per</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">esc2</th>
+<th data-quarto-table-cell-role="th">educ</th>
+<th data-quarto-table-cell-role="th">o1</th>
+<th data-quarto-table-cell-role="th">yaut</th>
+<th data-quarto-table-cell-role="th">yauth</th>
+<th data-quarto-table-cell-role="th">yautcor</th>
+<th data-quarto-table-cell-role="th">yautcorh</th>
+<th data-quarto-table-cell-role="th">ytrabajocor</th>
+<th data-quarto-table-cell-role="th">ytrabajocorh</th>
+<th data-quarto-table-cell-role="th">yae</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1.101100e+11</td>
+<td>1</td>
+<td>5</td>
+<td>Región de Tarapacá</td>
+<td>Iquique</td>
+<td>Urbano</td>
+<td>67</td>
+<td>34</td>
+<td>Mujer</td>
+<td>2</td>
+<td>...</td>
+<td>12.0</td>
+<td>Media humanista completa</td>
+<td>No</td>
+<td>220000.0</td>
+<td>300000</td>
+<td>220000.0</td>
+<td>300000</td>
+<td>150000.0</td>
+<td>150000.0</td>
+<td>240586.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1.101100e+11</td>
+<td>2</td>
+<td>6</td>
+<td>Región de Tarapacá</td>
+<td>Iquique</td>
+<td>Urbano</td>
+<td>67</td>
+<td>4</td>
+<td>Mujer</td>
+<td>2</td>
+<td>...</td>
+<td>NaN</td>
+<td>Sin educación formal</td>
+<td>NaN</td>
+<td>80000.0</td>
+<td>300000</td>
+<td>80000.0</td>
+<td>300000</td>
+<td>NaN</td>
+<td>150000.0</td>
+<td>240586.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1.101100e+11</td>
+<td>2</td>
+<td>31</td>
+<td>Región de Tarapacá</td>
+<td>Iquique</td>
+<td>Urbano</td>
+<td>67</td>
+<td>5</td>
+<td>Mujer</td>
+<td>3</td>
+<td>...</td>
+<td>NaN</td>
+<td>Básica incompleta</td>
+<td>NaN</td>
+<td>25000.0</td>
+<td>941583</td>
+<td>25000.0</td>
+<td>941583</td>
+<td>NaN</td>
+<td>891583.0</td>
+<td>439170.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1.101100e+11</td>
+<td>1</td>
+<td>32</td>
+<td>Región de Tarapacá</td>
+<td>Iquique</td>
+<td>Urbano</td>
+<td>67</td>
+<td>45</td>
+<td>Hombre</td>
+<td>3</td>
+<td>...</td>
+<td>15.0</td>
+<td>Técnico nivel superior incompleta</td>
+<td>Sí</td>
+<td>889500.0</td>
+<td>941583</td>
+<td>889500.0</td>
+<td>941583</td>
+<td>889500.0</td>
+<td>891583.0</td>
+<td>439170.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1.101100e+11</td>
+<td>3</td>
+<td>30</td>
+<td>Región de Tarapacá</td>
+<td>Iquique</td>
+<td>Urbano</td>
+<td>67</td>
+<td>19</td>
+<td>Mujer</td>
+<td>3</td>
+<td>...</td>
+<td>NaN</td>
+<td>No sabe</td>
+<td>No</td>
+<td>27083.0</td>
+<td>941583</td>
+<td>27083.0</td>
+<td>941583</td>
+<td>2083.0</td>
+<td>891583.0</td>
+<td>439170.0</td>
+</tr>
+</tbody>
+</table>
+
+<p>5 rows × 22 columns</p>
+</div>
+</div>
+</div>
+<p>Una vez cargados los datos, debemos proceder a su limpieza y exploración, para ser preparados para analizarlos. De esto se tratará la siguiente sesión del curso.</p>
+<p><strong>Ejemplo: Datos desde la API del banco mundial</strong> Primero siga este ejemplo practico de importar datos, luego será facil responder la pregunta anterior.</p>
+<div id="0db1ebbb" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#pandas remote data access support for calls to the World Bank Indicators API</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas_datareader <span class="im">import</span> data, wb <span class="co"># para instalar: conda install pandas-datareader  o  pip install pandas-datareader</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Revisemos que indicadores hay disponibles. En este caso revisare de PIB (GDP en ingés), pero se pueden explorar muchas más opciones.</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>wb.search(<span class="st">'gdp'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">unit</th>
+<th data-quarto-table-cell-role="th">source</th>
+<th data-quarto-table-cell-role="th">sourceNote</th>
+<th data-quarto-table-cell-role="th">sourceOrganization</th>
+<th data-quarto-table-cell-role="th">topics</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">688</td>
+<td>6.0.GDP_current</td>
+<td>GDP (current $)</td>
+<td></td>
+<td>LAC Equity Lab</td>
+<td>GDP is the sum of gross value added by all res...</td>
+<td>b'World Development Indicators (World Bank)'</td>
+<td>Economy &amp; Growth</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">689</td>
+<td>6.0.GDP_growth</td>
+<td>GDP growth (annual %)</td>
+<td></td>
+<td>LAC Equity Lab</td>
+<td>Annual percentage growth rate of GDP at market...</td>
+<td>b'World Development Indicators (World Bank)'</td>
+<td>Economy &amp; Growth</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">690</td>
+<td>6.0.GDP_usd</td>
+<td>GDP (constant 2005 $)</td>
+<td></td>
+<td>LAC Equity Lab</td>
+<td>GDP is the sum of gross value added by all res...</td>
+<td>b'World Development Indicators (World Bank)'</td>
+<td>Economy &amp; Growth</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">691</td>
+<td>6.0.GDPpc_constant</td>
+<td>GDP per capita, PPP (constant 2011 internation...</td>
+<td></td>
+<td>LAC Equity Lab</td>
+<td>GDP per capita based on purchasing power parit...</td>
+<td>b'World Development Indicators (World Bank)'</td>
+<td>Economy &amp; Growth</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1503</td>
+<td>BG.GSR.NFSV.GD.ZS</td>
+<td>Trade in services (% of GDP)</td>
+<td></td>
+<td>World Development Indicators</td>
+<td>Trade in services is the sum of service export...</td>
+<td>b'International Monetary Fund, Balance of Paym...</td>
+<td>Economy &amp; Growth ; Private Sector ; Trade</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16704</td>
+<td>UIS.XUNIT.GDPCAP.23.FSGOV</td>
+<td>Initial government funding per secondary stude...</td>
+<td></td>
+<td>Education Statistics</td>
+<td>Total general (local, regional and central, cu...</td>
+<td>b'UNESCO Institute for Statistics'</td>
+<td></td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">16705</td>
+<td>UIS.XUNIT.GDPCAP.23.FSHH</td>
+<td>Initial household funding per secondary studen...</td>
+<td></td>
+<td>Education Statistics</td>
+<td>Total payments of households (pupils, students...</td>
+<td>b'UNESCO Institute for Statistics'</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16706</td>
+<td>UIS.XUNIT.GDPCAP.3.FSGOV</td>
+<td>Initial government funding per upper secondary...</td>
+<td></td>
+<td>Education Statistics</td>
+<td>Total general (local, regional and central, cu...</td>
+<td>b'UNESCO Institute for Statistics'</td>
+<td></td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">16707</td>
+<td>UIS.XUNIT.GDPCAP.5T8.FSGOV</td>
+<td>Initial government funding per tertiary studen...</td>
+<td></td>
+<td>Education Statistics</td>
+<td>Total general (local, regional and central, cu...</td>
+<td>b'UNESCO Institute for Statistics'</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16708</td>
+<td>UIS.XUNIT.GDPCAP.5T8.FSHH</td>
+<td>Initial household funding per tertiary student...</td>
+<td></td>
+<td>Education Statistics</td>
+<td>Total payments of households (pupils, students...</td>
+<td>b'UNESCO Institute for Statistics'</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p>540 rows × 7 columns</p>
+</div>
+</div>
+</div>
+<div id="98a1be4a" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtengamos la lista de paises disponibles</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>countries<span class="op">=</span>wb.get_countries()</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Preview primeras filas lista de paises</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>countries[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">iso3c</th>
+<th data-quarto-table-cell-role="th">iso2c</th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">region</th>
+<th data-quarto-table-cell-role="th">adminregion</th>
+<th data-quarto-table-cell-role="th">incomeLevel</th>
+<th data-quarto-table-cell-role="th">lendingType</th>
+<th data-quarto-table-cell-role="th">capitalCity</th>
+<th data-quarto-table-cell-role="th">longitude</th>
+<th data-quarto-table-cell-role="th">latitude</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>ABW</td>
+<td>AW</td>
+<td>Aruba</td>
+<td>Latin America &amp; Caribbean</td>
+<td></td>
+<td>High income</td>
+<td>Not classified</td>
+<td>Oranjestad</td>
+<td>-70.0167</td>
+<td>12.5167</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>AFE</td>
+<td>ZH</td>
+<td>Africa Eastern and Southern</td>
+<td>Aggregates</td>
+<td></td>
+<td>Aggregates</td>
+<td>Aggregates</td>
+<td></td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>AFG</td>
+<td>AF</td>
+<td>Afghanistan</td>
+<td>South Asia</td>
+<td>South Asia</td>
+<td>Low income</td>
+<td>IDA</td>
+<td>Kabul</td>
+<td>69.1761</td>
+<td>34.5228</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>AFR</td>
+<td>A9</td>
+<td>Africa</td>
+<td>Aggregates</td>
+<td></td>
+<td>Aggregates</td>
+<td>Aggregates</td>
+<td></td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>AFW</td>
+<td>ZI</td>
+<td>Africa Western and Central</td>
+<td>Aggregates</td>
+<td></td>
+<td>Aggregates</td>
+<td>Aggregates</td>
+<td></td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Observar que este es un data frame con dos índices: pais y año. Para mayor referencia coo tratar este tipo de datos ver en https://pandas.pydata.org/pandas-docs/stable/user_guide/advanced.html</p>
+<p>Obtengamos un data frame con los datos de Chile, entre 1980 y 2020.</p>
+<div id="8aaffa0d" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#sabemos que queremos Chile, asi que busquemos su info</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>countries[ countries[<span class="st">'name'</span>] <span class="op">==</span> <span class="st">'Chile'</span> ]</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Descarguemos la data desde la API del banco mundial a un dataframe</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>df_GPDpc_Chile <span class="op">=</span> wb.download(</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                    <span class="co">#Use the indicator attribute to identify which indicator or indicators to download</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                    indicator<span class="op">=</span><span class="st">'NY.GDP.PCAP.KD'</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                    <span class="co">#Use the country attribute to identify the countries you want data for</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                    country<span class="op">=</span>[<span class="st">'CL'</span>],</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                    <span class="co">#Identify the first year for which you want the data, as an integer or a string</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                    start<span class="op">=</span><span class="st">'1980'</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                    <span class="co">#Identify the last year for which you want the data, as an integer or a string</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                    end<span class="op">=</span><span class="dv">2020</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>df_GPDpc_Chile.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+MultiIndex: 41 entries, ('Chile', '2020') to ('Chile', '1980')
+Data columns (total 1 columns):
+ #   Column          Non-Null Count  Dtype  
+---  ------          --------------  -----  
+ 0   NY.GDP.PCAP.KD  41 non-null     float64
+dtypes: float64(1)
+memory usage: 2.0+ KB</code></pre>
+</div>
+</div>
+<div id="9cef5b90" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Veamos el data frame</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df_GPDpc_Chile.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">NY.GDP.PCAP.KD</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">country</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td rowspan="5" data-quarto-table-cell-role="th" data-valign="top">Chile</td>
+<td data-quarto-table-cell-role="th">2020</td>
+<td>12741.157507</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2019</td>
+<td>13761.374474</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2018</td>
+<td>13906.770558</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2017</td>
+<td>13615.523858</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2016</td>
+<td>13644.623261</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Si quisieramos, por simplicidad quedarnos solo con el indice del año y reordenar el dataframe:</p>
+<div id="45940977" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df_GPDpc_Chile.droplevel(<span class="st">'country'</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>reversed_df <span class="op">=</span> df_GPDpc_Chile.iloc[::<span class="op">-</span><span class="dv">1</span>] <span class="co">#invertimos el dataframe </span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>reversed_df<span class="op">=</span> reversed_df.droplevel(<span class="st">'country'</span>) <span class="co"># removemos el level pais, ya que todo el análisis es para un solo país</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>reversed_df.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">NY.GDP.PCAP.KD</th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1980</td>
+<td>4694.337113</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1981</td>
+<td>4928.563103</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1982</td>
+<td>4322.647868</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1983</td>
+<td>4047.790234</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1984</td>
+<td>4154.496068</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Ahora, realicemos un grafico rápido con nuestros datos:</p>
+<div id="449a091a" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Graficamos</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> df_GPDpc_Chile[<span class="st">'1980'</span>:].plot(legend<span class="op">=</span><span class="va">False</span>) </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="vs">r'GDP'</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="vs">r'Año'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>Text(0.5, 0, 'Año')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="sesion1_files/figure-html/cell-8-output-2.png" width="630" height="429"></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Taller 1: Pregunta 1 - Bajando y formateando datos del Banco Mundial**
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Replique el ejemplo práctico de importar datos desde la API del Banco Mundial y empezar la base para su análisis de series de tiempo.</p>
+<p>Importe usted la serie de GDP total Y Percapita para otro país serie desde la API del Banco mundial, muestre sus principales características y realice un grafico.</p>
+<p><strong>¿pareciera haber tendencias?</strong></p>
+</div>
+</div>
+</section>
+<section id="preguntando-a-los-datos" class="level3">
+<h3 class="anchored" data-anchor-id="preguntando-a-los-datos">Preguntando a los datos</h3>
+<p>¿Cómo plantear preguntas y formular hipótesis en el contexto del análisis de datos? El proceso de análisis comienza con la curiosidad y/o necesidad.cLa formulación de preguntas relevantes que se puedan responder mediante la exploración y el examen de los datos disponibles.</p>
+<p>Inicia con la identificación de áreas de interés y la formulación de preguntas específicas relacionadas con esos temas. Estas preguntas pueden surgir de la necesidad de resolver un problema, entender un fenómeno o explorar patrones en los datos. Un buen planteamiento de preguntas es crucial, ya que guiará todo el proceso de análisis.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/abstraccionpng.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">El proceso de abstraer la realidad</figcaption>
+</figure>
+</div>
+<p><strong>Preguntas e hipótesis:</strong></p>
+<p>Una hipótesis es una afirmación, verificable con evidencia. En este sentido, para toda pregunta podemos responderla mediante hipótesis.</p>
+<p>En particular, para responder a las preguntas en el contexto de datos, es común formular hipótesis nulas y alternativas.</p>
+<p>La hipótesis nula es aquella que propone que algun parámetro toma cierto valor. Este generlamente es un punto de verdad. Si bien, con datos no podemos corroborar que algo es cierto, si podemos dar evidencia de que no es cierto. En general, planteamos el problema de tal manera que podamos rechazar la hipótesis nula, en favor de otra que llamamos alternatiba.</p>
+<p>Quizas, la hipotesis nula más famosa es la prueba de “significancia”. En esta se propone que un parámetro (muchas veces un efecto, o correlación) es 0, es decir, plantea que no hay efecto o relación entre las variables, mientras que la hipótesis alternativa sugiere que sí existe una relación o efecto significativo.</p>
+<p>Estas hipótesis son fundamentales para establecer una base objetiva para el análisis y para evaluar las evidencias encontradas en los datos. El proceso de plantear preguntas y formular hipótesis es el primer paso en el análisis de datos, ya que establece una guía clara para el enfoque y la dirección del trabajo. <strong>Al identificar preguntas y establecer hipótesis, se crea un marco sólido que orientará la exploración y el análisis de los datos disponibles.</strong></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Taller 1: Pregunta 2 - Investigando sobre países:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Considere que tenemos los datos del banco mundial, del país que selecciono anteriormente, y desea aprender sobre alguna caracterpistica de dicho pais en el periodo.</p>
+<p>Escriba una pregunta de investigación que se pueda responder con los datos disponibles. ¿Cómo definiria la variable aleatoria relevante? ¿Qué hipótesis podria responder su pregunta?</p>
+</div>
+</div>
+</section>
+</section>
+<section id="respondiendo-desde-los-datos" class="level2">
+<h2 class="anchored" data-anchor-id="respondiendo-desde-los-datos">Respondiendo desde los datos</h2>
+<section id="inferencia-estadística" class="level3">
+<h3 class="anchored" data-anchor-id="inferencia-estadística">Inferencia estadística</h3>
+<p>Inferencia se refiere al proceso de hacer generalizaciones de una población a partir de una muestra de esa población. En particular, la idea es que si tenemos un conjunto de datos (muestra) obtenido de una población más grande, el cual es representativo de esta, podemos utilizar métodos estadísticos para sacar conclusiones sobre las características y propiedades de esa población en su totalidad.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/poblacion_muestra.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Población y Muestra</figcaption>
+</figure>
+</div>
+<p>El proceso de inferencia estadística se basa en el principio de que una muestra bien seleccionada puede proporcionar información valiosa sobre la población en general. Mediante el análisis de la muestra, podemos estimar parámetros poblacionales, como la media, la proporción o la desviación estándar, y también podemos construir intervalos de confianza para estimar el rango dentro del cual se espera que se encuentren estos parámetros.</p>
+<p>El uso de la inferencia estadística es fundamental, especialmente si es impracticable o costoso analizar cada elemento de una población en particular. Por ejemplo, en lugar de encuestar a todos los ciudadanos de un país, es mucho más factible encuestar una muestra representativa y utilizar esa información para hacer suposiciones sobre la opinión de la población en general.</p>
+<section id="estadígrafos-y-el-teorema-del-límite-central" class="level4">
+<h4 class="anchored" data-anchor-id="estadígrafos-y-el-teorema-del-límite-central">Estadígrafos y el Teorema del Límite central</h4>
+<p>Entonces, en cada muestra que tenemos podemos calcular aproximaciones a los parámetros poblacionales de interés. Estos son los llamados <strong>estadísgrafos</strong> <img src="img/estadigrafos.png" class="img-fluid" alt="Estadigrafos"></p>
+<p>Dado que por cada muestra que tenemos, vamos a calcular un estadígrafo este es en si mismo una variable aleatoria. Tiene su propia distribución, media y varianza!</p>
+<p><img src="img/distribuciones_estadigrafos.png" class="img-fluid"></p>
+<p>El estadígrafo más conocido es el promedio o media muestral.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/tabla_estadigrafoscomunes.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Estadigrafos más comunes</figcaption>
+</figure>
+</div>
+<p>Cada estimador es una función de la muestra, por ende para cada muestra que tengamos obtendremos un valor numérico específico para el estimador. Por este motivo, cuando estamos trabajando con una única muestra específica, tenemos un único valor del estimador, o estimador puntual.</p>
+<p>Nunca (o casi nunca) podemos conocer el valor verdadero de los parámetros en la población, por lo cual un primer camino tentador es usar el estimador puntual para tomar una decisión. Como nunca podemos conocer el verdadero parámetro, tampoco podemos saber a ciencia cierta si el estimador puntual es cercano a este.</p>
+<p><strong>¿Cómo conectamos estadpigrafos y parámetros?</strong></p>
+<p>El teorema del límite central, nos dice que, bajo ciertas condiciones, la distribución de las medias muestrales de una población se aproxima a una distribución normal a medida que el tamaño de la muestra aumenta, independientemente de la forma de la distribución original de la población. Este teorema es esencial en inferencia estadística y tiene amplias aplicaciones en análisis de datos y toma de decisiones.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/promedio_TLC.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">La media muestral se distribuye normal, sin importar la distribución de la variable subyacente</figcaption>
+</figure>
+</div>
+<p>Formalmente, el Teorema del Límite Central establece lo siguiente:</p>
+<p><span class="math display">\[\bar{x} \sim_a N(\mu, \frac{\sigma}{\sqrt{n}}) \]</span></p>
+<p>Supongamos que tenemos una población con media μ y desviación estándar σ finitas. Si tomamos muestras aleatorias de tamaño n de esta población y calculamos la media muestral de cada muestra, entonces, a medida que n tiende a infinito, la distribución de estas medias muestrales se aproximará a una distribución normal con media μ y desviación estándar σ/√n.</p>
+<p>En otras palabras, sin importar la distribución original de la población, cuando el tamaño de la muestra es suficientemente grande, la distribución de las medias muestrales seguirá una forma de campana similar a la distribución normal. Este resultado es fundamental para realizar inferencias sobre la población a partir de muestras, ya que nos permite aplicar métodos basados en la distribución normal incluso cuando la población original no sigue una distribución normal.</p>
+</section>
+<section id="error-estándar" class="level4">
+<h4 class="anchored" data-anchor-id="error-estándar">Error estándar</h4>
+<ul>
+<li><p>Corresponde a un estimador de la desviación estándar del estimador.</p></li>
+<li><p>Identifica que tan lejos estamos del verdadero valor poblacional.</p></li>
+<li><p>Para la <strong>media muestral</strong>:</p></li>
+</ul>
+<p><span class="math display">\[ SE = \frac{S_y}{\sqrt{n}}\]</span></p>
+<p>Se utiliza para evaluar a los estimadores, mediante <em>pruebas de hipotesis</em> y construir <em>intervalos de confianza</em></p>
+<ul>
+<li><p>Si se conoce un estimador y su desviación estándar, podemos saber qué tan precisa es la estimación (mucha o poca varianza), pero no podemos saber si el estimador está cercano o no a su valor verdadero en la población (el cual no conocemos).</p></li>
+<li><p>Nunca (o casi nunca) podemos conocer el valor verdadero de los parámetros en la población.</p></li>
+<li><p>Sí se puede construir un conjunto de valores que contienen el parámetro poblacional con alguna probabilidad (llamada el nivel de confianza).</p></li>
+<li><p>Un intervalo de confianza contiene los posibles valores del estimador, entre un límite inferior y un límite superior, con cierta probabilidad.</p></li>
+</ul>
+</section>
+<section id="inferencia-sobre-estadígrafos-y-parámetros---conectados-por-el-teorema-del-límite-central" class="level4">
+<h4 class="anchored" data-anchor-id="inferencia-sobre-estadígrafos-y-parámetros---conectados-por-el-teorema-del-límite-central">Inferencia sobre Estadígrafos y parámetros - Conectados por el Teorema del Límite central</h4>
+<p><span class="math display">\[ \bar{x} \sim_a N\left(\mu, \frac{\sigma}{\sqrt{n}}\right)\]</span></p>
+<ul>
+<li>Con este teorema, podemos construir inferencia de a partir de {x} indirectamente.
+<ul>
+<li>Intervalos de confianza</li>
+<li>Pruebas de hipótesis</li>
+<li>p-valor</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="intervalos-de-confianza" class="level3">
+<h3 class="anchored" data-anchor-id="intervalos-de-confianza">Intervalos de confianza</h3>
+<p>Una primera manera de aproximarnos a los parámetros poblacionales (particularmente a la esperanza) es mediante la construcción de intervalos de confianza.</p>
+<p><img src="img/intervalo_dist.png" class="img-fluid"></p>
+<p>Un intervalo de confianza contiene los posibles valores del estimador, entre un límite inferior y un límite superior, con cierta probabilidad.</p>
+<p><img src="img/intervalo_dist2.png" class="img-fluid"></p>
+<p>¿De dónde saco los valores críticos?</p>
+<p>Los valores críticos de una distribución los obtenemos de una tabla de distribución o para calcular podemos usar excel, R o en python:</p>
+<pre><code>scipy.stats.t.isf(alpha, n-p)</code></pre>
+<p>Si estamos trabajando con dos colas, usar alpha/2 porque la probabilidad de error la estamos repartiendo a ambas colas.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+[Matemáticamente] Caso 1: Varianza conocida
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sumpongamos que tenemos una muestra aleatoria: <span class="math inline">\(y_1, y_2, \dots, y_n\)</span> de una población <span class="math inline">\(Y\sim N(\mu, \sigma^2)\)</span></p>
+<ul>
+<li>La media muestral <span class="math inline">\(\bar{y}= \frac{1}{n}\sum_{i=1}{n}y_i\)</span>
+<ul>
+<li>Su esperanza es: <span class="math inline">\(E(\bar{y}) =\mu\)</span></li>
+<li>Su varianza es: <span class="math inline">\(var(\bar{y}) = \frac{\sigma^2}{n}\)</span></li>
+<li>se distribuye normal, tal que podemos estandarrizar: $ N(0,1) $</li>
+</ul></li>
+</ul>
+<p>Entonces, podemos describir que:</p>
+<p>$ P( -1.96 &lt; &lt; 1.96 ) = 0.95 $$</p>
+<p>$ P( {y}- &lt; &lt; {y} + ) = 0.95 $</p>
+<ul>
+<li><p>este intervalo es aleatorio, porque <span class="math inline">\(\bar{y}\)</span> es diferente en cada muestra.</p></li>
+<li><p>para el 95% de las muestras elatorias, el intervalo construido de esta manera contendrá a <span class="math inline">\(\mu\)</span></p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+[Matemáticamente] Caso 2: Varianza desconocida
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Supongamos que tenemos una muestra aleatoria <span class="math inline">\(y_1, y_2, \dots, y_n\)</span> de una población <span class="math inline">\(y\sim N(\mu, \sigma^2 )\)</span></p></li>
+<li><p>Usamos la estimación de la desviación estándar muestral: <span class="math display">\[ S_y = \sqrt{\frac{1}{n-1} \sum{i=1}{n}(y_i - \bar{y})^2} \]</span></p></li>
+<li><p>Y si estandarizamos <span class="math inline">\(\bar{y}\)</span>: <span class="math display">\[ \frac{\bar{Y} - \mu_y }{ \frac{S}{\sqrt{n}}} \sim t_{n-1} \]</span></p></li>
+<li><p>Podeos constrir un intervalo de la porbabilidad de estar al 95 con el valor critico c adecuado a los grados de libertad n-1:</p></li>
+</ul>
+<p><span class="math display">\[ P( -c &lt;   \frac{\bar{Y} - \mu_y }{ \frac{ S}{\sqrt{n}}}  &lt; c  ) =0.95  \]</span></p>
+<p><span class="math display">\[ P(\bar{y} - \frac{c\times S}{\sqrt{n}} &lt; \mu &lt; \bar{y} + \frac{c\times S}{\sqrt{n}} ) 0.95\]</span></p>
+<ul>
+<li><p>Si llamamos al error estandar SE: <span class="math inline">\(SE(\bar{y})=\frac{S}{\sqrt{n}}\)</span></p></li>
+<li><p>El IC es: <span class="math display">\[ (\bar{y} - \frac{c\times S}{\sqrt{n}}, \bar{y} + \frac{c\times S}{\sqrt{n}} ) \]</span></p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="el-intervalo-es-una-muestra-aleatoria" class="level3">
+<h3 class="anchored" data-anchor-id="el-intervalo-es-una-muestra-aleatoria">El intervalo es una muestra aleatoria</h3>
+<p>Esto quiere decir que para cada muestra podemos construir un intervalo.</p>
+<p>Así como el estimador es una variable aleatoria, esto también es cierto para los intervalos de confianza. Por eso también se les llama intervalos aleatorios, ya que con diferentes muestras obtendremos un diferente estimador e intervalo.</p>
+<p>Por ende, supongamos que contamos con 20 muestras, entonces construiremos 20 intervalos de confanza diferentes para los 20 estimadores puntuales.</p>
+<p><img src="img/intervalo_confianza1.png" class="img-fluid"></p>
+<p><strong>Interpretación de intervalo de confianza</strong></p>
+<p>Pensemos en un 95% de confianza (un valor usual). Esto quiere decir, que si se repitiera este ejercicio muchas veces y construyéramos un intervalo de esta forma el 95% de ellos contendría el verdadero parámetro poblacional.</p>
+<p>Un elemento importante a considerar es que esto no significa que con 95% de certeza el parámetro está exactamente en estos valores. Por ejemplo, al 95% de confianza con 20 intervalos 19 contendrán el parámetro.</p>
+<p><img src="img/intervalo_confianza2.png" class="img-fluid"></p>
+</section>
+<section id="pruebas-de-hipótesis" class="level3">
+<h3 class="anchored" data-anchor-id="pruebas-de-hipótesis">Pruebas de hipótesis</h3>
+<ul>
+<li>Una forma de verificar hipotesis sobre los parámetros es mediante el contraste de hipótesis.</li>
+</ul>
+<p>Empezamos suponiendo que hay una distribución conocida para el estadígrafo, centrada en un valor específico. Y nos preguntamos, si esto fuea verdad ¿qué tan probable es la muestra que tengo?</p>
+<ul>
+<li>Llamamos la hipótesis a probar Ho, y su alternativa H1.</li>
+</ul>
+<p><img src="img/prueba_hip2.png" class="img-fluid"></p>
+<p><img src="img/prueba_hip3.png" class="img-fluid"></p>
+</section>
+<section id="errores-y-p-valor" class="level3">
+<h3 class="anchored" data-anchor-id="errores-y-p-valor">Errores y P-valor</h3>
+<p>Asociada esta prueba, entonces, hay asociados dos tipos de errores:</p>
+<p><img src="img/prueba_hip.png" class="img-fluid"></p>
+<ul>
+<li>Tipo I: Rechazar Ho cuando es cierta</li>
+<li>Tipo II: No rechazar Ho cuando es falsa.</li>
+</ul>
+<p><img src="img/prueba_errores.png" class="img-fluid"></p>
+<p><img src="img/prueba_errores2.png" class="img-fluid"></p>
+<ul>
+<li><p>Se elige nivel de significancia de contraste (α) = probabilidad de cometer error Tipo I. Típicamente α = 0,01, 0,05, 0,10.</p></li>
+<li><p>Para contrastar una hipótesis con su alternativa, debemos elegir:</p>
+<ol type="1">
+<li>Un estadístico de contraste</li>
+<li>Una regla de rechazo, la cual depende de un valor crítico.</li>
+</ol>
+<p><img src="https://www.dropbox.com/s/7cme0p3q8fyiep2/ic.png?raw=1" class="img-fluid"></p></li>
+</ul>
+</section>
+<section id="prueba-de-significancia" class="level3">
+<h3 class="anchored" data-anchor-id="prueba-de-significancia">Prueba de significancia</h3>
+<p>Definimos la prueba de hipótesis de <strong>significancia</strong> como aquella que indica si un estimador <span class="math inline">\(\hat{T}\)</span> es 0.</p>
+<p><span class="math display">\[ H_0: T =0\text{ vs }H_1: T \neq 0 \]</span></p>
+<p>El <strong>Valor de probabilidad (ó p-valor)</strong> es el nivel probabilidad más alto para el cual no podemos rechazar la hipótesis nula de la prueba de significancia.</p>
+<p>Ejemplo: $H_0: $ y en la muestra especifica t= 1.52:</p>
+<p><span class="math display">\[ P-valor = P(T&gt;1.52 \vert h_0)= 1- \phi(1.52)=0.0065\]</span></p>
+<ul>
+<li><p>el mayor nivel de significancia estadistica al cual no rechazamos <span class="math inline">\(H_0\)</span> es 6.5%</p></li>
+<li><p>la probabilidad de observar un velor <span class="math inline">\(T\geq 1.52\)</span> cuando <span class="math inline">\(H_0\)</span> es cierta es en un 6.5 de las muestras.</p></li>
+<li><p>P-valores bajos dan evidencia en contra de <span class="math inline">\(H_0\)</span>, ya que la probabilidad de observarlo si <span class="math inline">\(H_0\)</span> es cierta es bajo.</p></li>
+</ul>
+</section>
+<section id="ejemplo-de-aplicación-peso-de-los-pingüinos-palmer" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-de-aplicación-peso-de-los-pingüinos-palmer">Ejemplo de aplicación: Peso de los Pingüinos Palmer</h3>
+<p>Consideremos los datos de los <em>pingüinos Palmer</em>. Los datos “Palmer Penguins” son un conjunto que detalla medidas morfológicas y características de tres especies de pingüinos: Adelie, Gentoo y Chinstrap. Recopilados por el Dr.&nbsp;Bill Link y su equipo. (Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. doi:10.5281/zenodo.3960218, R package version 0.1.0, https://allisonhorst.github.io/palmerpenguins/index.html)</p>
+<p><img src="https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png" class="img-fluid"></p>
+<div id="028ed402" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar el conjunto de datos "Penguins"</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">"penguins"</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>penguins.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">species</th>
+<th data-quarto-table-cell-role="th">island</th>
+<th data-quarto-table-cell-role="th">bill_length_mm</th>
+<th data-quarto-table-cell-role="th">bill_depth_mm</th>
+<th data-quarto-table-cell-role="th">flipper_length_mm</th>
+<th data-quarto-table-cell-role="th">body_mass_g</th>
+<th data-quarto-table-cell-role="th">sex</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>39.1</td>
+<td>18.7</td>
+<td>181.0</td>
+<td>3750.0</td>
+<td>Male</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>39.5</td>
+<td>17.4</td>
+<td>186.0</td>
+<td>3800.0</td>
+<td>Female</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>40.3</td>
+<td>18.0</td>
+<td>195.0</td>
+<td>3250.0</td>
+<td>Female</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>36.7</td>
+<td>19.3</td>
+<td>193.0</td>
+<td>3450.0</td>
+<td>Female</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>En el contexto de los pingüinos y el peso de su población, podríamos tomar una muestra de pingüinos y calcular un intervalo de confianza para el peso promedio. Esto nos daría una estimación del peso promedio de la población total, junto con la confianza en que este valor estimado es preciso.</p>
+<p>Es importante tener en cuenta que el proceso de inferencia estadística se basa en suposiciones y en el uso adecuado de técnicas estadísticas.</p>
+<p>La elección de la muestra, la interpretación de los resultados y el nivel de confianza seleccionado son aspectos cruciales para realizar inferencias precisas y significativas.</p>
+<p>Relicemos algunos ejemplos de pruebas de hipótesis, sobre el peso de los pingüinos.</p>
+<p>Primero calcularemos el promedio muestral y lo veremos en el contexto de los datos observados:</p>
+<div id="364fec0b" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular el promedio del peso de los pingüinos</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>promedio_peso <span class="op">=</span> penguins[<span class="st">'body_mass_g'</span>].mean()</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un histograma de la distribución del peso con el promedio</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>sns.histplot(data<span class="op">=</span>penguins, x<span class="op">=</span><span class="st">'body_mass_g'</span>, bins<span class="op">=</span><span class="dv">20</span>, kde<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>plt.axvline(x<span class="op">=</span>promedio_peso, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'dashed'</span>, label<span class="op">=</span><span class="st">'Promedio'</span>)</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Distribución de Peso de Pingüinos'</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Masa Corporal (g)'</span>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frecuencia'</span>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="sesion1_files/figure-html/cell-10-output-1.png" width="808" height="524"></p>
+</div>
+</div>
+<p>Nuestra idea de la inferencia, es aprovechar las propiedades del promedio muestral. De que es el promedio muestral el que se distribuye normal, su media es la media poblacional y conocemos sus características.</p>
+<p>Por ejemplo, consideremos que de esta población de pingüinos obtenemos 1000 muestras de 50 individuos cada una. Si graficamos sus medias, podremos ver que estas se distribuyen aproximadamente normal.</p>
+<ul>
+<li>Si reducimos el tamaño de muestra, más nos alejamos de la distribución normal.</li>
+<li>Si reducimos el número de repeticiones tambieé.</li>
+</ul>
+<div id="300085e4" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Definir el tamaño de cada muestra y la cantidad de muestras</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>tamano_muestra <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>cantidad_muestras <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear una lista para almacenar las medias de cada muestra</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>medias_muestras <span class="op">=</span> []</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizar el muestreo y cálculo de medias para cada muestra</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(cantidad_muestras):</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    muestra <span class="op">=</span> np.random.choice(penguins[<span class="st">'body_mass_g'</span>], size<span class="op">=</span>tamano_muestra, replace<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    media_muestra <span class="op">=</span> np.mean(muestra)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    medias_muestras.append(media_muestra)</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular el promedio de los promedios de las muestras</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>promedio_promedios <span class="op">=</span> np.mean(medias_muestras)</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear el gráfico de las medias de las muestras</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>plt.hist(medias_muestras, bins<span class="op">=</span><span class="dv">20</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>plt.axvline(x<span class="op">=</span>promedio_promedios, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'dashed'</span>, label<span class="op">=</span><span class="st">'Promedio de Promedios'</span>)</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Distribución de Medias de Muestras'</span>)</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Media de Muestra de Peso (g)'</span>)</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frecuencia'</span>)</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="sesion1_files/figure-html/cell-11-output-1.png" width="833" height="523"></p>
+</div>
+</div>
+<section id="intervalo-de-confianza" class="level4">
+<h4 class="anchored" data-anchor-id="intervalo-de-confianza">Intervalo de confianza</h4>
+<p>Obtengamos una muestra y calculemos un intervalo de confianza:</p>
+<div id="79a8c7b0" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtener una muestra simple de 40 pingüinos</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>sample_size <span class="op">=</span> <span class="dv">40</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>sample <span class="op">=</span> np.random.choice(penguins[<span class="st">"body_mass_g"</span>], size<span class="op">=</span>sample_size)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular el error estándar de la media muestral</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>sample_std <span class="op">=</span> np.std(sample, ddof<span class="op">=</span><span class="dv">1</span>)  <span class="co"># Usar ddof=1 para calcular la desviación estándar muestral</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>standard_error <span class="op">=</span> sample_std <span class="op">/</span> np.sqrt(sample_size)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Nivel de confianza (por ejemplo, 95%)</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>confidence_level <span class="op">=</span> <span class="fl">0.95</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular el margen de error</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>margin_of_error <span class="op">=</span> stats.t.ppf((<span class="dv">1</span> <span class="op">+</span> confidence_level) <span class="op">/</span> <span class="dv">2</span>, df<span class="op">=</span>sample_size <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> standard_error</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular el intervalo de confianza</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>sample_mean <span class="op">=</span> np.mean(sample)</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>confidence_interval <span class="op">=</span> (sample_mean <span class="op">-</span> margin_of_error, sample_mean <span class="op">+</span> margin_of_error)</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Intervalo de Confianza para el Peso:"</span>)</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(confidence_interval)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Intervalo de Confianza para el Peso:
+(3716.3040368817287, 4278.695963118272)</code></pre>
+</div>
+</div>
+<p>El resultado será un rango de valores dentro del cual es probable que se encuentre el verdadero peso promedio de los pingüinos en la población, con un nivel de confianza del 95%.</p>
+<p>¿Como nos fue? ¿Contiene al verdadero valor?</p>
+</section>
+</section>
+<section id="comparaciones-de-grupos" class="level3">
+<h3 class="anchored" data-anchor-id="comparaciones-de-grupos">Comparaciones de grupos</h3>
+<p>Ahora consideremos que tenemos grupos que queremos comparar.</p>
+<p>Si hacemos una grafica de distribución de tamaño por especie y sexo, podriamos empezar a analizar diferencias entre los grupos.</p>
+<div id="3554e4cc" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear la tabla de doble entrada por tipo y sexo de los pinguinos</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>tabla_doble_entrada <span class="op">=</span> penguins.groupby([<span class="st">'species'</span>, <span class="st">'sex'</span>])[<span class="st">'body_mass_g'</span>].agg([<span class="st">'mean'</span>, <span class="st">'var'</span>]).reset_index()</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Renombrar las columnas para mayor claridad</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>tabla_doble_entrada.rename(columns<span class="op">=</span>{<span class="st">'mean'</span>: <span class="st">'Promedio'</span>, <span class="st">'var'</span>: <span class="st">'Varianza'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar la tabla de doble entrada</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>tabla_doble_entrada</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">species</th>
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th">Promedio</th>
+<th data-quarto-table-cell-role="th">Varianza</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Adelie</td>
+<td>Female</td>
+<td>3368.835616</td>
+<td>72565.639269</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Adelie</td>
+<td>Male</td>
+<td>4043.493151</td>
+<td>120278.253425</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Chinstrap</td>
+<td>Female</td>
+<td>3527.205882</td>
+<td>81415.441176</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Chinstrap</td>
+<td>Male</td>
+<td>3938.970588</td>
+<td>131143.605169</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Gentoo</td>
+<td>Female</td>
+<td>4679.741379</td>
+<td>79286.335451</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Gentoo</td>
+<td>Male</td>
+<td>5484.836066</td>
+<td>98068.306011</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Podriamos querer saber si el peso es diferente para los pinguinos de la especie Adelie, para diferentes sexos:</p>
+<p><strong>Pregunta de Prueba de Hipótesis:</strong></p>
+<p>¿Existe una diferencia significativa en el peso promedio entre los pingüinos machos y las pingüinas hembras en la especie “Adelie”?</p>
+<ul>
+<li>Hipótesis Nula (H0):</li>
+</ul>
+<p>No hay diferencia significativa en el peso promedio entre los pingüinos machos y las pingüinas hembras en la especie “Adelie”.</p>
+<ul>
+<li>Hipótesis Alternativa (H1):</li>
+</ul>
+<p>Existe una diferencia significativa en el peso promedio entre los pingüinos machos y las pingüinas hembras en la especie “Adelie”.</p>
+<p>Para probar esta hipótesis, podrías utilizar una prueba de hipótesis para comparar las medias de las muestras de peso de los pingüinos machos y hembras en la especie “Adelie”. Esto te permitiría determinar si la diferencia observada en el peso promedio es lo suficientemente grande como para considerarse estadísticamente significativa.</p>
+<div id="fd82bbca" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar el conjunto de datos "Penguins"</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">"penguins"</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar los pingüinos de la especie "Adelie"</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>adelie_penguins <span class="op">=</span> penguins[penguins[<span class="st">'species'</span>] <span class="op">==</span> <span class="st">'Adelie'</span>]</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un histograma para la distribución de peso por sexo</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>sns.histplot(data<span class="op">=</span>adelie_penguins, x<span class="op">=</span><span class="st">'body_mass_g'</span>, hue<span class="op">=</span><span class="st">'sex'</span>, bins<span class="op">=</span><span class="dv">20</span>, kde<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Distribución de Peso por Sexo para Pingüinos Adelie'</span>)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Masa Corporal (g)'</span>)</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Frecuencia'</span>)</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Sexo'</span>)</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="sesion1_files/figure-html/cell-14-output-2.png" width="808" height="524"></p>
+</div>
+</div>
+<p>A simple vista podriamos pensar ambos grupos son diferentes. Es más claro si dibujamos el promedio muestral observado.</p>
+<div id="eb1db828" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un gráfico de densidad con líneas de promedio</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>sns.kdeplot(data<span class="op">=</span>adelie_penguins, x<span class="op">=</span><span class="st">'body_mass_g'</span>, hue<span class="op">=</span><span class="st">'sex'</span>, fill<span class="op">=</span><span class="va">True</span>, common_norm<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>plt.axvline(x<span class="op">=</span>adelie_penguins.groupby(<span class="st">'sex'</span>)[<span class="st">'body_mass_g'</span>].mean()[<span class="st">'Female'</span>], color<span class="op">=</span><span class="st">'blue'</span>, linestyle<span class="op">=</span><span class="st">'dashed'</span>, label<span class="op">=</span><span class="st">'Promedio Femenino'</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>plt.axvline(x<span class="op">=</span>adelie_penguins.groupby(<span class="st">'sex'</span>)[<span class="st">'body_mass_g'</span>].mean()[<span class="st">'Male'</span>], color<span class="op">=</span><span class="st">'orange'</span>, linestyle<span class="op">=</span><span class="st">'dashed'</span>, label<span class="op">=</span><span class="st">'Promedio Masculino'</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Densidad de Peso por Sexo para Pingüinos Adelie'</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Masa Corporal (g)'</span>)</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Densidad'</span>)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="sesion1_files/figure-html/cell-15-output-1.png" width="838" height="523"></p>
+</div>
+</div>
+<p>Si construimos una prueba t de diferencia de medias:</p>
+<div id="80a60008" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar el conjunto de datos "Penguins"</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">"penguins"</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar los pingüinos de la especie "Adelie"</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>adelie_penguins <span class="op">=</span> penguins[penguins[<span class="st">'species'</span>] <span class="op">==</span> <span class="st">'Adelie'</span>]</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar machos y hembras</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>machos <span class="op">=</span> adelie_penguins[adelie_penguins[<span class="st">'sex'</span>] <span class="op">==</span> <span class="st">'Male'</span>]</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>hembras <span class="op">=</span> adelie_penguins[adelie_penguins[<span class="st">'sex'</span>] <span class="op">==</span> <span class="st">'Female'</span>]</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizar la prueba t independiente</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>t_statistic, p_value <span class="op">=</span> stats.ttest_ind(machos[<span class="st">'body_mass_g'</span>], hembras[<span class="st">'body_mass_g'</span>], equal_var<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprimir resultados</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Estadística t:"</span>, t_statistic)</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Valor p:"</span>, p_value)</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un gráfico de comparación de peso</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>[machos[<span class="st">'body_mass_g'</span>], hembras[<span class="st">'body_mass_g'</span>]], palette<span class="op">=</span>[<span class="st">'blue'</span>, <span class="st">'pink'</span>])</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Comparación de Peso entre Machos y Hembras de Pingüinos Adelie'</span>)</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>plt.xticks([<span class="dv">0</span>, <span class="dv">1</span>], [<span class="st">'Machos'</span>, <span class="st">'Hembras'</span>])</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Peso (g)'</span>)</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Estadística t: 13.126285923485874
+Valor p: 6.402319748031793e-26</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="sesion1_files/figure-html/cell-16-output-2.png" width="825" height="506"></p>
+</div>
+</div>
+<p>Finalmente, podriamos querer comparar hembras y machos de diferentes Islas. Para esto podriamos usar una prueba ANOVA.</p>
+<p>En este código, primero cargamos el conjunto de datos “Penguins” y luego creamos dos subconjuntos separados para machos y hembras. Después, utilizamos la función stats.f_oneway() para realizar una prueba ANOVA para comparar los pesos entre hembras y machos. El resultado incluye la estadística F y el valor p.</p>
+<p>El valor p nos indica si hay una diferencia significativa entre los grupos. Si el valor p es menor que un umbral de significancia (por ejemplo, 0.05), podríamos rechazar la hipótesis nula y concluir que hay una diferencia significativa en el peso entre hembras y machos de diferentes islas.</p>
+<p>Recuerda que, antes de realizar una prueba ANOVA, es importante verificar las suposiciones necesarias, como la normalidad y la homogeneidad de varianzas en los grupos. Si estas suposiciones no se cumplen, podría ser necesario considerar otras pruebas estadísticas o transformaciones de los datos.</p>
+<div id="1afedb7f" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar el conjunto de datos "Penguins"</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">"penguins"</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar machos y hembras</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>machos <span class="op">=</span> penguins[penguins[<span class="st">'sex'</span>] <span class="op">==</span> <span class="st">'Male'</span>]</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>hembras <span class="op">=</span> penguins[penguins[<span class="st">'sex'</span>] <span class="op">==</span> <span class="st">'Female'</span>]</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizar una prueba ANOVA</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> stats.f_oneway(machos[<span class="st">'body_mass_g'</span>], hembras[<span class="st">'body_mass_g'</span>])</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Imprimir resultados</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Estadística F:"</span>, result.statistic)</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Valor p:"</span>, result.pvalue)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Estadística F: 72.96098633250911
+Valor p: 4.897246751596325e-16</code></pre>
+</div>
+</div>
+<div id="db354392" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar el conjunto de datos "Penguins"</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">"penguins"</span>)</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrar machos y hembras</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>machos <span class="op">=</span> penguins[penguins[<span class="st">'sex'</span>] <span class="op">==</span> <span class="st">'Male'</span>]</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>hembras <span class="op">=</span> penguins[penguins[<span class="st">'sex'</span>] <span class="op">==</span> <span class="st">'Female'</span>]</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Realizar una prueba ANOVA</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> stats.f_oneway(machos[<span class="st">'body_mass_g'</span>], hembras[<span class="st">'body_mass_g'</span>])</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular las medias de peso por género e isla</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>medias_peso <span class="op">=</span> penguins.groupby([<span class="st">'species'</span>, <span class="st">'island'</span>, <span class="st">'sex'</span>])[<span class="st">'body_mass_g'</span>].mean().reset_index()</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un gráfico de barras con puntos y intervalos de confianza</span></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>medias_peso, x<span class="op">=</span><span class="st">'species'</span>, y<span class="op">=</span><span class="st">'body_mass_g'</span>, hue<span class="op">=</span><span class="st">'sex'</span>, errorbar<span class="op">=</span><span class="st">'sd'</span>, palette<span class="op">=</span>[<span class="st">'pink'</span>, <span class="st">'blue'</span>])</span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a><span class="co">#sns.boxplot(data=medias_peso, x='species', y='body_mass_g', hue='sex', palette=['blue', 'pink'])</span></span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Comparación de Peso entre Hembras y Machos por Isla'</span>)</span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Especie e Isla'</span>)</span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Media de Peso (g)'</span>)</span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Sexo'</span>)</span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="sesion1_files/figure-html/cell-18-output-1.png" width="825" height="524"></p>
+</div>
+</div>
+</section>
+<section id="experimentos-aleatorios-y-pruebas-ab" class="level3">
+<h3 class="anchored" data-anchor-id="experimentos-aleatorios-y-pruebas-ab">Experimentos Aleatorios y pruebas A/B</h3>
+<p>Un experimento estadístico es un enfoque científico que busca establecer relaciones de causalidad y obtener conclusiones sobre cómo ciertas variables afectan a otras. Los experimentos estadísticos se diseñan para manipular deliberadamente una o más variables independientes y observar los efectos que tienen sobre una variable dependiente. Al controlar y manipular las variables de interés, los experimentos permiten a los investigadores hacer afirmaciones más sólidas sobre las relaciones causales.</p>
+<p>Una prueba A/B, también conocida como prueba de división, es una técnica utilizada en la investigación y el análisis para comparar dos variantes o grupos con el fin de determinar cuál de ellos produce un mejor resultado en términos de rendimiento, efectividad o preferencia. En una prueba A/B, se selecciona un grupo de muestra y se divide en dos grupos, uno que experimenta la variante “A” (por ejemplo, una versión actual) y otro que experimenta la variante “B” (por ejemplo, una versión modificada). Luego, se recopilan datos y se comparan los resultados de ambos grupos para determinar cuál variante es más efectiva. Las pruebas A/B son comunes en marketing, diseño de productos y desarrollo web para tomar decisiones informadas sobre mejoras y optimizaciones.</p>
+<p>Las pruebas A/B es son ampliamente utilizado en diversas áreas, como el marketing, la investigación de usuarios y el diseño de productos. En una prueba A/B, se seleccionan dos grupos de muestra: uno experimenta la versión original (A) y el otro experimenta una variante modificada (B). La idea detrás de una prueba A/B es evaluar si la variante B produce un efecto significativamente diferente en una métrica de interés en comparación con la variante A.</p>
+<p>Mediante la asignación aleatoria de los participantes a los grupos A y B, y al controlar las condiciones en las que se les presenta cada variante, se reduce la posibilidad de sesgos y se permite un análisis causal más confiable. Al comparar las diferencias observadas en los resultados entre los grupos A y B, es posible inferir si la variante B tiene un impacto significativo en la variable de interés.</p>
+<p>Sin embargo, es importante tener en cuenta que aunque las pruebas A/B proporcionan evidencia de asociación causal, no garantizan que la causalidad sea absoluta. Otros factores no controlados pueden influir en los resultados. Para obtener una comprensión más completa de la causalidad, los experimentos controlados aleatorizados y el uso de métodos de diseño experimental sólidos son esenciales. Las pruebas A/B son una herramienta poderosa para explorar causas y efectos en condiciones controladas y analizar el rendimiento relativo de diferentes opciones.</p>
+<p>Veamos un ejemplo en la práctica. Este es parte del ejercicio de aplicación.</p>
+</section>
+</section>
+<section id="caso-aplicación-de-ab-testing-para-promoción-de-marketing" class="level2">
+<h2 class="anchored" data-anchor-id="caso-aplicación-de-ab-testing-para-promoción-de-marketing">Caso: <strong>Aplicación de A/B testing para promoción de Marketing</strong></h2>
+<section id="enunciado" class="level3">
+<h3 class="anchored" data-anchor-id="enunciado">Enunciado</h3>
+<p>Imaginemos que trabajamos en una empresa de e-commerce que vende productos electrónicos y queremos aumentar las ventas en una línea de productos específica, como teléfonos móviles.</p>
+<p>Para ello, decidimos utilizar una promoción de ventas basada en una ruleta lúdica que ofrecerá descuentos a los clientes que la utilicen.</p>
+<p>Para implementar la promoción, primero seleccionamos aleatoriamente un grupo de clientes y les enviamos un correo electrónico con un enlace a la ruleta lúdica. Al hacer clic en el enlace, los clientes son redirigidos a una página en la que pueden girar la ruleta y ganar un descuento en su próxima compra.</p>
+<p>Vamos a pensar que los clientes son asignados a uno de los siguientes grupos: - Control: no les da una promoción (mala suerte, intentalo otra vez) - Tratamiento 1: 20% de descuento en el producto - Tratamiento 2: Un complemento gratuito (carcasa) que tiene un costo para la empresa similar al descuento.</p>
+</section>
+<section id="creación-de-los-datos" class="level3">
+<h3 class="anchored" data-anchor-id="creación-de-los-datos">Creación de los datos</h3>
+<p>Como nuestro caso es un ejemplo ficticio, vamos a crear los datos.</p>
+<p>Este código creará un conjunto de datos con 400 observaciones (200 en el grupo de control y 200 en el grupo de tratamiento), donde se simulan lascompras de cada usuario.</p>
+<div id="7d0b6d51" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Define una semilla para la generación de números aleatorios</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">123</span>)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>random.seed(<span class="dv">123</span>)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un vector de 200 valores aleatorios para el grupo de control</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>control <span class="op">=</span> np.random.choice([<span class="st">"Control"</span>], size<span class="op">=</span><span class="dv">200</span>, replace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un vector de 200 valores aleatorios para el grupo de tratamiento</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>tratamiento <span class="op">=</span> np.random.choice([<span class="st">"Treatment 1"</span>, <span class="st">"Treatment 2"</span>], size<span class="op">=</span><span class="dv">100</span>, replace<span class="op">=</span><span class="va">True</span>, p<span class="op">=</span>[<span class="fl">0.7</span>, <span class="fl">0.3</span>])</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un vector de número de compras para cada grupo</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>control_compras <span class="op">=</span> np.random.binomial(<span class="dv">5</span>, <span class="fl">0.2</span>, size<span class="op">=</span><span class="dv">200</span>)</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>tratamiento1_compras <span class="op">=</span> np.random.binomial(<span class="dv">5</span>, <span class="fl">0.4</span>, size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>tratamiento2_compras <span class="op">=</span> np.random.binomial(<span class="dv">5</span>, <span class="fl">0.6</span>, size<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Combinar los vectores en un DataFrame</span></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {</span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">'grupo'</span>: np.concatenate((control, np.repeat(<span class="st">"Treatment"</span>, <span class="dv">200</span>))),</span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">'tipo_tratamiento'</span>: np.concatenate((np.repeat(<span class="st">"Control"</span>, <span class="dv">200</span>), np.repeat([<span class="st">"Treatment 1"</span>, <span class="st">"Treatment 2"</span>], [<span class="dv">100</span>, <span class="dv">100</span>]))),</span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">'ventas'</span>: np.concatenate((control_compras, tratamiento1_compras, tratamiento2_compras))</span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>ventas_df <span class="op">=</span> pd.DataFrame(data)</span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificar el DataFrame</span></span>
+<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a>ventas_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">grupo</th>
+<th data-quarto-table-cell-role="th">tipo_tratamiento</th>
+<th data-quarto-table-cell-role="th">ventas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Control</td>
+<td>Control</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Control</td>
+<td>Control</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Control</td>
+<td>Control</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Control</td>
+<td>Control</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Control</td>
+<td>Control</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">395</td>
+<td>Treatment</td>
+<td>Treatment 2</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">396</td>
+<td>Treatment</td>
+<td>Treatment 2</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">397</td>
+<td>Treatment</td>
+<td>Treatment 2</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">398</td>
+<td>Treatment</td>
+<td>Treatment 2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">399</td>
+<td>Treatment</td>
+<td>Treatment 2</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+
+<p>400 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Taller 1: Pregunta 3 -Ejemplo AB test en Marketing:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Considere que tenemos los datos del banco mundial, del país que selecciono anteriormente, y desea aprender sobre alguna caracterpistica de dicho pais en el periodo.</p>
+<p>Escriba una pregunta de investigación que se pueda responder con los datos disponibles. ¿Cómo definiria la variable aleatoria relevante? ¿Qué hipótesis podria responder su pregunta?</p>
+<p>Estudiemos si la promoción fue efectiva en estos datos. Para esto:</p>
+<ol type="1">
+<li>Describa los resultados de la promocion para los diferentes grupos, en terminos de estadisticas descriptivas.</li>
+<li>Compare visualmente los resultados de los diferentes grupos.</li>
+<li>¿Fue la promocion efectiva? Use una prueba de hipotesis para analizar el grupo tratado y de control.</li>
+<li>¿Cual de las promociones fue más efectiva? Use una prueba ANOVA.</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="buenas-prácticas-en-análisis-de-datos-1" class="level3">
+<h3 class="anchored" data-anchor-id="buenas-prácticas-en-análisis-de-datos-1">Buenas prácticas en análisis de datos</h3>
+<section id="importancia-de-la-adquisición-y-almacenamiento-de-datos" class="level4">
+<h4 class="anchored" data-anchor-id="importancia-de-la-adquisición-y-almacenamiento-de-datos">Importancia de la Adquisición y Almacenamiento de Datos</h4>
+<p>La adquisición y el almacenamiento de datos son los cimientos sobre los cuales se construye todo el proceso de análisis. La calidad y la confiabilidad de los datos que obtengamos son fundamentales para asegurarnos de que los resultados y conclusiones que extraigamos sean precisos y relevantes. En esta sección, exploraremos la importancia de esta etapa y cómo afecta todo el flujo de trabajo de la ciencia de datos.</p>
+<p>Garantía de Calidad y Fiabilidad en la Obtención de Datos: Obtener datos confiables es el primer paso para garantizar que nuestras conclusiones sean sólidas. La calidad de los datos está relacionada con la precisión, integridad y consistencia de la información que recopilamos. Asegurarnos de que los datos sean precisos desde el principio minimiza la posibilidad de errores en análisis posteriores. Exploraremos técnicas y prácticas para verificar la calidad de los datos y cómo mitigar posibles fuentes de error.</p>
+<p>Exploración de Diferentes Fuentes de Datos y su Impacto en los Resultados: En el mundo actual, los datos provienen de diversas fuentes: bases de datos, encuestas, sensores, redes sociales, entre otros. Cada fuente tiene sus propias características y potenciales sesgos. Comprender las diferencias entre estas fuentes y cómo pueden influir en los resultados es crucial para tomar decisiones informadas. Analizaremos ejemplos de cómo la elección de la fuente de datos puede afectar las conclusiones y cómo evaluar la confiabilidad de las fuentes.</p>
+</section>
+<section id="metodologías-de-levantamiento-y-adquisición-de-datos" class="level4">
+<h4 class="anchored" data-anchor-id="metodologías-de-levantamiento-y-adquisición-de-datos">Metodologías de Levantamiento y Adquisición de Datos:</h4>
+<p>El proceso de obtención de datos implica una planificación cuidadosa. Exploraremos diversas metodologías utilizadas para recopilar datos, desde encuestas y experimentos hasta scraping de datos en línea. Cada metodología tiene sus propias ventajas y desventajas, y es importante seleccionar la más adecuada para los objetivos del análisis. Discutiremos cómo diseñar encuestas efectivas, cómo considerar la ética en la recopilación de datos y cómo aprovechar las fuentes de datos existentes.</p>
+<p>Esta sección nos proporcionará una base sólida para comprender cómo adquirir y almacenar datos de manera efectiva y confiable. Una vez que comprendamos cómo obtener datos de calidad, podremos avanzar con confianza en las etapas posteriores del proceso de análisis, sabiendo que estamos trabajando con una base sólida y confiable.</p>
+</section>
+<section id="desafíos-y-consideraciones" class="level4">
+<h4 class="anchored" data-anchor-id="desafíos-y-consideraciones">Desafíos y Consideraciones:</h4>
+<p>A medida que ingresamos al emocionante mundo del análisis de datos, nos encontramos con una serie de desafíos y consideraciones que debemos abordar de manera efectiva para garantizar el éxito de nuestro proyecto. Estos desafíos abarcan desde la protección de la privacidad de los datos hasta las complejidades de la limpieza y transformación durante la etapa de preparación.</p>
+</section>
+<section id="privacidad-y-seguridad-de-los-datos" class="level4">
+<h4 class="anchored" data-anchor-id="privacidad-y-seguridad-de-los-datos">Privacidad y Seguridad de los Datos:</h4>
+<p>Uno de los aspectos más críticos en el análisis de datos es la privacidad y seguridad de la información. Los datos pueden contener información sensible y personal, y es esencial proteger la confidencialidad de las personas y organizaciones involucradas. Exploraremos prácticas y regulaciones para garantizar que los datos se manejen de manera ética y legal. Discutiremos cómo anonimizar los datos, utilizar técnicas de enmascaramiento y seguir las mejores prácticas para resguardar la privacidad de los individuos.</p>
+</section>
+<section id="limpieza-y-transformación-durante-la-preparación-de-datos" class="level4">
+<h4 class="anchored" data-anchor-id="limpieza-y-transformación-durante-la-preparación-de-datos">Limpieza y Transformación durante la Preparación de Datos:</h4>
+<p>La etapa de preparación de datos es crucial para asegurarse de que los datos sean aptos para el análisis. Sin embargo, este proceso no está exento de desafíos. Los datos pueden contener valores faltantes, duplicados y errores que deben abordarse de manera adecuada. Exploraremos técnicas para identificar y manejar valores atípicos y faltantes, así como la importancia de la normalización y estandarización de los datos. Aprenderemos cómo transformar los datos en un formato adecuado para el análisis, incluida la reorganización de variables y la creación de nuevas características. En resumen, enfrentamos una serie de desafíos y consideraciones clave en nuestro viaje hacia el análisis de datos significativo. Desde la protección de la privacidad hasta la preparación efectiva de los datos, abordar estos desafíos de manera adecuada es esencial para garantizar que nuestras conclusiones sean sólidas, confiables y éticas.</p>
+</section>
+<section id="reproducibilidad-y-control-de-versiones-git" class="level4">
+<h4 class="anchored" data-anchor-id="reproducibilidad-y-control-de-versiones-git">Reproducibilidad y Control de Versiones (GIT):</h4>
+<p>Key ideas:</p>
+<ul>
+<li>Una documentacion detallada del analisis, de las desiciones tomadas.
+<ul>
+<li>Notebooks pueden ser una buena herramienta inicial.</li>
+</ul></li>
+<li>Importancia de mantener un registro de los cambios en los datos.</li>
+<li>Uso de sistemas de control de versiones como GIT para rastrear cambios.</li>
+<li>Aplicación de control de versiones en proyectos de preparación de datos.</li>
+</ul>
+<p>La reproducibilidad y el control de versiones son componentes fundamentales para garantizar la integridad y la transparencia en el análisis de datos. Además de mantener un registro detallado de las decisiones tomadas durante el proceso, el uso de sistemas de control de versiones como GIT se vuelve esencial para mantener la trazabilidad y la colaboración efectiva en proyectos de preparación y análisis de datos.</p>
+<p><strong>Documentación Detallada del Análisis y Uso de Notebooks:</strong> Una documentación exhaustiva del análisis es esencial para comprender el flujo de trabajo, las decisiones tomadas y las transformaciones aplicadas a los datos. Los notebooks, como Jupyter Notebooks, ofrecen una herramienta excepcional para lograr esto. En cada celda de un notebook, es posible combinar explicaciones en lenguaje natural con código ejecutable y visualizaciones. Esto permite registrar no solo el qué y el cómo, sino también el porqué detrás de cada paso.</p>
+<p><strong>Importancia de Mantener un Registro de los Cambios en los Datos:</strong> Cada decisión tomada durante la preparación y el análisis de datos puede tener un impacto significativo en los resultados finales. Mantener un registro detallado de estas decisiones, desde la limpieza de datos hasta la creación de variables derivadas, es crucial para comprender cómo se obtuvieron ciertos resultados. Una documentación precisa y detallada permite a otros analistas validar y replicar el análisis en el futuro.</p>
+<p><strong>Uso de Sistemas de Control de Versiones como GIT para Rastrear Cambios:</strong></p>
+<p>GIT, un sistema de control de versiones ampliamente utilizado, no solo se aplica al desarrollo de software, sino que también es una herramienta poderosa en el análisis de datos. Permite rastrear cada modificación realizada en el código y en los documentos, incluidos los notebooks. Cada cambio es registrado como un “commit”, lo que proporciona un historial completo y auditable de las transformaciones realizadas en los datos.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/git_flujo_allison.jpeg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Un esquema de git por Allison Horst <span class="citation" data-cites="allison_horst">@allison_horst</span></figcaption>
+</figure>
+</div>
+<p><strong>Aplicación de Control de Versiones en Proyectos de Preparación de Datos:</strong>* La aplicación de GIT en proyectos de preparación de datos agrega un nivel adicional de transparencia y colaboración. Los repositorios de GIT almacenan no solo los datos originales, sino también los notebooks y scripts utilizados en el proceso. Esto permite a los analistas colaborar en un entorno controlado y mantener un historial de cambios. En caso de que surjan problemas o se necesite retroceder en el tiempo, GIT ofrece la capacidad de volver a versiones anteriores de manera segura.</p>
+<p>La combinación de documentación detallada a través de notebooks y el uso de sistemas de control de versiones como GIT proporciona una base sólida para el análisis de datos reproducible y transparente. Esto no solo facilita la comprensión y validación de los resultados, sino que también fomenta la colaboración y la mejora continua en proyectos de preparación y análisis de datos.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Actividad de proyecto - Inicio reproducible
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vamos a empezar el proyecto, dando los primeros pasos considerando que sea reproducible y transparente.</p>
+<p>Uno de los productos del proyecto es un notebook de reporte del análisis. Para esto, iremos avanzando desde hoy.</p>
+<ol type="1">
+<li>Defina a su grupo e inscribase.</li>
+<li>Cree un repositorio de Github en el cual van a trabajar, agregue a todos los integrantes como colaboradores y a la profesora (usuario: melanieoyarzun)</li>
+<li>Cree el readme listando a los integrantes del grupo.</li>
+<li>Definan con que base de datos les gustaría trabajar.</li>
+<li>Propongan una o dos preguntas de investigación y las hipotesis que las responderían.</li>
+</ol>
+<p>La siguiente sesión, vamos a explorar los datos y empezar los primeros pasos en su análisis.</p>
+</div>
+</div>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        console.log("RESIZE");
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
