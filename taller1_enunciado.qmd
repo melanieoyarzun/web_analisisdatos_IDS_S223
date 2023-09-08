@@ -1,8 +1,8 @@
 ---
-institute: "Magíster en Data Science - Universidad del Desarrollo"
-subtitle: "Curso: Análisis de datos"
-title: "Taller 1: Introducción al Análisis de Regresión"
-author: "Phd (c) Melanie Oyarzún - [melanie.oyarzun@udd.cl](mailto:melanie.oyarzun@udd.cl)"
+institute: Magíster en Data Science - Universidad del Desarrollo
+subtitle: 'Curso: Análisis de datos'
+title: 'Taller 1: Introducción al Análisis de Regresión'
+author: 'Phd (c) Melanie Oyarzún - [melanie.oyarzun@udd.cl](mailto:melanie.oyarzun@udd.cl)'
 format:
   html:
     toc: true
@@ -10,11 +10,17 @@ format:
   ipynb: default
 echo: true
 code-fold: true
+jupyter: python3
 ---
 
 ## Instrucciones:
 
-El siguiete taller es un co
+Este taller es un conjunto de actividades para poner en práctica y consolidar los contenidos revisados en la primera unidad del curso, en las sesiones 1 y 2.
+
+- Puedes realizarlo individualmente o hasta en grupos de 3 personas.
+- La entrega es hasta el 15 de septiembre (para todo el crédito)
+- Debes entregar un notebook en el que desarrolle las preguntas y no olvide concluir sus respuestas.
+- Será evaluado mediante la rúbrica de evaluación disponible.
 
 ## Pregunta 1 - Bajando y formateando datos del Banco Mundial
 
@@ -25,7 +31,7 @@ Importe usted la serie de GDP total Y Percapita para otro país serie
 desde la API del Banco mundial, muestre sus principales características
 y realice un grafico.
 
-¿pareciera haber tendencias?
+¿Pareciera haber tendencias? Explique.
 
 
 ## Pregunta 2 - Investigando sobre países:
@@ -63,7 +69,7 @@ vez) - Tratamiento 1: 20% de descuento en el producto - Tratamiento 2:
 Un complemento gratuito (carcasa) que tiene un costo para la empresa
 similar al descuento.
 
-#### Creación de los datos
+### Creación de los datos
 
 Como nuestro caso es un ejemplo ficticio, vamos a crear los datos.
 
@@ -104,6 +110,7 @@ ventas_df = pd.DataFrame(data)
 ventas_df.head(5)
 ```
 
+### Preguntas: 
 
 Estudiemos si la promoción fue efectiva en estos datos. Para esto:
 
@@ -115,9 +122,8 @@ Estudiemos si la promoción fue efectiva en estos datos. Para esto:
 4.  ¿Cual de las promociones fue más efectiva? Use una prueba ANOVA.
 
 
-## Taller 1: Pregunta 4 - Aplicación datos de educación
+## Pregunta 4 - Caso de aplicación datos de educación
 
-Vamos a usar una situación ficticia, con datos simulados para poder aplicar de manera consisa los diferentes tipos de estrategias de identificación revisadas en clase. Algunas (que se supone ya manejan) las revisaremos muy rápidamente y en otras, vamos a tener mayor énfasis.
 
 ### Pregunta de investigación
 
@@ -159,31 +165,27 @@ Los datos estan disponibles en
 -   Este dataset incluye datos sobre cada individuo (con identificador id)
 -   Este dataset tiene información de rendimiento académico antes y después del curso de verano.
 
-## Objetivos:
+### Objetivos:
 
 La idea de este taller es poner en práctica los primeros pasos para un análisis:
 
-I. Este proceso generalmente incluye cargarlos, inspeccionarlos, limpiar y dar la estructura deseada. 
+**I.** Este proceso generalmente incluye cargarlos, inspeccionarlos, limpiar y dar la estructura deseada. 
+**II.** También exploraremos los datos, usaremos estadísticas descriptivas que nos den una idea y resolver problemas potenciales (missing, ouliers, etc) antes de estimar cualquier modelo.
 
-II. También exploraremos los datos, usaremos estadísticas descriptivas que nos den una idea y resolver problemas potenciales (missing, ouliers, etc) antes de estimar cualquier modelo.
-
-En la vida real, este proceso suele ser bastante largo, laborioso e implica volver sobre lso pasos anteriores múltiples veces. También invlocura tomar desiciones por parte de los investigadores, por lo cual la documentación de esta fase es especialmente importante.
+En la vida real, este proceso suele ser bastante largo, laborioso e implica volver sobre los pasos anteriores múltiples veces. También invlocura tomar desiciones por parte de los investigadores, por lo cual la documentación de esta fase es especialmente importante.
 
 En nuestro caso, será bastante lineal y directo, ya que son datos ficticios simulados. Pero en la realidad, no suele ser así.
 
-Pasos que debe realizar:
+### Pasos que debe realizar:
 
-1. Preparación de los datos
+#### 1. Preparación inicial de los datos
 
-1.1. Cargue las tres bases de datos
-
-1.2. Unir los datasets
 
 Tenemos 3 bases de datos con información diferente de los mismos individuos. Generalmente es buena idea tener una sola gran tabla con toda esta información, especialmente si estimaremos modelos en base a ésta.
 
 La base de datos 1 y 2 tienen una forma similar: los individuos son filas y las variables columnas y hay una sola fila para cada individuo. Empiece uniendo ambos.
 
- - Notemos que el dataset unido debería tener 3491 filas y 9 columnas. Unimos todas las filas y agregamos al dataset de información del estudiante si recibió o no la carta (school_data_2)
+- Notemos que el dataset unido debería tener 3491 filas y 9 columnas. Unimos todas las filas y agregamos al dataset de información del estudiante si recibió o no la carta (school_data_2)
 
 
 Entonces, siga el siguiente flujo de trabajo:
@@ -196,7 +198,7 @@ Entonces, siga el siguiente flujo de trabajo:
    3. Usamos la función `summary()` para obtener una estadística descriptiva de las variables en el dataset unido.
 
 
-2.  Preparar los datos
+#### 2.  Limpieza de los datos
 
 2.1 Tidyng los datos
 
@@ -213,9 +215,7 @@ Uno de estos, es que cada columna debe ser una variable y cafa fila una unidad d
 
 Si inspeccionamos el número de columnas: Son 17, pero tenemos 9 variables.
 
-Es porque tenemos puntajes de las pruebas del año 2 al 10. Este tipo de datos son de *panel*
-
-![](images/paste-4C87CB1E.png)
+Es porque tenemos puntajes de las pruebas del año 2 al 10. Este tipo de datos son de *panel*.
 
 Generalmente, que hacemos con este tipo de datos depende del tipo de modelos que queramos usar. Si bien el formato wide es facil de entender, generlamente para modelos y análisi preferimos que esté en formato long. Especialmente cuando modelamos incluyendo efectos fijos También es este el que adhiere a los principios tidy de mejor manera.
 
@@ -248,7 +248,7 @@ Un último paso que haremos antes de hacer estadística decsriptiva es modificar
 
 Ya estamos bien, ahora pasamos a conocer mejor nuestros datos con estadística descriptiva.
 
-## 3. Estadística descriptiva
+#### 3. Estadística descriptiva
 
 Hasta ahora, cargamos datos en diversos formatos (csv, dta y xlsx) los unimos, re-estructuramos el dataset, removimos valores missing y generamos algunas transformaciones. El siguiente paso es empezar a conocer nuestros datos. Para esto haremos tablas de estadísticas descriptivas y también algunos graficos descriptivos.
 
@@ -257,4 +257,4 @@ Hasta ahora, cargamos datos en diversos formatos (csv, dta y xlsx) los unimos, r
 
 3.2  Gráficos de estadística descriptiva
    Realice al menos scatter plot, histograma, box plot y correalograma.
-r1
+
