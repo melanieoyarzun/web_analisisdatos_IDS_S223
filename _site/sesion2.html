@@ -153,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="./sesion3.html">
- <span class="dropdown-text">Sesión 3: Introducción al Análisis de regresión</span></a>
+ <span class="dropdown-text">Sesión 3</span></a>
   </li>  
     </ul>
   </li>
@@ -221,23 +221,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#datos-perdidos" id="toc-datos-perdidos" class="nav-link" data-scroll-target="#datos-perdidos">Datos perdidos</a></li>
   <li><a href="#fitrando-y-limpiando" id="toc-fitrando-y-limpiando" class="nav-link" data-scroll-target="#fitrando-y-limpiando">Fitrando y limpiando</a></li>
-  <li><a href="#errores-de-registro-y-textos" id="toc-errores-de-registro-y-textos" class="nav-link" data-scroll-target="#errores-de-registro-y-textos">Errores de registro y textos</a></li>
+  <li><a href="#problemas-de-registro-relacionados-con-textos" id="toc-problemas-de-registro-relacionados-con-textos" class="nav-link" data-scroll-target="#problemas-de-registro-relacionados-con-textos">Problemas de registro relacionados con textos</a>
+  <ul class="collapse">
   <li><a href="#errores-de-formato" id="toc-errores-de-formato" class="nav-link" data-scroll-target="#errores-de-formato">Errores de formato</a></li>
   <li><a href="#transformando-strings" id="toc-transformando-strings" class="nav-link" data-scroll-target="#transformando-strings">Transformando strings</a></li>
   <li><a href="#métodos-para-strings" id="toc-métodos-para-strings" class="nav-link" data-scroll-target="#métodos-para-strings">Métodos para strings</a></li>
+  </ul></li>
   <li><a href="#transformaciones-del-formato-de-los-datos" id="toc-transformaciones-del-formato-de-los-datos" class="nav-link" data-scroll-target="#transformaciones-del-formato-de-los-datos">Transformaciones del formato de los datos</a>
   <ul class="collapse">
   <li><a href="#eliminar-elegir-columnas" id="toc-eliminar-elegir-columnas" class="nav-link" data-scroll-target="#eliminar-elegir-columnas">Eliminar/ elegir columnas</a></li>
   <li><a href="#reshapesre-formato" id="toc-reshapesre-formato" class="nav-link" data-scroll-target="#reshapesre-formato">Reshapes/re formato</a></li>
   <li><a href="#crear-variables-dummies-dicotómicas" id="toc-crear-variables-dummies-dicotómicas" class="nav-link" data-scroll-target="#crear-variables-dummies-dicotómicas">Crear variables dummies / dicotómicas</a></li>
   </ul></li>
-  <li><a href="#unir-datasets" id="toc-unir-datasets" class="nav-link" data-scroll-target="#unir-datasets">Unir datasets</a></li>
+  <li><a href="#unir-datasets" id="toc-unir-datasets" class="nav-link" data-scroll-target="#unir-datasets">Unir datasets</a>
+  <ul class="collapse">
   <li><a href="#apilar-dataframes" id="toc-apilar-dataframes" class="nav-link" data-scroll-target="#apilar-dataframes">1. Apilar dataframes</a></li>
   <li><a href="#unir-dataframes" id="toc-unir-dataframes" class="nav-link" data-scroll-target="#unir-dataframes">2. Unir dataframes</a></li>
-  <li><a href="#transformaciones-estadístocas" id="toc-transformaciones-estadístocas" class="nav-link" data-scroll-target="#transformaciones-estadístocas">Transformaciones estadístocas:</a></li>
-  <li><a href="#estandarización-de-datos" id="toc-estandarización-de-datos" class="nav-link" data-scroll-target="#estandarización-de-datos">2. Estandarización de Datos</a></li>
-  <li><a href="#normalización-de-datos" id="toc-normalización-de-datos" class="nav-link" data-scroll-target="#normalización-de-datos">Normalización de Datos</a></li>
   </ul></li>
+  <li><a href="#transformaciones-estadísticas" id="toc-transformaciones-estadísticas" class="nav-link" data-scroll-target="#transformaciones-estadísticas">Transformaciones estadísticas:</a>
+  <ul class="collapse">
+  <li><a href="#outliers" id="toc-outliers" class="nav-link" data-scroll-target="#outliers">1. Outliers</a></li>
+  <li><a href="#estandarización-de-datos" id="toc-estandarización-de-datos" class="nav-link" data-scroll-target="#estandarización-de-datos">2. Estandarización de Datos</a></li>
+  <li><a href="#normalización-de-datos" id="toc-normalización-de-datos" class="nav-link" data-scroll-target="#normalización-de-datos">3. Normalización de Datos</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#taller-de-aplicación" id="toc-taller-de-aplicación" class="nav-link" data-scroll-target="#taller-de-aplicación">Taller de aplicación</a></li>
   </ul>
 </nav>
     </div>
@@ -502,7 +510,7 @@ Algunos tipos de argumentos para funciones read_*
 <li><p>¿Qué es un formato binario?</p></li>
 <li><p>Pickle: Python’s built-in serialization</p></li>
 </ul>
-<div id="891c2ac6" class="cell" data-execution_count="1">
+<div id="b0106600" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Objeto que queremos guardar</span></span>
@@ -732,7 +740,7 @@ Algunos tipos de argumentos para funciones read_*
 <li>valores por encima o por debajo de los umbrales especificados se establecen en un valor máximo/mínimo.</li>
 </ul></li>
 </ul>
-<div id="a16162fa" class="cell" data-execution_count="2">
+<div id="5d4d2fab" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -792,7 +800,7 @@ Algunos tipos de argumentos para funciones read_*
 </ul></li>
 <li>Puede recibir columnas específics para chequear por duplicados, e.g. chequear solo la columna key.</li>
 </ul>
-<div id="8e6e58c1" class="cell" data-execution_count="3">
+<div id="0822ea92" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Nombre'</span>: [<span class="st">'Juan'</span>, <span class="st">'Ana'</span>, <span class="st">'Luis'</span>, <span class="st">'Ana'</span>, <span class="st">'Carlos'</span>],</span>
@@ -811,8 +819,9 @@ Algunos tipos de argumentos para funciones read_*
 </div>
 </div>
 </section>
-<section id="errores-de-registro-y-textos" class="level2">
-<h2 class="anchored" data-anchor-id="errores-de-registro-y-textos">Errores de registro y textos</h2>
+<section id="problemas-de-registro-relacionados-con-textos" class="level2">
+<h2 class="anchored" data-anchor-id="problemas-de-registro-relacionados-con-textos">Problemas de registro relacionados con textos</h2>
+<p>Textos o strings, es muy común tener problemas de codificación, errores de tipeo, problemas de formato, etc.</p>
 <p>Uno de los errores de registro más típico, tiene que ver con que los textos/strings estan ingresados con errores.</p>
 <ul>
 <li><p>Una de las razones de la popularidad de Python es por su capacidad de procesar texto/strings.</p></li>
@@ -822,11 +831,10 @@ Algunos tipos de argumentos para funciones read_*
 <li><p><code>replace(&lt;from&gt;,&lt;to&gt;)</code>: Cambia un substring por otro <code>s.replace(',', ':') # "12:13: 14”</code></p></li>
 <li><p>upper()/lower(): casing <code>"AbCd".upper () # "ABCD”</code> <code>"AbCd".lower() # "abcd"</code></p></li>
 </ul>
-</section>
-<section id="errores-de-formato" class="level2">
-<h2 class="anchored" data-anchor-id="errores-de-formato">Errores de formato</h2>
+<section id="errores-de-formato" class="level3">
+<h3 class="anchored" data-anchor-id="errores-de-formato">Errores de formato</h3>
 <p>A veces, los datos se almacenan en el formato incorrecto y necesitas corregirlos.</p>
-<div id="fceead90" class="cell" data-execution_count="4">
+<div id="dea9fb82" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Fecha'</span>: [<span class="st">'2023-08-26'</span>, <span class="st">'2023-08-27'</span>, <span class="st">'2023-08-28'</span>],</span>
@@ -845,39 +853,39 @@ Algunos tipos de argumentos para funciones read_*
 2  2023-08-28  1200.0</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/ry/0yrdh5kn1m92t_pmx56nnqkc0000gn/T/ipykernel_9521/2310739606.py:9: FutureWarning:
+<pre><code>/var/folders/ry/0yrdh5kn1m92t_pmx56nnqkc0000gn/T/ipykernel_44357/2310739606.py:9: FutureWarning:
 
 The default value of regex will change from True to False in a future version. In addition, single character regular expressions will *not* be treated as literal strings when regex=True.
 </code></pre>
 </div>
 </div>
 </section>
-<section id="transformando-strings" class="level2">
-<h2 class="anchored" data-anchor-id="transformando-strings">Transformando strings</h2>
+<section id="transformando-strings" class="level3">
+<h3 class="anchored" data-anchor-id="transformando-strings">Transformando strings</h3>
 <ul>
 <li>index()encuentra donde ocurre primero un substring(error si no lo encuentra):</li>
 </ul>
-<div id="89c6c7f5" class="cell" data-execution_count="5">
+<div id="f33e2337" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">"12,13, 14"</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>s.index(<span class="st">','</span>) <span class="co"># 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>2</code></pre>
 </div>
 </div>
-<div id="af7ab34b" class="cell" data-execution_count="6">
+<div id="2ea650d4" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#s.index(':') # ValueError raised</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li><code>find(&lt;str&gt;)</code>: Lo mismo que index pero -1 si no es encontrado</li>
 </ul>
-<div id="33f1509b" class="cell" data-execution_count="7">
+<div id="7833b97b" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">"12,13, 14"</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>s.find(<span class="st">','</span>) <span class="co"># 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>2</code></pre>
 </div>
 </div>
-<div id="50e9f622" class="cell" data-execution_count="8">
+<div id="3d23864d" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>s.find(<span class="st">':'</span>) <span class="co"># -1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>-1</code></pre>
@@ -886,7 +894,7 @@ The default value of regex will change from True to False in a future version. I
 <ul>
 <li><code>startswith()</code> or <code>endswith()</code>: chequeo booleano para la ocurrencia de un string</li>
 </ul>
-<div id="3f51233c" class="cell" data-execution_count="9">
+<div id="d34437e5" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>    s.startswith(<span class="st">"1"</span>) <span class="co"># True</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    s.endswith(<span class="st">"5"</span>) <span class="co"># False`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
@@ -894,14 +902,14 @@ The default value of regex will change from True to False in a future version. I
 </div>
 </div>
 </section>
-<section id="métodos-para-strings" class="level2">
-<h2 class="anchored" data-anchor-id="métodos-para-strings">Métodos para strings</h2>
+<section id="métodos-para-strings" class="level3">
+<h3 class="anchored" data-anchor-id="métodos-para-strings">Métodos para strings</h3>
 <p><img src="img/metodos_strings.png" class="img-fluid"></p>
 <p><img src="img/regular_expressions.png" class="img-fluid"></p>
 <p>Cualquier columna o serie puede tener métodos string (e.g.&nbsp;replace, split) aplicado a la serie completa</p>
 <p>Está vectorizado para columnas completas o incluso el dataframe (lo cual lo hace rápido) Se debe usar .str.<method_name> (es importante el .str).</method_name></p>
 <p>Ejemplo:</p>
-<div id="5d2f80b6" class="cell" data-execution_count="10">
+<div id="b2b0fc6b" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -943,6 +951,7 @@ dtype: object</code></pre>
 </div>
 </div>
 </section>
+</section>
 <section id="transformaciones-del-formato-de-los-datos" class="level2">
 <h2 class="anchored" data-anchor-id="transformaciones-del-formato-de-los-datos">Transformaciones del formato de los datos</h2>
 <ol type="1">
@@ -954,7 +963,7 @@ dtype: object</code></pre>
 <section id="eliminar-elegir-columnas" class="level3">
 <h3 class="anchored" data-anchor-id="eliminar-elegir-columnas">Eliminar/ elegir columnas</h3>
 <p>A veces, queremos deshacernos de columnas que no son relevantes para nuestro análisis.</p>
-<div id="9f704ae0" class="cell" data-execution_count="11">
+<div id="13c8ac59" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">'Nombre'</span>: [<span class="st">'Juan'</span>, <span class="st">'Ana'</span>, <span class="st">'Luis'</span>, <span class="st">'Carlos'</span>],</span>
@@ -984,7 +993,7 @@ dtype: object</code></pre>
 <li>El “reshape” es comúnmente realizado en la manipulación de datos utilizando bibliotecas como Pandas en Python o funciones de pivote en hojas de cálculo.</li>
 </ul>
 <p><img src="img/reshape.png" class="img-fluid"></p>
-<div id="2f87de7b" class="cell" data-execution_count="12">
+<div id="a408d133" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear DataFrame de ejemplo en formato largo</span></span>
@@ -1027,7 +1036,7 @@ Fecha
 <li>Se pueden generar mediante <code>pd.get_dummies(df[‘key’])</code></li>
 </ul>
 <p><img src="img/onehot_dogs.png" class="img-fluid"></p>
-<div id="0c417d25" class="cell" data-execution_count="13">
+<div id="235f1dc4" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Lista de razas de perros</span></span>
@@ -1067,11 +1076,10 @@ Fecha
 <li><p>Uniones Merge / Join Las uniones combinan DataFrames utilizando columnas en común como clave. Puedes realizar diferentes tipos de uniones, como “inner”, “outer”, “left” y “right”</p></li>
 </ol>
 <p><img src="img/joins.png" class="img-fluid"></p>
-</section>
-<section id="apilar-dataframes" class="level2">
-<h2 class="anchored" data-anchor-id="apilar-dataframes">1. Apilar dataframes</h2>
+<section id="apilar-dataframes" class="level3">
+<h3 class="anchored" data-anchor-id="apilar-dataframes">1. Apilar dataframes</h3>
 <p>Creemos los dataframes:</p>
-<div id="48d66236" class="cell" data-execution_count="14">
+<div id="3cfd16b9" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame([[<span class="dv">2</span>, <span class="dv">3</span>], [<span class="dv">4</span>, <span class="dv">5</span>]], columns<span class="op">=</span><span class="bu">list</span>(<span class="st">'PQ'</span>))</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1087,10 +1095,10 @@ Fecha
 </div>
 </div>
 <p>Hagamos el apilar. Atención a los index</p>
-<div id="18a36439" class="cell" data-execution_count="15">
+<div id="e454419a" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df.append(df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/ry/0yrdh5kn1m92t_pmx56nnqkc0000gn/T/ipykernel_9521/2094904254.py:1: FutureWarning:
+<pre><code>/var/folders/ry/0yrdh5kn1m92t_pmx56nnqkc0000gn/T/ipykernel_44357/2094904254.py:1: FutureWarning:
 
 The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
 </code></pre>
@@ -1136,10 +1144,10 @@ The frame.append method is deprecated and will be removed from pandas in a futur
 </div>
 <p><img src="img/append1.png" class="img-fluid"></p>
 <p>Usemos ignorar index</p>
-<div id="b55de0a8" class="cell" data-execution_count="16">
+<div id="e8efac99" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df.append(df2, ignore_index<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/var/folders/ry/0yrdh5kn1m92t_pmx56nnqkc0000gn/T/ipykernel_9521/26416246.py:1: FutureWarning:
+<pre><code>/var/folders/ry/0yrdh5kn1m92t_pmx56nnqkc0000gn/T/ipykernel_44357/26416246.py:1: FutureWarning:
 
 The frame.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
 </code></pre>
@@ -1185,10 +1193,10 @@ The frame.append method is deprecated and will be removed from pandas in a futur
 </div>
 <p><img src="img/append2.png" class="img-fluid"></p>
 </section>
-<section id="unir-dataframes" class="level2">
-<h2 class="anchored" data-anchor-id="unir-dataframes">2. Unir dataframes</h2>
+<section id="unir-dataframes" class="level3">
+<h3 class="anchored" data-anchor-id="unir-dataframes">2. Unir dataframes</h3>
 <p>Utilizando la función pd.merge().</p>
-<div id="aa03825f" class="cell" data-execution_count="17">
+<div id="1388ffae" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear dos DataFrames con columnas en común</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>df3 <span class="op">=</span> pd.DataFrame({<span class="st">'Key'</span>: [<span class="st">'A'</span>, <span class="st">'B'</span>, <span class="st">'C'</span>], <span class="st">'Value'</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]})</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>df4 <span class="op">=</span> pd.DataFrame({<span class="st">'Key'</span>: [<span class="st">'B'</span>, <span class="st">'C'</span>, <span class="st">'D'</span>], <span class="st">'Value'</span>: [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]})</span>
@@ -1219,15 +1227,15 @@ Unión externa:
 </div>
 </div>
 </section>
-<section id="transformaciones-estadístocas" class="level2">
-<h2 class="anchored" data-anchor-id="transformaciones-estadístocas">Transformaciones estadístocas:</h2>
-<ol type="1">
-<li>Outliers</li>
-</ol>
+</section>
+<section id="transformaciones-estadísticas" class="level2">
+<h2 class="anchored" data-anchor-id="transformaciones-estadísticas">Transformaciones estadísticas:</h2>
+<section id="outliers" class="level3">
+<h3 class="anchored" data-anchor-id="outliers">1. Outliers</h3>
 <p>Un valor atípico, también conocido como valor outlier en inglés, es un punto de datos que difiere significativamente del patrón general de los demás datos en un conjunto. Estos valores son inusuales en relación con el resto de la distribución de los datos y pueden ser considerablemente más altos o más bajos que los valores típicos del conjunto.</p>
 <p>La identificación de valores atípicos es importante por varias razones: 1. Calidad de los datos 2. Impacto en estadísticas y modelos 3. Anomalías y problemas reales 4. Toma de decisiones informada</p>
 <p>Veamos un ejemplo:</p>
-<div id="e8ea0528" class="cell" data-execution_count="18">
+<div id="620a0818" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1258,8 +1266,8 @@ Unión externa:
 </div>
 </div>
 </section>
-<section id="estandarización-de-datos" class="level2">
-<h2 class="anchored" data-anchor-id="estandarización-de-datos">2. Estandarización de Datos</h2>
+<section id="estandarización-de-datos" class="level3">
+<h3 class="anchored" data-anchor-id="estandarización-de-datos">2. Estandarización de Datos</h3>
 <p>La estandarización es un proceso importante en el análisis de datos y el aprendizaje automático. Consiste en transformar los valores de una variable de manera que tengan una media de cero y una desviación estándar de uno. Esta transformación se logra mediante la fórmula:</p>
 <p><span class="math display">\[ z = \frac{x - \mu}{\sigma} \]</span></p>
 <p>Donde $ x $ es el valor original, $ $ es la media de los valores y $ $ es la desviación estándar.</p>
@@ -1268,7 +1276,7 @@ Unión externa:
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Pandas</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Numpy</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div id="f7deb6c0" class="cell" data-execution_count="19">
+<div id="15063ef1" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un DataFrame con datos</span></span>
@@ -1298,7 +1306,7 @@ Unión externa:
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div id="4c59ba42" class="cell" data-execution_count="20">
+<div id="db4ed0ba" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos originales</span></span>
@@ -1322,8 +1330,8 @@ Datos estandarizados: [-1.5491933384829668, -1.161895003862225, -0.7745966692414
 </div>
 </div>
 </section>
-<section id="normalización-de-datos" class="level2">
-<h2 class="anchored" data-anchor-id="normalización-de-datos">Normalización de Datos</h2>
+<section id="normalización-de-datos" class="level3">
+<h3 class="anchored" data-anchor-id="normalización-de-datos">3. Normalización de Datos</h3>
 <p>La normalización es un proceso esencial en el análisis de datos y el aprendizaje automático. Consiste en ajustar los valores de una variable para que se encuentren dentro de un rango específico, generalmente entre 0 y 1. La fórmula matemática utilizada para la normalización es:</p>
 <p><span class="math display">\[ x_{\text{norm}} = \frac{x - \min(x)}{\max(x) - \min(x)} \]</span></p>
 <p>Donde $ x $ es el valor original y $x_{} $ es el valor normalizado.</p>
@@ -1332,7 +1340,7 @@ Datos estandarizados: [-1.5491933384829668, -1.161895003862225, -0.7745966692414
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Pandas</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Numpy</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<div id="65a61c5f" class="cell" data-execution_count="21">
+<div id="ef2a5213" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un DataFrame con datos</span></span>
@@ -1362,7 +1370,7 @@ Datos estandarizados: [-1.5491933384829668, -1.161895003862225, -0.7745966692414
 </div>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<div id="d3c1f8b2" class="cell" data-execution_count="22">
+<div id="dee3f6a5" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos originales</span></span>
@@ -1385,9 +1393,70 @@ Datos normalizados: [0.    0.125 0.25  0.375 0.5   0.625 0.75  0.875 1.   ]</cod
 </div>
 </div>
 </div>
-
-
 </section>
+</section>
+</section>
+<section id="taller-de-aplicación" class="level1">
+<h1>Taller de aplicación</h1>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Taller de aplicación 1: Pregunta 4</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vamos a usar una situación ficticia, con datos simulados para poder aplicar de manera consisa los diferentes tipos de estrategias de dentificación revisadas en clase. Algunas (que se supone ya manejan) las revisaremos muy rápidamente y en otras, vamos a tener mayor énfasis.</p>
+<p><strong>Pregunta de investigación</strong></p>
+<blockquote class="blockquote">
+<p>Asistir a cursos de verano mejora los resultados académicos?</p>
+</blockquote>
+<p>Para responder esta pregunta, usaremos unos datos <strong>ficticios y simulados</strong></p>
+<p>El <strong>escenario ficticio</strong> es el siguiente:</p>
+<ul>
+<li>Para un conjunto de colegios en una comuna, existe la opción de asistir a un curso de verano intensivo durante el verano entre 5 y 6to básico.</li>
+<li>El curso de verano se enfoca en mejorar las habilidades académicas de preparar la prueba de admisión a la universidad vigente (PSU en ese momento)</li>
+<li>El curso de verano es gratuito, pero para ser matriculados requiere que los padres se involucren en un proceso.</li>
+<li>Estamos interesados en testear el impacto de la participación en el curso en los resultados académicos de los estudiantes.</li>
+</ul>
+<p><strong>Datos ficticios dispobibles</strong></p>
+<p>Los datos estan disponibles en <a href="https://github.com/melanieoyarzun/web_analisisdatos_IDS_S223/tree/main/data">github</a></p>
+<ol type="1">
+<li>school_data_1.csv</li>
+</ol>
+<ul>
+<li>Usamos esta data para ejemplificar como cargar data guardada en formato csv.</li>
+<li>Este dataset tiene información sobre cada individuo (con identificador id), la escuela a la que asiste, un indicador si participó en el curso de verano, sexo, ingreso del hogar (en logaritmo), educación de los padres, resultados en una prueba estandarizada que se realiza a nivel de la comuna tanto para el año 5 como para el año 6.</li>
+</ul>
+<ol start="2" type="1">
+<li>school_data_2.dta</li>
+</ol>
+<ul>
+<li>Usamos esta data para ejemplificar como cargar data guardada en formato STATA.</li>
+<li>Este dataset tiene información de cada individuo (con identificador id).</li>
+<li>Este dataset tiene la información si el individuo recibió la carta de invitación para participar del curso de verano.</li>
+</ul>
+<ol start="3" type="1">
+<li>school_data_3.xlsx</li>
+</ol>
+<ul>
+<li>Usamos este dataset para practicar como cargar datos guardados en formato Microsoft Excel.</li>
+<li>Este dataset incluye datos sobre cada individuo (con identificador id)</li>
+<li>Este dataset tiene información de rendimiento académico antes y después del curso de verano.</li>
+</ul>
+<p><strong>Objetivos:</strong></p>
+<p>La idea de este taller es poner en práctica los primeros pasos para un análisis:</p>
+<ol type="1">
+<li>Este proceso generalmente incluye cargarlos, inspeccionarlos, limpiar y dar la estructura deseada.</li>
+<li>También exploraremos los datos, usaremos estadísticas descriptivas que nos permita entender los datos e identificar problemas.</li>
+</ol>
+<p>Sigue los detalles en el siguiente link <a href="./taller1_aplicacion_educ.html">Taller 1 - Pregunta 4 : Cursos de verano</a></p>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->

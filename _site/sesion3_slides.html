@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -323,6 +388,9 @@
       margin-right: 0; 
     }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -355,13 +423,19 @@ Phd (c) Melanie Oyarzún - <a href="mailto:melanie.oyarzun@udd.cl">melanie.oyarz
 <section id="el-análisis-de-regresión" class="slide level2">
 <h2>El análisis de regresión</h2>
 <ul>
-<li class="fragment">El análisis de regersión es una técnica en la cual buscamos encontrar una función que pueda describir la relación observada en los datos entre dos o mas variables.</li>
+<li class="fragment"><p>En las aplicaciones de la ciencia de datos, es muy común estar interesado en la relación entre dos o más variables.</p></li>
+<li class="fragment"><p>El análisis de regresión es una técnica en la cual buscamos encontrar una función que pueda describir la relación observada en los datos entre dos o mas variables.</p></li>
+<li class="fragment"><p>Por ejemplo, podríamos querer relacionar los pesos de los individuos con sus alturas…</p>
+<ul>
+<li class="fragment">¿son los más altos, más pesados?</li>
+<li class="fragment">y… ¿cuánto más pesados?</li>
+</ul></li>
 </ul>
 </section>
-<section id="el-análisis-de-regresión-1" class="slide level2">
-<h2>El análisis de regresión</h2>
+<section id="el-análisis-de-regresión-regresión-simple" class="slide level2">
+<h2>El análisis de regresión: Regresión Simple</h2>
 <ul>
-<li class="fragment">Caso más simple: una regresión lineal simple o univariada. T
+<li class="fragment">Caso más sencillo: univariada o <strong>regresión lineal simple</strong>.
 <ul>
 <li class="fragment">Una variable que deseamos explicar o predecir (Y) como función de otra (X).</li>
 <li class="fragment">Buscamos la pendiente e intercepto de una funciónla recta de la forma:</li>
@@ -369,33 +443,1934 @@ Phd (c) Melanie Oyarzún - <a href="mailto:melanie.oyarzun@udd.cl">melanie.oyarz
 </ul>
 <div class="fragment">
 <p><span class="math display">\[Y = \alpha + \beta X\]</span></p>
+<p>donde:</p>
+<ul>
+<li class="fragment">Y es la variale dependiente o que deseamos entender</li>
+<li class="fragment">X es la variable independiente</li>
+<li class="fragment"><span class="math inline">\(\beta\)</span> es la pendiente de la recta</li>
+<li class="fragment"><span class="math inline">\(\alpha\)</span> es la constante o intersección (el valor de y cuando x=0)</li>
+</ul>
 </div>
+</section>
+<section id="el-análisis-de-regresión-1" class="slide level2">
+<h2>El análisis de regresión</h2>
+<p>Buscamos los <strong>coeficientes</strong> de la función entre Y y X: <strong>constante</strong> y <strong>pendiente</strong></p>
+<img src="./img/img_sesion3/gif_regresion2.gif" style="display: block; margin: 0 auto;">
 </section>
 <section id="el-análisis-de-regresión-2" class="slide level2">
 <h2>El análisis de regresión</h2>
+<p>Para esto, pensamos que la variable que deseamos entender (Y, variable dependiente) se puede descomponer en dos partes:</p>
+<ul>
+<li class="fragment"><p>una que es <strong>sistemática</strong> o que se puede explicar directamente con una o más variables independientes (Xs o regresores)</p></li>
+<li class="fragment"><p>y otra que es <strong>no sistemática</strong> o error (<span class="math inline">\(\mu\)</span> o <span class="math inline">\(epsilon\)</span>) , que es aquella parte que no se puede explicar y representa a la aleatoriedad del fenómeno.</p></li>
+</ul>
+<div class="fragment">
+<img src="./img/img_sesion3/gif_regresion1.gif" style="display: block; margin: 0 auto;">
 
-<img data-src="img/img_sesion3/gif_regresion2.gif" class="r-stretch"></section>
+</div>
+</section>
 <section id="el-análisis-de-regresión-3" class="slide level2">
 <h2>El análisis de regresión</h2>
-<p>Para esto, entendemos que la variable que deseamos entender (Y, variable dependiente) se puede descomponer en dos partes: una que es sistemática o que se puede explicar directamente con una o más variables independientes (Xs o regresores) y otra que es no sistemática o error (<span class="math inline">\(\mu\)</span> o <span class="math inline">\(epsilon\)</span>) , que es aquella parte que no se puede explicar y representa a la aleatoriedad del fenómeno.</p>
+<img src="./img/img_sesion3/gif_regresion1.gif" width="600" style="display: block; margin: 0 auto;">
 
-<img data-src="img/img_sesion3/gif_regresion1.gif" class="r-stretch"><p>La parte sistemática entonces la describimos con una forma funcional, que depende de otras variables o regresores.</p>
+<div class="fragment">
+<p>La parte sistemática entonces la describimos con una <strong>forma funcional</strong>, que depende de otras variables o regresores.</p>
+</div>
+<div class="fragment">
+<p>Esta forma funcional puede:</p>
+<ul>
+<li class="fragment">ser lineal univariada,</li>
+<li class="fragment">lineal múltiple o</li>
+<li class="fragment">no lineal.</li>
+</ul>
+<p>. . . El tipo de forma funcional, definirá el tipo de regresión de la que estemos hablando.</p>
+</div>
 </section>
 <section id="el-análisis-de-regresión-4" class="slide level2">
 <h2>El análisis de regresión</h2>
-<p>Esta forma funcional puede ser lineal univariada, lineal múltiple o no lineal. El tipo de forma funcional, definirá el tipo de regresión de la que estemos hablando.</p>
 <p>Ventajas del análisis de regersión: es facil decsribir cuantitaivamente una rlación.</p>
 <p>Esquemáticamente, los elementos son:</p>
 
 <img data-src="img/img_sesion3/regresion_esquema.png" class="r-stretch"></section>
+<section id="para-qué-hacer-regresiones" class="slide level2">
+<h2>¿Para qué hacer regresiones?</h2>
+<p>Podemos pensar en tres uso, al menos, del análisis d eregresión:</p>
+<ul>
+<li class="fragment">Describir cuantitativamente una relación empírica</li>
+<li class="fragment">Probar hipótesis sobre ciertas teorías</li>
+<li class="fragment">Realizar predicciones</li>
+</ul>
+</section>
+<section id="regresión-simple-y-scatterplot" class="slide level2">
+<h2>Regresión simple y scatterplot</h2>
+<ul>
+<li class="fragment"><p>Por ejemplo, pensemos en la relación entre los años de educación y el ingreso de las personas. Este ha sido un tema constante de estudio en diversas disciplinas, especialmente economía.</p></li>
+<li class="fragment"><p>Usemos un subconjunto de datos de la encuesta CASEN 2022.</p></li>
+</ul>
+<div class="fragment">
+<div id="b6b25673" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co"># cargamos los datos, es un subconjunto de pregungas, solo mayores de 18 años</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a>casen_2022 <span class="op">=</span> pd.read_stata(<span class="st">"data/small_casen2022.dta"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># casen_2022 = pd.read_stata("https://github.com/melanieoyarzun/web_analisisdatos_IDS_S223/blob/main/data/small_casen2022.dta)</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a>casen_2022.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="41">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">id_vivienda</th>
+<th data-quarto-table-cell-role="th">folio</th>
+<th data-quarto-table-cell-role="th">id_persona</th>
+<th data-quarto-table-cell-role="th">region</th>
+<th data-quarto-table-cell-role="th">area</th>
+<th data-quarto-table-cell-role="th">nse</th>
+<th data-quarto-table-cell-role="th">expr</th>
+<th data-quarto-table-cell-role="th">tot_per_h</th>
+<th data-quarto-table-cell-role="th">edad</th>
+<th data-quarto-table-cell-role="th">sexo</th>
+<th data-quarto-table-cell-role="th">pco1_a</th>
+<th data-quarto-table-cell-role="th">e3</th>
+<th data-quarto-table-cell-role="th">o6</th>
+<th data-quarto-table-cell-role="th">o8</th>
+<th data-quarto-table-cell-role="th">y1</th>
+<th data-quarto-table-cell-role="th">ytrabajocor</th>
+<th data-quarto-table-cell-role="th">esc</th>
+<th data-quarto-table-cell-role="th">desercion</th>
+<th data-quarto-table-cell-role="th">educ</th>
+<th data-quarto-table-cell-role="th">contrato</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1000901</td>
+<td>100090101</td>
+<td>1</td>
+<td>Región de Ñuble</td>
+<td>Rural</td>
+<td>Bajo-medio</td>
+<td>43</td>
+<td>3</td>
+<td>72</td>
+<td>2. Mujer</td>
+<td>No</td>
+<td>2. No</td>
+<td>2. No</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1.0</td>
+<td>NaN</td>
+<td>Básica incompleta</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1000901</td>
+<td>100090101</td>
+<td>2</td>
+<td>Región de Ñuble</td>
+<td>Rural</td>
+<td>Bajo-medio</td>
+<td>43</td>
+<td>3</td>
+<td>67</td>
+<td>1. Hombre</td>
+<td>Sí</td>
+<td>2. No</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>4.0</td>
+<td>NaN</td>
+<td>Básica incompleta</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>1000901</td>
+<td>100090101</td>
+<td>3</td>
+<td>Región de Ñuble</td>
+<td>Rural</td>
+<td>Bajo-medio</td>
+<td>44</td>
+<td>3</td>
+<td>40</td>
+<td>2. Mujer</td>
+<td>No</td>
+<td>2. No</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>No sabe</td>
+<td>411242.0</td>
+<td>15.0</td>
+<td>NaN</td>
+<td>Técnico nivel superior completo</td>
+<td>No sabe</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1000902</td>
+<td>100090201</td>
+<td>1</td>
+<td>Región de Ñuble</td>
+<td>Rural</td>
+<td>Bajo-medio</td>
+<td>51</td>
+<td>4</td>
+<td>56</td>
+<td>1. Hombre</td>
+<td>No</td>
+<td>2. No</td>
+<td>2. No</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>No sabe</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>1000902</td>
+<td>100090201</td>
+<td>2</td>
+<td>Región de Ñuble</td>
+<td>Rural</td>
+<td>Bajo-medio</td>
+<td>51</td>
+<td>4</td>
+<td>25</td>
+<td>2. Mujer</td>
+<td>No</td>
+<td>2. No</td>
+<td>2. No</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>12.0</td>
+<td>Deserción</td>
+<td>Media humanista completa</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="regresión-simple-y-scatterplot-1" class="slide level2">
+<h2>Regresión simple y scatterplot</h2>
+<p>Y lo agruparemos por región, para facilitar el ejemplo:</p>
+<div class="fragment">
+<div id="bee0149b" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co"># Supongamos que tienes un DataFrame llamado 'data' con las columnas 'region', 'ytrabajocor', 'esc' y 'desercion'</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co"># Agrupar por 'region' y aplicar funciones de agregación</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>casen_2022_region <span class="op">=</span> casen_2022.groupby(<span class="st">'region'</span>).agg({<span class="st">'ytrabajocor'</span>: <span class="st">'mean'</span>, <span class="st">'esc'</span>: <span class="st">'mean'</span>}).reset_index()</span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co"># Ahora contiene los resultados agregados por región</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a></span>
+<span id="cb2-10"><a href="#cb2-10"></a>casen_2022_region.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="42">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">region</th>
+<th data-quarto-table-cell-role="th">ytrabajocor</th>
+<th data-quarto-table-cell-role="th">esc</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Región de Tarapacá</td>
+<td>658026.6250</td>
+<td>11.679582</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Región de Antofagasta</td>
+<td>791351.8125</td>
+<td>11.833934</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Región de Atacama</td>
+<td>666128.3125</td>
+<td>11.126735</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Región de Coquimbo</td>
+<td>656137.8750</td>
+<td>10.973584</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Región de Valparaíso</td>
+<td>611298.1250</td>
+<td>11.559877</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="regresión-simple-y-scatterplot-2" class="slide level2">
+<h2>Regresión simple y scatterplot</h2>
+<p>Realicemos un scatter sencillo:</p>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">matplotlib</a></li><li><a href="#tabset-1-2">seaborn</a></li><li><a href="#tabset-1-3">seaborn + linea de regresion</a></li><li><a href="#tabset-1-4">Con codigos de region</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div id="ea17dca4" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="co"># Suponiendo que casen_2022 es tu DataFrame</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>plt.scatter( casen_2022_region[<span class="st">'esc'</span>], casen_2022_region[<span class="st">'ytrabajocor'</span>],)</span>
+<span id="cb3-5"><a href="#cb3-5"></a>plt.ylabel(<span class="st">'ytrabajocor'</span>)</span>
+<span id="cb3-6"><a href="#cb3-6"></a>plt.xlabel(<span class="st">'esc'</span>)</span>
+<span id="cb3-7"><a href="#cb3-7"></a>plt.title(<span class="st">'Scatter Plot entre ytrabajocor y esc (por región)'</span>)</span>
+<span id="cb3-8"><a href="#cb3-8"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<p><img data-src="sesion3_slides_files/figure-revealjs/cell-4-output-1.png" width="845" height="448"></p>
+</div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div id="1e18fe65" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># Suponiendo que casen_2022 es tu DataFrame</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>sns.scatterplot(data<span class="op">=</span>casen_2022_region, y<span class="op">=</span><span class="st">'ytrabajocor'</span>, x<span class="op">=</span><span class="st">'esc'</span>)</span>
+<span id="cb4-6"><a href="#cb4-6"></a>plt.ylabel(<span class="st">'ytrabajocor'</span>)</span>
+<span id="cb4-7"><a href="#cb4-7"></a>plt.xlabel(<span class="st">'esc'</span>)</span>
+<span id="cb4-8"><a href="#cb4-8"></a>plt.title(<span class="st">'Scatter Plot entre ytrabajocor y esc'</span>)</span>
+<span id="cb4-9"><a href="#cb4-9"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<p><img data-src="sesion3_slides_files/figure-revealjs/cell-5-output-1.png" width="845" height="448"></p>
+</div>
+</div>
+</div>
+<div id="tabset-1-3">
+<div id="edb2564c" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co"># Suponiendo que casen_2022 es tu DataFrame</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>sns.regplot(data<span class="op">=</span>casen_2022_region, y<span class="op">=</span><span class="st">'ytrabajocor'</span>, x<span class="op">=</span><span class="st">'esc'</span>, ci<span class="op">=</span><span class="dv">95</span>, line_kws<span class="op">=</span>{<span class="st">'color'</span>: <span class="st">'magenta'</span>})  <span class="co"># El argumento ci controla el intervalo de confianza</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>plt.ylabel(<span class="st">'ytrabajocor'</span>)</span>
+<span id="cb5-7"><a href="#cb5-7"></a>plt.xlabel(<span class="st">'esc'</span>)</span>
+<span id="cb5-8"><a href="#cb5-8"></a>plt.title(<span class="st">'Scatter Plot con Línea de Regresión y Intervalo de Confianza'</span>)</span>
+<span id="cb5-9"><a href="#cb5-9"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<p><img data-src="sesion3_slides_files/figure-revealjs/cell-6-output-1.png" width="845" height="448"></p>
+</div>
+</div>
+</div>
+<div id="tabset-1-4">
+<div id="14be71c6" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># Suponiendo que casen_2022_region es tu DataFrame</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>sns.regplot(data<span class="op">=</span>casen_2022_region, y<span class="op">=</span><span class="st">'ytrabajocor'</span>, x<span class="op">=</span><span class="st">'esc'</span>, ci<span class="op">=</span><span class="dv">95</span>, line_kws<span class="op">=</span>{<span class="st">'color'</span>: <span class="st">'magenta'</span>})  <span class="co"># El argumento ci controla el intervalo de confianza</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co"># Procesar y agregar etiquetas de región a los puntos</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="cf">for</span> i, label <span class="kw">in</span> <span class="bu">enumerate</span>(casen_2022_region[<span class="st">'region'</span>]):</span>
+<span id="cb6-9"><a href="#cb6-9"></a>    last_word <span class="op">=</span> label.split()[<span class="op">-</span><span class="dv">1</span>]  <span class="co"># Obtener la última palabra de la etiqueta</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a>    plt.text(casen_2022_region[<span class="st">'esc'</span>][i], casen_2022_region[<span class="st">'ytrabajocor'</span>][i], last_word, fontsize<span class="op">=</span><span class="dv">8</span>, ha<span class="op">=</span><span class="st">'left'</span>, va<span class="op">=</span><span class="st">'bottom'</span>)</span>
+<span id="cb6-11"><a href="#cb6-11"></a></span>
+<span id="cb6-12"><a href="#cb6-12"></a>plt.ylabel(<span class="st">'ytrabajocor'</span>)</span>
+<span id="cb6-13"><a href="#cb6-13"></a>plt.xlabel(<span class="st">'esc'</span>)</span>
+<span id="cb6-14"><a href="#cb6-14"></a>plt.title(<span class="st">'Scatter Plot con Línea de Regresión y Etiquetas de Región (Última Palabra)'</span>)</span>
+<span id="cb6-15"><a href="#cb6-15"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="6">
+<div class="cell-output cell-output-display">
+<p><img data-src="sesion3_slides_files/figure-revealjs/cell-7-output-1.png" width="853" height="451"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Podemos ver que se aprecia una relación positiva: a mayor escolaridad promedio, mayor salario promedio por región.</p>
+</section>
+<section id="especificación" class="slide level2">
+<h2>Especificación</h2>
+<p>Llamamos especifiación al precisar la relación entre las variables que deseamos estimar. . . .</p>
+<p>En nuestro caso, la función base que queremos entender es entre salario y educación: . . .</p>
+<p><span class="math display">\[ \text{Salario} = f(Educacion))\]</span></p>
+<div class="fragment">
+<p>Este es una relación teorica entre variables aleatorias, porque no hemos especificado tres elementos cruciales:</p>
+<ul>
+<li class="fragment">agregar el error aleatorio</li>
+<li class="fragment">especificar una forma funcional</li>
+<li class="fragment">definir una forma de medir las variables en los datos</li>
+</ul>
+</div>
+<div class="fragment">
+<p>En nuestro caso, entonces el modelo especificado sería:</p>
+<p>. . . <span class="math display">\[ \text{ingreso del trabajo}_i = \alpha + \beta \text{años educación}_i + \mu_i\]</span></p>
+</div>
+</section>
+<section id="interpretación" class="slide level2">
+<h2>Interpretación</h2>
+<p>Con nuestro modelo especificado:</p>
+<p><span class="math display">\[ \text{ingreso del trabajo}_i = \alpha + \beta \text{años educación}_i + \mu_i\]</span></p>
+<p>Podemos interpretar <span class="math inline">\(\beta\)</span> y <span class="math inline">\(alpha\)</span>:</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(\beta = \frac{\partial ingr}{\partial educ}\)</span>: un año adiciónal de educación, en cuanto incrementa el salario (si nada más cambia)</p></li>
+<li class="fragment"><p><span class="math inline">\(\alpha\)</span> valor esperado de y, si x=0…</p></li>
+</ul>
+</section>
+<section id="modelo-poblaciónal-y-estimación" class="slide level2">
+<h2>Modelo poblaciónal y estimación</h2>
+<p>Este modelo especificado esta definido en la población:</p>
+<p><span class="math display">\[ \text{ingreso del trabajo}_i = \alpha + \beta \text{años educación}_i + \mu_i\]</span></p>
+<p>pero necesitamos calcularlo con la muestra…. por lo cual tenemos estimadores para los coeficientes poblacionales!</p>
+<p><span class="math display">\[\hat{ \text{ingreso del trabajo}}_i = \hat{\alpha} + \hat{\beta} \text{años educación}_i \]</span></p>
+</section>
+<section id="modelo-poblaciónal-y-estimación-1" class="slide level2">
+<h2>Modelo poblaciónal y estimación</h2>
+<p>El método más comun de estimación es el de los <strong>mínimos cuadrados ordinarios</strong>. Veremos detalles sobre la estimación, supuestos, propiedades estadísticas la proxima sesión.</p>
+<p>Por ahora, pensaremos que es el método que busca la línea que produce menores residuos, es decir, menor diferencia entre evalor predicho (linea de regresión).</p>
+<p><span class="math display">\[ \hat{\mu}_i= y_i-\hat{y}_i\]</span></p>
+<div id="756cc0f4" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb7-5"><a href="#cb7-5"></a></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co"># Suponiendo que casen_2022_region es tu DataFrame</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a>sns.<span class="bu">set</span>(style<span class="op">=</span><span class="st">'whitegrid'</span>)  <span class="co"># Configuración del estilo del gráfico</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="co"># Agregar una columna de constante al DataFrame</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a>casen_2022_region[<span class="st">'constante'</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a></span>
+<span id="cb7-12"><a href="#cb7-12"></a><span class="co"># Crear el gráfico de dispersión con la línea de regresión</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a>sns.regplot(data<span class="op">=</span>casen_2022_region, y<span class="op">=</span><span class="st">'ytrabajocor'</span>, x<span class="op">=</span><span class="st">'esc'</span>, ci<span class="op">=</span><span class="dv">95</span>, line_kws<span class="op">=</span>{<span class="st">'color'</span>: <span class="st">'magenta'</span>}, scatter_kws<span class="op">=</span>{<span class="st">'color'</span>: <span class="st">'blue'</span>})  <span class="co"># El argumento ci controla el intervalo de confianza</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a></span>
+<span id="cb7-15"><a href="#cb7-15"></a><span class="co"># Ajustar el modelo de regresión lineal</span></span>
+<span id="cb7-16"><a href="#cb7-16"></a>y <span class="op">=</span> casen_2022_region[<span class="st">'ytrabajocor'</span>]</span>
+<span id="cb7-17"><a href="#cb7-17"></a>X <span class="op">=</span> casen_2022_region[[<span class="st">'esc'</span>, <span class="st">'constante'</span>]]  <span class="co"># 'constante' es la columna que agregamos para el término constante</span></span>
+<span id="cb7-18"><a href="#cb7-18"></a>modelo <span class="op">=</span> sm.OLS(y, X).fit()</span>
+<span id="cb7-19"><a href="#cb7-19"></a></span>
+<span id="cb7-20"><a href="#cb7-20"></a><span class="co"># Calcular las predicciones ('ytrabajocor_pred') a partir del modelo</span></span>
+<span id="cb7-21"><a href="#cb7-21"></a>casen_2022_region[<span class="st">'ytrabajocor_pred'</span>] <span class="op">=</span> modelo.predict(X)</span>
+<span id="cb7-22"><a href="#cb7-22"></a></span>
+<span id="cb7-23"><a href="#cb7-23"></a><span class="co"># Agregar líneas que conecten cada punto a la línea de regresión</span></span>
+<span id="cb7-24"><a href="#cb7-24"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(casen_2022_region)):</span>
+<span id="cb7-25"><a href="#cb7-25"></a>    x_point <span class="op">=</span> casen_2022_region[<span class="st">'esc'</span>][i]</span>
+<span id="cb7-26"><a href="#cb7-26"></a>    y_point <span class="op">=</span> casen_2022_region[<span class="st">'ytrabajocor'</span>][i]</span>
+<span id="cb7-27"><a href="#cb7-27"></a>    y_pred <span class="op">=</span> casen_2022_region[<span class="st">'ytrabajocor_pred'</span>][i]  <span class="co"># Usamos las predicciones del modelo</span></span>
+<span id="cb7-28"><a href="#cb7-28"></a>    </span>
+<span id="cb7-29"><a href="#cb7-29"></a>    <span class="co"># Línea que conecta el punto a la línea de regresión</span></span>
+<span id="cb7-30"><a href="#cb7-30"></a>    plt.plot([x_point, x_point], [y_point, y_pred], linestyle<span class="op">=</span><span class="st">'--'</span>, color<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb7-31"><a href="#cb7-31"></a></span>
+<span id="cb7-32"><a href="#cb7-32"></a>plt.ylabel(<span class="st">'ytrabajocor'</span>)</span>
+<span id="cb7-33"><a href="#cb7-33"></a>plt.xlabel(<span class="st">'esc'</span>)</span>
+<span id="cb7-34"><a href="#cb7-34"></a>plt.title(<span class="st">'Lineas de regresión y residuos'</span>)</span>
+<span id="cb7-35"><a href="#cb7-35"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="7">
+<div class="cell-output cell-output-display">
+<p><img data-src="sesion3_slides_files/figure-revealjs/cell-8-output-1.png" width="845" height="448"></p>
+</div>
+</div>
+<p>Es decir, minimiza <span class="math display">\[\sum_{i}^{n} \hat{\mu}_i \]</span></p>
+</section>
+<section id="modelo-estimado" class="slide level2">
+<h2>Modelo estimado</h2>
+<p>Por ahora, solo estimaremos el modelo directamente usando statsmodels</p>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Agrupados por región</a></li><li><a href="#tabset-2-2">Todos los datos</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div id="6e896a94" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co"># Supongamos que 'casen_2022' contiene las columnas 'ytrabajocor' (variable dependiente) y 'esc' (variable independiente),</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co"># y que puedes tener valores NaN en tus datos.</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co"># Eliminar filas con valores NaN</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a>casen_2022_clean <span class="op">=</span> casen_2022_region.dropna(subset<span class="op">=</span>[<span class="st">'ytrabajocor'</span>, <span class="st">'esc'</span>])</span>
+<span id="cb8-9"><a href="#cb8-9"></a></span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="co"># Agregar una columna de constantes para el término constante en el modelo</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a>casen_2022_clean[<span class="st">'constante'</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a></span>
+<span id="cb8-13"><a href="#cb8-13"></a><span class="co"># Definir las variables dependiente e independiente</span></span>
+<span id="cb8-14"><a href="#cb8-14"></a>y <span class="op">=</span> casen_2022_clean[<span class="st">'ytrabajocor'</span>]</span>
+<span id="cb8-15"><a href="#cb8-15"></a>X <span class="op">=</span> casen_2022_clean[[<span class="st">'constante'</span>, <span class="st">'esc'</span>]]  <span class="co"># Usar 'constante' como término constante</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a></span>
+<span id="cb8-17"><a href="#cb8-17"></a><span class="co"># Ajustar el modelo de regresión lineal</span></span>
+<span id="cb8-18"><a href="#cb8-18"></a>modelo <span class="op">=</span> sm.OLS(y, X).fit()</span>
+<span id="cb8-19"><a href="#cb8-19"></a></span>
+<span id="cb8-20"><a href="#cb8-20"></a><span class="co"># Imprimir un resumen del modelo</span></span>
+<span id="cb8-21"><a href="#cb8-21"></a><span class="bu">print</span>(modelo.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="8">
+<div class="cell-output cell-output-stdout">
+<pre><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:            ytrabajocor   R-squared:                       0.563
+Model:                            OLS   Adj. R-squared:                  0.532
+Method:                 Least Squares   F-statistic:                     18.07
+Date:                Sat, 09 Sep 2023   Prob (F-statistic):           0.000808
+Time:                        11:26:49   Log-Likelihood:                -201.85
+No. Observations:                  16   AIC:                             407.7
+Df Residuals:                      14   BIC:                             409.3
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+constante  -7.467e+05   3.29e+05     -2.272      0.039   -1.45e+06   -4.17e+04
+esc         1.258e+05   2.96e+04      4.250      0.001    6.23e+04    1.89e+05
+==============================================================================
+Omnibus:                        0.030   Durbin-Watson:                   1.473
+Prob(Omnibus):                  0.985   Jarque-Bera (JB):                0.151
+Skew:                          -0.072   Prob(JB):                        0.927
+Kurtosis:                       2.547   Cond. No.                         189.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-2">
+<div id="a6664d09" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb10-3"><a href="#cb10-3"></a></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co"># Supongamos que 'casen_2022' contiene las columnas 'ytrabajocor' (variable dependiente) y 'esc' (variable independiente),</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="co"># y que puedes tener valores NaN en tus datos.</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="co"># Eliminar filas con valores NaN</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a>casen_2022_clean <span class="op">=</span> casen_2022.dropna(subset<span class="op">=</span>[<span class="st">'ytrabajocor'</span>, <span class="st">'esc'</span>])</span>
+<span id="cb10-9"><a href="#cb10-9"></a></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="co"># Agregar una columna de constantes para el término constante en el modelo</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a>casen_2022_clean[<span class="st">'constante'</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb10-12"><a href="#cb10-12"></a></span>
+<span id="cb10-13"><a href="#cb10-13"></a><span class="co"># Definir las variables dependiente e independiente</span></span>
+<span id="cb10-14"><a href="#cb10-14"></a>y <span class="op">=</span> casen_2022_clean[<span class="st">'ytrabajocor'</span>]</span>
+<span id="cb10-15"><a href="#cb10-15"></a>X <span class="op">=</span> casen_2022_clean[[<span class="st">'constante'</span>, <span class="st">'esc'</span>]]  <span class="co"># Usar 'constante' como término constante</span></span>
+<span id="cb10-16"><a href="#cb10-16"></a></span>
+<span id="cb10-17"><a href="#cb10-17"></a><span class="co"># Ajustar el modelo de regresión lineal</span></span>
+<span id="cb10-18"><a href="#cb10-18"></a>modelo <span class="op">=</span> sm.OLS(y, X).fit()</span>
+<span id="cb10-19"><a href="#cb10-19"></a></span>
+<span id="cb10-20"><a href="#cb10-20"></a><span class="co"># Imprimir un resumen del modelo</span></span>
+<span id="cb10-21"><a href="#cb10-21"></a><span class="bu">print</span>(modelo.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="9">
+<div class="cell-output cell-output-stdout">
+<pre><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:            ytrabajocor   R-squared:                       0.135
+Model:                            OLS   Adj. R-squared:                  0.135
+Method:                 Least Squares   F-statistic:                 1.371e+04
+Date:                Sat, 09 Sep 2023   Prob (F-statistic):               0.00
+Time:                        11:26:49   Log-Likelihood:            -1.3153e+06
+No. Observations:               87910   AIC:                         2.631e+06
+Df Residuals:                   87908   BIC:                         2.631e+06
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+constante  -2.701e+05   8430.418    -32.035      0.000   -2.87e+05   -2.54e+05
+esc         7.707e+04    658.196    117.100      0.000    7.58e+04    7.84e+04
+==============================================================================
+Omnibus:                   165004.626   Durbin-Watson:                   1.657
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):       1073370403.828
+Skew:                          13.789   Prob(JB):                         0.00
+Kurtosis:                     543.626   Cond. No.                         42.3
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Podemos ver que un año adicional de educación ase asocia con 126.000/77.000 app pesos mensuales, el resto constante.</p>
+<p>¿y la constante, como la podemos interpretar?</p>
+</section>
+<section id="modelos-simples-y-múltiples" class="slide level2">
+<h2>Modelos simples y múltiples</h2>
+<p>Muchas veces una sola variable no es suficiente para describir bien un fenómeno. Necesitamos incluir más variables.</p>
+<p>Esto puede ser:</p>
+<ul>
+<li class="fragment">Una nueva variable</li>
+<li class="fragment">Una forma funcional no lineal de la variable ya incluida</li>
+</ul>
+<p>Nuestra interpretación del modelo no cambia, solo que ahora efectivamente estamos <strong>controlando</strong> por otros factores.</p>
+</section>
+<section id="modelos-simples-y-múltiples-1" class="slide level2">
+<h2>Modelos simples y múltiples</h2>
+<p>Probemos, agregar edad al modelo:</p>
+<p><span class="math display">\[ \text{ingreso del trabajo}_i = \alpha + \beta_1 \text{años educación}_i + \beta_2 \text{edad}_i + \mu_i\]</span></p>
+<div id="9948dc16" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb12-3"><a href="#cb12-3"></a></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="co"># Supongamos que 'casen_2022' contiene las columnas 'ytrabajocor' (variable dependiente) y 'esc' (variable independiente),</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="co"># y que puedes tener valores NaN en tus datos.</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a></span>
+<span id="cb12-7"><a href="#cb12-7"></a><span class="co"># Eliminar filas con valores NaN</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a>casen_2022_clean <span class="op">=</span> casen_2022.dropna(subset<span class="op">=</span>[<span class="st">'ytrabajocor'</span>, <span class="st">'esc'</span>, <span class="st">'edad'</span>])</span>
+<span id="cb12-9"><a href="#cb12-9"></a></span>
+<span id="cb12-10"><a href="#cb12-10"></a><span class="co"># Agregar una columna de constantes para el término constante en el modelo</span></span>
+<span id="cb12-11"><a href="#cb12-11"></a>casen_2022_clean[<span class="st">'constante'</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb12-12"><a href="#cb12-12"></a></span>
+<span id="cb12-13"><a href="#cb12-13"></a><span class="co"># Definir las variables dependiente e independiente</span></span>
+<span id="cb12-14"><a href="#cb12-14"></a>y <span class="op">=</span> casen_2022_clean[<span class="st">'ytrabajocor'</span>]</span>
+<span id="cb12-15"><a href="#cb12-15"></a>X <span class="op">=</span> casen_2022_clean[[<span class="st">'constante'</span>, <span class="st">'esc'</span>, <span class="st">'edad'</span>]]  <span class="co"># Usar 'constante' como término constante</span></span>
+<span id="cb12-16"><a href="#cb12-16"></a></span>
+<span id="cb12-17"><a href="#cb12-17"></a><span class="co"># Ajustar el modelo de regresión lineal</span></span>
+<span id="cb12-18"><a href="#cb12-18"></a>modelo <span class="op">=</span> sm.OLS(y, X).fit()</span>
+<span id="cb12-19"><a href="#cb12-19"></a></span>
+<span id="cb12-20"><a href="#cb12-20"></a><span class="co"># Imprimir un resumen del modelo</span></span>
+<span id="cb12-21"><a href="#cb12-21"></a><span class="bu">print</span>(modelo.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="10">
+<div class="cell-output cell-output-stdout">
+<pre><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:            ytrabajocor   R-squared:                       0.150
+Model:                            OLS   Adj. R-squared:                  0.150
+Method:                 Least Squares   F-statistic:                     7754.
+Date:                Sat, 09 Sep 2023   Prob (F-statistic):               0.00
+Time:                        11:26:49   Log-Likelihood:            -1.3145e+06
+No. Observations:               87910   AIC:                         2.629e+06
+Df Residuals:                   87907   BIC:                         2.629e+06
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+constante   -7.37e+05   1.45e+04    -50.839      0.000   -7.65e+05   -7.09e+05
+esc         8.792e+04    708.136    124.163      0.000    8.65e+04    8.93e+04
+edad        7591.3242    192.583     39.419      0.000    7213.864    7968.784
+==============================================================================
+Omnibus:                   165576.617   Durbin-Watson:                   1.666
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):       1120061445.830
+Skew:                          13.885   Prob(JB):                         0.00
+Kurtosis:                     555.280   Cond. No.                         272.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</code></pre>
+</div>
+</div>
+</section>
+<section id="modelos-simples-y-múltiples-2" class="slide level2">
+<h2>Modelos simples y múltiples</h2>
+<p>Es muy usual, agregar edad al cuadrado…. para representar que los salarios crecen con la edad hasta cierto punto, y luego empieza a decaer…</p>
+<p><span class="math display">\[ \text{ingreso del trabajo}_i = \alpha + \beta_1 \text{años educación}_i + \beta_2 \text{edad}_i  + \beta_3 \text{edad}^2_i + \mu_i\]</span></p>
+<div id="ea665be2" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb14-3"><a href="#cb14-3"></a></span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="co"># Supongamos que 'casen_2022' contiene las columnas 'ytrabajocor' (variable dependiente), 'esc' (variable independiente),</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a><span class="co"># 'edad' (variable independiente) y puedes tener valores NaN en tus datos.</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a></span>
+<span id="cb14-7"><a href="#cb14-7"></a><span class="co"># Eliminar filas con valores NaN</span></span>
+<span id="cb14-8"><a href="#cb14-8"></a>casen_2022_clean <span class="op">=</span> casen_2022.dropna(subset<span class="op">=</span>[<span class="st">'ytrabajocor'</span>, <span class="st">'esc'</span>, <span class="st">'edad'</span>])</span>
+<span id="cb14-9"><a href="#cb14-9"></a></span>
+<span id="cb14-10"><a href="#cb14-10"></a><span class="co"># Agregar una columna de constantes para el término constante en el modelo</span></span>
+<span id="cb14-11"><a href="#cb14-11"></a>casen_2022_clean[<span class="st">'constante'</span>] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb14-12"><a href="#cb14-12"></a></span>
+<span id="cb14-13"><a href="#cb14-13"></a><span class="co"># Agregar una columna con 'edad' al cuadrado</span></span>
+<span id="cb14-14"><a href="#cb14-14"></a>casen_2022_clean[<span class="st">'edad_cuadrado'</span>] <span class="op">=</span> casen_2022_clean[<span class="st">'edad'</span>] <span class="op">**</span> <span class="dv">2</span></span>
+<span id="cb14-15"><a href="#cb14-15"></a></span>
+<span id="cb14-16"><a href="#cb14-16"></a><span class="co"># Definir las variables dependiente e independiente</span></span>
+<span id="cb14-17"><a href="#cb14-17"></a>y <span class="op">=</span> casen_2022_clean[<span class="st">'ytrabajocor'</span>]</span>
+<span id="cb14-18"><a href="#cb14-18"></a>X <span class="op">=</span> casen_2022_clean[[<span class="st">'constante'</span>, <span class="st">'esc'</span>, <span class="st">'edad'</span>, <span class="st">'edad_cuadrado'</span>]]  <span class="co"># Incluye 'edad_cuadrado'</span></span>
+<span id="cb14-19"><a href="#cb14-19"></a></span>
+<span id="cb14-20"><a href="#cb14-20"></a><span class="co"># Ajustar el modelo de regresión lineal</span></span>
+<span id="cb14-21"><a href="#cb14-21"></a>modelo <span class="op">=</span> sm.OLS(y, X).fit()</span>
+<span id="cb14-22"><a href="#cb14-22"></a></span>
+<span id="cb14-23"><a href="#cb14-23"></a><span class="co"># Imprimir un resumen del modelo</span></span>
+<span id="cb14-24"><a href="#cb14-24"></a><span class="bu">print</span>(modelo.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="11">
+<div class="cell-output cell-output-stdout">
+<pre><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:            ytrabajocor   R-squared:                       0.157
+Model:                            OLS   Adj. R-squared:                  0.157
+Method:                 Least Squares   F-statistic:                     5454.
+Date:                Sat, 09 Sep 2023   Prob (F-statistic):               0.00
+Time:                        11:26:49   Log-Likelihood:            -1.3142e+06
+No. Observations:               87910   AIC:                         2.628e+06
+Df Residuals:                   87906   BIC:                         2.628e+06
+Df Model:                           3                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P&gt;|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+constante     -1.273e+06   2.46e+04    -51.789      0.000   -1.32e+06   -1.23e+06
+esc            8.514e+04    712.733    119.463      0.000    8.37e+04    8.65e+04
+edad           3.529e+04   1045.445     33.754      0.000    3.32e+04    3.73e+04
+edad_cuadrado  -302.7647     11.234    -26.950      0.000    -324.784    -280.746
+==============================================================================
+Omnibus:                   166354.248   Durbin-Watson:                   1.665
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):       1155260651.345
+Skew:                          14.028   Prob(JB):                         0.00
+Kurtosis:                     563.898   Cond. No.                     2.46e+04
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 2.46e+04. This might indicate that there are
+strong multicollinearity or other numerical problems.</code></pre>
+</div>
+</div>
+</section>
+<section id="ya-no-es-lineal-el-modelo" class="slide level2">
+<h2>Ya no es lineal el modelo?</h2>
+<p>Ojo! La linealidad es en los parámetros, no en las variables.</p>
+<p>La siguiente ecuación muestra un modelo lineal en el que el predictor 𝑥1 no es lineal respecto a y:</p>
+<p><span class="math inline">\(y = \beta_0 + \beta_1x_1 + \beta_2log(x_1) + \epsilon\)</span></p>
+
+<img src="./img/img_sesion3/im1.png" width="400" class="r-stretch"><p>En contraposición, el siguiente no es un modelo lineal:</p>
+<p><span class="math inline">\(y = \beta_0 + \beta_1x_1^{\beta_2} + \epsilon\)</span></p>
+</section>
+<section id="ya-no-es-lineal-el-modelo-1" class="slide level2">
+<h2>Ya no es lineal el modelo?</h2>
+<p>En ocasiones, algunas relaciones no-lineales pueden transformarse de forma que se pueden expresar de manera lineal:</p>
+<ul>
+<li class="fragment"><p>Modelo no-lineal a estimar: <span class="math inline">\(y = \beta_0x_1^{\beta_1}\epsilon\)</span></p></li>
+<li class="fragment"><p>Solucion: pasamos todo a logaritmos:</p></li>
+</ul>
+<p><span class="math display">\[log(y)=log(\beta_0) + \beta_1log(x_1) + log(\epsilon)\]</span></p>
+<p><span class="math display">\[y^{'}=\beta_0^{'}+\beta_1x_1^{'} + \epsilon^{'}\]</span></p>
+<ul>
+<li class="fragment"><p>Estimar el modelo y extraer los coeficientes.</p></li>
+<li class="fragment"><p>Volvera a la forma funcional incial exponenciando los logaritmos.</p>
+<ul>
+<li class="fragment"><span class="math inline">\(\beta_1\)</span> es explicito.</li>
+<li class="fragment"><span class="math inline">\(\beta_0^{'}=log(\beta_0)=&gt; exp(log(\beta_0))\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="un-poco-más-sobre-interpretación" class="slide level2">
+<h2>Un poco más sobre interpretación</h2>
+<p>Elementos clave en la interpretación de un modelo de regresión lineal:</p>
+<ul>
+<li class="fragment"><span class="math inline">\(\beta_0\)</span>: Ordenada en el origen, valor esperado de <span class="math inline">\(y\)</span> cuando todos los predictores son cero.</li>
+<li class="fragment"><span class="math inline">\(\beta_j\)</span>: Coeficientes de regresión parcial de cada predictor, representan el cambio promedio esperado en <span class="math inline">\(y\)</span> al aumentar en una unidad <span class="math inline">\(x_j\)</span>, manteniendo otros predictores constantes (“ceteris paribus”).</li>
+</ul>
+</section>
+<section id="un-poco-más-sobre-interpretación-magnitud" class="slide level2">
+<h2>Un poco más sobre interpretación: Magnitud</h2>
+<p>Los coeficientes están medidos en las unidades que se está trabajando.</p>
+
+<img data-src="img/img_sesion3/unidad_medida.png" class="r-stretch"><p><strong>Importancia de coeficientes parciales estandarizados:</strong> - Se obtienen al estandarizar las variables predictoras antes del ajuste del modelo. - <span class="math inline">\(\beta_0\)</span> refleja el valor esperado de <span class="math inline">\(y\)</span> cuando los predictores están en su promedio. - <span class="math inline">\(\beta_j\)</span> indica el cambio promedio esperado en <span class="math inline">\(y\)</span> al aumentar en una desviación estándar <span class="math inline">\(x_j\)</span>, manteniendo otros predictores constantes.</p>
+</section>
+<section id="causalidad-regresión-y-correlación" class="slide level2">
+<h2>Causalidad, regresión y correlación</h2>
+<p><strong>Importante tener en cuenta:</strong></p>
+<ul>
+<li class="fragment">Antes de intentar ajustar un modelo lineal a los datos observados, la persona debe determinar primero <strong>si existe o no una relación entre las variables</strong> de interés.</li>
+<li class="fragment">Esto no implica necesariamente que una variable cause la otra (por ejemplo, puntajes más altos en la PSU no causan calificaciones superiores en la universidad), pero existe alguna asociación significativa entre las dos variables.</li>
+<li class="fragment">Un diagrama de dispersión puede ser una herramienta útil para determinar la fuerza de la relación entre dos variables.</li>
+</ul>
+</section>
+<section id="causalidad-regresión-y-correlación-1" class="slide level2">
+<h2>Causalidad, regresión y correlación</h2>
+<p><strong>Importante tener en cuenta:</strong></p>
+<ul>
+<li class="fragment"><p>Si parece no haber asociación entre las variables explicativas y dependiente propuestas (es decir, el diagrama de dispersión no indica ninguna tendencia creciente o decreciente),</p>
+<ul>
+<li class="fragment">entonces ajustar un modelo de regresión lineal a los datos probablemente no proporcionará un modelo útil.</li>
+<li class="fragment">Una valiosa medida numérica de asociación entre dos variables es el coeficiente de correlación, que es un valor entre -1 y 1 que indica la fuerza de la asociación de los datos observados para las dos variables.</li>
+</ul></li>
+</ul>
+</section>
 <section id="una-perspectiva-histórica" class="slide level2">
 <h2>Una perspectiva histórica:</h2>
+<ul>
+<li class="fragment"><p>El origen de la técnica, podemos remontarlo a la genética.</p></li>
+<li class="fragment"><p>Francis Galton estudió la variación y la herencia de los rasgos humanos. Entre muchos otros rasgos, Galton recolectó y estudió datos de altura de familias para tratar de entender la herencia. <strong>Mientras hacía esto, desarrolló los conceptos de correlación y regresión.</strong></p></li>
+<li class="fragment"><p>Pregunta: <strong>¿qué tan bien podemos predecir la estatura de un niño basado en la estatura de los padres?</strong></p></li>
+<li class="fragment"><p>La técnica que desarrolló para responder a esta pregunta, la regresión, también puede aplicarse en muchas otras circunstancias.</p></li>
+</ul>
+</section>
+<section id="una-perspectiva-histórica-1" class="slide level2">
+<h2>Una perspectiva histórica:</h2>
+<div class="columns">
+<div class="column">
+<p><img src="./img/img_sesion3/galton.png" width="400"></p>
+</div><div class="column">
+<p><strong>Nota histórica:</strong></p>
+<ul>
+<li class="fragment">Galton hizo importantes contribuciones a la estadística y la genética…</li>
+<li class="fragment">pero también fue uno de los primeros defensores de la <strong>eugenesia</strong>…</li>
+<li class="fragment">un movimiento filosófico científicamente defectuoso favorecido por muchos biólogos de la época de Galton, pero con terribles consecuencias históricas.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="estudio-de-caso-es-hereditaria-la-altura" class="slide level2">
+<h2>Estudio de caso: ¿es hereditaria la altura?</h2>
+<ul>
+<li class="fragment"><p>Tenemos acceso a los datos de altura de familias recolectado por Galton, a través del paquete <code>HistData</code>.</p></li>
+<li class="fragment"><p>Estos datos contienen las alturas de varias docenas de familias: madres, padres, hijas e hijos.</p></li>
+</ul>
+<div class="fragment">
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Cargar datos</a></li><li><a href="#tabset-3-2">Tabla de datos</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<div id="d422c8a0" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Cargamos los paquetes que vamos a usar</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb16-6"><a href="#cb16-6"></a></span>
+<span id="cb16-7"><a href="#cb16-7"></a><span class="co"># Si no tiene stats models, instalar: pip install statsmodels</span></span>
+<span id="cb16-8"><a href="#cb16-8"></a></span>
+<span id="cb16-9"><a href="#cb16-9"></a><span class="co"># Cargar el conjunto de datos GaltonFamilies</span></span>
+<span id="cb16-10"><a href="#cb16-10"></a>galton_data <span class="op">=</span> sm.datasets.get_rdataset(<span class="st">"GaltonFamilies"</span>, package<span class="op">=</span><span class="st">"HistData"</span>).data</span>
+<span id="cb16-11"><a href="#cb16-11"></a></span>
+<span id="cb16-12"><a href="#cb16-12"></a><span class="co"># Mostrar las primeras filas del DataFrame</span></span>
+<span id="cb16-13"><a href="#cb16-13"></a><span class="bu">print</span>(galton_data.head(<span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="12">
+
+</div>
+</div>
+<div id="tabset-3-2">
+<div id="cfc4ba3f" class="cell" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="53">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">family</th>
+<th data-quarto-table-cell-role="th">father</th>
+<th data-quarto-table-cell-role="th">mother</th>
+<th data-quarto-table-cell-role="th">midparentHeight</th>
+<th data-quarto-table-cell-role="th">children</th>
+<th data-quarto-table-cell-role="th">childNum</th>
+<th data-quarto-table-cell-role="th">gender</th>
+<th data-quarto-table-cell-role="th">childHeight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>001</td>
+<td>78.5</td>
+<td>67.0</td>
+<td>75.43</td>
+<td>4</td>
+<td>1</td>
+<td>male</td>
+<td>73.2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>001</td>
+<td>78.5</td>
+<td>67.0</td>
+<td>75.43</td>
+<td>4</td>
+<td>2</td>
+<td>female</td>
+<td>69.2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>001</td>
+<td>78.5</td>
+<td>67.0</td>
+<td>75.43</td>
+<td>4</td>
+<td>3</td>
+<td>female</td>
+<td>69.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>001</td>
+<td>78.5</td>
+<td>67.0</td>
+<td>75.43</td>
+<td>4</td>
+<td>4</td>
+<td>female</td>
+<td>69.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="análisis-de-caso-es-hereditaria-la-altura" class="slide level2">
+<h2>Análisis de caso: ¿es hereditaria la altura?</h2>
+<p>Para imitar el análisis de Galton, crearemos un conjunto de datos con las alturas de los padres y un hijo de cada familia seleccionado al azar:</p>
+<div class="fragment">
+<div class="panel-tabset">
+<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Cargar datos</a></li><li><a href="#tabset-4-2">Tabla de datos</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1">
+<div id="8443b477" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Filtrar por género masculino y seleccionar una muestra de una altura de hijo por familia</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>galton_heights <span class="op">=</span> galton_data[galton_data[<span class="st">'gender'</span>] <span class="op">==</span> <span class="st">'male'</span>]<span class="op">\</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a>    .groupby(<span class="st">'family'</span>)<span class="op">\</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a>    .<span class="bu">apply</span>(<span class="kw">lambda</span> group: group.sample(n<span class="op">=</span><span class="dv">1</span>))<span class="op">\</span></span>
+<span id="cb17-5"><a href="#cb17-5"></a>    .reset_index(drop<span class="op">=</span><span class="va">True</span>)<span class="op">\</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a>    .loc[:, [<span class="st">'father'</span>, <span class="st">'childHeight'</span>]]<span class="op">\</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a>    .rename(columns<span class="op">=</span>{<span class="st">'childHeight'</span>: <span class="st">'son'</span>})</span>
+<span id="cb17-8"><a href="#cb17-8"></a></span>
+<span id="cb17-9"><a href="#cb17-9"></a>galton_heights.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="14">
+
+</div>
+</div>
+<div id="tabset-4-2">
+<div id="0f80e767" class="cell" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="55">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">father</th>
+<th data-quarto-table-cell-role="th">son</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>78.5</td>
+<td>73.2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>75.5</td>
+<td>73.5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>75.0</td>
+<td>71.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>75.0</td>
+<td>68.5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>75.0</td>
+<td>68.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="estudio-de-caso-es-hereditaria-la-altura-1" class="slide level2">
+<h2>Estudio de caso: ¿es hereditaria la altura?</h2>
+<ul>
+<li class="fragment"><p>Supongamos que se nos pidiera que resumiéramos (describieramos) los datos de padres e hijos.</p></li>
+<li class="fragment"><p>Como ambas distribuciones están aproximadas por la distribución normal, podríamos usar los dos promedios y dos desviaciones estándar como resúmenes:</p></li>
+</ul>
+<div class="fragment">
+<div id="0d38cc6b" class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>promedio_padre <span class="op">=</span> galton_heights[<span class="st">'father'</span>].mean()</span>
+<span id="cb18-2"><a href="#cb18-2"></a>sd_padre <span class="op">=</span> galton_heights[<span class="st">'father'</span>].std()</span>
+<span id="cb18-3"><a href="#cb18-3"></a>promedio_hijo <span class="op">=</span> galton_heights[<span class="st">'son'</span>].mean()</span>
+<span id="cb18-4"><a href="#cb18-4"></a>sd_hijo <span class="op">=</span> galton_heights[<span class="st">'son'</span>].std()</span>
+<span id="cb18-5"><a href="#cb18-5"></a></span>
+<span id="cb18-6"><a href="#cb18-6"></a>resumen_estadistico <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb18-7"><a href="#cb18-7"></a>    <span class="st">'promedio_padre'</span>: [promedio_padre],</span>
+<span id="cb18-8"><a href="#cb18-8"></a>    <span class="st">'sd_padre'</span>: [sd_padre],</span>
+<span id="cb18-9"><a href="#cb18-9"></a>    <span class="st">'promedio_hijo'</span>: [promedio_hijo],</span>
+<span id="cb18-10"><a href="#cb18-10"></a>    <span class="st">'sd_hijo'</span>: [sd_hijo]</span>
+<span id="cb18-11"><a href="#cb18-11"></a>})</span>
+<span id="cb18-12"><a href="#cb18-12"></a></span>
+<span id="cb18-13"><a href="#cb18-13"></a><span class="bu">print</span>(resumen_estadistico)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="16">
+<div class="cell-output cell-output-stdout">
+<pre><code>   promedio_padre  sd_padre  promedio_hijo   sd_hijo
+0       69.098883  2.546555      69.248045  2.680733</code></pre>
+</div>
+</div>
+<p>Sin embargo, este resumen no describe una característica importante de los datos:</p>
+<p><strong>la tendencia de que cuanto más alto es el padre, más alto es el hijo.</strong></p>
+</div>
+</section>
+<section id="estudio-de-caso-es-hereditaria-la-altura-2" class="slide level2">
+<h2>Estudio de caso: ¿es hereditaria la altura?</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">Code</a></li><li><a href="#tabset-5-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<div id="3cd2637f" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb20-5"><a href="#cb20-5"></a></span>
+<span id="cb20-6"><a href="#cb20-6"></a><span class="co"># Configurar el tamaño de la figura</span></span>
+<span id="cb20-7"><a href="#cb20-7"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb20-8"><a href="#cb20-8"></a></span>
+<span id="cb20-9"><a href="#cb20-9"></a><span class="co"># Cargar el conjunto de datos GaltonFamilies</span></span>
+<span id="cb20-10"><a href="#cb20-10"></a>galton_data <span class="op">=</span> sm.datasets.get_rdataset(<span class="st">"GaltonFamilies"</span>, package<span class="op">=</span><span class="st">"HistData"</span>).data</span>
+<span id="cb20-11"><a href="#cb20-11"></a></span>
+<span id="cb20-12"><a href="#cb20-12"></a><span class="co"># Filtrar por género masculino y seleccionar una muestra de una altura de hijo por familia</span></span>
+<span id="cb20-13"><a href="#cb20-13"></a>galton_heights <span class="op">=</span> galton_data[galton_data[<span class="st">'gender'</span>] <span class="op">==</span> <span class="st">'male'</span>]<span class="op">\</span></span>
+<span id="cb20-14"><a href="#cb20-14"></a>    .groupby(<span class="st">'family'</span>)<span class="op">\</span></span>
+<span id="cb20-15"><a href="#cb20-15"></a>    .<span class="bu">apply</span>(<span class="kw">lambda</span> group: group.sample(n<span class="op">=</span><span class="dv">1</span>))<span class="op">\</span></span>
+<span id="cb20-16"><a href="#cb20-16"></a>    .reset_index(drop<span class="op">=</span><span class="va">True</span>)<span class="op">\</span></span>
+<span id="cb20-17"><a href="#cb20-17"></a>    .loc[:, [<span class="st">'father'</span>, <span class="st">'childHeight'</span>]]<span class="op">\</span></span>
+<span id="cb20-18"><a href="#cb20-18"></a>    .rename(columns<span class="op">=</span>{<span class="st">'childHeight'</span>: <span class="st">'son'</span>})</span>
+<span id="cb20-19"><a href="#cb20-19"></a></span>
+<span id="cb20-20"><a href="#cb20-20"></a><span class="co"># Crear el gráfico de dispersión con línea de regresión</span></span>
+<span id="cb20-21"><a href="#cb20-21"></a>sns.<span class="bu">set</span>(style<span class="op">=</span><span class="st">"whitegrid"</span>)</span>
+<span id="cb20-22"><a href="#cb20-22"></a>sns.scatterplot(data<span class="op">=</span>galton_heights, x<span class="op">=</span><span class="st">'father'</span>, y<span class="op">=</span><span class="st">'son'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, size<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb20-23"><a href="#cb20-23"></a>sns.regplot(data<span class="op">=</span>galton_heights, x<span class="op">=</span><span class="st">'father'</span>, y<span class="op">=</span><span class="st">'son'</span>, scatter<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb20-24"><a href="#cb20-24"></a></span>
+<span id="cb20-25"><a href="#cb20-25"></a>plt.xlabel(<span class="st">"Altura del Padre"</span>)</span>
+<span id="cb20-26"><a href="#cb20-26"></a>plt.ylabel(<span class="st">"Altura del Hijo"</span>)</span>
+<span id="cb20-27"><a href="#cb20-27"></a>plt.title(<span class="st">"Relación entre Altura del Padre y Altura del Hijo"</span>)</span>
+<span id="cb20-28"><a href="#cb20-28"></a></span>
+<span id="cb20-29"><a href="#cb20-29"></a><span class="co"># Mostrar el gráfico</span></span>
+<span id="cb20-30"><a href="#cb20-30"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="17">
+
+</div>
+</div>
+<div id="tabset-5-2">
+<div id="18134db5" class="cell" data-execution_count="18">
+<div class="cell-output cell-output-display">
+<p><img data-src="sesion3_slides_files/figure-revealjs/cell-19-output-1.png" width="824" height="520"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="regresión-y-la-correlación" class="slide level2">
+<h2>¿Regresión? ¿Y la correlación?</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li class="fragment">Ambos están muy relacionados.</li>
+<li class="fragment">Aprenderemos que el coeficiente de correlación es un resumen informativo de cómo dos variables se mueven juntas…</li>
+<li class="fragment">y luego veremos cómo esto puede ser usado para predecir una variable usando la otra y modelado en una regresión</li>
+</ul>
+</div><div class="column">
+<div id="a2635078" class="cell" data-execution_count="19">
+<div class="cell-output cell-output-display">
+<p><img data-src="sesion3_slides_files/figure-revealjs/cell-20-output-1.png" width="812" height="520"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="taller-de-aplicación-2" class="slide level2">
+<h2>Taller de aplicación 2:</h2>
+<h3 id="caso-aplicación-cursos-de-verano">Caso aplicación: Cursos de Verano</h3>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><strong>Taller de aplicación 2: Pregunta 1</strong></strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li class="fragment"><p>Considere los datos trabajados en el taller 1, sobre los cursos de verano. Recordemos la pregunta que queríamos responder:</p></li>
+<li class="fragment"><p><strong>Asistir a cursos de verano mejora los resultados académicos?</strong></p></li>
+</ul>
+<ol type="1">
+<li class="fragment">Plantee un modelo de regresión con los datos disponibles que deseamos estimar.</li>
+<li class="fragment">Grafique la dispersión y la recta de regresión estimada.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="el-coeficiente-de-correlación" class="slide level2">
+<h2>El coeficiente de correlación</h2>
+<p>El coeficiente de correlación se define para una lista de pares <span class="math inline">\((x_1,y_1),...(x_n,y_n)\)</span> como la media de los productos de los valores normalizados:</p>
+<p><span class="math display">\[
+\rho = \frac{1}{n}\sum_{i=1}^{n} \big(\frac{x_i-\mu_x }{\sigma_x}\big)\big(\frac{y_i-\mu_y}{\sigma_y}\big)
+\]</span></p>
+<p>Dónde <span class="math inline">\(\mu\)</span> son promedios y <span class="math inline">\(\sigma\)</span> son desviaciones estándar. La letra griega para r, <span class="math inline">\(\rho\)</span> se utiliza comúnmente en los libros de estadística para denotar la correlación, porque es la primera letra de regresión. Pronto aprenderemos sobre la conexión entre correlación y regresión.</p>
+<p>Podemos representar la fórmula anterior con el código R usando:</p>
+<p><code>rho &lt;- mean(scale(x) * scale(y))</code></p>
+<p>La correlación entre las alturas del padre y del hijo es de aproximadamente <span class="math inline">\(0,4\)</span>:</p>
+</section>
+<section id="el-coeficiente-de-correlación-1" class="slide level2">
+<h2>El coeficiente de correlación</h2>
+<p>Podemos representar la fórmula anterior con el siguiente código usando:</p>
+<div id="85409e20" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb21-2"><a href="#cb21-2"></a></span>
+<span id="cb21-3"><a href="#cb21-3"></a>x <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])  <span class="co"># Tu arreglo x aquí</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a>y <span class="op">=</span> np.array([<span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>])  <span class="co"># Tu arreglo y aquí</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a></span>
+<span id="cb21-6"><a href="#cb21-6"></a>rho <span class="op">=</span> np.mean((x <span class="op">-</span> np.mean(x)) <span class="op">*</span> (y <span class="op">-</span> np.mean(y))) <span class="op">/</span> (np.std(x) <span class="op">*</span> np.std(y))</span>
+<span id="cb21-7"><a href="#cb21-7"></a></span>
+<span id="cb21-8"><a href="#cb21-8"></a><span class="bu">print</span>(rho)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="20">
+<div class="cell-output cell-output-stdout">
+<pre><code>0.9999999999999998</code></pre>
+</div>
+</div>
+</section>
+<section id="el-coeficiente-de-correlación-2" class="slide level2">
+<h2>El coeficiente de correlación</h2>
+<p>La correlación entre las alturas del padre y del hijo es de aproximadamente <span class="math inline">\(0,4\)</span>.</p>
+<div id="6878a980" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>correlation_coefficient <span class="op">=</span> galton_heights[[<span class="st">'father'</span>, <span class="st">'son'</span>]].corr().iloc[<span class="dv">0</span>, <span class="dv">1</span>]</span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="bu">print</span>(<span class="st">"Coeficiente de Correlación:"</span>, correlation_coefficient)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="21">
+<div class="cell-output cell-output-stdout">
+<pre><code>Coeficiente de Correlación: 0.4501189204142688</code></pre>
+</div>
+</div>
+<div id="f6854ba9" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb25-4"><a href="#cb25-4"></a></span>
+<span id="cb25-5"><a href="#cb25-5"></a><span class="co"># Cargar el conjunto de datos GaltonFamilies</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a>galton_data <span class="op">=</span> sm.datasets.get_rdataset(<span class="st">"GaltonFamilies"</span>, package<span class="op">=</span><span class="st">"HistData"</span>).data</span>
+<span id="cb25-7"><a href="#cb25-7"></a></span>
+<span id="cb25-8"><a href="#cb25-8"></a><span class="co"># Filtrar por género masculino y seleccionar una muestra de una altura de hijo por familia</span></span>
+<span id="cb25-9"><a href="#cb25-9"></a>galton_heights <span class="op">=</span> galton_data[galton_data[<span class="st">'gender'</span>] <span class="op">==</span> <span class="st">'male'</span>]<span class="op">\</span></span>
+<span id="cb25-10"><a href="#cb25-10"></a>    .groupby(<span class="st">'family'</span>)<span class="op">\</span></span>
+<span id="cb25-11"><a href="#cb25-11"></a>    .<span class="bu">apply</span>(<span class="kw">lambda</span> group: group.sample(n<span class="op">=</span><span class="dv">1</span>))<span class="op">\</span></span>
+<span id="cb25-12"><a href="#cb25-12"></a>    .reset_index(drop<span class="op">=</span><span class="va">True</span>)<span class="op">\</span></span>
+<span id="cb25-13"><a href="#cb25-13"></a>    .loc[:, [<span class="st">'father'</span>, <span class="st">'childHeight'</span>]]<span class="op">\</span></span>
+<span id="cb25-14"><a href="#cb25-14"></a>    .rename(columns<span class="op">=</span>{<span class="st">'childHeight'</span>: <span class="st">'son'</span>})</span>
+<span id="cb25-15"><a href="#cb25-15"></a></span>
+<span id="cb25-16"><a href="#cb25-16"></a><span class="co"># Calcular la media y la desviación estándar de la altura del padre</span></span>
+<span id="cb25-17"><a href="#cb25-17"></a>mean_scaled_father <span class="op">=</span> StandardScaler().fit_transform(galton_heights[[<span class="st">'father'</span>]]).mean()</span>
+<span id="cb25-18"><a href="#cb25-18"></a>sd_scaled_father <span class="op">=</span> StandardScaler().fit_transform(galton_heights[[<span class="st">'father'</span>]]).std()</span>
+<span id="cb25-19"><a href="#cb25-19"></a></span>
+<span id="cb25-20"><a href="#cb25-20"></a>mean_father <span class="op">=</span> galton_heights[<span class="st">'father'</span>].mean()</span>
+<span id="cb25-21"><a href="#cb25-21"></a>sd_father <span class="op">=</span> galton_heights[<span class="st">'father'</span>].std()</span>
+<span id="cb25-22"><a href="#cb25-22"></a></span>
+<span id="cb25-23"><a href="#cb25-23"></a><span class="bu">print</span>(<span class="st">"Media de la Altura del Padre (Estandarizada):"</span>, mean_scaled_father)</span>
+<span id="cb25-24"><a href="#cb25-24"></a><span class="bu">print</span>(<span class="st">"Desviación Estándar de la Altura del Padre (Estandarizada):"</span>, sd_scaled_father)</span>
+<span id="cb25-25"><a href="#cb25-25"></a><span class="bu">print</span>(<span class="st">"Media de la Altura del Padre:"</span>, mean_father)</span>
+<span id="cb25-26"><a href="#cb25-26"></a><span class="bu">print</span>(<span class="st">"Desviación Estándar de la Altura del Padre:"</span>, sd_father)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="22">
+<div class="cell-output cell-output-stdout">
+<pre><code>Media de la Altura del Padre (Estandarizada): 4.6046344887246715e-15
+Desviación Estándar de la Altura del Padre (Estandarizada): 1.0
+Media de la Altura del Padre: 69.09888268156423
+Desviación Estándar de la Altura del Padre: 2.546555038637639</code></pre>
+</div>
+</div>
+</section>
+<section id="el-coeficiente-de-correlación-3" class="slide level2">
+<h2>El coeficiente de correlación</h2>
+<div id="a513a3f8" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Calcular la correlación entre father y son usando una muestra de galton_heights</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a>R <span class="op">=</span> galton_heights.sample(n<span class="op">=</span><span class="dv">75</span>, replace<span class="op">=</span><span class="va">True</span>).corr().loc[<span class="st">"father"</span>, <span class="st">"son"</span>]</span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="bu">print</span>(R)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="23">
+<div class="cell-output cell-output-stdout">
+<pre><code>0.5104684885147245</code></pre>
+</div>
+</div>
+<p>Para ver cómo se ven los datos para los diferentes valores de <span class="math inline">\(\rho\)</span> aquí hay seis ejemplos de pares con correlaciones que van de -0,9 a 0,99:</p>
+
+<img data-src="img/img_sesion3/g1.png" class="r-stretch quarto-figure-center"><p class="caption">image</p></section>
+<section id="la-correlación-es-variable-aleatoria" class="slide level2">
+<h2>La correlación es variable aleatoria</h2>
+<p>Antes de continuar conectando la correlación con la regresión, recordemos la variabilidad aleatoria.</p>
+<p>En la mayoría de las aplicaciones de la ciencia de datos, observamos datos que incluyen <strong>variación aleatoria</strong>.</p>
+<p>A modo de ejemplo, supongamos que las 179 parejas de padres e hijos son toda nuestra población. Un genetista menos afortunado sólo puede costear las mediciones de una muestra aleatoria de 25 pares. La correlación de la muestra se puede calcular con:</p>
+<div id="7245d1bf" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb29-2"><a href="#cb29-2"></a></span>
+<span id="cb29-3"><a href="#cb29-3"></a><span class="co"># Seleccionar una muestra aleatoria de tamaño 75 con reemplazo</span></span>
+<span id="cb29-4"><a href="#cb29-4"></a>R <span class="op">=</span> galton_heights.sample(n<span class="op">=</span><span class="dv">75</span>, replace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb29-5"><a href="#cb29-5"></a></span>
+<span id="cb29-6"><a href="#cb29-6"></a><span class="co"># Calcular el coeficiente de correlación entre las columnas "father" y "son"</span></span>
+<span id="cb29-7"><a href="#cb29-7"></a>correlation_coefficient <span class="op">=</span> R[[<span class="st">'father'</span>, <span class="st">'son'</span>]].corr().iloc[<span class="dv">0</span>, <span class="dv">1</span>]</span>
+<span id="cb29-8"><a href="#cb29-8"></a></span>
+<span id="cb29-9"><a href="#cb29-9"></a><span class="bu">print</span>(<span class="st">"Coeficiente de Correlación en la Muestra:"</span>, correlation_coefficient)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="24">
+<div class="cell-output cell-output-stdout">
+<pre><code>Coeficiente de Correlación en la Muestra: 0.5072834085504967</code></pre>
+</div>
+</div>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<p>R es una variable aleatoria. Podemos ejecutar una simulación de Monte Carlo para ver su distribución:</p>
+<ul>
+<li class="fragment">Nota: el objetivo principal de la simulación de Montecarlo es intentar imitar el comportamiento de variables reales para, en la medida de lo posible, analizar o predecir cómo van a evolucionar.</li>
+</ul>
+<div id="4ad9e16d" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb31-3"><a href="#cb31-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb31-4"><a href="#cb31-4"></a></span>
+<span id="cb31-5"><a href="#cb31-5"></a>B <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb31-6"><a href="#cb31-6"></a>N <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb31-7"><a href="#cb31-7"></a>R <span class="op">=</span> np.zeros(B)</span>
+<span id="cb31-8"><a href="#cb31-8"></a></span>
+<span id="cb31-9"><a href="#cb31-9"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(B):</span>
+<span id="cb31-10"><a href="#cb31-10"></a>    sample <span class="op">=</span> galton_heights.sample(n<span class="op">=</span>N, replace<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb31-11"><a href="#cb31-11"></a>    correlation_coefficient <span class="op">=</span> sample[[<span class="st">'father'</span>, <span class="st">'son'</span>]].corr().iloc[<span class="dv">0</span>, <span class="dv">1</span>]</span>
+<span id="cb31-12"><a href="#cb31-12"></a>    R[i] <span class="op">=</span> correlation_coefficient</span>
+<span id="cb31-13"><a href="#cb31-13"></a></span>
+<span id="cb31-14"><a href="#cb31-14"></a><span class="co"># Crear un histograma de los coeficientes de correlación</span></span>
+<span id="cb31-15"><a href="#cb31-15"></a>plt.hist(R, bins<span class="op">=</span>np.arange(<span class="op">-</span><span class="dv">1</span>, <span class="fl">1.1</span>, <span class="fl">0.05</span>), color<span class="op">=</span><span class="st">'black'</span>)</span>
+<span id="cb31-16"><a href="#cb31-16"></a>plt.xlabel(<span class="st">"Coeficiente de Correlación"</span>)</span>
+<span id="cb31-17"><a href="#cb31-17"></a>plt.ylabel(<span class="st">"Frecuencia"</span>)</span>
+<span id="cb31-18"><a href="#cb31-18"></a>plt.title(<span class="st">"Histograma de Coeficientes de Correlación"</span>)</span>
+<span id="cb31-19"><a href="#cb31-19"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="25">
+<div class="cell-output cell-output-display">
+<p><img data-src="sesion3_slides_files/figure-revealjs/cell-26-output-1.png" width="820" height="448"></p>
+</div>
+</div>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<p>Vemos que el valor esperado de R es la correlación de la población:</p>
+<div id="53b21fed" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>mean_R <span class="op">=</span> np.mean(R)</span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="bu">print</span>(<span class="st">"Media de Coeficientes de Correlación:"</span>, mean_R)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="26">
+<div class="cell-output cell-output-stdout">
+<pre><code>Media de Coeficientes de Correlación: 0.45842882440885</code></pre>
+</div>
+</div>
+<p>y que tiene un error estándar relativamente alto en relación con el rango de valores que puede tomar R:</p>
+<div id="095e96d7" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>sd_R <span class="op">=</span> np.std(R)</span>
+<span id="cb34-2"><a href="#cb34-2"></a><span class="bu">print</span>(<span class="st">"Desviación Estándar de Coeficientes de Correlación:"</span>, sd_R)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="27">
+<div class="cell-output cell-output-stdout">
+<pre><code>Desviación Estándar de Coeficientes de Correlación: 0.047460810230179874</code></pre>
+</div>
+</div>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<ul>
+<li class="fragment"><p>Por lo tanto, al interpretar las correlaciones, recuerde que las correlaciones derivadas de las muestras son estimaciones que contienen incertidumbre.</p></li>
+<li class="fragment"><p>Además, tenga en cuenta que debido a que la correlación de la muestra es un promedio de extracciones independientes, el teorema del límite central realmente funciona.</p></li>
+<li class="fragment"><p>Por lo tanto, para <span class="math inline">\(N\)</span> lo suficientemente grande la distribución de <span class="math inline">\(R\)</span> es aproximadamente normal con el valor esperado <span class="math inline">\(\rho\)</span>.</p></li>
+<li class="fragment"><p>La desviación estándar, que es algo compleja de derivar, es: <span class="math inline">\(\sqrt{\frac{1-r^2}{N-2}}\)</span>.</p></li>
+</ul>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<ul>
+<li class="fragment">En nuestro ejemplo, <span class="math inline">\(N=25\)</span> no parece ser lo suficientemente grande para que la aproximación sea buena</li>
+</ul>
+<p>-Si N aumenta verás que la distribución converge a una normal.</p>
+<ul>
+<li class="fragment">Nota: El gráfico Q-Q, o gráfico cuantitativo, es una herramienta gráfica que nos ayuda a evaluar si un conjunto de datos proviene plausiblemente de alguna distribución teórica como una Normal o exponencial.</li>
+</ul>
+<div id="5e4437cc" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb36-2"><a href="#cb36-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb36-3"><a href="#cb36-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb36-4"><a href="#cb36-4"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
+<span id="cb36-5"><a href="#cb36-5"></a></span>
+<span id="cb36-6"><a href="#cb36-6"></a><span class="co"># Crear un DataFrame con los coeficientes de correlación</span></span>
+<span id="cb36-7"><a href="#cb36-7"></a>df_R <span class="op">=</span> pd.DataFrame({<span class="st">'R'</span>: R})</span>
+<span id="cb36-8"><a href="#cb36-8"></a></span>
+<span id="cb36-9"><a href="#cb36-9"></a><span class="co"># Calcular la media y el tamaño de la muestra</span></span>
+<span id="cb36-10"><a href="#cb36-10"></a>mean_R <span class="op">=</span> np.mean(R)</span>
+<span id="cb36-11"><a href="#cb36-11"></a>N <span class="op">=</span> <span class="bu">len</span>(R)</span>
+<span id="cb36-12"><a href="#cb36-12"></a></span>
+<span id="cb36-13"><a href="#cb36-13"></a><span class="co"># Crear el gráfico QQ-plot</span></span>
+<span id="cb36-14"><a href="#cb36-14"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>))</span>
+<span id="cb36-15"><a href="#cb36-15"></a>stats.probplot(df_R[<span class="st">'R'</span>], dist<span class="op">=</span><span class="st">'norm'</span>, plot<span class="op">=</span>plt)</span>
+<span id="cb36-16"><a href="#cb36-16"></a>plt.xlabel(<span class="st">"Cuantiles Teóricos"</span>)</span>
+<span id="cb36-17"><a href="#cb36-17"></a>plt.ylabel(<span class="st">"Cuantiles de R"</span>)</span>
+<span id="cb36-18"><a href="#cb36-18"></a>plt.title(<span class="st">"Gráfico QQ-plot para los Coeficientes de Correlación"</span>)</span>
+<span id="cb36-19"><a href="#cb36-19"></a>plt.plot([np.<span class="bu">min</span>(R), np.<span class="bu">max</span>(R)], [np.<span class="bu">min</span>(R), np.<span class="bu">max</span>(R)], color<span class="op">=</span><span class="st">'red'</span>)  <span class="co"># Línea de referencia</span></span>
+<span id="cb36-20"><a href="#cb36-20"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="28">
+<div class="cell-output cell-output-display">
+<p><img data-src="sesion3_slides_files/figure-revealjs/cell-29-output-1.png" width="527" height="520"></p>
+</div>
+</div>
+</section>
+<section id="la-correlación-no-siempre-es-un-resumen-útil" class="slide level2">
+<h2>La correlación no siempre es un resumen útil</h2>
+<p>La correlación no siempre es un buen resumen de la relación entre dos variables. Los siguientes cuatro conjuntos de datos artificiales, conocidos como el cuarteto de Anscombe, ilustran este punto. Todos estos pares tienen una correlación de 0,82:</p>
+
+<img data-src="img/img_sesion3/g2.png" class="r-stretch quarto-figure-center"><p class="caption">image</p><p>La correlación sólo tiene sentido en un contexto particular. Para ayudarnos a entender cuándo es que la correlación es significativa como estadística de resumen, volveremos al ejemplo de predecir la estatura del hijo usando la estatura del padre. Esto ayudará a motivar y definir la regresión lineal. Comenzamos demostrando cómo la correlación puede ser útil para la predicción.</p>
+</section>
+<section>
+<section id="correlación-no-es-causalidad" class="title-slide slide level1 center">
+<h1>Correlación no es causalidad</h1>
+<p>La asociación no es causalidad es quizás la lección más importante que se aprende en una clase de estadística. Hay muchas razones por las que una variable <span class="math inline">\(X\)</span> puede correlacionarse con una variable <span class="math inline">\(Y\)</span> sin tener ningún efecto directo sobre <span class="math inline">\(Y\)</span>. Aquí examinamos tres maneras comunes que pueden llevar a una mala interpretación de los datos.</p>
+</section>
+<section id="correlación-espuria" class="slide level2">
+<h2>Correlación espuria</h2>
+<p>Vemos una fuerte correlación entre las tasas de divorcio y el consumo de margarina.</p>
+
+<img data-src="img/img_sesion3/notcausa.png" class="r-stretch quarto-figure-center"><p class="caption">image</p><p>(Acá pueden encontrar más http://tylervigen.com/old-version.html)</p>
+<ul>
+<li class="fragment">¿Significa esto que la margarina causa divorcios?<br>
+</li>
+<li class="fragment">¿O los divorcios hacen que la gente coma más margarina?</li>
+</ul>
+</section>
+<section id="la-paradoja-de-simpson" class="slide level2">
+<h2>La paradoja de Simpson</h2>
+<ul>
+<li class="fragment"><p>Se llama paradoja porque vemos el signo de la correlación cambiar cuando comparamos toda la data y estratos específicos.</p></li>
+<li class="fragment"><p>Como ejemplo ilustrativo, supongamos que tiene tres variables aleatorias <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span> y <span class="math inline">\(Z\)</span> y que observamos realizaciones de estas.</p></li>
+<li class="fragment"><p>Aquí está el gráfico de observaciones simuladas para <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span> a lo largo de la correlación de la muestra:</p></li>
+</ul>
+<div class="fragment">
+<p><img src="./img/img_sesion3/simp1.png" width="600"></p>
+</div>
+</section>
+<section id="la-paradoja-de-simpson-1" class="slide level2">
+<h2>La paradoja de Simpson</h2>
+<ul>
+<li class="fragment">Puedes ver que <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> están negativamente correlacionados.</li>
+<li class="fragment">Sin embargo, una vez que estratificamos por <span class="math inline">\(Z\)</span> (mostrado en diferentes colores abajo) emerge otro patrón:</li>
+</ul>
+<div class="fragment">
+<p><img src="./img/img_sesion3/simp2.png" width="600"></p>
+</div>
+</section>
+<section id="la-paradoja-de-simpson-2" class="slide level2">
+<h2>La paradoja de Simpson</h2>
+
+<img src="./img/img_sesion3/simp2.png" width="600" class="r-stretch"><ul>
+<li class="fragment">Es realmente <span class="math inline">\(Z\)</span> que está negativamente correlacionado con <span class="math inline">\(X\)</span>.</li>
+<li class="fragment">Si estratificamos por <span class="math inline">\(Z\)</span> las variables <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> están en realidad correlacionados positivamente como se ha visto en el gráfico anterior.</li>
+</ul>
+</section>
+<section id="expectativas-condicionales" class="slide level2">
+<h2>Expectativas condicionales</h2>
+<ul>
+<li class="fragment"><p>Supongamos que nos piden que adivinemos la altura de un hijo seleccionado al azar y no sabemos la altura de su padre.</p></li>
+<li class="fragment"><p>Debido a que la distribución de las alturas de los hijos es aproximadamente normal, sabemos que la altura media, <span class="math inline">\(69.2\)</span>, es el valor con la mayor proporción y sería la predicción con mayores posibilidades de minimizar el error.</p></li>
+<li class="fragment"><p>Pero, ¿y si nos dicen que el padre es más alto que el promedio, digamos que mide 72 pulgadas de alto, todavía esperaríamos que la altura más probable del hijo sea 69.2 pulgadas?</p></li>
+</ul>
+</section>
+<section id="expectativas-condicionales-1" class="slide level2">
+<h2>expectativas condicionales</h2>
+<ul>
+<li class="fragment">Resulta que si pudiéramos recolectar datos de un gran número de padres que miden 72 pulgadas…
+<ul>
+<li class="fragment">la distribución de las alturas de sus hijos sería normalmente distribuida.</li>
+<li class="fragment">Esto implica que el promedio de la distribución calculada en este subconjunto sería nuestra mejor predicción.</li>
+</ul></li>
+</ul>
+</section>
+<section id="expectativas-condicionales-2" class="slide level2">
+<h2>expectativas condicionales</h2>
+<ul>
+<li class="fragment"><p>En general, llamamos a este enfoque condicional.</p></li>
+<li class="fragment"><p>La idea general es que estratificamos una población en grupos y calculamos resúmenes en cada grupo.</p></li>
+<li class="fragment"><p>Por lo tanto, el condicionamiento está relacionado con el concepto de estratificación descrito.</p></li>
+<li class="fragment"><p>Porque la expectativa condicional <span class="math inline">\(E(Y|X=x)\)</span> es el mejor predictor para la variable aleatoria <span class="math inline">\(Y\)</span> para un individuo en los estratos definidos por <span class="math inline">\(X=x\)</span> muchos de los desafíos de la ciencia de datos se reducen a la estimación de esta cantidad.</p></li>
+</ul>
+</section>
+<section id="expectativas-condicionales-3" class="slide level2">
+<h2>Expectativas condicionales</h2>
+<ul>
+<li class="fragment"><p>En el ejemplo que hemos estado considerando, estamos interesados en calcular la altura promedio del hijo condicionada a que el padre tenga 72 pulgadas de altura.</p></li>
+<li class="fragment"><p>Queremos estimar <span class="math inline">\(E(Y|X=72)\)</span> usando la muestra recolectada por Galton.</p></li>
+<li class="fragment"><p>¿Cuantos padres miden 72?</p></li>
+</ul>
+<div class="fragment">
+<div id="425fd0f3" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>count_72 <span class="op">=</span> (galton_heights[<span class="st">'father'</span>] <span class="op">==</span> <span class="dv">72</span>).<span class="bu">sum</span>()</span>
+<span id="cb37-2"><a href="#cb37-2"></a><span class="bu">print</span>(<span class="st">"Cantidad de registros con valor 72 en la columna 'father':"</span>, count_72)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="29">
+<div class="cell-output cell-output-stdout">
+<pre><code>Cantidad de registros con valor 72 en la columna 'father': 8</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">Si cambiamos el número a 72.5, obtenemos aún menos puntos de datos:</li>
+</ul>
+</div>
+<div class="fragment">
+<div id="533e140b" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>count_725 <span class="op">=</span> (galton_heights[<span class="st">'father'</span>] <span class="op">==</span> <span class="fl">72.5</span>).<span class="bu">sum</span>()</span>
+<span id="cb39-2"><a href="#cb39-2"></a><span class="bu">print</span>(<span class="st">"Cantidad de registros con valor 72.5 en la columna 'father':"</span>, count_725)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="30">
+<div class="cell-output cell-output-stdout">
+<pre><code>Cantidad de registros con valor 72.5 en la columna 'father': 1</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="expectativas-condicionales-4" class="slide level2">
+<h2>Expectativas condicionales</h2>
+<ul>
+<li class="fragment">Una forma práctica de mejorar estas estimaciones de las expectativas condicionales, es definir estratos con valores similares de <span class="math inline">\(x\)</span>.</li>
+<li class="fragment">En nuestro ejemplo, podemos redondear las alturas paternas a la pulgada más cercana y asumir que todas son de 72 pulgadas.</li>
+<li class="fragment">Si hacemos esto, terminamos con la siguiente predicción para el hijo de un padre que mide 72 pulgadas de alto:</li>
+</ul>
+<div id="772507c7" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>conditional_avg <span class="op">=</span> galton_heights[galton_heights[<span class="st">'father'</span>].<span class="bu">round</span>() <span class="op">==</span> <span class="dv">72</span>][<span class="st">'son'</span>].mean()</span>
+<span id="cb41-2"><a href="#cb41-2"></a><span class="bu">print</span>(<span class="st">"Promedio condicional para father == 72:"</span>, conditional_avg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="31">
+<div class="cell-output cell-output-stdout">
+<pre><code>Promedio condicional para father == 72: 70.44285714285715</code></pre>
+</div>
+</div>
+</section>
+<section id="expectativas-condicionales-5" class="slide level2">
+<h2>Expectativas condicionales</h2>
+<ul>
+<li class="fragment">Note que un padre de 72 pulgadas es más alto que el promedio – específicamente, 72 - 69.1/2.5 = 1.1 desviaciones estándar más alto que el padre promedio.</li>
+<li class="fragment">Nuestra predicción, <span class="math inline">\(70.5\)</span>, es también más alta que el promedio, pero sólo <span class="math inline">\(0.49\)</span> desviaciones estándar más grandes que el hijo promedio.</li>
+<li class="fragment">Los hijos de padres de 72 pulgadas han regresado algunos a la estatura promedio.</li>
+<li class="fragment">Observamos que la reducción en el número de SD más altas es de alrededor de <span class="math inline">\(0.5\)</span>, lo que resulta ser la correlación.</li>
+<li class="fragment">Como veremos en una sección posterior, esto no es una coincidencia.</li>
+</ul>
+</section>
+<section id="expectativas-condicionales-6" class="slide level2">
+<h2>Expectativas condicionales</h2>
+<ul>
+<li class="fragment">Si queremos hacer una predicción de cualquier altura, no sólo de 72, podríamos aplicar el mismo enfoque a cada estrato.</li>
+<li class="fragment">La estratificación seguida de los boxplots nos permite ver la distribución de cada grupo:</li>
+</ul>
+<div id="7500d793" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb43-2"><a href="#cb43-2"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb43-3"><a href="#cb43-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb43-4"><a href="#cb43-4"></a></span>
+<span id="cb43-5"><a href="#cb43-5"></a><span class="co"># Supongamos que tienes un DataFrame llamado 'galton_heights' con las columnas 'father' y 'son'.</span></span>
+<span id="cb43-6"><a href="#cb43-6"></a></span>
+<span id="cb43-7"><a href="#cb43-7"></a><span class="co"># Crear una nueva columna 'father_strata' con los valores redondeados de 'father'</span></span>
+<span id="cb43-8"><a href="#cb43-8"></a>galton_heights[<span class="st">'father_strata'</span>] <span class="op">=</span> galton_heights[<span class="st">'father'</span>].<span class="bu">round</span>().astype(<span class="bu">int</span>)</span>
+<span id="cb43-9"><a href="#cb43-9"></a></span>
+<span id="cb43-10"><a href="#cb43-10"></a><span class="co"># Crear el gráfico de boxplots</span></span>
+<span id="cb43-11"><a href="#cb43-11"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))  <span class="co"># Tamaño del gráfico</span></span>
+<span id="cb43-12"><a href="#cb43-12"></a>sns.boxplot(data<span class="op">=</span>galton_heights, x<span class="op">=</span><span class="st">'father_strata'</span>, y<span class="op">=</span><span class="st">'son'</span>)</span>
+<span id="cb43-13"><a href="#cb43-13"></a></span>
+<span id="cb43-14"><a href="#cb43-14"></a><span class="co"># Agregar puntos para mostrar las medias condicionadas</span></span>
+<span id="cb43-15"><a href="#cb43-15"></a>sns.swarmplot(data<span class="op">=</span>galton_heights, x<span class="op">=</span><span class="st">'father_strata'</span>, y<span class="op">=</span><span class="st">'son'</span>, color<span class="op">=</span><span class="st">'black'</span>, size<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb43-16"><a href="#cb43-16"></a></span>
+<span id="cb43-17"><a href="#cb43-17"></a>plt.xlabel(<span class="st">'father_strata'</span>)</span>
+<span id="cb43-18"><a href="#cb43-18"></a>plt.ylabel(<span class="st">'son'</span>)</span>
+<span id="cb43-19"><a href="#cb43-19"></a>plt.title(<span class="st">'Boxplots de son condicionado por father_strata con Medias Condicionadas'</span>)</span>
+<span id="cb43-20"><a href="#cb43-20"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)  <span class="co"># Rotar etiquetas del eje x si es necesario</span></span>
+<span id="cb43-21"><a href="#cb43-21"></a></span>
+<span id="cb43-22"><a href="#cb43-22"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="32">
+<div class="cell-output cell-output-display">
+<p><img data-src="sesion3_slides_files/figure-revealjs/cell-33-output-1.png" width="812" height="528"></p>
+</div>
+</div>
+</section>
+<section id="expectativas-condicionales-7" class="slide level2">
+<h2>Expectativas condicionales</h2>
+<p>No es de extrañar que los centros de los grupos aumenten con la altura.</p>
+<div class="fragment">
+<div id="716c2fb3" class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb44-2"><a href="#cb44-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb44-3"><a href="#cb44-3"></a></span>
+<span id="cb44-4"><a href="#cb44-4"></a><span class="co"># Redondear los valores de la columna "father"</span></span>
+<span id="cb44-5"><a href="#cb44-5"></a>galton_heights[<span class="st">'father'</span>] <span class="op">=</span> galton_heights[<span class="st">'father'</span>].<span class="bu">round</span>()</span>
+<span id="cb44-6"><a href="#cb44-6"></a></span>
+<span id="cb44-7"><a href="#cb44-7"></a><span class="co"># Calcular el promedio condicional de "son" para cada valor de "father"</span></span>
+<span id="cb44-8"><a href="#cb44-8"></a>conditional_avg_by_father <span class="op">=</span> galton_heights.groupby(<span class="st">'father'</span>)[<span class="st">'son'</span>].mean().reset_index()</span>
+<span id="cb44-9"><a href="#cb44-9"></a></span>
+<span id="cb44-10"><a href="#cb44-10"></a><span class="co"># Crear un gráfico de puntos para mostrar el promedio condicional por "father"</span></span>
+<span id="cb44-11"><a href="#cb44-11"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb44-12"><a href="#cb44-12"></a>plt.scatter(conditional_avg_by_father[<span class="st">'father'</span>], conditional_avg_by_father[<span class="st">'son'</span>], color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb44-13"><a href="#cb44-13"></a>plt.xlabel(<span class="st">"Father Height"</span>)</span>
+<span id="cb44-14"><a href="#cb44-14"></a>plt.ylabel(<span class="st">"Conditional Son Height Average"</span>)</span>
+<span id="cb44-15"><a href="#cb44-15"></a>plt.title(<span class="st">"Promedio Condicional de Alturas de Hijos por Altura de Padres"</span>)</span>
+<span id="cb44-16"><a href="#cb44-16"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="33">
+<div class="cell-output cell-output-display">
+<p><img data-src="sesion3_slides_files/figure-revealjs/cell-34-output-1.png" width="812" height="520"></p>
+</div>
+</div>
+<ul>
+<li class="fragment">Además, estos centros parecen seguir una relación lineal.</li>
+</ul>
+</div>
+</section>
+<section id="expectativas-condicionales-8" class="slide level2">
+<h2>Expectativas condicionales</h2>
+<ul>
+<li class="fragment">A continuación se presentan los promedios de cada grupo.</li>
+<li class="fragment">Si tenemos en cuenta que estos promedios son variables aleatorias con errores estándar, los datos son consistentes con estos puntos siguiendo una línea recta:</li>
+</ul>
+<div id="0caa355f" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb45-2"><a href="#cb45-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb45-3"><a href="#cb45-3"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb45-4"><a href="#cb45-4"></a></span>
+<span id="cb45-5"><a href="#cb45-5"></a><span class="co"># Redondear los valores de la columna "father"</span></span>
+<span id="cb45-6"><a href="#cb45-6"></a>galton_heights[<span class="st">'father'</span>] <span class="op">=</span> galton_heights[<span class="st">'father'</span>].<span class="bu">round</span>()</span>
+<span id="cb45-7"><a href="#cb45-7"></a></span>
+<span id="cb45-8"><a href="#cb45-8"></a><span class="co"># Calcular el promedio condicional de "son" para cada valor de "father"</span></span>
+<span id="cb45-9"><a href="#cb45-9"></a>conditional_avg_by_father <span class="op">=</span> galton_heights.groupby(<span class="st">'father'</span>)[<span class="st">'son'</span>].mean().reset_index()</span>
+<span id="cb45-10"><a href="#cb45-10"></a></span>
+<span id="cb45-11"><a href="#cb45-11"></a></span>
+<span id="cb45-12"><a href="#cb45-12"></a>conditional_avg_by_father.head()</span>
+<span id="cb45-13"><a href="#cb45-13"></a></span>
+<span id="cb45-14"><a href="#cb45-14"></a></span>
+<span id="cb45-15"><a href="#cb45-15"></a><span class="co"># Crear un gráfico de puntos con ajuste de regresión lineal</span></span>
+<span id="cb45-16"><a href="#cb45-16"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb45-17"><a href="#cb45-17"></a>sns.scatterplot(x<span class="op">=</span><span class="st">'father'</span>, y<span class="op">=</span><span class="st">'son'</span>, data<span class="op">=</span>conditional_avg_by_father, color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb45-18"><a href="#cb45-18"></a>sns.regplot(x<span class="op">=</span><span class="st">'father'</span>, y<span class="op">=</span><span class="st">'son'</span>, data<span class="op">=</span>conditional_avg_by_father, scatter<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'orange'</span>)</span>
+<span id="cb45-19"><a href="#cb45-19"></a>plt.xlabel(<span class="st">"Father Height"</span>)</span>
+<span id="cb45-20"><a href="#cb45-20"></a>plt.ylabel(<span class="st">"Conditional Son Height Average"</span>)</span>
+<span id="cb45-21"><a href="#cb45-21"></a>plt.title(<span class="st">"Promedio Condicional de Alturas de Hijos por Altura de Padres con Regresión Lineal"</span>)</span>
+<span id="cb45-22"><a href="#cb45-22"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="34">
+<div class="cell-output cell-output-display">
+<p><img data-src="sesion3_slides_files/figure-revealjs/cell-35-output-1.png" width="812" height="520"></p>
+</div>
+</div>
+</section>
+<section id="expectativas-condicionales-9" class="slide level2">
+<h2>Expectativas condicionales</h2>
+<ul>
+<li class="fragment">El hecho de que estos promedios condicionales sigan una línea <strong>no es una coincidencia</strong>.</li>
+<li class="fragment">En la siguiente sección, explicamos que la línea que siguen estos promedios es lo que llamamos la línea de regresión, que mejora la precisión de nuestras estimaciones.</li>
+<li class="fragment">Sin embargo, no siempre es apropiado estimar las expectativas condicionales con la línea de regresión, por lo que también describimos la justificación teórica de Galton para usar la línea de regresión.</li>
+</ul>
+</section>
+<section id="la-línearecta-de-regresión" class="slide level2">
+<h2>La línea/recta de regresión</h2>
+<ul>
+<li class="fragment">Si estamos prediciendo una variable aleatoria <span class="math inline">\(Y\)</span> conociendo el valor de otra variable <span class="math inline">\(X=x\)</span> usando una línea de regresión, entonces predecimos que <strong>para cada desviación estándar, <span class="math inline">\(\sigma_x\)</span> que <span class="math inline">\(x\)</span> aumenta por encima de la media <span class="math inline">\(\mu_x\)</span>, <span class="math inline">\(Y\)</span> incrementa <span class="math inline">\(\rho\)</span> veces la desviación estándar <span class="math inline">\(\sigma_Y\)</span> sobre el promedio <span class="math inline">\(\mu_Y\)</span></strong>, con <span class="math inline">\(\rho\)</span> la correlación entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>. Por lo tanto, la formula de la regresión es:</li>
+</ul>
+<p><span class="math display">\[
+\left( \frac{Y-\mu_Y}{\sigma_Y} \right)=\rho \left(\frac{x-\mu_X}{\sigma_X}\right)
+\]</span></p>
+<p>Lo que podemos reescribir como:</p>
+<p><span class="math display">\[
+Y=\mu_Y + \rho \big(\frac{x-\mu_X}{\sigma_X}\big) \sigma_Y
+\]</span></p>
+</section>
+<section id="la-línearecta-de-regresión-1" class="slide level2">
+<h2>La línea/recta de regresión</h2>
+<ul>
+<li class="fragment"><p>Si existe una correlación perfecta, la línea de regresión predice un aumento que corresponde al mismo número de desviacones estándar.</p></li>
+<li class="fragment"><p>Si hay correlación 0, entonces no usamos <span class="math inline">\(x\)</span> en absoluto en la predicción y simplemente predecimos el promedio <span class="math inline">\(\mu_Y\)</span>.</p></li>
+<li class="fragment"><p>Para valores entre 0 y 1, la predicción se encuentra en un punto intermedio.</p></li>
+<li class="fragment"><p>Si la correlación es negativa, predecimos una reducción en lugar de un aumento.</p></li>
+</ul>
+</section>
+<section id="regresión-a-la-media" class="slide level2">
+<h2>Regresión a la media</h2>
+<ul>
+<li class="fragment">Nótese que si la correlación es positiva e inferior a 1, nuestra predicción está más cerca (en unidades estándar) de la altura media que de lo que el valor utilizado para predecir, <span class="math inline">\(x\)</span>, está del promedio de los <span class="math inline">\(x\)</span>.</li>
+<li class="fragment">Por eso lo llamamos regresión: el hijo regresa a la estatura media.</li>
+<li class="fragment">De hecho, el título del artículo de Galton era: Regresión a la mediocridad en la estatura hereditaria (Regression toward mediocrity in hereditary stature.).</li>
+</ul>
+</section>
+<section id="la-línearecta-de-regresión-2" class="slide level2">
+<h2>La línea/recta de regresión</h2>
+<ul>
+<li class="fragment"><p>Para añadir líneas de regresión a los gráficos, necesitaremos la fórmula anterior en la forma: <span class="math inline">\(y=b+mx\)</span>, con pendiente <span class="math inline">\(m=\rho \sigma_y / \sigma_x\)</span> e intercepto <span class="math inline">\(b=\mu_y - m \mu_x\)</span></p></li>
+<li class="fragment"><p>Aquí agregamos la línea de regresión a la data original.</p></li>
+</ul>
+<div id="473b2797" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb46-2"><a href="#cb46-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb46-3"><a href="#cb46-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb46-4"><a href="#cb46-4"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb46-5"><a href="#cb46-5"></a></span>
+<span id="cb46-6"><a href="#cb46-6"></a><span class="co"># Cálculo de las medias y desviaciones estándar</span></span>
+<span id="cb46-7"><a href="#cb46-7"></a>mu_x <span class="op">=</span> galton_heights[<span class="st">'father'</span>].mean()</span>
+<span id="cb46-8"><a href="#cb46-8"></a>mu_y <span class="op">=</span> galton_heights[<span class="st">'son'</span>].mean()</span>
+<span id="cb46-9"><a href="#cb46-9"></a>s_x <span class="op">=</span> galton_heights[<span class="st">'father'</span>].std()</span>
+<span id="cb46-10"><a href="#cb46-10"></a>s_y <span class="op">=</span> galton_heights[<span class="st">'son'</span>].std()</span>
+<span id="cb46-11"><a href="#cb46-11"></a></span>
+<span id="cb46-12"><a href="#cb46-12"></a><span class="co"># Cálculo del coeficiente de correlación</span></span>
+<span id="cb46-13"><a href="#cb46-13"></a>r <span class="op">=</span> galton_heights[<span class="st">'father'</span>].corr(galton_heights[<span class="st">'son'</span>])</span>
+<span id="cb46-14"><a href="#cb46-14"></a></span>
+<span id="cb46-15"><a href="#cb46-15"></a><span class="co"># Cálculo de la pendiente y el intercepto para la línea de regresión</span></span>
+<span id="cb46-16"><a href="#cb46-16"></a>m <span class="op">=</span> r <span class="op">*</span> s_y <span class="op">/</span> s_x</span>
+<span id="cb46-17"><a href="#cb46-17"></a>b <span class="op">=</span> mu_y <span class="op">-</span> m <span class="op">*</span> mu_x</span>
+<span id="cb46-18"><a href="#cb46-18"></a></span>
+<span id="cb46-19"><a href="#cb46-19"></a><span class="co"># Configuración del tamaño de la figura</span></span>
+<span id="cb46-20"><a href="#cb46-20"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb46-21"><a href="#cb46-21"></a></span>
+<span id="cb46-22"><a href="#cb46-22"></a><span class="co"># Crear un gráfico de dispersión con línea de regresión</span></span>
+<span id="cb46-23"><a href="#cb46-23"></a>sns.scatterplot(x<span class="op">=</span><span class="st">'father'</span>, y<span class="op">=</span><span class="st">'son'</span>, data<span class="op">=</span>galton_heights, alpha<span class="op">=</span><span class="fl">0.5</span>, size<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb46-24"><a href="#cb46-24"></a>sns.regplot(x<span class="op">=</span><span class="st">'father'</span>, y<span class="op">=</span><span class="st">'son'</span>, data<span class="op">=</span>galton_heights, scatter<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'red'</span>, line_kws<span class="op">=</span>{<span class="st">'color'</span>: <span class="st">'blue'</span>})</span>
+<span id="cb46-25"><a href="#cb46-25"></a>plt.xlabel(<span class="st">"Father Height"</span>)</span>
+<span id="cb46-26"><a href="#cb46-26"></a>plt.ylabel(<span class="st">"Son Height"</span>)</span>
+<span id="cb46-27"><a href="#cb46-27"></a>plt.title(<span class="st">"Relación entre Altura de Padres e Hijos con Línea de Regresión"</span>)</span>
+<span id="cb46-28"><a href="#cb46-28"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="35">
+<div class="cell-output cell-output-display">
+<p><img data-src="sesion3_slides_files/figure-revealjs/cell-36-output-1.png" width="812" height="520"></p>
+</div>
+</div>
+</section>
+<section id="la-línearecta-de-regresión-3" class="slide level2">
+<h2>La línea/recta de regresión</h2>
+<ul>
+<li class="fragment">La fórmula de regresión implica que si primero estandarizamos las variables, es decir, restamos el promedio y dividimos por la desviación estándar, entonces la línea de regresión tiene intercepto 0 y pendiente igual a la correlación <span class="math inline">\(\rho\)</span>.</li>
+<li class="fragment">Aquí está la misma gráfica, pero usando unidades estándar:</li>
+</ul>
+<div class="fragment">
+<div id="ed03d6e7" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb47-2"><a href="#cb47-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb47-3"><a href="#cb47-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb47-4"><a href="#cb47-4"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb47-5"><a href="#cb47-5"></a></span>
+<span id="cb47-6"><a href="#cb47-6"></a><span class="co"># Supongamos que tienes un DataFrame llamado 'galton_heights' con las columnas 'father' y 'son'.</span></span>
+<span id="cb47-7"><a href="#cb47-7"></a></span>
+<span id="cb47-8"><a href="#cb47-8"></a><span class="co"># Estandarizar las variables 'father' y 'son'</span></span>
+<span id="cb47-9"><a href="#cb47-9"></a>galton_heights[<span class="st">'father_standardized'</span>] <span class="op">=</span> (galton_heights[<span class="st">'father'</span>] <span class="op">-</span> galton_heights[<span class="st">'father'</span>].mean()) <span class="op">/</span> galton_heights[<span class="st">'father'</span>].std()</span>
+<span id="cb47-10"><a href="#cb47-10"></a>galton_heights[<span class="st">'son_standardized'</span>] <span class="op">=</span> (galton_heights[<span class="st">'son'</span>] <span class="op">-</span> galton_heights[<span class="st">'son'</span>].mean()) <span class="op">/</span> galton_heights[<span class="st">'son'</span>].std()</span>
+<span id="cb47-11"><a href="#cb47-11"></a></span>
+<span id="cb47-12"><a href="#cb47-12"></a><span class="co"># Calcular la correlación de las variables estandarizadas</span></span>
+<span id="cb47-13"><a href="#cb47-13"></a>r <span class="op">=</span> galton_heights[<span class="st">'father_standardized'</span>].corr(galton_heights[<span class="st">'son_standardized'</span>])</span>
+<span id="cb47-14"><a href="#cb47-14"></a></span>
+<span id="cb47-15"><a href="#cb47-15"></a><span class="co"># Configuración del tamaño de la figura</span></span>
+<span id="cb47-16"><a href="#cb47-16"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb47-17"><a href="#cb47-17"></a></span>
+<span id="cb47-18"><a href="#cb47-18"></a><span class="co"># Crear un gráfico de dispersión con línea de regresión</span></span>
+<span id="cb47-19"><a href="#cb47-19"></a>sns.scatterplot(x<span class="op">=</span><span class="st">'father_standardized'</span>, y<span class="op">=</span><span class="st">'son_standardized'</span>, data<span class="op">=</span>galton_heights, alpha<span class="op">=</span><span class="fl">0.5</span>, size<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb47-20"><a href="#cb47-20"></a>sns.regplot(x<span class="op">=</span><span class="st">'father_standardized'</span>, y<span class="op">=</span><span class="st">'son_standardized'</span>, data<span class="op">=</span>galton_heights, scatter<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'red'</span>, line_kws<span class="op">=</span>{<span class="st">'color'</span>: <span class="st">'blue'</span>})</span>
+<span id="cb47-21"><a href="#cb47-21"></a>plt.xlabel(<span class="st">"Father Height (Standardized)"</span>)</span>
+<span id="cb47-22"><a href="#cb47-22"></a>plt.ylabel(<span class="st">"Son Height (Standardized)"</span>)</span>
+<span id="cb47-23"><a href="#cb47-23"></a>plt.title(<span class="st">"Relación Estandarizada entre Altura de Padres e Hijos con Línea de Regresión (Intercepto = 0, Pendiente = Correlación)"</span>)</span>
+<span id="cb47-24"><a href="#cb47-24"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="36">
+<div class="cell-output cell-output-display">
+<p><img data-src="sesion3_slides_files/figure-revealjs/cell-37-output-1.png" width="874" height="520"></p>
+</div>
+</div>
+</div>
+</section></section>
+<section id="regresión-definición-matemática" class="title-slide slide level1 center">
+<h1>Regresión: Definición matemática</h1>
+<p>El modelo de regresión lineal (Legendre, Gauss, Galton y Pearson) considera que, dado un conjunto de observaciones <span class="math inline">\(\{y_i, x_{i1},...,x_{np}\}^{n}_{i=1}\)</span> , la media <span class="math inline">\(𝜇\)</span> de la variable respuesta <span class="math inline">\(𝑦\)</span> se relaciona de forma lineal con la o las variables regresoras <span class="math inline">\(𝑥_1\)</span> … <span class="math inline">\(x_p\)</span> acorde a la ecuación:</p>
+<p><span class="math display">\[\mu_y = \beta_0 + \beta_1 x_{1} + \beta_2 x_{2} + ... + \beta_p x_{p}\]</span></p>
+<p>El resultado de esta ecuación se conoce como la línea de regresión poblacional, y recoge la relación entre los predictores y la media de la variable respuesta.</p>
+</section>
+
+<section>
+<section id="regresión-definición-matemática-1" class="title-slide slide level1 center">
+<h1>Regresión: Definición matemática</h1>
+<ul>
+<li class="fragment">Otra definición que se encuentra con frecuencia en los libros de estadística es:</li>
+</ul>
+<p><span class="math display">\[y_i= \beta_0 + \beta_1 x_{i1} + \beta_2 x_{i2} + ... + \beta_p x_{ip} +\epsilon_i\]</span></p>
+<ul>
+<li class="fragment">En este caso, se está haciendo referencia al valor de 𝑦 para una observación 𝑖 concreta. El valor de una observación puntual nunca va a ser exactamente igual al promedio, de ahí que se añada el término de error <span class="math inline">\(\epsilon\)</span>.</li>
+</ul>
+</section>
+<section id="interpretación-1" class="slide level2">
+<h2>Interpretación:</h2>
+<p>En ambos casos, la interpretación de los elementos del modelo es la misma:</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(\beta_0\)</span>: es la ordenada en el origen, se corresponde con el valor promedio de la variable respuesta <span class="math inline">\(y\)</span> cuando todos los predictores son cero.</p></li>
+<li class="fragment"><p><span class="math inline">\(\beta_j\)</span>: es el efecto promedio que tiene sobre la variable respuesta el incremento en una unidad de la variable predictora <span class="math inline">\(x_j\)</span>, manteniéndose constantes el resto de variables. Se conocen como coeficientes de regresión.</p></li>
+<li class="fragment"><p><span class="math inline">\(\epsilon\)</span>: es el residuo o error, la diferencia entre el valor observado y el estimado por el modelo. Recoge el efecto de todas aquellas variables que influyen en <span class="math inline">\(y\)</span> pero que no se incluyen en el modelo como predictores.</p></li>
+</ul>
+</section>
+<section id="interpretación-2" class="slide level2">
+<h2>Interpretación:</h2>
+<ul>
+<li class="fragment"><p>En la gran mayoría de casos, los valores <span class="math inline">\(\beta_0\)</span> y <span class="math inline">\(\beta_j\)</span> poblacionales se desconocen, por lo que, a partir de una muestra, se obtienen sus estimaciones <span class="math inline">\(\hat{\beta_0}\)</span> y <span class="math inline">\(\hat{\beta_j}\)</span>.</p></li>
+<li class="fragment"><p><strong>Ajustar el modelo consiste en estimar, a partir de los datos disponibles, los valores de los coeficientes de regresión que maximizan la verosimilitud (likelihood), es decir, los que dan lugar al modelo que con mayor probabilidad puede haber generado los datos observados.</strong></p></li>
+<li class="fragment"><p>El método empleado con más frecuencia es el <strong>ajuste por mínimos cuadrados ordinarios (OLS)</strong></p>
+<ul>
+<li class="fragment">que identifica como mejor modelo la recta (o plano si es regresión múltiple)</li>
+<li class="fragment">que minimiza la suma de las desviaciones verticales entre cada dato de entrenamiento y la recta, elevadas al cuadrado.</li>
+</ul></li>
+</ul>
+</section>
+<section id="magnitud-y-significancia" class="slide level2">
+<h2>Magnitud y significancia</h2>
+<ul>
+<li class="fragment">La magnitud de cada coeficiente parcial de regresión depende de las unidades en las que se mida la variable predictora a la que corresponde, por lo que su magnitud no está asociada con la importancia de cada predictor.</li>
+<li class="fragment">Una buena practica es estandarizar</li>
+</ul>
+</section>
+<section id="cuidado-hay-dos-líneas-de-regresión" class="slide level2">
+<h2>Cuidado: hay dos líneas de regresión</h2>
+<p>Calculamos una línea de regresión para predecir la altura del hijo desde la altura del padre.</p>
+<p>Usamos estos cálculos:</p>
+<div id="a2ace4f6" class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb48-2"><a href="#cb48-2"></a></span>
+<span id="cb48-3"><a href="#cb48-3"></a><span class="co"># Calcular la media de las alturas del padre</span></span>
+<span id="cb48-4"><a href="#cb48-4"></a>mu_x <span class="op">=</span> galton_heights[<span class="st">'father'</span>].mean()</span>
+<span id="cb48-5"><a href="#cb48-5"></a></span>
+<span id="cb48-6"><a href="#cb48-6"></a><span class="co"># Calcular la media de las alturas del hijo</span></span>
+<span id="cb48-7"><a href="#cb48-7"></a>mu_y <span class="op">=</span> galton_heights[<span class="st">'son'</span>].mean()</span>
+<span id="cb48-8"><a href="#cb48-8"></a></span>
+<span id="cb48-9"><a href="#cb48-9"></a><span class="co"># Calcular la desviación estándar de las alturas del padre</span></span>
+<span id="cb48-10"><a href="#cb48-10"></a>s_x <span class="op">=</span> galton_heights[<span class="st">'father'</span>].std()</span>
+<span id="cb48-11"><a href="#cb48-11"></a></span>
+<span id="cb48-12"><a href="#cb48-12"></a><span class="co"># Calcular la desviación estándar de las alturas del hijo</span></span>
+<span id="cb48-13"><a href="#cb48-13"></a>s_y <span class="op">=</span> galton_heights[<span class="st">'son'</span>].std()</span>
+<span id="cb48-14"><a href="#cb48-14"></a></span>
+<span id="cb48-15"><a href="#cb48-15"></a><span class="co"># Calcular el coeficiente de correlación entre las alturas del padre y el hijo</span></span>
+<span id="cb48-16"><a href="#cb48-16"></a>r <span class="op">=</span> galton_heights[<span class="st">'father'</span>].corr(galton_heights[<span class="st">'son'</span>])</span>
+<span id="cb48-17"><a href="#cb48-17"></a></span>
+<span id="cb48-18"><a href="#cb48-18"></a></span>
+<span id="cb48-19"><a href="#cb48-19"></a></span>
+<span id="cb48-20"><a href="#cb48-20"></a><span class="bu">print</span>(r)</span>
+<span id="cb48-21"><a href="#cb48-21"></a><span class="bu">print</span>(s_x)</span>
+<span id="cb48-22"><a href="#cb48-22"></a><span class="bu">print</span>(s_y)</span>
+<span id="cb48-23"><a href="#cb48-23"></a><span class="bu">print</span>(mu_x)</span>
+<span id="cb48-24"><a href="#cb48-24"></a><span class="bu">print</span>(mu_y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="37">
+<div class="cell-output cell-output-stdout">
+<pre><code>0.4658308243792417
+2.56441709039222
+2.6076529186746025
+69.08938547486034
+69.263687150838</code></pre>
+</div>
+</div>
+<div id="661a543e" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># Calcular la pendiente de la primera línea de regresión</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a>m_1 <span class="op">=</span> r <span class="op">*</span> s_y <span class="op">/</span> s_x</span>
+<span id="cb50-3"><a href="#cb50-3"></a></span>
+<span id="cb50-4"><a href="#cb50-4"></a><span class="co"># Calcular el intercepto de la primera línea de regresión</span></span>
+<span id="cb50-5"><a href="#cb50-5"></a>b_1 <span class="op">=</span> mu_y <span class="op">-</span> m_1 <span class="op">*</span> mu_x</span>
+<span id="cb50-6"><a href="#cb50-6"></a></span>
+<span id="cb50-7"><a href="#cb50-7"></a><span class="bu">print</span>(<span class="st">"pendiente"</span>, m_1)</span>
+<span id="cb50-8"><a href="#cb50-8"></a><span class="bu">print</span>(<span class="st">"constante"</span>, b_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="38">
+<div class="cell-output cell-output-stdout">
+<pre><code>pendiente 0.47368468778038647
+constante 36.53710316324001</code></pre>
+</div>
+</div>
+</section>
+<section id="cuidado-hay-dos-líneas-de-regresión-1" class="slide level2">
+<h2>Cuidado: hay dos líneas de regresión</h2>
+<ul>
+<li class="fragment"><p>¿Y si queremos predecir la estatura del padre basándonos en la del hijo?</p></li>
+<li class="fragment"><p>Es importante saber que esto no se determina calculando la función inversa!.</p></li>
+<li class="fragment"><p>Necesitamos computar <span class="math inline">\(E(X∣Y=y)\)</span>. Dado que los datos son aproximadamente normales bivariados, la teoría descrita anteriormente nos dice que esta expectativa condicional seguirá una línea con pendiente e intercepto:</p></li>
+</ul>
+<div id="040e5bca" class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>m_2 <span class="op">=</span> r <span class="op">*</span> s_x <span class="op">/</span> s_y</span>
+<span id="cb52-2"><a href="#cb52-2"></a>b_2 <span class="op">=</span> mu_x <span class="op">-</span> m_2 <span class="op">*</span> mu_y</span>
+<span id="cb52-3"><a href="#cb52-3"></a></span>
+<span id="cb52-4"><a href="#cb52-4"></a><span class="bu">print</span>(<span class="st">"pendiente"</span>, m_2)</span>
+<span id="cb52-5"><a href="#cb52-5"></a><span class="bu">print</span>(<span class="st">"constante"</span>, b_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="39">
+<div class="cell-output cell-output-stdout">
+<pre><code>pendiente 0.4581071808731349
+constante 37.35919301731116</code></pre>
+</div>
+</div>
+</section>
+<section id="cuidado-hay-dos-líneas-de-regresión-2" class="slide level2">
+<h2>Cuidado: hay dos líneas de regresión</h2>
+<ul>
+<li class="fragment"><p>Aquí hay un gráfico que muestra las dos líneas de regresión:</p></li>
+<li class="fragment"><p>con azul para la predicción de las alturas del hijo con las alturas del padre y rojo para la predicción de las alturas del padre con las alturas del hijo.</p></li>
+</ul>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Codigo</a></li><li><a href="#tabset-6-2">plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<div id="3d525a74" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb54-2"><a href="#cb54-2"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb54-3"><a href="#cb54-3"></a></span>
+<span id="cb54-4"><a href="#cb54-4"></a><span class="co"># Crear el gráfico utilizando Matplotlib y Seaborn</span></span>
+<span id="cb54-5"><a href="#cb54-5"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb54-6"><a href="#cb54-6"></a>sns.scatterplot(data<span class="op">=</span>galton_heights, x<span class="op">=</span><span class="st">'father'</span>, y<span class="op">=</span><span class="st">'son'</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb54-7"><a href="#cb54-7"></a>plt.plot(galton_heights[<span class="st">'father'</span>], b_1 <span class="op">+</span> m_1 <span class="op">*</span> galton_heights[<span class="st">'father'</span>], color<span class="op">=</span><span class="st">'blue'</span>, label<span class="op">=</span><span class="st">'y = b_1 + m_1 * x'</span>)</span>
+<span id="cb54-8"><a href="#cb54-8"></a>plt.plot(galton_heights[<span class="st">'father'</span>], <span class="op">-</span>b_2<span class="op">/</span>m_2 <span class="op">+</span> <span class="dv">1</span><span class="op">/</span>m_2 <span class="op">*</span> galton_heights[<span class="st">'father'</span>], color<span class="op">=</span><span class="st">'red'</span>, label<span class="op">=</span><span class="st">'y = -b_2/m_2 + 1/m_2 * x'</span>)</span>
+<span id="cb54-9"><a href="#cb54-9"></a>plt.legend()</span>
+<span id="cb54-10"><a href="#cb54-10"></a>plt.xlabel(<span class="st">'Father Height'</span>)</span>
+<span id="cb54-11"><a href="#cb54-11"></a>plt.ylabel(<span class="st">'Son Height'</span>)</span>
+<span id="cb54-12"><a href="#cb54-12"></a>plt.title(<span class="st">'Scatter Plot with Regression Lines'</span>)</span>
+<span id="cb54-13"><a href="#cb54-13"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment" data-execution_count="40">
+
+</div>
+</div>
+<div id="tabset-6-2">
+<div id="9f5f84d2" class="cell" data-execution_count="41">
+<div class="cell-output cell-output-display">
+<p><img data-src="sesion3_slides_files/figure-revealjs/cell-42-output-1.png" width="812" height="520"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="taller-aplicación-2-altura-de-madres-padres-hijos-e-hijas" class="slide level2">
+<h2>Taller aplicación 2: ALtura de madres, padres, hijos e hijas</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Taller aplicacción 2: Altura de madres, padres, hijos e hijas</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li class="fragment"><p>Cargue los datos de <code>GaltonFamilies</code> desde el HistData. Los niños de cada familia están ordenados por sexo y luego por estatura. Cree un conjunto de datos llamado <code>galton_heights</code> seleccionando niños y niñas al azar. (HINT: use <code>sample</code>).</p></li>
+<li class="fragment"><p>Haga una gráfica para las alturas entre madres e hijas, madres e hijos, padres e hijas, y padres e hijos.</p></li>
+<li class="fragment"><p>Calcular la correlación para alturas entre madres e hijas, madres e hijos, padres e hijas, y padres e hijos.</p></li>
+<li class="fragment"><p>Plotear las correalciones sobre cada grafica defindia en 2 (linea de regresion).</p></li>
+<li class="fragment"><p>Obtener el modelo de regresión e interpretar los coeficientes.</p></li>
+</ol>
+</div>
+</div>
+</div>
 
 
 <img src="logo_udd.png" class="slide-logo r-stretch"><div class="footer footer-default">
 <p>Curso Análisis de Datos - Sesión 3</p>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 

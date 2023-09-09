@@ -153,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="./sesion3.html">
- <span class="dropdown-text">Sesión 3: Introducción al Análisis de regresión</span></a>
+ <span class="dropdown-text">Sesión 3</span></a>
   </li>  
     </ul>
   </li>
@@ -197,7 +197,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#enunciado" id="toc-enunciado" class="nav-link" data-scroll-target="#enunciado">Enunciado</a></li>
   <li><a href="#creación-de-los-datos" id="toc-creación-de-los-datos" class="nav-link" data-scroll-target="#creación-de-los-datos">Creación de los datos</a></li>
-  <li><a href="#buenas-prácticas-en-análisis-de-datos-1" id="toc-buenas-prácticas-en-análisis-de-datos-1" class="nav-link" data-scroll-target="#buenas-prácticas-en-análisis-de-datos-1">Buenas prácticas en análisis de datos</a></li>
+  </ul></li>
+  <li><a href="#buenas-prácticas-en-análisis-de-datos-1" id="toc-buenas-prácticas-en-análisis-de-datos-1" class="nav-link" data-scroll-target="#buenas-prácticas-en-análisis-de-datos-1">Buenas prácticas en análisis de datos</a>
+  <ul class="collapse">
+  <li><a href="#importancia-de-la-adquisición-y-almacenamiento-de-datos" id="toc-importancia-de-la-adquisición-y-almacenamiento-de-datos" class="nav-link" data-scroll-target="#importancia-de-la-adquisición-y-almacenamiento-de-datos">Importancia de la Adquisición y Almacenamiento de Datos</a></li>
+  <li><a href="#privacidad-y-seguridad-de-los-datos" id="toc-privacidad-y-seguridad-de-los-datos" class="nav-link" data-scroll-target="#privacidad-y-seguridad-de-los-datos">Privacidad y Seguridad de los Datos:</a></li>
+  <li><a href="#limpieza-y-transformación-durante-la-preparación-de-datos" id="toc-limpieza-y-transformación-durante-la-preparación-de-datos" class="nav-link" data-scroll-target="#limpieza-y-transformación-durante-la-preparación-de-datos">Limpieza y Transformación durante la Preparación de Datos:</a></li>
+  <li><a href="#reproducibilidad-y-control-de-versiones-git" id="toc-reproducibilidad-y-control-de-versiones-git" class="nav-link" data-scroll-target="#reproducibilidad-y-control-de-versiones-git">Reproducibilidad y Control de Versiones (GIT):</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -384,7 +390,7 @@ Datos disponibles para el proyecto
 <p>La Encuesta de Caracterización Socioeconómica Nacional (CASEN) es una investigación realizada en Chile que tiene como objetivo principal recopilar información detallada sobre la situación socioeconómica de los hogares y las personas en el país. Esta encuesta se lleva a cabo de manera periódica y abarca una amplia variedad de temas, como ingresos, educación, empleo, salud, vivienda y otros aspectos relevantes para comprender la realidad socioeconómica de la población chilena. La información recopilada en la Encuesta CASEN se utiliza para informar políticas públicas, tomar decisiones informadas y analizar la evolución de indicadores sociales a lo largo del tiempo.</p>
 <p><a href="https://observatorio.ministeriodesarrollosocial.gob.cl/encuesta-casen">Sitio Web oficial</a></p>
 <p>Si tenemos los datos alojados en una dependencia, simplemente los cargamos. El formato mas comun es .csv, pero a veces estan en formatos extraños. Por ejemplo, .dta de STATA.</p>
-<div id="6a806da4" class="cell" data-execution_count="1">
+<div id="38f35b82" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df_casen2020<span class="op">=</span> pd.read_stata(<span class="st">"https://github.com/melanieoyarzun/taller_seriestiempo_IDS/blob/b0be4e78a8c7a738e41b284a65d350179abbda96/Data/casen_2020_ingresos.dta?raw=true"</span>)</span>
@@ -551,7 +557,7 @@ Datos disponibles para el proyecto
 </div>
 <p>Una vez cargados los datos, debemos proceder a su limpieza y exploración, para ser preparados para analizarlos. De esto se tratará la siguiente sesión del curso.</p>
 <p><strong>Ejemplo: Datos desde la API del banco mundial</strong> Primero siga este ejemplo practico de importar datos, luego será facil responder la pregunta anterior.</p>
-<div id="0db1ebbb" class="cell" data-execution_count="2">
+<div id="8b778f86" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#pandas remote data access support for calls to the World Bank Indicators API</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas_datareader <span class="im">import</span> data, wb <span class="co"># para instalar: conda install pandas-datareader  o  pip install pandas-datareader</span></span>
@@ -694,7 +700,7 @@ Datos disponibles para el proyecto
 </div>
 </div>
 </div>
-<div id="98a1be4a" class="cell" data-execution_count="3">
+<div id="e7fcdba9" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtengamos la lista de paises disponibles</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>countries<span class="op">=</span>wb.get_countries()</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -794,7 +800,7 @@ Datos disponibles para el proyecto
 </div>
 <p>Observar que este es un data frame con dos índices: pais y año. Para mayor referencia coo tratar este tipo de datos ver en https://pandas.pydata.org/pandas-docs/stable/user_guide/advanced.html</p>
 <p>Obtengamos un data frame con los datos de Chile, entre 1980 y 2020.</p>
-<div id="8aaffa0d" class="cell" data-execution_count="4">
+<div id="599f65ce" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#sabemos que queremos Chile, asi que busquemos su info</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>countries[ countries[<span class="st">'name'</span>] <span class="op">==</span> <span class="st">'Chile'</span> ]</span>
@@ -824,7 +830,7 @@ dtypes: float64(1)
 memory usage: 2.0+ KB</code></pre>
 </div>
 </div>
-<div id="9cef5b90" class="cell" data-execution_count="5">
+<div id="0ebf3206" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Veamos el data frame</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df_GPDpc_Chile.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
@@ -873,7 +879,7 @@ memory usage: 2.0+ KB</code></pre>
 </div>
 </div>
 <p>Si quisieramos, por simplicidad quedarnos solo con el indice del año y reordenar el dataframe:</p>
-<div id="45940977" class="cell" data-execution_count="6">
+<div id="9f28d964" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df_GPDpc_Chile.droplevel(<span class="st">'country'</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -923,7 +929,7 @@ memory usage: 2.0+ KB</code></pre>
 </div>
 </div>
 <p>Ahora, realicemos un grafico rápido con nuestros datos:</p>
-<div id="449a091a" class="cell" data-execution_count="7">
+<div id="c15fce72" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Graficamos</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> df_GPDpc_Chile[<span class="st">'1980'</span>:].plot(legend<span class="op">=</span><span class="va">False</span>) </span>
@@ -1176,7 +1182,7 @@ Taller 1: Pregunta 2 - Investigando sobre países:
 <h3 class="anchored" data-anchor-id="ejemplo-de-aplicación-peso-de-los-pingüinos-palmer">Ejemplo de aplicación: Peso de los Pingüinos Palmer</h3>
 <p>Consideremos los datos de los <em>pingüinos Palmer</em>. Los datos “Palmer Penguins” son un conjunto que detalla medidas morfológicas y características de tres especies de pingüinos: Adelie, Gentoo y Chinstrap. Recopilados por el Dr.&nbsp;Bill Link y su equipo. (Horst AM, Hill AP, Gorman KB (2020). palmerpenguins: Palmer Archipelago (Antarctica) penguin data. doi:10.5281/zenodo.3960218, R package version 0.1.0, https://allisonhorst.github.io/palmerpenguins/index.html)</p>
 <p><img src="https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png" class="img-fluid"></p>
-<div id="028ed402" class="cell" data-execution_count="8">
+<div id="1d13e439" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1263,7 +1269,7 @@ Taller 1: Pregunta 2 - Investigando sobre países:
 <p>La elección de la muestra, la interpretación de los resultados y el nivel de confianza seleccionado son aspectos cruciales para realizar inferencias precisas y significativas.</p>
 <p>Relicemos algunos ejemplos de pruebas de hipótesis, sobre el peso de los pingüinos.</p>
 <p>Primero calcularemos el promedio muestral y lo veremos en el contexto de los datos observados:</p>
-<div id="364fec0b" class="cell" data-execution_count="9">
+<div id="5e97e971" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular el promedio del peso de los pingüinos</span></span>
@@ -1288,7 +1294,7 @@ Taller 1: Pregunta 2 - Investigando sobre países:
 <li>Si reducimos el tamaño de muestra, más nos alejamos de la distribución normal.</li>
 <li>Si reducimos el número de repeticiones tambieé.</li>
 </ul>
-<div id="300085e4" class="cell" data-execution_count="10">
+<div id="b541aa8c" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Definir el tamaño de cada muestra y la cantidad de muestras</span></span>
@@ -1317,13 +1323,13 @@ Taller 1: Pregunta 2 - Investigando sobre países:
 <span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
 <span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="sesion1_files/figure-html/cell-11-output-1.png" width="833" height="523"></p>
+<p><img src="sesion1_files/figure-html/cell-11-output-1.png" width="838" height="523"></p>
 </div>
 </div>
 <section id="intervalo-de-confianza" class="level4">
 <h4 class="anchored" data-anchor-id="intervalo-de-confianza">Intervalo de confianza</h4>
 <p>Obtengamos una muestra y calculemos un intervalo de confianza:</p>
-<div id="79a8c7b0" class="cell" data-execution_count="11">
+<div id="1397460a" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
@@ -1350,7 +1356,7 @@ Taller 1: Pregunta 2 - Investigando sobre países:
 <span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(confidence_interval)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Intervalo de Confianza para el Peso:
-(3716.3040368817287, 4278.695963118272)</code></pre>
+(4026.6713320043764, 4560.828667995624)</code></pre>
 </div>
 </div>
 <p>El resultado será un rango de valores dentro del cual es probable que se encuentre el verdadero peso promedio de los pingüinos en la población, con un nivel de confianza del 95%.</p>
@@ -1361,7 +1367,7 @@ Taller 1: Pregunta 2 - Investigando sobre países:
 <h3 class="anchored" data-anchor-id="comparaciones-de-grupos">Comparaciones de grupos</h3>
 <p>Ahora consideremos que tenemos grupos que queremos comparar.</p>
 <p>Si hacemos una grafica de distribución de tamaño por especie y sexo, podriamos empezar a analizar diferencias entre los grupos.</p>
-<div id="3554e4cc" class="cell" data-execution_count="12">
+<div id="fe85a66f" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear la tabla de doble entrada por tipo y sexo de los pinguinos</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>tabla_doble_entrada <span class="op">=</span> penguins.groupby([<span class="st">'species'</span>, <span class="st">'sex'</span>])[<span class="st">'body_mass_g'</span>].agg([<span class="st">'mean'</span>, <span class="st">'var'</span>]).reset_index()</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1445,7 +1451,7 @@ Taller 1: Pregunta 2 - Investigando sobre países:
 </ul>
 <p>Existe una diferencia significativa en el peso promedio entre los pingüinos machos y las pingüinas hembras en la especie “Adelie”.</p>
 <p>Para probar esta hipótesis, podrías utilizar una prueba de hipótesis para comparar las medias de las muestras de peso de los pingüinos machos y hembras en la especie “Adelie”. Esto te permitiría determinar si la diferencia observada en el peso promedio es lo suficientemente grande como para considerarse estadísticamente significativa.</p>
-<div id="fd82bbca" class="cell" data-execution_count="13">
+<div id="3aedd7a0" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar el conjunto de datos "Penguins"</span></span>
@@ -1470,7 +1476,7 @@ Taller 1: Pregunta 2 - Investigando sobre países:
 </div>
 </div>
 <p>A simple vista podriamos pensar ambos grupos son diferentes. Es más claro si dibujamos el promedio muestral observado.</p>
-<div id="eb1db828" class="cell" data-execution_count="14">
+<div id="9bf8b40e" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un gráfico de densidad con líneas de promedio</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>sns.kdeplot(data<span class="op">=</span>adelie_penguins, x<span class="op">=</span><span class="st">'body_mass_g'</span>, hue<span class="op">=</span><span class="st">'sex'</span>, fill<span class="op">=</span><span class="va">True</span>, common_norm<span class="op">=</span><span class="va">False</span>)</span>
@@ -1486,7 +1492,7 @@ Taller 1: Pregunta 2 - Investigando sobre países:
 </div>
 </div>
 <p>Si construimos una prueba t de diferencia de medias:</p>
-<div id="80a60008" class="cell" data-execution_count="15">
+<div id="3362c421" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar el conjunto de datos "Penguins"</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> sns.load_dataset(<span class="st">"penguins"</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1523,7 +1529,7 @@ Valor p: 6.402319748031793e-26</code></pre>
 <p>En este código, primero cargamos el conjunto de datos “Penguins” y luego creamos dos subconjuntos separados para machos y hembras. Después, utilizamos la función stats.f_oneway() para realizar una prueba ANOVA para comparar los pesos entre hembras y machos. El resultado incluye la estadística F y el valor p.</p>
 <p>El valor p nos indica si hay una diferencia significativa entre los grupos. Si el valor p es menor que un umbral de significancia (por ejemplo, 0.05), podríamos rechazar la hipótesis nula y concluir que hay una diferencia significativa en el peso entre hembras y machos de diferentes islas.</p>
 <p>Recuerda que, antes de realizar una prueba ANOVA, es importante verificar las suposiciones necesarias, como la normalidad y la homogeneidad de varianzas en los grupos. Si estas suposiciones no se cumplen, podría ser necesario considerar otras pruebas estadísticas o transformaciones de los datos.</p>
-<div id="1afedb7f" class="cell" data-execution_count="16">
+<div id="c6ff2f42" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> stats</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1545,7 +1551,7 @@ Valor p: 6.402319748031793e-26</code></pre>
 Valor p: 4.897246751596325e-16</code></pre>
 </div>
 </div>
-<div id="db354392" class="cell" data-execution_count="17">
+<div id="3243bfe0" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -1601,7 +1607,7 @@ Valor p: 4.897246751596325e-16</code></pre>
 <h3 class="anchored" data-anchor-id="creación-de-los-datos">Creación de los datos</h3>
 <p>Como nuestro caso es un ejemplo ficticio, vamos a crear los datos.</p>
 <p>Este código creará un conjunto de datos con 400 observaciones (200 en el grupo de control y 200 en el grupo de tratamiento), donde se simulan lascompras de cada usuario.</p>
-<div id="7d0b6d51" class="cell" data-execution_count="18">
+<div id="18636d59" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
@@ -1741,14 +1747,14 @@ Taller 1: Pregunta 3 -Ejemplo AB test en Marketing:
 </div>
 </div>
 </section>
-<section id="buenas-prácticas-en-análisis-de-datos-1" class="level3">
-<h3 class="anchored" data-anchor-id="buenas-prácticas-en-análisis-de-datos-1">Buenas prácticas en análisis de datos</h3>
-<section id="importancia-de-la-adquisición-y-almacenamiento-de-datos" class="level4">
-<h4 class="anchored" data-anchor-id="importancia-de-la-adquisición-y-almacenamiento-de-datos">Importancia de la Adquisición y Almacenamiento de Datos</h4>
+</section>
+<section id="buenas-prácticas-en-análisis-de-datos-1" class="level2">
+<h2 class="anchored" data-anchor-id="buenas-prácticas-en-análisis-de-datos-1">Buenas prácticas en análisis de datos</h2>
+<section id="importancia-de-la-adquisición-y-almacenamiento-de-datos" class="level3">
+<h3 class="anchored" data-anchor-id="importancia-de-la-adquisición-y-almacenamiento-de-datos">Importancia de la Adquisición y Almacenamiento de Datos</h3>
 <p>La adquisición y el almacenamiento de datos son los cimientos sobre los cuales se construye todo el proceso de análisis. La calidad y la confiabilidad de los datos que obtengamos son fundamentales para asegurarnos de que los resultados y conclusiones que extraigamos sean precisos y relevantes. En esta sección, exploraremos la importancia de esta etapa y cómo afecta todo el flujo de trabajo de la ciencia de datos.</p>
 <p>Garantía de Calidad y Fiabilidad en la Obtención de Datos: Obtener datos confiables es el primer paso para garantizar que nuestras conclusiones sean sólidas. La calidad de los datos está relacionada con la precisión, integridad y consistencia de la información que recopilamos. Asegurarnos de que los datos sean precisos desde el principio minimiza la posibilidad de errores en análisis posteriores. Exploraremos técnicas y prácticas para verificar la calidad de los datos y cómo mitigar posibles fuentes de error.</p>
 <p>Exploración de Diferentes Fuentes de Datos y su Impacto en los Resultados: En el mundo actual, los datos provienen de diversas fuentes: bases de datos, encuestas, sensores, redes sociales, entre otros. Cada fuente tiene sus propias características y potenciales sesgos. Comprender las diferencias entre estas fuentes y cómo pueden influir en los resultados es crucial para tomar decisiones informadas. Analizaremos ejemplos de cómo la elección de la fuente de datos puede afectar las conclusiones y cómo evaluar la confiabilidad de las fuentes.</p>
-</section>
 <section id="metodologías-de-levantamiento-y-adquisición-de-datos" class="level4">
 <h4 class="anchored" data-anchor-id="metodologías-de-levantamiento-y-adquisición-de-datos">Metodologías de Levantamiento y Adquisición de Datos:</h4>
 <p>El proceso de obtención de datos implica una planificación cuidadosa. Exploraremos diversas metodologías utilizadas para recopilar datos, desde encuestas y experimentos hasta scraping de datos en línea. Cada metodología tiene sus propias ventajas y desventajas, y es importante seleccionar la más adecuada para los objetivos del análisis. Discutiremos cómo diseñar encuestas efectivas, cómo considerar la ética en la recopilación de datos y cómo aprovechar las fuentes de datos existentes.</p>
@@ -1758,16 +1764,17 @@ Taller 1: Pregunta 3 -Ejemplo AB test en Marketing:
 <h4 class="anchored" data-anchor-id="desafíos-y-consideraciones">Desafíos y Consideraciones:</h4>
 <p>A medida que ingresamos al emocionante mundo del análisis de datos, nos encontramos con una serie de desafíos y consideraciones que debemos abordar de manera efectiva para garantizar el éxito de nuestro proyecto. Estos desafíos abarcan desde la protección de la privacidad de los datos hasta las complejidades de la limpieza y transformación durante la etapa de preparación.</p>
 </section>
-<section id="privacidad-y-seguridad-de-los-datos" class="level4">
-<h4 class="anchored" data-anchor-id="privacidad-y-seguridad-de-los-datos">Privacidad y Seguridad de los Datos:</h4>
+</section>
+<section id="privacidad-y-seguridad-de-los-datos" class="level3">
+<h3 class="anchored" data-anchor-id="privacidad-y-seguridad-de-los-datos">Privacidad y Seguridad de los Datos:</h3>
 <p>Uno de los aspectos más críticos en el análisis de datos es la privacidad y seguridad de la información. Los datos pueden contener información sensible y personal, y es esencial proteger la confidencialidad de las personas y organizaciones involucradas. Exploraremos prácticas y regulaciones para garantizar que los datos se manejen de manera ética y legal. Discutiremos cómo anonimizar los datos, utilizar técnicas de enmascaramiento y seguir las mejores prácticas para resguardar la privacidad de los individuos.</p>
 </section>
-<section id="limpieza-y-transformación-durante-la-preparación-de-datos" class="level4">
-<h4 class="anchored" data-anchor-id="limpieza-y-transformación-durante-la-preparación-de-datos">Limpieza y Transformación durante la Preparación de Datos:</h4>
+<section id="limpieza-y-transformación-durante-la-preparación-de-datos" class="level3">
+<h3 class="anchored" data-anchor-id="limpieza-y-transformación-durante-la-preparación-de-datos">Limpieza y Transformación durante la Preparación de Datos:</h3>
 <p>La etapa de preparación de datos es crucial para asegurarse de que los datos sean aptos para el análisis. Sin embargo, este proceso no está exento de desafíos. Los datos pueden contener valores faltantes, duplicados y errores que deben abordarse de manera adecuada. Exploraremos técnicas para identificar y manejar valores atípicos y faltantes, así como la importancia de la normalización y estandarización de los datos. Aprenderemos cómo transformar los datos en un formato adecuado para el análisis, incluida la reorganización de variables y la creación de nuevas características. En resumen, enfrentamos una serie de desafíos y consideraciones clave en nuestro viaje hacia el análisis de datos significativo. Desde la protección de la privacidad hasta la preparación efectiva de los datos, abordar estos desafíos de manera adecuada es esencial para garantizar que nuestras conclusiones sean sólidas, confiables y éticas.</p>
 </section>
-<section id="reproducibilidad-y-control-de-versiones-git" class="level4">
-<h4 class="anchored" data-anchor-id="reproducibilidad-y-control-de-versiones-git">Reproducibilidad y Control de Versiones (GIT):</h4>
+<section id="reproducibilidad-y-control-de-versiones-git" class="level3">
+<h3 class="anchored" data-anchor-id="reproducibilidad-y-control-de-versiones-git">Reproducibilidad y Control de Versiones (GIT):</h3>
 <p>Key ideas:</p>
 <ul>
 <li>Una documentacion detallada del analisis, de las desiciones tomadas.
@@ -1815,7 +1822,6 @@ Actividad de proyecto - Inicio reproducible
 </div>
 
 
-</section>
 </section>
 </section>
 
