@@ -31,7 +31,7 @@ El **escenario ficticio** es el siguiente:
 
 ### Datos ficticios dispobibles
 
-Los datos estan disponibles en 
+Los datos estan disponibles en [https://github.com/melanieoyarzun/web_analisisdatos_IDS_S223/tree/main/data](https://github.com/melanieoyarzun/web_analisisdatos_IDS_S223/tree/main/data)
 
 1.  school_data_1.csv
 
@@ -148,4 +148,3 @@ Hasta ahora, cargamos datos en diversos formatos (csv, dta y xlsx) los unimos, r
 
 3.2  Gráficos de estadística descriptiva
    Realice al menos scatter plot, histograma, box plot y correalograma.
-r1
