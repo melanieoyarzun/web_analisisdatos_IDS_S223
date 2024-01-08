@@ -540,12 +540,12 @@ muestre sus principales características y realice un grafico.
 
 ## Preguntas e hipótesis: {.unnumbered .unlisted}
 
--   La **hipótesis nula** es aquella que propone que algun **parámetro toma cierto valor**.
+-   La **hipótesis nula** es aquella que propone que algún **parámetro toma cierto valor**.
 -   Este generlamente es un **punto de verdad**.
 -   Si bien, con datos no podemos corroborar que algo es cierto, si podemos dar evidencia de que no
     es cierto.
 -   En general, planteamos el problema de tal manera que podamos rechazar la hipótesis nula, en
-    favor de otra que llamamos alternatiba.
+    favor de otra que llamamos alternativa.
 
 ## Preguntas e hipótesis: {.unnumbered .unlisted}
 
